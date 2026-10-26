@@ -1,0 +1,6 @@
+﻿specification,simple_ATT,simple_SE,simple_p,event_ATT,event_SE,event_p,observations,firms,controls,region_FE,industry_FE,control_group
+All firms,-0.226,0.1,0.023821250837094146,-0.1903094336,0.0788662463,0.01581896791826819,88547,7273,Yes,Yes,Yes,Never treated
+No prior patent,-0.05,0.051,0.32689257978151776,-0.034,0.034,0.31731050786291415,83757,6892,Yes,Yes,Yes,Never treated
+Prior patent,-0.817,0.318,0.010193878898707523,-0.65,0.257,0.01143284383299478,75739,6255,Yes,Yes,Yes,Never treated
+Early stage,-0.138,0.076,0.06940267262271788,-0.07,0.059,0.23544831546543088,83285,6860,Yes,Yes,Yes,Never treated
+Late stage,-0.528,0.247,0.032545012440758914,-0.531,0.213,0.012668392082728519,76211,6287,Yes,Yes,Yes,Never treated

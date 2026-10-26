@@ -1,0 +1,871 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:/Users/user/Documents/VD/outputs/vd_intensity/replicate_tables_3_1_to_3_7.
+> do 
+
+. * Tables 3-1 through 3-8: VD intensity and annual ultimately granted filings.
+. * Current Table 13 = legacy 3-1; Table 14 = legacy 3-4. Only these two run.
+. * Late = explicit Series C+; Seed/Angel/A/B = 0; unknown = missing.
+. * Created 2026-10-19. Reconstruction of specifications, NOT exact legacy result
+> s.
+. * Reference: VD Table 20260928.docx. 20260822 Table.docx has no Tables 3-1..3-8
+> .
+. * Updated to include Table 3-8; filename/output directory retained for compatib
+> ility.
+. * Table 3-8 uses ln(cumulative VD USD), complete positive totals only.
+. * No user-written packages needed. Stata 18+.
+. * Run: do "C:/Users/user/Documents/VD/outputs/vd_intensity/replicate_tables_3_1
+> _to_3_7.do"
+. version 18.0
+
+. clear all
+
+. set more off
+
+. capture log close vdint
+
+. local root "C:/Users/user/Documents/VD"
+
+. local out "`root'/outputs/vd_intensity/tables_3_1_to_3_7"
+
+. capture mkdir "`out'"
+
+. log using "`out'/replication.log", text replace name(vdint)
+---------------------------------------------------------------------------------
+      name:  vdint
+       log:  C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/re
+> plication.log
+  log type:  text
+ opened on:  23 Oct 2026, 03:39:59
+
+. 
+. * SOURCE/DEFINITION CHOICES -- change here if original estimation code is recov
+> ered.
+. * Fixed doses: initial amount, ln(amount), two equity ratios, capital share,
+. * subsequent round count, ln(1+subsequent amount), ln(cumulative VD USD).
+. * Subsequent and cumulative measures use full source follow-up: descriptive, po
+> tentially endogenous
+. * and forward-looking. They are NOT annual realized exposure or causal dose eff
+> ects.
+. * Prior patent and late stage moderators are fixed at the first VD year.
+. * Lagged controls: prior patent dummy, late stage dummy, ln(1+cumulative fundin
+> g),
+. * ln(1+cumulative funding rounds). The original table does not establish +1 rul
+> es.
+. * Post includes the first VD calendar year. No event-window restriction imposed
+> .
+. * Missing controls/moderators/dose are excluded, never replaced by zero here.
+. * Same complete-case sample across four columns WITHIN each table.
+. * Do not restrict firms to observed pre AND post years; audit that coverage onl
+> y.
+. * All four columns use treated firms; columns 2/3 are interaction models, NOT s
+> ubsets.
+. * Firm FE + year FE; standard errors clustered at firm level.
+. 
+. local doses vd_initial_usd ln_vd_initial vd_to_pre_equity vd_to_prev_equity vd_
+> share_total_capital vd_subseq_rounds ln1p_vd_subseq ln_vd_cumulative
+
+. local firmfile "`root'/outputs/csdid_ultimately_granted_primary/csdid_ultimatel
+> y_granted_full7316_controls.dta"
+
+. local panelfile "`root'/outputs/csdid_replicated_from_rebuilt_patent_list/csdid
+> _rebuilt_patent_panel.dta"
+
+. confirm file "`firmfile'"
+
+. confirm file "`panelfile'"
+
+. use "`firmfile'", clear
+
+. isid organization_name
+
+. rename full_firm_id intensity_firm_id
+
+. rename first_vd_year intensity_vd_year
+
+. rename vd_backed intensity_treated
+
+. keep organization_name intensity_firm_id intensity_vd_year intensity_treated `d
+> oses' vd_earlier_debt_rounds
+
+. tempfile intensity
+
+. save `intensity'
+file C:\Users\user\AppData\Local\Temp\ST_54a0_000001.tmp saved as .dta format
+
+. use "`panelfile'", clear
+
+. isid full_firm_id year
+
+. * Match names, not potentially inconsistent IDs from independently rebuilt pane
+> ls.
+. merge m:1 organization_name using `intensity', assert(match) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                            89,087  
+    -----------------------------------------
+
+. assert full_firm_id==intensity_firm_id
+
+. assert vd_backed==intensity_treated
+
+. assert first_vd_year==intensity_vd_year if vd_backed==1
+
+. keep if vd_backed==1
+(70,982 observations deleted)
+
+. assert first_vd_year<.
+
+. xtset full_firm_id year
+
+Panel variable: full_firm_id (unbalanced)
+ Time variable: year, 2010 to 2024
+         Delta: 1 unit
+
+. assert apps_ult_granted>=0 if apps_ult_granted<.
+
+. generate double outcome=ln(1+apps_ult_granted)
+
+. generate byte post=year>=first_vd_year
+
+. generate byte prior=prior_patent_G
+
+. * Series classification from audited equity-round histories; original year-end 
+> timing retained.
+. preserve
+
+. use "`root'/outputs/csdid_all_applications_corrected/firm_year_all_applications
+> _and_truncation_specs.dta", clear
+
+. keep organization_name year stage_endyear_text stage_preyear_text
+
+. duplicates drop
+
+Duplicates in terms of all variables
+
+(10 observations deleted)
+
+. isid organization_name year
+
+. tempfile stages
+
+. save `stages'
+file C:\Users\user\AppData\Local\Temp\ST_54a0_000003.tmp saved as .dta format
+
+. restore
+
+. merge m:1 organization_name year using `stages', keep(master match) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           537
+        from master                       537  
+        from using                          0  
+
+    Matched                            17,568  
+    -----------------------------------------
+
+. gen byte late_year=.
+(18,105 missing values generated)
+
+. replace late_year=1 if regexm(lower(strtrim(stage_endyear_text)),"^series [c-z]
+> [0-9]*$")
+(1,667 real changes made)
+
+. replace late_year=0 if regexm(lower(strtrim(stage_endyear_text)),"^series [ab][
+> 0-9]*$") | inlist(lower(strtrim(stage_endyear_text)),"seed","pre-seed","angel")
+(8,525 real changes made)
+
+. gen byte late_at_G=late_year if year==first_vd_year
+(17,148 missing values generated)
+
+. bysort full_firm_id: egen byte late=max(late_at_G)
+(6,136 missing values generated)
+
+. drop late_at_G
+
+. xtset full_firm_id year
+
+Panel variable: full_firm_id (unbalanced)
+ Time variable: year, 2010 to 2024
+         Delta: 1 unit
+
+. assert inlist(prior,0,1) if prior<.
+
+. assert inlist(late,0,1) if late<.
+
+. generate byte lag_late=.
+(18,105 missing values generated)
+
+. replace lag_late=1 if regexm(lower(strtrim(stage_preyear_text)),"^series [c-z][
+> 0-9]*$")
+(1,452 real changes made)
+
+. replace lag_late=0 if regexm(lower(strtrim(stage_preyear_text)),"^series [ab][0
+> -9]*$") | inlist(lower(strtrim(stage_preyear_text)),"seed","pre-seed","angel")
+(7,984 real changes made)
+
+. generate double ln1p_rounds_l1=ln(1+cum_funding_rounds_l1)
+
+. local controls prior_patent_l1 lag_late ln1p_cum_funding_l1 ln1p_rounds_l1
+
+. generate double post_prior=post*prior
+
+. generate double post_late=post*late
+(6,136 missing values generated)
+
+. label variable outcome "Log(1 + ultimately granted applications by filing year)
+> "
+
+. label variable post "Post"
+
+. label variable post_prior "Post x Prior patent"
+
+. label variable post_late "Post x Late stage"
+
+. label variable prior_patent_l1 "Lagged prior patent"
+
+. label variable lag_late "Lagged late stage"
+
+. label variable ln1p_cum_funding_l1 "Log(1 + lagged cumulative funding USD)"
+
+. label variable ln1p_rounds_l1 "Log(1 + lagged cumulative funding rounds)"
+
+. save "`out'/analysis_panel.dta", replace
+file
+    C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/analysis_
+    > panel.dta saved
+
+. 
+. * Machine-readable output: coefficients, cluster SEs, p-values, N, firms, withi
+> n R2.
+. tempfile results samples
+
+. tempname coef sample
+
+. postfile `coef' int table model str40 term double b se p N firms within_r2 usin
+> g `results', replace
+(file C:\Users\user\AppData\Local\Temp\ST_54a0_000004.tmp not found)
+
+. postfile `sample' int table double firms_before firms_complete firms_both_perio
+> ds using `samples', replace
+(file C:\Users\user\AppData\Local\Temp\ST_54a0_000005.tmp not found)
+
+. local table=0
+
+. foreach dose of local doses {
+  2.     local ++table
+  3.     if !inlist(`table',1,4) continue
+  4.     preserve
+  5.     egen byte tag0=tag(full_firm_id)
+  6.     quietly count if tag0
+  7.     local before=r(N)
+  8.     generate byte complete=!missing(outcome,`dose',prior,late,post,prior_pat
+> ent_l1,lag_late,ln1p_cum_funding_l1,ln1p_rounds_l1)
+  9.     keep if complete
+ 10.     egen byte tag1=tag(full_firm_id)
+ 11.     quietly count if tag1
+ 12.     local complete_n=r(N)
+ 13.     * Audit pre/post coverage without excluding post-only firms.
+.     bysort full_firm_id: egen byte minpost=min(post)
+ 14.     bysort full_firm_id: egen byte maxpost=max(post)
+ 15.     egen byte tag2=tag(full_firm_id)
+ 16.     quietly count if tag2 & minpost==0 & maxpost==1
+ 17.     local both=r(N)
+ 18.     post `sample' (`table') (`before') (`complete_n') (`both')
+ 19.     assert `complete_n'>1
+ 20.     generate double dose_post=`dose'*post
+ 21.     generate double dose_post_prior=dose_post*prior
+ 22.     generate double dose_post_late=dose_post*late
+ 23.     label variable dose_post "VD intensity x Post"
+ 24.     label variable dose_post_prior "VD intensity x Post x Prior patent"
+ 25.     label variable dose_post_late "VD intensity x Post x Late stage"
+ 26.     forvalues m=1/4 {
+ 27.         local rhs dose_post post `controls'
+ 28.         if inlist(`m',2,4) local rhs `rhs' dose_post_prior post_prior
+ 29.         if inlist(`m',3,4) local rhs `rhs' dose_post_late post_late
+ 30.         * Fixed dose and moderator main effects absorbed by firm FE.
+.         * No dose x prior x late interaction is imposed by the reference tables
+> .
+.         xtreg outcome `rhs' i.year, fe vce(cluster full_firm_id)
+ 31.         estimates save "`out'/Table_3_`table'_model`m'.ster", replace
+ 32.         foreach term of local rhs {
+ 33.             scalar pv=.
+ 34.             if _se[`term']>0 scalar pv=2*ttail(e(df_r),abs(_b[`term']/_se[`t
+> erm']))
+ 35.             post `coef' (`table') (`m') ("`term'") (_b[`term']) (_se[`term']
+> ) (pv) (e(N)) (e(N_g)) (e(r2_w))
+ 36.         }
+ 37.     }
+ 38.     restore
+ 39. }
+(10,966 observations deleted)
+
+Fixed-effects (within) regression               Number of obs     =      7,139
+Group variable: full_firm_id                    Number of groups  =        841
+
+R-squared:                                      Obs per group:
+     Within  = 0.0129                                         min =          1
+     Between = 0.1608                                         avg =        8.5
+     Overall = 0.0207                                         max =         14
+
+                                                F(19, 840)        =          .
+corr(u_i, Xb) = -0.3639                         Prob > F          =          .
+
+                           (Std. err. adjusted for 841 clusters in full_firm_id)
+--------------------------------------------------------------------------------
+               |               Robust
+       outcome | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+     dose_post |  -2.20e-11   1.33e-11    -1.65   0.099    -4.81e-11    4.15e-12
+          post |    .024063   .0115272     2.09   0.037     .0014375    .0466884
+prior_patent~1 |  -.0452943    .091777    -0.49   0.622    -.2254334    .1348449
+      lag_late |  -.0063794   .0176527    -0.36   0.718    -.0410279    .0282691
+ln1p_cum_fun~1 |   .0034318   .0013247     2.59   0.010     .0008316     .006032
+ln1p_rounds_l1 |  -.0288742   .0187568    -1.54   0.124      -.06569    .0079416
+               |
+          year |
+         2011  |  -.0622387   .0290022    -2.15   0.032     -.119164   -.0053133
+         2012  |   .0064009    .022055     0.29   0.772    -.0368885    .0496903
+         2013  |   .0174577   .0190042     0.92   0.359    -.0198436    .0547591
+         2014  |  -.0046906   .0145577    -0.32   0.747    -.0332644    .0238832
+         2015  |   -.010488   .0178771    -0.59   0.558    -.0455771    .0246011
+         2016  |  -.0150217   .0189383    -0.79   0.428    -.0521937    .0221503
+         2017  |  -.0086915   .0212116    -0.41   0.682    -.0503255    .0329424
+         2018  |  -.0065259   .0232272    -0.28   0.779     -.052116    .0390643
+         2019  |   .0083957   .0234611     0.36   0.721    -.0376536    .0544449
+         2020  |   .0045401   .0247126     0.18   0.854    -.0439656    .0530458
+         2021  |  -.0023394   .0249155    -0.09   0.925    -.0512433    .0465645
+         2022  |  -.0143636   .0253686    -0.57   0.571    -.0641569    .0354298
+         2023  |  -.0266697   .0252664    -1.06   0.291    -.0762624     .022923
+         2024  |  -.0374507   .0255187    -1.47   0.143    -.0875386    .0126372
+               |
+         _cons |   .0226608   .0122216     1.85   0.064    -.0013277    .0466493
+---------------+----------------------------------------------------------------
+       sigma_u |  .15901228
+       sigma_e |  .16034378
+           rho |  .49583077   (fraction of variance due to u_i)
+--------------------------------------------------------------------------------
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/Table_3_1_
+> model1.ster saved
+
+Fixed-effects (within) regression               Number of obs     =      7,139
+Group variable: full_firm_id                    Number of groups  =        841
+
+R-squared:                                      Obs per group:
+     Within  = 0.0236                                         min =          1
+     Between = 0.1638                                         avg =        8.5
+     Overall = 0.0234                                         max =         14
+
+                                                F(21, 840)        =          .
+corr(u_i, Xb) = -0.4528                         Prob > F          =          .
+
+                           (Std. err. adjusted for 841 clusters in full_firm_id)
+--------------------------------------------------------------------------------
+               |               Robust
+       outcome | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+     dose_post |  -2.40e-11   9.94e-12    -2.41   0.016    -4.35e-11   -4.45e-12
+          post |   .0394167   .0093017     4.24   0.000     .0211594    .0576741
+prior_patent~1 |  -.0063997   .0970962    -0.07   0.947    -.1969794    .1841801
+      lag_late |  -.0011094   .0170477    -0.07   0.948    -.0345706    .0323518
+ln1p_cum_fun~1 |   .0032724   .0012894     2.54   0.011     .0007415    .0058033
+ln1p_rounds_l1 |  -.0315738   .0184599    -1.71   0.088    -.0678068    .0046591
+dose_post_pr~r |  -1.32e-09   1.35e-09    -0.98   0.329    -3.98e-09    1.33e-09
+    post_prior |  -.1185686   .0691813    -1.71   0.087    -.2543571      .01722
+               |
+          year |
+         2011  |  -.0587549   .0293572    -2.00   0.046     -.116377   -.0011327
+         2012  |   .0075875   .0220076     0.34   0.730    -.0356088    .0507838
+         2013  |   .0170175   .0188945     0.90   0.368    -.0200685    .0541034
+         2014  |  -.0057194   .0145121    -0.39   0.694    -.0342035    .0227648
+         2015  |   -.013092   .0178671    -0.73   0.464    -.0481614    .0219774
+         2016  |  -.0175624   .0188256    -0.93   0.351    -.0545132    .0193883
+         2017  |  -.0112351   .0209941    -0.54   0.593    -.0524422     .029972
+         2018  |   -.009643   .0231255    -0.42   0.677    -.0550336    .0357476
+         2019  |   .0045861   .0231832     0.20   0.843    -.0409177    .0500899
+         2020  |   .0016967   .0246256     0.07   0.945    -.0466382    .0500316
+         2021  |  -.0052627   .0246787    -0.21   0.831    -.0537019    .0431765
+         2022  |  -.0172409   .0250212    -0.69   0.491    -.0663524    .0318706
+         2023  |  -.0295364    .025075    -1.18   0.239    -.0787534    .0196805
+         2024  |  -.0401959   .0254862    -1.58   0.115      -.09022    .0098281
+               |
+         _cons |   .0226825   .0120326     1.89   0.060    -.0009349       .0463
+---------------+----------------------------------------------------------------
+       sigma_u |  .16700906
+       sigma_e |  .15949572
+           rho |  .52299923   (fraction of variance due to u_i)
+--------------------------------------------------------------------------------
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/Table_3_1_
+> model2.ster saved
+
+Fixed-effects (within) regression               Number of obs     =      7,139
+Group variable: full_firm_id                    Number of groups  =        841
+
+R-squared:                                      Obs per group:
+     Within  = 0.0130                                         min =          1
+     Between = 0.1516                                         avg =        8.5
+     Overall = 0.0206                                         max =         14
+
+                                                F(20, 840)        =          .
+corr(u_i, Xb) = -0.3668                         Prob > F          =          .
+
+                           (Std. err. adjusted for 841 clusters in full_firm_id)
+--------------------------------------------------------------------------------
+               |               Robust
+       outcome | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+     dose_post |  -1.44e-11   8.63e-12    -1.66   0.097    -3.13e-11    2.59e-12
+          post |   .0270314   .0121402     2.23   0.026     .0032028      .05086
+prior_patent~1 |  -.0456017   .0916836    -0.50   0.619    -.2255576    .1343542
+      lag_late |  -.0022425    .019848    -0.11   0.910    -.0411999     .036715
+ln1p_cum_fun~1 |   .0034058   .0013151     2.59   0.010     .0008245     .005987
+ln1p_rounds_l1 |  -.0293401   .0189674    -1.55   0.122    -.0665691    .0078889
+dose_post_late |  -2.73e-11   6.11e-11    -0.45   0.655    -1.47e-10    9.26e-11
+     post_late |  -.0113936   .0209035    -0.55   0.586    -.0524228    .0296356
+               |
+          year |
+         2011  |  -.0585002   .0265898    -2.20   0.028    -.1106904     -.00631
+         2012  |   .0098417   .0227017     0.43   0.665    -.0347171    .0544005
+         2013  |   .0209651   .0191205     1.10   0.273    -.0165644    .0584946
+         2014  |  -.0015644   .0154428    -0.10   0.919    -.0318754    .0287465
+         2015  |  -.0076612   .0182789    -0.42   0.675    -.0435389    .0282166
+         2016  |   -.012345   .0196182    -0.63   0.529    -.0508515    .0261614
+         2017  |  -.0060797    .021685    -0.28   0.779    -.0486429    .0364835
+         2018  |  -.0039508   .0237515    -0.17   0.868      -.05057    .0426684
+         2019  |   .0109265   .0240401     0.45   0.650    -.0362593    .0581122
+         2020  |   .0070543   .0253683     0.28   0.781    -.0427383     .056847
+         2021  |   .0002503   .0253593     0.01   0.992    -.0495247    .0500253
+         2022  |  -.0119249   .0258113    -0.46   0.644    -.0625871    .0387374
+         2023  |  -.0241123   .0255682    -0.94   0.346    -.0742973    .0260727
+         2024  |  -.0349278   .0258046    -1.35   0.176    -.0855769    .0157213
+               |
+         _cons |   .0191626   .0142235     1.35   0.178    -.0087552    .0470805
+---------------+----------------------------------------------------------------
+       sigma_u |  .15920828
+       sigma_e |  .16035721
+           rho |  .49640477   (fraction of variance due to u_i)
+--------------------------------------------------------------------------------
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/Table_3_1_
+> model3.ster saved
+
+Fixed-effects (within) regression               Number of obs     =      7,139
+Group variable: full_firm_id                    Number of groups  =        841
+
+R-squared:                                      Obs per group:
+     Within  = 0.0236                                         min =          1
+     Between = 0.1640                                         avg =        8.5
+     Overall = 0.0233                                         max =         14
+
+                                                F(22, 840)        =          .
+corr(u_i, Xb) = -0.4520                         Prob > F          =          .
+
+                           (Std. err. adjusted for 841 clusters in full_firm_id)
+--------------------------------------------------------------------------------
+               |               Robust
+       outcome | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+     dose_post |  -1.90e-11   8.18e-12    -2.32   0.020    -3.51e-11   -2.96e-12
+          post |   .0386217   .0106994     3.61   0.000     .0176211    .0596223
+prior_patent~1 |  -.0062491   .0970365    -0.06   0.949    -.1967116    .1842135
+      lag_late |  -.0020858   .0194318    -0.11   0.915    -.0402263    .0360548
+ln1p_cum_fun~1 |   .0032756   .0012822     2.55   0.011      .000759    .0057922
+ln1p_rounds_l1 |  -.0312314   .0186986    -1.67   0.095    -.0679328      .00547
+dose_post_pr~r |  -1.33e-09   1.35e-09    -0.98   0.327    -3.98e-09    1.33e-09
+    post_prior |  -.1190533   .0691584    -1.72   0.086    -.2547968    .0166902
+dose_post_late |  -3.74e-11   4.97e-11    -0.75   0.452    -1.35e-10    6.02e-11
+     post_late |   .0048962   .0189876     0.26   0.797    -.0323725    .0421648
+               |
+          year |
+         2011  |  -.0597439   .0274671    -2.18   0.030    -.1136562   -.0058316
+         2012  |   .0065923   .0224876     0.29   0.769    -.0375461    .0507308
+         2013  |    .015904    .018974     0.84   0.402     -.021338    .0531461
+         2014  |   -.006773   .0155098    -0.44   0.662    -.0372155    .0236695
+         2015  |  -.0141309   .0185328    -0.76   0.446    -.0505069    .0222451
+         2016  |  -.0186599   .0195243    -0.96   0.339     -.056982    .0196623
+         2017  |  -.0123509    .021472    -0.58   0.565     -.054496    .0297941
+         2018  |  -.0107776   .0236284    -0.46   0.648    -.0571552       .0356
+         2019  |   .0034756   .0236251     0.15   0.883    -.0428955    .0498467
+         2020  |   .0005635   .0252015     0.02   0.982    -.0489018    .0500287
+         2021  |  -.0064141   .0251125    -0.26   0.798    -.0557046    .0428764
+         2022  |  -.0183778   .0254373    -0.72   0.470    -.0683059    .0315504
+         2023  |  -.0306723   .0253879    -1.21   0.227    -.0805034    .0191588
+         2024  |  -.0413214   .0258557    -1.60   0.110    -.0920708     .009428
+               |
+         _cons |   .0237148   .0133814     1.77   0.077    -.0025502    .0499798
+---------------+----------------------------------------------------------------
+       sigma_u |  .16697819
+       sigma_e |  .15951881
+           rho |  .52283478   (fraction of variance due to u_i)
+--------------------------------------------------------------------------------
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/Table_3_1_
+> model4.ster saved
+(12,216 observations deleted)
+
+Fixed-effects (within) regression               Number of obs     =      5,889
+Group variable: full_firm_id                    Number of groups  =        685
+
+R-squared:                                      Obs per group:
+     Within  = 0.0149                                         min =          1
+     Between = 0.0704                                         avg =        8.6
+     Overall = 0.0041                                         max =         14
+
+                                                F(19, 684)        =          .
+corr(u_i, Xb) = -0.2641                         Prob > F          =          .
+
+                           (Std. err. adjusted for 685 clusters in full_firm_id)
+--------------------------------------------------------------------------------
+               |               Robust
+       outcome | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+     dose_post |   4.37e-06   3.05e-06     1.43   0.153    -1.62e-06    .0000104
+          post |   .0245424   .0133705     1.84   0.067    -.0017098    .0507946
+prior_patent~1 |  -.0287374    .105511    -0.27   0.785    -.2359017    .1784269
+      lag_late |  -.0062863   .0197928    -0.32   0.751    -.0451483    .0325757
+ln1p_cum_fun~1 |   .0052466   .0018977     2.76   0.006     .0015206    .0089726
+ln1p_rounds_l1 |  -.0459997   .0211406    -2.18   0.030    -.0875079   -.0044915
+               |
+          year |
+         2011  |  -.0743279   .0329011    -2.26   0.024    -.1389272   -.0097287
+         2012  |   .0036186   .0254025     0.14   0.887    -.0462577     .053495
+         2013  |   .0169687   .0219206     0.77   0.439    -.0260709    .0600084
+         2014  |  -.0168908     .01859    -0.91   0.364    -.0533912    .0196096
+         2015  |  -.0150735   .0208682    -0.72   0.470    -.0560469    .0258998
+         2016  |  -.0166039   .0207728    -0.80   0.424      -.05739    .0241822
+         2017  |   -.005427   .0220848    -0.25   0.806    -.0487892    .0379352
+         2018  |  -.0039602   .0227812    -0.17   0.862    -.0486896    .0407692
+         2019  |   .0125998   .0218819     0.58   0.565    -.0303639    .0555635
+         2020  |   .0086645   .0237887     0.36   0.716    -.0380432    .0553722
+         2021  |  -.0000887   .0235917    -0.00   0.997    -.0464094    .0462321
+         2022  |   -.009805   .0240671    -0.41   0.684    -.0570592    .0374492
+         2023  |  -.0241262   .0238021    -1.01   0.311    -.0708602    .0226079
+         2024  |  -.0323846   .0232114    -1.40   0.163    -.0779588    .0131897
+               |
+         _cons |   .0179034   .0132363     1.35   0.177    -.0080852     .043892
+---------------+----------------------------------------------------------------
+       sigma_u |  .16250537
+       sigma_e |   .1640927
+           rho |  .49513993   (fraction of variance due to u_i)
+--------------------------------------------------------------------------------
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/Table_3_4_
+> model1.ster saved
+
+Fixed-effects (within) regression               Number of obs     =      5,889
+Group variable: full_firm_id                    Number of groups  =        685
+
+R-squared:                                      Obs per group:
+     Within  = 0.0314                                         min =          1
+     Between = 0.0055                                         avg =        8.6
+     Overall = 0.0024                                         max =         14
+
+                                                F(21, 684)        =          .
+corr(u_i, Xb) = -0.9854                         Prob > F          =          .
+
+                           (Std. err. adjusted for 685 clusters in full_firm_id)
+--------------------------------------------------------------------------------
+               |               Robust
+       outcome | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+     dose_post |   8.20e-07   2.88e-06     0.28   0.776    -4.83e-06    6.47e-06
+          post |   .0435476   .0107699     4.04   0.000     .0224016    .0646936
+prior_patent~1 |   .0221721   .1114473     0.20   0.842    -.1966478    .2409919
+      lag_late |  -.0017248   .0189594    -0.09   0.928    -.0389504    .0355009
+ln1p_cum_fun~1 |   .0048545   .0018292     2.65   0.008      .001263     .008446
+ln1p_rounds_l1 |  -.0479858   .0205143    -2.34   0.020    -.0882644   -.0077073
+dose_post_pr~r |  -.0366622   .0443445    -0.83   0.409    -.1237299    .0504054
+    post_prior |   -.141704   .0845409    -1.68   0.094    -.3076947    .0242868
+               |
+          year |
+         2011  |  -.0679827   .0333854    -2.04   0.042    -.1335329   -.0024324
+         2012  |   .0066611   .0253957     0.26   0.793    -.0432018    .0565239
+         2013  |   .0183626   .0218099     0.84   0.400    -.0244598     .061185
+         2014  |  -.0158583   .0181568    -0.87   0.383     -.051508    .0197914
+         2015  |  -.0160522   .0200437    -0.80   0.423    -.0554069    .0233024
+         2016  |  -.0177805   .0200963    -0.88   0.377    -.0572384    .0216774
+         2017  |  -.0059844   .0212222    -0.28   0.778    -.0476529    .0356841
+         2018  |  -.0056138   .0220286    -0.25   0.799    -.0488656    .0376379
+         2019  |   .0098652   .0208902     0.47   0.637    -.0311514    .0508818
+         2020  |   .0065103   .0231254     0.28   0.778    -.0388949    .0519156
+         2021  |  -.0019521   .0226404    -0.09   0.931    -.0464052     .042501
+         2022  |  -.0111607   .0229133    -0.49   0.626    -.0561495    .0338281
+         2023  |  -.0255811   .0229558    -1.11   0.266    -.0706533    .0194912
+         2024  |   -.033679   .0224874    -1.50   0.135    -.0778316    .0104735
+               |
+         _cons |   .0479717   .0371116     1.29   0.197    -.0248947     .120838
+---------------+----------------------------------------------------------------
+       sigma_u |  .88522816
+       sigma_e |  .16274312
+           rho |  .96730668   (fraction of variance due to u_i)
+--------------------------------------------------------------------------------
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/Table_3_4_
+> model2.ster saved
+
+Fixed-effects (within) regression               Number of obs     =      5,889
+Group variable: full_firm_id                    Number of groups  =        685
+
+R-squared:                                      Obs per group:
+     Within  = 0.0151                                         min =          1
+     Between = 0.0674                                         avg =        8.6
+     Overall = 0.0044                                         max =         14
+
+                                                F(21, 684)        =          .
+corr(u_i, Xb) = -0.2715                         Prob > F          =          .
+
+                           (Std. err. adjusted for 685 clusters in full_firm_id)
+--------------------------------------------------------------------------------
+               |               Robust
+       outcome | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+     dose_post |   3.81e-06   2.86e-06     1.33   0.183    -1.81e-06    9.44e-06
+          post |   .0283804   .0140679     2.02   0.044     .0007589    .0560019
+prior_patent~1 |  -.0289626    .105407    -0.27   0.784    -.2359227    .1779974
+      lag_late |  -.0013208   .0223334    -0.06   0.953     -.045171    .0425293
+ln1p_cum_fun~1 |   .0052358   .0018945     2.76   0.006      .001516    .0089556
+ln1p_rounds_l1 |  -.0468934   .0214566    -2.19   0.029    -.0890222   -.0047646
+dose_post_late |   .0006479   .0013406     0.48   0.629    -.0019844    .0032801
+     post_late |  -.0154355   .0225129    -0.69   0.493    -.0596382    .0287672
+               |
+          year |
+         2011  |  -.0699373   .0304353    -2.30   0.022    -.1296952   -.0101795
+         2012  |   .0076789   .0258048     0.30   0.766    -.0429871     .058345
+         2013  |   .0211796   .0216315     0.98   0.328    -.0212926    .0636517
+         2014  |  -.0130633   .0191188    -0.68   0.495     -.050602    .0244753
+         2015  |  -.0116538   .0210722    -0.55   0.580    -.0530277    .0297202
+         2016  |  -.0133056    .021271    -0.63   0.532      -.05507    .0284587
+         2017  |  -.0021892    .022432    -0.10   0.922    -.0462329    .0418546
+         2018  |  -.0007766   .0232241    -0.03   0.973    -.0463756    .0448224
+         2019  |   .0157199   .0224506     0.70   0.484    -.0283603    .0598002
+         2020  |   .0118046   .0244082     0.48   0.629    -.0361193    .0597286
+         2021  |   .0031739   .0239853     0.13   0.895    -.0439198    .0502675
+         2022  |  -.0066233   .0244989    -0.27   0.787    -.0547255    .0414788
+         2023  |  -.0208708   .0240397    -0.87   0.386    -.0680712    .0263297
+         2024  |  -.0292055   .0234684    -1.24   0.214    -.0752843    .0168732
+               |
+         _cons |   .0137251   .0154906     0.89   0.376    -.0166898      .04414
+---------------+----------------------------------------------------------------
+       sigma_u |  .16277663
+       sigma_e |  .16410824
+           rho |  .49592641   (fraction of variance due to u_i)
+--------------------------------------------------------------------------------
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/Table_3_4_
+> model3.ster saved
+
+Fixed-effects (within) regression               Number of obs     =      5,889
+Group variable: full_firm_id                    Number of groups  =        685
+
+R-squared:                                      Obs per group:
+     Within  = 0.0314                                         min =          1
+     Between = 0.0055                                         avg =        8.6
+     Overall = 0.0024                                         max =         14
+
+                                                F(23, 684)        =          .
+corr(u_i, Xb) = -0.9855                         Prob > F          =          .
+
+                           (Std. err. adjusted for 685 clusters in full_firm_id)
+--------------------------------------------------------------------------------
+               |               Robust
+       outcome | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+     dose_post |   7.58e-07   2.79e-06     0.27   0.786    -4.72e-06    6.24e-06
+          post |   .0438836   .0123084     3.57   0.000     .0197167    .0680504
+prior_patent~1 |   .0221081   .1113554     0.20   0.843    -.1965312    .2407475
+      lag_late |  -.0011972   .0216138    -0.06   0.956    -.0436346    .0412403
+ln1p_cum_fun~1 |   .0048517   .0018286     2.65   0.008     .0012613    .0084421
+ln1p_rounds_l1 |  -.0480623   .0208493    -2.31   0.021    -.0889986   -.0071261
+dose_post_pr~r |  -.0367573   .0444072    -0.83   0.408    -.1239482    .0504336
+    post_prior |  -.1413698   .0844825    -1.67   0.095     -.307246    .0245064
+dose_post_late |   .0004233   .0013576     0.31   0.755    -.0022424     .003089
+     post_late |  -.0019986   .0202952    -0.10   0.922     -.041847    .0378499
+               |
+          year |
+         2011  |  -.0675152   .0318009    -2.12   0.034    -.1299544   -.0050761
+         2012  |    .007105   .0255747     0.28   0.781    -.0431093    .0573193
+         2013  |   .0188336   .0213937     0.88   0.379    -.0231716    .0608388
+         2014  |  -.0154243   .0188683    -0.82   0.414     -.052471    .0216225
+         2015  |  -.0156559   .0204973    -0.76   0.445    -.0559011    .0245893
+         2016  |   -.017391   .0206272    -0.84   0.399    -.0578913    .0231093
+         2017  |  -.0055978    .021553    -0.26   0.795    -.0479158    .0367202
+         2018  |  -.0052302   .0225229    -0.23   0.816    -.0494525    .0389922
+         2019  |   .0102391   .0213449     0.48   0.632    -.0316703    .0521486
+         2020  |   .0068922   .0236451     0.29   0.771    -.0395335    .0533179
+         2021  |  -.0015586    .023001    -0.07   0.946    -.0467197    .0436026
+         2022  |   -.010748   .0233136    -0.46   0.645    -.0565228    .0350269
+         2023  |  -.0252071   .0231545    -1.09   0.277    -.0706695    .0202553
+         2024  |  -.0333157   .0228327    -1.46   0.145    -.0781464    .0115149
+               |
+         _cons |   .0475987   .0373813     1.27   0.203    -.0257971    .1209945
+---------------+----------------------------------------------------------------
+       sigma_u |  .88738399
+       sigma_e |  .16277414
+           rho |  .96744818   (fraction of variance due to u_i)
+--------------------------------------------------------------------------------
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/Table_3_4_
+> model4.ster saved
+
+. postclose `coef'
+
+. postclose `sample'
+
+. use `samples', clear
+
+. export delimited using "`out'/sample_audit.csv", replace
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/sample_aud
+> it.csv saved
+
+. use `results', clear
+
+. save "`out'/regression_results.dta", replace
+file
+    C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/regressio
+    > n_results.dta saved
+
+. export delimited using "`out'/regression_results_long.csv", replace
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/regression
+> _results_long.csv saved
+
+. 
+. * Reporting tables: coefficient and p-value in parentheses; raw dollar coeffici
+> ent
+. * keeps extra precision instead of displaying an economically opaque 0.000.
+. generate str50 cell=strtrim(string(b,"%12.6g"))
+
+. replace cell=cell+"***" if p<.01
+(10 real changes made)
+
+. replace cell=cell+"**" if p>=.01 & p<.05
+(11 real changes made)
+
+. replace cell=cell+"*" if p>=.05 & p<.10
+(9 real changes made)
+
+. replace cell=cell+" ("+strtrim(string(p,"%6.3f"))+")" if p<.
+(64 real changes made)
+
+. replace cell=cell+" [omitted]" if se==0
+(0 real changes made)
+
+. foreach t in 1 4 {
+  2.     preserve
+  3.     keep if table==`t'
+  4.     keep term model cell
+  5.     reshape wide cell, i(term) j(model)
+  6.     generate byte roworder=.
+  7.     local k=0
+  8.     foreach v in dose_post dose_post_prior dose_post_late post_prior post_la
+> te post prior_patent_l1 lag_late ln1p_cum_funding_l1 ln1p_rounds_l1 {
+  9.         local ++k
+ 10.         replace roworder=`k' if term=="`v'"
+ 11.     }
+ 12.     sort roworder
+ 13.     drop roworder
+ 14.     rename (cell1 cell2 cell3 cell4) (Base Prior_interaction Late_interactio
+> n Both_interactions)
+ 15.     export delimited using "`out'/Table_3_`t'.csv", replace
+ 16.     restore
+ 17. }
+(32 observations deleted)
+(j = 1 2 3 4)
+
+Data                               Long   ->   Wide
+-----------------------------------------------------------------------------
+Number of observations               32   ->   10          
+Number of variables                   3   ->   5           
+j variable (4 values)             model   ->   (dropped)
+xij variables:
+                                   cell   ->   cell1 cell2 ... cell4
+-----------------------------------------------------------------------------
+(10 missing values generated)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/Table_3_1.
+> csv saved
+(32 observations deleted)
+(j = 1 2 3 4)
+
+Data                               Long   ->   Wide
+-----------------------------------------------------------------------------
+Number of observations               32   ->   10          
+Number of variables                   3   ->   5           
+j variable (4 values)             model   ->   (dropped)
+xij variables:
+                                   cell   ->   cell1 cell2 ... cell4
+-----------------------------------------------------------------------------
+(10 missing values generated)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(1 real change made)
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/Table_3_4.
+> csv saved
+
+. preserve
+
+. keep table model N firms within_r2
+
+. duplicates drop
+
+Duplicates in terms of all variables
+
+(56 observations deleted)
+
+. sort table model
+
+. export delimited using "`out'/model_statistics.csv", replace
+file C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/model_stat
+> istics.csv saved
+
+. restore
+
+. display "Finished: 8 tables, 4 specifications each. Read sample_audit.csv befor
+> e comparing legacy results."
+Finished: 8 tables, 4 specifications each. Read sample_audit.csv before comparing
+>  legacy results.
+
+. log close vdint
+      name:  vdint
+       log:  C:/Users/user/Documents/VD/outputs/vd_intensity/tables_3_1_to_3_7/re
+> plication.log
+  log type:  text
+ closed on:  23 Oct 2026, 03:40:20
+---------------------------------------------------------------------------------
+
+. 
+. 
+end of do-file

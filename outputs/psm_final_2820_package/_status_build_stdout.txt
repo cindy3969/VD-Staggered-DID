@@ -1,0 +1,8 @@
+status
+private     1931
+acquired     593
+defunct      176
+public       120
+dummy sums {'m_a': 593, 'ipo': 120, 'defunct': 176}
+dated events 604
+rows 2820 unique firm_id 2820

@@ -1,0 +1,67 @@
+﻿firm_id,OrganizationName,VD,VDyear,Foundingyear,Region2,Industry2,earlystage,MoneyRaised_VD,NumofFundingRounds_VD,debt_candidate_n,cb_debt_n,named_deal_n,anonymous_deal_n,any_named,only_anonymous,first_named,first_source_n,firm_category,first_category,strict_lender_support,first_lender_support,strict_context_support,first_context_support,government_review,type_conflict,year_mismatch,ipo_before_deal,anon_prior_series,anon_seed_or_same_day,first_prior_series,first_amount_reported,first_date_reported,matched_source_url,external_noncore_review,validation_group
+723,BlueRock Energy,1,2018,2010,3,3,0,2275000.0,2,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/bluerock-energy-inc,0,named_ambiguous
+1591,Dermira,1,2015,2010,1,2,0,232000000.0,4,1,0,1,0,1,0,1,1,4,4,0,0,0,0,0,1,1,0,0,0,1,1,1,https://www.crunchbase.com/organization/dermira,0,source_type_conflict
+1728,Eargo,1,2015,2010,1,3,1,13600000.0,3,1,0,1,0,1,0,1,1,4,4,0,0,0,0,0,1,1,0,0,0,1,1,1,https://www.crunchbase.com/organization/aria-innovations,0,source_type_conflict
+1848,Enevo,1,2016,2010,2,3,0,43363229.0,5,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,1,1,https://www.crunchbase.com/organization/enevo,0,named_ambiguous
+2220,Foodem,1,2012,2010,4,4,0,275000.0,2,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/foodem,0,named_ambiguous
+2929,Innovatient Solutions,1,2012,2010,4,2,0,2035000.0,2,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,1,1,https://www.crunchbase.com/organization/innovatient-solutions,0,named_ambiguous
+3373,Lighter Capital,1,2021,2010,4,5,0,116022000.0,4,2,2,2,0,1,0,1,1,2,2,1,1,1,1,1,0,0,0,0,0,1,1,1,https://www.crunchbase.com/organization/lighter-capital,0,specialist_or_venture_bank
+3395,Linkovery,1,2011,2010,1,5,0,103547.0,2,2,2,2,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/linkovery,0,named_ambiguous
+3731,Micro Interventional Devices,1,2012,2010,4,2,0,350000.0,3,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/micro-interventional-devices,0,named_ambiguous
+4209,NX Pharmagen,1,2013,2010,4,2,0,4273000.0,2,2,2,1,1,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,1,0,1,1,https://www.crunchbase.com/organization/nx-pharmagen,0,named_ambiguous
+4564,Pika Energy,1,2012,2010,4,3,0,929550.0,6,2,2,2,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/pika-energy,0,named_ambiguous
+6700,WeWork,1,2018,2010,3,4,0,6795784331.0,11,5,5,3,2,1,0,0,1,3,0,0,0,0,0,0,0,0,0,1,0,1,1,1,https://www.crunchbase.com/organization/wework,1,other_institutional
+7928,Berkeley Lights,1,2018,2011,1,2,0,126499998.0,5,2,2,1,1,1,0,1,1,4,4,0,0,0,0,0,0,0,1,1,0,1,1,1,https://www.crunchbase.com/organization/berkeley-lights,0,named_ambiguous
+8436,Cellink,1,2023,2011,1,3,0,659224975.0,6,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,1,1,https://www.crunchbase.com/organization/cellink,1,named_ambiguous
+9052,CourseStorm,1,2018,2011,4,4,0,1086910.0,6,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/coursestorm,0,named_ambiguous
+10103,Freepoint Commodities,1,2022,2011,4,3,0,2630000000.0,2,2,2,0,2,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,https://www.crunchbase.com/organization/freepoint-commodities,1,anonymous_other
+11170,KeriCure,1,2012,2011,4,2,0,860000.0,2,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/kericure,0,named_ambiguous
+12520,Opus One Solutions,1,2021,2011,3,5,0,8400000.0,7,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,1,1,https://www.crunchbase.com/organization/opus-one-solutions,0,named_ambiguous
+12669,Panbela Therapeutics,1,2013,2011,4,2,0,1448898.0,3,2,2,0,2,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,https://www.crunchbase.com/organization/sun-biopharma,0,anonymous_other
+13027,PosiGen,1,2017,2011,4,3,0,38000000.0,5,2,2,2,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,1,1,https://www.crunchbase.com/organization/posigen,0,named_ambiguous
+13441,Remitly,1,2016,2011,4,5,0,76500000.0,8,2,2,2,0,1,0,1,1,2,2,1,0,1,0,1,0,0,0,0,0,1,1,1,https://www.crunchbase.com/organization/remitly,0,specialist_or_venture_bank
+15039,Traitify,1,2013,2011,4,4,0,4175000.0,6,2,2,2,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/traitify,0,named_ambiguous
+15308,Updater,1,2022,2011,3,5,0,467500000.0,10,1,1,1,0,1,0,1,1,3,3,0,0,0,0,0,0,0,1,0,0,1,1,1,https://www.crunchbase.com/organization/updater,0,other_institutional
+15484,Vigilant Biosciences,1,2014,2011,4,2,0,2300000.0,3,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/vigilant-biosciences,0,named_ambiguous
+15744,Windgap Medical,1,2014,2011,2,2,0,2494196.0,4,2,2,1,1,1,0,1,1,4,4,0,0,0,0,1,0,0,0,1,0,0,1,1,https://www.crunchbase.com/organization/windgap-medical,0,named_ambiguous
+16617,automed,1,2018,2012,4,4,0,750000.0,3,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/automed,0,named_ambiguous
+16881,Bitmovin,1,2019,2012,1,3,0,62321581.0,5,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,1,1,https://www.crunchbase.com/organization/bitmovin,0,named_ambiguous
+18359,Encounter Telehealth,1,2019,2012,4,3,0,1160000.0,3,2,2,2,0,1,0,1,1,3,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/encounter-telehealth,0,other_institutional
+19883,Lineage Logistics,1,2021,2012,4,4,0,5102550000.0,4,1,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/lineage-logistics,1,anonymous_other
+22056,Scanalytics,1,2017,2012,4,5,0,2400000.0,8,2,2,1,1,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,1,0,1,1,https://www.crunchbase.com/organization/scanalytics,0,named_ambiguous
+22596,Spire Global,1,2020,2012,1,5,0,222707890.0,13,2,2,2,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,1,1,https://www.crunchbase.com/organization/spire,0,named_ambiguous
+22934,Syros Pharmaceuticals,1,2020,2012,2,2,0,279380018.0,7,1,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,0,1,0,0,1,1,1,https://www.crunchbase.com/organization/syros-pharmaceuticals,0,named_ambiguous
+23620,Vaxess Technologies,1,2013,2012,2,2,0,4820000.0,4,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,1,1,https://www.crunchbase.com/organization/vaxess-technologies,0,named_ambiguous
+26206,ConsortiEX,1,2014,2013,4,2,0,360010.0,2,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,,0,named_ambiguous
+28913,Kontakt.io,1,2022,2013,3,5,0,21265000.0,6,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,1,1,,0,named_ambiguous
+30760,Phoenix Tower International,1,2022,2013,4,3,0,3400000000.0,2,2,2,1,1,1,0,0,1,3,0,0,0,0,0,0,0,0,0,0,0,0,1,1,,1,other_institutional
+34462,Agbotic,1,2019,2014,3,4,0,12080000.0,2,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,,0,named_ambiguous
+34643,American Unagi,1,2021,2014,4,4,0,10437069.0,7,1,1,1,0,1,0,1,1,3,3,0,0,0,0,1,0,0,0,0,0,0,1,1,,0,other_institutional
+34734,Ankura,1,2021,2014,3,4,0,810000000.0,2,1,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,,1,anonymous_other
+34918,Arrive,1,2021,2014,4,3,0,2065000.0,3,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,,0,named_ambiguous
+35180,Baebies,1,2015,2014,4,2,0,13500000.0,2,2,2,1,1,1,0,1,1,4,4,0,0,0,0,1,0,0,0,1,0,1,1,1,,0,named_ambiguous
+35479,BlocPower,1,2021,2014,3,3,0,67923153.0,9,3,3,3,0,1,0,1,1,3,3,0,0,0,0,1,0,0,0,0,0,1,1,1,,0,other_institutional
+35680,Bricata,1,2016,2014,4,3,0,2750000.0,2,4,4,1,3,1,0,1,1,4,4,0,0,0,0,1,0,0,0,1,0,0,1,1,,0,named_ambiguous
+37594,Exyn Technologies,1,2020,2014,4,3,0,20225000.0,4,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,0,1,,0,named_ambiguous
+38509,Habitat Logistics,1,2020,2014,4,5,0,1125000.0,5,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,,0,named_ambiguous
+39839,LiFT Learning,1,2016,2014,4,4,0,1100000.0,2,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,,0,named_ambiguous
+40406,Men's Style Lab,1,2016,2014,4,4,1,2170000.0,4,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,,0,named_ambiguous
+43891,Starship Technologies,1,2022,2014,1,5,1,155715822.0,5,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,1,1,,0,named_ambiguous
+44154,Surface Oncology,1,2019,2014,2,2,0,60000000.0,3,1,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,0,1,0,0,1,1,1,,0,named_ambiguous
+44698,Treace Medical Concepts,1,2020,2014,4,2,0,62900000.0,3,2,2,1,1,1,0,1,1,3,3,0,0,0,0,0,0,0,1,0,1,0,1,1,,0,other_institutional
+45199,Victory Hemp Foods,1,2019,2014,4,4,0,1097048.0,2,2,2,1,1,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,,0,named_ambiguous
+46342,American Provenance,1,2019,2015,4,5,0,600000.0,3,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/american-provenance,0,named_ambiguous
+48814,Drip Capital,1,2018,2015,1,5,0,20120000.0,5,6,6,4,2,1,0,1,1,2,2,1,1,0,0,1,0,0,0,1,0,0,0,1,https://www.crunchbase.com/organization/drip-capital,0,specialist_or_venture_bank
+49036,Embue,1,2023,2015,2,5,0,3100000.0,3,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/embue,0,named_ambiguous
+49070,EncepHeal Therapeutics,1,2021,2015,4,2,0,300000.0,2,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/encepheal-therapeutics,0,named_ambiguous
+49324,Excision BioTherapeutics,1,2020,2015,4,2,0,10750000.0,5,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,0,1,https://www.crunchbase.com/organization/excision-biotherapeutics,0,named_ambiguous
+51596,LeagueSide,1,2020,2015,4,4,0,1703747.0,5,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,0,1,https://www.crunchbase.com/organization/leagueside,0,named_ambiguous
+51800,LiveBy,1,2018,2015,4,4,0,1750000.0,5,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/myblock,0,named_ambiguous
+51867,Lola's Fine Hot Sauce,1,2021,2015,4,4,0,220000.0,2,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/lola-s-fine-hot-sauce,0,named_ambiguous
+51914,Lottery.com,1,2021,2015,4,4,0,21251000.0,7,1,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,1,1,https://www.crunchbase.com/organization/lotterydotcom,0,anonymous_prior_series
+52172,Mazen Animal Health,1,2021,2015,4,2,0,125000.0,4,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/mazen-animal-health,0,named_ambiguous
+52411,Mobile Price Card,1,2019,2015,4,5,0,1050000.0,2,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,1,1,1,https://www.crunchbase.com/organization/mobile-price-card,0,named_ambiguous
+53368,Ourly,1,2019,2015,4,5,1,3670000.0,2,2,2,1,1,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/ourly,0,named_ambiguous
+53512,Parknav,1,2020,2015,4,5,0,2095000.0,7,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/parknav,0,named_ambiguous
+54413,Recruiter.com,1,2022,2015,3,4,0,2600000.0,4,1,1,1,0,1,0,1,1,3,3,0,0,0,0,0,0,0,1,0,0,0,1,1,https://www.crunchbase.com/organization/recruiter-com,0,other_institutional
+57068,Virtual Peaker,1,2021,2015,4,3,0,3200000.0,2,1,1,1,0,1,0,1,1,4,4,0,0,0,0,1,0,0,0,0,0,0,1,1,https://www.crunchbase.com/organization/virtual-peaker-inc,0,named_ambiguous

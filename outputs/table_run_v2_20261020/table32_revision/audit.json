@@ -1,0 +1,396 @@
+{
+  "changed_body_elements": [
+    17,
+    18,
+    21,
+    22,
+    25,
+    26
+  ],
+  "cells": [
+    {
+      "model": 1,
+      "term": "VD",
+      "b": "-0.113***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 3,
+      "term": "VD",
+      "b": "-0.072***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 5,
+      "term": "VD",
+      "b": "-0.046",
+      "p": "(0.160)"
+    },
+    {
+      "model": 7,
+      "term": "VD",
+      "b": "-0.029",
+      "p": "(0.358)"
+    },
+    {
+      "model": 1,
+      "term": "1.VD#2.fundstage",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 3,
+      "term": "1.VD#2.fundstage",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 5,
+      "term": "1.VD#2.fundstage",
+      "b": "0.004",
+      "p": "(0.937)"
+    },
+    {
+      "model": 7,
+      "term": "1.VD#2.fundstage",
+      "b": "0.016",
+      "p": "(0.776)"
+    },
+    {
+      "model": 1,
+      "term": "1.VD#3.fundstage",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 3,
+      "term": "1.VD#3.fundstage",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 5,
+      "term": "1.VD#3.fundstage",
+      "b": "-0.068",
+      "p": "(0.312)"
+    },
+    {
+      "model": 7,
+      "term": "1.VD#3.fundstage",
+      "b": "-0.047",
+      "p": "(0.485)"
+    },
+    {
+      "model": 1,
+      "term": "1.VD#4.fundstage",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 3,
+      "term": "1.VD#4.fundstage",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 5,
+      "term": "1.VD#4.fundstage",
+      "b": "-0.288***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 7,
+      "term": "1.VD#4.fundstage",
+      "b": "-0.246***",
+      "p": "(0.001)"
+    },
+    {
+      "model": 1,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 3,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.235**",
+      "p": "(0.025)"
+    },
+    {
+      "model": 5,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 7,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.185*",
+      "p": "(0.075)"
+    },
+    {
+      "model": 1,
+      "term": "2.fundstage",
+      "b": "-0.004",
+      "p": "(0.907)"
+    },
+    {
+      "model": 3,
+      "term": "2.fundstage",
+      "b": "0.000",
+      "p": "(0.999)"
+    },
+    {
+      "model": 5,
+      "term": "2.fundstage",
+      "b": "0.001",
+      "p": "(0.977)"
+    },
+    {
+      "model": 7,
+      "term": "2.fundstage",
+      "b": "-0.003",
+      "p": "(0.944)"
+    },
+    {
+      "model": 1,
+      "term": "3.fundstage",
+      "b": "-0.043",
+      "p": "(0.291)"
+    },
+    {
+      "model": 3,
+      "term": "3.fundstage",
+      "b": "-0.040",
+      "p": "(0.321)"
+    },
+    {
+      "model": 5,
+      "term": "3.fundstage",
+      "b": "-0.004",
+      "p": "(0.947)"
+    },
+    {
+      "model": 7,
+      "term": "3.fundstage",
+      "b": "-0.013",
+      "p": "(0.817)"
+    },
+    {
+      "model": 1,
+      "term": "4.fundstage",
+      "b": "0.034",
+      "p": "(0.472)"
+    },
+    {
+      "model": 3,
+      "term": "4.fundstage",
+      "b": "0.033",
+      "p": "(0.486)"
+    },
+    {
+      "model": 5,
+      "term": "4.fundstage",
+      "b": "0.174***",
+      "p": "(0.006)"
+    },
+    {
+      "model": 7,
+      "term": "4.fundstage",
+      "b": "0.152**",
+      "p": "(0.015)"
+    },
+    {
+      "model": 1,
+      "term": "priorpatentdummy_VD",
+      "b": "1.257***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 3,
+      "term": "priorpatentdummy_VD",
+      "b": "1.371***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 5,
+      "term": "priorpatentdummy_VD",
+      "b": "1.254***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 7,
+      "term": "priorpatentdummy_VD",
+      "b": "1.344***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 1,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.027***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 3,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.027***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 5,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.027***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 7,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.027***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 1,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.012",
+      "p": "(0.206)"
+    },
+    {
+      "model": 3,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.012",
+      "p": "(0.196)"
+    },
+    {
+      "model": 5,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.012",
+      "p": "(0.180)"
+    },
+    {
+      "model": 7,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.012",
+      "p": "(0.176)"
+    },
+    {
+      "model": 1,
+      "term": "_cons",
+      "b": "-0.227**",
+      "p": "(0.037)"
+    },
+    {
+      "model": 3,
+      "term": "_cons",
+      "b": "-0.250**",
+      "p": "(0.022)"
+    },
+    {
+      "model": 5,
+      "term": "_cons",
+      "b": "-0.269**",
+      "p": "(0.017)"
+    },
+    {
+      "model": 7,
+      "term": "_cons",
+      "b": "-0.278**",
+      "p": "(0.013)"
+    },
+    {
+      "model": 2,
+      "term": "1bn.fundstage",
+      "b": "-0.113***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 4,
+      "term": "1bn.fundstage",
+      "b": "-0.113***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 6,
+      "term": "1bn.fundstage",
+      "b": "-0.046",
+      "p": "(0.160)"
+    },
+    {
+      "model": 8,
+      "term": "1bn.fundstage",
+      "b": "-0.061*",
+      "p": "(0.087)"
+    },
+    {
+      "model": 2,
+      "term": "2.fundstage",
+      "b": "-0.113***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 4,
+      "term": "2.fundstage",
+      "b": "-0.113***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 6,
+      "term": "2.fundstage",
+      "b": "-0.042",
+      "p": "(0.338)"
+    },
+    {
+      "model": 8,
+      "term": "2.fundstage",
+      "b": "-0.046",
+      "p": "(0.304)"
+    },
+    {
+      "model": 2,
+      "term": "3.fundstage",
+      "b": "-0.113***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 4,
+      "term": "3.fundstage",
+      "b": "-0.113***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 6,
+      "term": "3.fundstage",
+      "b": "-0.114*",
+      "p": "(0.052)"
+    },
+    {
+      "model": 8,
+      "term": "3.fundstage",
+      "b": "-0.108*",
+      "p": "(0.063)"
+    },
+    {
+      "model": 2,
+      "term": "4.fundstage",
+      "b": "-0.113***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 4,
+      "term": "4.fundstage",
+      "b": "-0.113***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 6,
+      "term": "4.fundstage",
+      "b": "-0.334***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 8,
+      "term": "4.fundstage",
+      "b": "-0.307***",
+      "p": "(<0.001)"
+    }
+  ]
+}

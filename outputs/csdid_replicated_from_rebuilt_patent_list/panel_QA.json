@@ -1,0 +1,11 @@
+{
+  "applications": 10727,
+  "ultimately_granted": 6319,
+  "panel_rows": 89087,
+  "panel_firms": 7316,
+  "treated_firms": 1440,
+  "invalid_timing_firms": 43,
+  "analysis_rows_after_timing_drop": 88550,
+  "early_stage_treated": 162,
+  "series_bplus_treated": 61
+}

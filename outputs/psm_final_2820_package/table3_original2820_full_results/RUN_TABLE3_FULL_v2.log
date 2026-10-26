@@ -1,0 +1,1090 @@
+-------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original2820_full_r
+> esults/RUN_TABLE3_FULL_v2.log
+  log type:  text
+ opened on:  23 Oct 2026, 02:56:41
+
+. use "$ROOT/table3_original_2820_cross_section_v2.dta", clear
+
+. isid firm_id
+
+. assert _N==2820
+
+. * ORIGINAL2820_INNOVATION_REBUILT
+. display as text "Original 2820 firms. Innovation: complete reference+1..+3 windows through 2024
+> ."
+Original 2820 firms. Innovation: complete reference+1..+3 windows through 2024.
+
+. tabulate innov_window_complete, missing
+
+  Reference |
+year + 3 <= |
+      2024; |
+  otherwise |
+ innovation |
+   outcomes |
+    missing |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |        190        6.74        6.74
+          1 |      2,630       93.26      100.00
+------------+-----------------------------------
+      Total |      2,820      100.00
+
+. tabulate innovation_uncollected, missing
+
+innovation_ |
+uncollected |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |      2,820      100.00      100.00
+------------+-----------------------------------
+      Total |      2,820      100.00
+
+. tabulate fog_win3_status, missing
+
+      Innovation audit: fog_win3_status |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+                               observed |        695       24.65       24.65
+                 no_post_granted_patent |      1,935       68.62       93.26
+           incomplete_three_year_window |        190        6.74      100.00
+----------------------------------------+-----------------------------------
+                                  Total |      2,820      100.00
+
+. tabulate novelty_status, missing
+
+       Innovation audit: novelty_status |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+                               observed |        402       14.26       14.26
+           incomplete_three_year_window |        190        6.74       20.99
+no_observed_pre_reference_granted_portf |      2,228       79.01      100.00
+----------------------------------------+-----------------------------------
+                                  Total |      2,820      100.00
+
+. tabulate selftotal_status, missing
+
+     Innovation audit: selftotal_status |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+                               observed |      1,122       39.79       39.79
+           incomplete_three_year_window |        190        6.74       46.52
+no_verified_patent_link_in_corrected_so |      1,508       53.48      100.00
+----------------------------------------+-----------------------------------
+                                  Total |      2,820      100.00
+
+. which reghdfe
+C:\Users\user\ado\plus\r\reghdfe.ado
+*! version 6.13.1 10Jan2026
+
+. which ivreghdfe
+C:\Users\user\ado\plus\i\ivreghdfe.ado
+*! ivreghdfe 1.1.4  29nov2025 (bugfix for github issue #61)
+*! ivreghdfe 1.1.3  04Jan2023 (bugfix for github issue #48)
+*! ivreghdfe 1.1.2  29Sep2022 (bugfix for github issue #44)
+*! ivreghdfe 1.1.1  14Dec2021 (experimental -margins- support)
+*! ivreghdfe 1.1.0  25Feb2021
+*! ivreg2 4.1.11  22Nov2019
+*! authors cfb & mes
+*! see end of file for version comments
+
+. which esttab
+C:\Users\user\ado\plus\e\esttab.ado
+*! version 2.1.4  13apr2026  Ben Jann
+*! wrapper for estout
+
+. 
+. * DV = ln(1 + number of patent applications filed in VD+1 through VD+3).
+. 
+. capture drop ln_patentbyfiling_win3_2
+
+. gen ln_patentbyfiling_win3_2 = log(patentbyfiling_win3_2+1)
+
+. capture drop ln_priorpatent_VD_2
+
+. gen ln_priorpatent_VD_2 = log(priorpatent_VD_2+1)
+
+. 
+. * Regression moderator: 1 = prior patent; 0 = no prior patent.
+. 
+. capture drop ln_grantedbyfiling_win3
+
+. gen ln_grantedbyfiling_win3 = log(grantedpatentbyfiling_win3+1)
+
+. capture drop ln_grantedbyfiling_norm_win3
+
+. gen ln_grantedbyfiling_norm_win3 = log(grantedpatentbyfiling_norm_win3+1)
+
+. 
+. capture drop ln_norm_cite_perpat_win3_v1
+
+. gen ln_norm_cite_perpat_win3_v1 = log(norm_cite_perpat_win3_v1+1)
+(2,110 missing values generated)
+
+. capture drop ln_norm_cite_perpat_win3_v2
+
+. gen ln_norm_cite_perpat_win3_v2 = log(norm_cite_perpat_win3_v2+1)
+(2,110 missing values generated)
+
+. capture drop ln_norm_cite_perpat_win3_v3
+
+. gen ln_norm_cite_perpat_win3_v3 = log(norm_cite_perpat_win3_v3+1)
+(2,110 missing values generated)
+
+. capture drop ln_norm_cite_perpat_win3_v4
+
+. gen ln_norm_cite_perpat_win3_v4 = log(norm_cite_perpat_win3_v4+1)
+(2,110 missing values generated)
+
+. capture drop ln_norm_cite_perpat_win3_vv1
+
+. gen ln_norm_cite_perpat_win3_vv1 = log(norm_cite_perpat_win3_vv1+1)
+
+. capture drop ln_norm_cite_perpat_win3_vv2
+
+. gen ln_norm_cite_perpat_win3_vv2 = log(norm_cite_perpat_win3_vv2+1)
+
+. capture drop ln_norm_cite_perpat_win3_vv3
+
+. gen ln_norm_cite_perpat_win3_vv3 = log(norm_cite_perpat_win3_vv3+1)
+
+. capture drop ln_norm_cite_perpat_win3_vv4
+
+. gen ln_norm_cite_perpat_win3_vv4 = log(norm_cite_perpat_win3_vv4+1)
+
+. 
+. capture drop ln_moneyraised_win3
+
+. gen ln_moneyraised_win3 = log(moneyraised_win3+1)
+(1,193 missing values generated)
+
+. capture drop ln_moneyraised_t1
+
+. gen ln_moneyraised_t1 = log(moneyraised_t1+1)
+(1,877 missing values generated)
+
+. capture drop ln_moneyraised_t2
+
+. gen ln_moneyraised_t2 = log(moneyraised_t2+1)
+(2,079 missing values generated)
+
+. capture drop ln_moneyraised_t3
+
+. gen ln_moneyraised_t3 = log(moneyraised_t3+1)
+(2,298 missing values generated)
+
+. 
+. tab Industry2, gen(ind_)
+
+                      Industry2 |      Freq.     Percent        Cum.
+--------------------------------+-----------------------------------
+                 Bio/Healthcare |        535       18.97       18.97
+Hardware/Manufacturing/DeepTech |        404       14.33       33.30
+                          Other |        734       26.03       59.33
+           Software/IT services |      1,147       40.67      100.00
+--------------------------------+-----------------------------------
+                          Total |      2,820      100.00
+
+. tab Region2,   gen(reg_)
+
+      Region2 |      Freq.     Percent        Cum.
+--------------+-----------------------------------
+   California |        826       29.29       29.29
+Massachusetts |        239        8.48       37.77
+     New York |        439       15.57       53.33
+        Other |      1,316       46.67      100.00
+--------------+-----------------------------------
+        Total |      2,820      100.00
+
+. 
+. capture drop equityraised_win3
+
+. rename Follow_on_Equity_Raised_win3 equityraised_win3
+
+. capture drop ln_equityraised_win3
+
+. gen ln_equityraised_win3 = log(equityraised_win3+1)
+(1,601 missing values generated)
+
+. 
+. * Industry: ind_1=Bio, ind_2=Hardware, ind_3=Other, ind_4=Software
+. label var ind_1 "Bio/Healthcare"
+
+. label var ind_2 "Hardware/Manufacturing/Deep Tech"
+
+. label var ind_4 "Software/IT services"
+
+. 
+. * Region: reg_1=California, reg_2=Massachusetts, reg_3=New York, reg_4=Other
+. label var reg_1 "California"
+
+. label var reg_2 "Massachusetts"
+
+. label var reg_3 "New York"
+
+. 
+. forvalues t = 1/3 {
+  2. capture drop ln_equityraised_t`t'
+  3.     gen ln_equityraised_t`t' = ln(1 + equityraised_t`t')
+  4. }
+(1,989 missing values generated)
+(2,150 missing values generated)
+(2,369 missing values generated)
+
+. 
+. capture drop ma
+
+. rename m_a ma
+
+. 
+. capture drop ln_revenue_t1
+
+. gen ln_revenue_t1 = log(revenue_t1+1)
+(2,601 missing values generated)
+
+. capture drop ln_revenue_t2
+
+. gen ln_revenue_t2 = log(revenue_t2+1)
+(2,592 missing values generated)
+
+. capture drop ln_revenue_t3
+
+. gen ln_revenue_t3 = log(revenue_t3+1)
+(2,619 missing values generated)
+
+. 
+. capture drop grantedbyfiling_norm_win3
+
+. rename grantedpatentbyfiling_norm_win3  grantedbyfiling_norm_win3 
+
+. 
+. capture drop ln_vdsupply
+
+. gen double ln_vdsupply = ln(1 + vdsupply)
+
+. capture drop ln_numberofvddeals
+
+. gen double ln_numberofvddeals = ln(1 + numberofvddeals)
+
+. 
+. capture drop ln_newpat_win3
+
+. gen ln_newpat_win3 = log(newpat_win3+1)
+(2,418 missing values generated)
+
+. capture drop ln_oldpat_win3
+
+. gen ln_oldpat_win3 = log(oldpat_win3+1)
+(2,418 missing values generated)
+
+. 
+. * for Table 3-2: Funding-stage heterogeneity (cross-sectional three-year window)
+. * Existing stage assignments include imputations; see stage_method.
+. preserve
+
+. use "C:/Users/user/Documents/VD/260122 winsorization_stage4.dta", clear
+
+. keep firm_id OrganizationName VD VDyear stage4 stage_inference_method
+
+. rename OrganizationName stage_name
+
+. rename VD stage_vd
+
+. rename VDyear stage_year
+
+. rename stage4 fundstage
+
+. rename stage_inference_method stage_method
+
+. tempfile funding_stages
+
+. save `funding_stages'
+file C:\Users\user\AppData\Local\Temp\ST_3874_000002.tmp saved as .dta format
+
+. restore
+
+. merge 1:1 firm_id using `funding_stages', generate(stage_merge)
+(label stage4lbl already defined)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                             2,820  (stage_merge==3)
+    -----------------------------------------
+
+. assert stage_merge == 3
+
+. assert OrganizationName == stage_name & VD == stage_vd & VDyear == stage_year
+
+. drop stage_merge stage_name stage_vd stage_year
+
+. label variable fundstage "Funding stage at initial VD date or control reference year"
+
+. label define fundstage_lbl 1 "Seed / pre-Series" 2 "Series A" 3 "Series B" 4 "Series C+", repla
+> ce
+
+. label values fundstage fundstage_lbl
+
+. label variable stage_method "Reference-stage assignment method, including imputation"
+
+. notes fundstage: Highest prior Series; otherwise future-round backcast or round-order fallback.
+
+. notes fundstage: One grant-only firm was assumed Seed in source. Not an observed Series.
+
+. gen byte early_sb = inrange(fundstage,1,3) if !missing(fundstage)
+
+. label variable early_sb "1=Seed through Series B; 0=Series C+ at reference point"
+
+. tab fundstage VD, row
+
++----------------+
+| Key            |
+|----------------|
+|   frequency    |
+| row percentage |
++----------------+
+
+ Funding stage at |
+  initial VD date |
+       or control |          VD
+   reference year |         0          1 |     Total
+------------------+----------------------+----------
+Seed / pre-Series |       415        579 |       994 
+                  |     41.75      58.25 |    100.00 
+------------------+----------------------+----------
+         Series A |       402        366 |       768 
+                  |     52.34      47.66 |    100.00 
+------------------+----------------------+----------
+         Series B |       300        220 |       520 
+                  |     57.69      42.31 |    100.00 
+------------------+----------------------+----------
+        Series C+ |       293        245 |       538 
+                  |     54.46      45.54 |    100.00 
+------------------+----------------------+----------
+            Total |     1,410      1,410 |     2,820 
+                  |     50.00      50.00 |    100.00 
+
+. save "$OUT/table3_2_analysis.dta", replace
+file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original2820_full_results/
+    > table3_2_analysis.dta saved
+
+. 
+. *gen latestage_VD = (fundstage == 4) if !missing(fundstage)
+. *label variable latestage_VD "Series C+ at VD/reference date"
+. 
+. tab latestage_VD, missing
+
+  Series C+ |
+         at |
+VD/referenc |
+     e date |
+   (stage4; |
+   includes |
+imputation) |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |      2,282       80.92       80.92
+          1 |        538       19.08      100.00
+------------+-----------------------------------
+      Total |      2,820      100.00
+
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD3874_000002.tmp"
+
+. matrix Figure42_results = r(table)'
+
+. preserve
+
+. clear
+
+. svmat double Figure42_results, names(col)
+number of observations will be reset to 1
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 1.
+
+. keep if se > 0 & !missing(se)
+se not found
+r(111);
+
+end of do-file
+
+r(111);
+
+. do "C:\Users\user\AppData\Local\Temp\STD3874_000003.tmp"
+
+. *Table 4-1 and 4-2
+. reghdfe ln_grantedbyfiling_norm_win3 i.VD ib1.fundstage ///
+>     i.priorpatentdummy_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 3 HDFE groups                           F(   7,   2801) =      82.64
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4251
+                                                  Adj R-squared   =     0.4214
+                                                  Within R-sq.    =     0.3596
+                                                  Root MSE        =     0.6452
+
+---------------------------------------------------------------------------------------
+                      |               Robust
+ln_grantedbyfi~m_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+----------------------+----------------------------------------------------------------
+                 1.VD |  -.1130296   .0246725    -4.58   0.000    -.1614077   -.0646515
+                      |
+            fundstage |
+            Series A  |  -.0036502   .0313244    -0.12   0.907    -.0650714    .0577711
+            Series B  |  -.0431637   .0408429    -1.06   0.291     -.123249    .0369216
+           Series C+  |   .0338077   .0469836     0.72   0.472    -.0583184    .1259338
+                      |
+1.priorpatentdummy_VD |    1.25698   .0544921    23.07   0.000     1.150131    1.363829
+    ln_MoneyRaised_VD |   .0270574   .0074377     3.64   0.000     .0124735    .0416413
+NumofFundingRounds_VD |   .0116286   .0091954     1.26   0.206    -.0064019     .029659
+                _cons |  -.2272671   .1090634    -2.08   0.037    -.4411197   -.0134144
+---------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. margins fundstage, dydx(1.VD) predict(xb) post
+
+Average marginal effects                                 Number of obs = 2,820
+Model VCE: Robust
+
+Expression: Linear prediction, predict(xb)
+dy/dx wrt:  1.VD
+
+------------------------------------------------------------------------------------
+                   |            Delta-method
+                   |      dy/dx   std. err.      t    P>|t|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+0.VD               |  (base outcome)
+-------------------+----------------------------------------------------------------
+1.VD               |
+         fundstage |
+Seed / pre-Series  |  -.1130296   .0246725    -4.58   0.000    -.1614077   -.0646515
+         Series A  |  -.1130296   .0246725    -4.58   0.000    -.1614077   -.0646515
+         Series B  |  -.1130296   .0246725    -4.58   0.000    -.1614077   -.0646515
+        Series C+  |  -.1130296   .0246725    -4.58   0.000    -.1614077   -.0646515
+------------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+. reghdfe ln_grantedbyfiling_norm_win3 i.VD##i.priorpatentdummy_VD ib1.fundstage ///
+>      ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 3 HDFE groups                           F(   8,   2800) =      74.99
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4278
+                                                  Adj R-squared   =     0.4239
+                                                  Within R-sq.    =     0.3626
+                                                  Root MSE        =     0.6438
+
+----------------------------------------------------------------------------------------
+                       |               Robust
+ln_grantedbyfiling_n~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-----------------------+----------------------------------------------------------------
+                  1.VD |  -.0723582   .0200226    -3.61   0.000    -.1116187   -.0330977
+ 1.priorpatentdummy_VD |    1.37112   .0803659    17.06   0.000     1.213538    1.528703
+                       |
+VD#priorpatentdummy_VD |
+                  1 1  |  -.2350016   .1050155    -2.24   0.025    -.4409171    -.029086
+                       |
+             fundstage |
+             Series A  |  -.0000507   .0310581    -0.00   0.999    -.0609497    .0608483
+             Series B  |  -.0402784   .0405703    -0.99   0.321    -.1198292    .0392723
+            Series C+  |   .0325683   .0467162     0.70   0.486    -.0590334      .12417
+                       |
+     ln_MoneyRaised_VD |   .0270787   .0073837     3.67   0.000     .0126006    .0415568
+ NumofFundingRounds_VD |   .0117601   .0090908     1.29   0.196    -.0060653    .0295854
+                 _cons |  -.2498451   .1094247    -2.28   0.022    -.4644062   -.0352839
+----------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. margins fundstage, dydx(1.VD) predict(xb) post
+
+Average marginal effects                                 Number of obs = 2,820
+Model VCE: Robust
+
+Expression: Linear prediction, predict(xb)
+dy/dx wrt:  1.VD
+
+------------------------------------------------------------------------------------
+                   |            Delta-method
+                   |      dy/dx   std. err.      t    P>|t|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+0.VD               |  (base outcome)
+-------------------+----------------------------------------------------------------
+1.VD               |
+         fundstage |
+Seed / pre-Series  |  -.1128585   .0245571    -4.60   0.000    -.1610103   -.0647066
+         Series A  |  -.1128585   .0245571    -4.60   0.000    -.1610103   -.0647066
+         Series B  |  -.1128585   .0245571    -4.60   0.000    -.1610103   -.0647066
+        Series C+  |  -.1128585   .0245571    -4.60   0.000    -.1610103   -.0647066
+------------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+. reghdfe ln_grantedbyfiling_norm_win3 i.VD##ib1.fundstage ///
+>     i.priorpatentdummy_VD  ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 3 HDFE groups                           F(  10,   2798) =      58.71
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4293
+                                                  Adj R-squared   =     0.4250
+                                                  Within R-sq.    =     0.3642
+                                                  Root MSE        =     0.6432
+
+---------------------------------------------------------------------------------------
+                      |               Robust
+ln_grantedbyfi~m_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+----------------------+----------------------------------------------------------------
+                 1.VD |  -.0462912   .0329673    -1.40   0.160     -.110934    .0183515
+                      |
+            fundstage |
+            Series A  |   .0011899   .0417233     0.03   0.977    -.0806218    .0830015
+            Series B  |  -.0036565   .0552331    -0.07   0.947    -.1119582    .1046452
+           Series C+  |   .1738862   .0633049     2.75   0.006     .0497573    .2980152
+                      |
+         VD#fundstage |
+          1#Series A  |   .0043013   .0545476     0.08   0.937    -.1026562    .1112589
+          1#Series B  |  -.0680408   .0672953    -1.01   0.312    -.1999943    .0639126
+         1#Series C+  |  -.2879553   .0789406    -3.65   0.000    -.4427429   -.1331676
+                      |
+1.priorpatentdummy_VD |   1.253697   .0541623    23.15   0.000     1.147495    1.359899
+    ln_MoneyRaised_VD |   .0271317   .0075205     3.61   0.000     .0123854     .041878
+NumofFundingRounds_VD |   .0121838   .0090814     1.34   0.180     -.005623    .0299907
+                _cons |  -.2690915   .1124784    -2.39   0.017    -.4896405   -.0485426
+---------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. margins fundstage, dydx(1.VD) predict(xb) post
+
+Average marginal effects                                 Number of obs = 2,820
+Model VCE: Robust
+
+Expression: Linear prediction, predict(xb)
+dy/dx wrt:  1.VD
+
+------------------------------------------------------------------------------------
+                   |            Delta-method
+                   |      dy/dx   std. err.      t    P>|t|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+0.VD               |  (base outcome)
+-------------------+----------------------------------------------------------------
+1.VD               |
+         fundstage |
+Seed / pre-Series  |  -.0462912   .0329673    -1.40   0.160     -.110934    .0183515
+         Series A  |  -.0419899    .043851    -0.96   0.338    -.1279735    .0439938
+         Series B  |  -.1143321   .0588185    -1.94   0.052    -.2296641        .001
+        Series C+  |  -.3342465   .0722853    -4.62   0.000    -.4759845   -.1925085
+------------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+. reghdfe ln_grantedbyfiling_norm_win3 i.VD##ib1.fundstage ///
+>    i.VD##i.priorpatentdummy_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 3 HDFE groups                           F(  11,   2797) =      55.21
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4309
+                                                  Adj R-squared   =     0.4264
+                                                  Within R-sq.    =     0.3660
+                                                  Root MSE        =     0.6424
+
+----------------------------------------------------------------------------------------
+                       |               Robust
+ln_grantedbyfiling_n~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-----------------------+----------------------------------------------------------------
+                  1.VD |  -.0293821   .0319499    -0.92   0.358    -.0920298    .0332657
+                       |
+             fundstage |
+             Series A  |  -.0029377   .0419977    -0.07   0.944    -.0852873    .0794119
+             Series B  |  -.0128411   .0555951    -0.23   0.817    -.1218526    .0961705
+            Series C+  |   .1517677   .0624027     2.43   0.015     .0294078    .2741276
+                       |
+          VD#fundstage |
+           1#Series A  |   .0155569   .0547003     0.28   0.776    -.0917001    .1228138
+           1#Series B  |  -.0468044   .0669656    -0.70   0.485    -.1781113    .0845025
+          1#Series C+  |  -.2459837   .0755205    -3.26   0.001    -.3940652   -.0979022
+                       |
+ 1.priorpatentdummy_VD |   1.343799   .0792585    16.95   0.000     1.188388     1.49921
+                       |
+VD#priorpatentdummy_VD |
+                  1 1  |  -.1849302   .1039337    -1.78   0.075    -.3887248    .0188644
+                       |
+     ln_MoneyRaised_VD |   .0271655   .0074673     3.64   0.000     .0125236    .0418074
+ NumofFundingRounds_VD |   .0121873    .009013     1.35   0.176    -.0054855      .02986
+                 _cons |  -.2779449   .1122392    -2.48   0.013    -.4980249   -.0578649
+----------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. margins fundstage, dydx(1.VD) predict(xb) post
+
+Average marginal effects                                 Number of obs = 2,820
+Model VCE: Robust
+
+Expression: Linear prediction, predict(xb)
+dy/dx wrt:  1.VD
+
+------------------------------------------------------------------------------------
+                   |            Delta-method
+                   |      dy/dx   std. err.      t    P>|t|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+0.VD               |  (base outcome)
+-------------------+----------------------------------------------------------------
+1.VD               |
+         fundstage |
+Seed / pre-Series  |   -.061253   .0358017    -1.71   0.087    -.1314535    .0089475
+         Series A  |  -.0456962    .044444    -1.03   0.304    -.1328426    .0414503
+         Series B  |  -.1080574   .0581379    -1.86   0.063     -.222055    .0059402
+        Series C+  |  -.3072367   .0671369    -4.58   0.000    -.4388796   -.1755938
+------------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD3874_000004.tmp"
+
+. * Use the immediately preceding margins result, not an external results file.
+. matrix Figure42_results = r(table)'
+
+. preserve
+
+. clear
+
+. svmat double Figure42_results, names(col)
+number of observations will be reset to 8
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 8.
+
+. keep if se > 0 & !missing(se)
+(4 observations deleted)
+
+. assert _N == 4
+
+. gen byte stage = _n
+
+. gen double lower = b-invttail(df,.025)*se
+
+. gen double upper = b+invttail(df,.025)*se
+
+. gen str8 pointlabel = string(b,"%5.3f")
+
+. graph set window fontface "Times New Roman"
+
+. graph set print fontface "Times New Roman"
+
+. twoway (rcap lower upper stage, lcolor(navy) lwidth(medthick)) ///
+>     (scatter b stage, mcolor(navy) msymbol(O) msize(medlarge) ///
+>     mlabel(pointlabel) mlabposition(3) mlabcolor(navy) mlabsize(medsmall)), ///
+>     xlabel(1 "Seed / pre-Series" 2 "Series A" 3 "Series B" 4 "Series C+", labsize(medsmall)) //
+> /
+>     xscale(range(.5 4.7)) ylabel(-.4(.1).1, angle(horizontal) format(%3.1f)) ///
+>     yline(0, lcolor(gs8) lpattern(dash)) ///
+>     xtitle("Venture stage at VD/reference date", size(medsmall)) ///
+>     ytitle("Estimated VD effect on log(1 + normalized" "granted patent applications)", size(med
+> small)) ///
+>     title("Figure 4-2. Estimated effect of VD on subsequent patenting" "by venture stage", size
+> (medium) color(black)) ///
+>     note("Points show average discrete effects of VD (0 to 1); bars show pointwise 95% CIs." //
+> /
+>     "Full model (Table 4-2, column 4); N = 2,820.", size(small)) ///
+>     legend(off) graphregion(color(white)) plotregion(color(white)) ///
+>     xsize(8.4) ysize(5.1) scheme(s2mono)
+
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD3874_000005.tmp"
+
+. * Use the immediately preceding margins result, not an external results file.
+. matrix Figure42_results = r(table)'
+
+. preserve
+
+. clear
+
+. svmat double Figure42_results, names(col)
+number of observations will be reset to 1
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 1.
+
+. keep if se > 0 & !missing(se)
+se not found
+r(111);
+
+end of do-file
+
+r(111);
+
+. do "C:\Users\user\AppData\Local\Temp\STD3874_000006.tmp"
+
+. *Table 4-1 and 4-2
+. reghdfe ln_grantedbyfiling_norm_win3 i.VD ib1.fundstage ///
+>     i.priorpatentdummy_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 3 HDFE groups                           F(   7,   2801) =      82.64
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4251
+                                                  Adj R-squared   =     0.4214
+                                                  Within R-sq.    =     0.3596
+                                                  Root MSE        =     0.6452
+
+---------------------------------------------------------------------------------------
+                      |               Robust
+ln_grantedbyfi~m_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+----------------------+----------------------------------------------------------------
+                 1.VD |  -.1130296   .0246725    -4.58   0.000    -.1614077   -.0646515
+                      |
+            fundstage |
+            Series A  |  -.0036502   .0313244    -0.12   0.907    -.0650714    .0577711
+            Series B  |  -.0431637   .0408429    -1.06   0.291     -.123249    .0369216
+           Series C+  |   .0338077   .0469836     0.72   0.472    -.0583184    .1259338
+                      |
+1.priorpatentdummy_VD |    1.25698   .0544921    23.07   0.000     1.150131    1.363829
+    ln_MoneyRaised_VD |   .0270574   .0074377     3.64   0.000     .0124735    .0416413
+NumofFundingRounds_VD |   .0116286   .0091954     1.26   0.206    -.0064019     .029659
+                _cons |  -.2272671   .1090634    -2.08   0.037    -.4411197   -.0134144
+---------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. margins fundstage, dydx(1.VD) predict(xb) post
+
+Average marginal effects                                 Number of obs = 2,820
+Model VCE: Robust
+
+Expression: Linear prediction, predict(xb)
+dy/dx wrt:  1.VD
+
+------------------------------------------------------------------------------------
+                   |            Delta-method
+                   |      dy/dx   std. err.      t    P>|t|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+0.VD               |  (base outcome)
+-------------------+----------------------------------------------------------------
+1.VD               |
+         fundstage |
+Seed / pre-Series  |  -.1130296   .0246725    -4.58   0.000    -.1614077   -.0646515
+         Series A  |  -.1130296   .0246725    -4.58   0.000    -.1614077   -.0646515
+         Series B  |  -.1130296   .0246725    -4.58   0.000    -.1614077   -.0646515
+        Series C+  |  -.1130296   .0246725    -4.58   0.000    -.1614077   -.0646515
+------------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+. reghdfe ln_grantedbyfiling_norm_win3 i.VD##i.priorpatentdummy_VD ib1.fundstage ///
+>      ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 3 HDFE groups                           F(   8,   2800) =      74.99
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4278
+                                                  Adj R-squared   =     0.4239
+                                                  Within R-sq.    =     0.3626
+                                                  Root MSE        =     0.6438
+
+----------------------------------------------------------------------------------------
+                       |               Robust
+ln_grantedbyfiling_n~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-----------------------+----------------------------------------------------------------
+                  1.VD |  -.0723582   .0200226    -3.61   0.000    -.1116187   -.0330977
+ 1.priorpatentdummy_VD |    1.37112   .0803659    17.06   0.000     1.213538    1.528703
+                       |
+VD#priorpatentdummy_VD |
+                  1 1  |  -.2350016   .1050155    -2.24   0.025    -.4409171    -.029086
+                       |
+             fundstage |
+             Series A  |  -.0000507   .0310581    -0.00   0.999    -.0609497    .0608483
+             Series B  |  -.0402784   .0405703    -0.99   0.321    -.1198292    .0392723
+            Series C+  |   .0325683   .0467162     0.70   0.486    -.0590334      .12417
+                       |
+     ln_MoneyRaised_VD |   .0270787   .0073837     3.67   0.000     .0126006    .0415568
+ NumofFundingRounds_VD |   .0117601   .0090908     1.29   0.196    -.0060653    .0295854
+                 _cons |  -.2498451   .1094247    -2.28   0.022    -.4644062   -.0352839
+----------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. margins fundstage, dydx(1.VD) predict(xb) post
+
+Average marginal effects                                 Number of obs = 2,820
+Model VCE: Robust
+
+Expression: Linear prediction, predict(xb)
+dy/dx wrt:  1.VD
+
+------------------------------------------------------------------------------------
+                   |            Delta-method
+                   |      dy/dx   std. err.      t    P>|t|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+0.VD               |  (base outcome)
+-------------------+----------------------------------------------------------------
+1.VD               |
+         fundstage |
+Seed / pre-Series  |  -.1128585   .0245571    -4.60   0.000    -.1610103   -.0647066
+         Series A  |  -.1128585   .0245571    -4.60   0.000    -.1610103   -.0647066
+         Series B  |  -.1128585   .0245571    -4.60   0.000    -.1610103   -.0647066
+        Series C+  |  -.1128585   .0245571    -4.60   0.000    -.1610103   -.0647066
+------------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+. reghdfe ln_grantedbyfiling_norm_win3 i.VD##ib1.fundstage ///
+>     i.priorpatentdummy_VD  ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 3 HDFE groups                           F(  10,   2798) =      58.71
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4293
+                                                  Adj R-squared   =     0.4250
+                                                  Within R-sq.    =     0.3642
+                                                  Root MSE        =     0.6432
+
+---------------------------------------------------------------------------------------
+                      |               Robust
+ln_grantedbyfi~m_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+----------------------+----------------------------------------------------------------
+                 1.VD |  -.0462912   .0329673    -1.40   0.160     -.110934    .0183515
+                      |
+            fundstage |
+            Series A  |   .0011899   .0417233     0.03   0.977    -.0806218    .0830015
+            Series B  |  -.0036565   .0552331    -0.07   0.947    -.1119582    .1046452
+           Series C+  |   .1738862   .0633049     2.75   0.006     .0497573    .2980152
+                      |
+         VD#fundstage |
+          1#Series A  |   .0043013   .0545476     0.08   0.937    -.1026562    .1112589
+          1#Series B  |  -.0680408   .0672953    -1.01   0.312    -.1999943    .0639126
+         1#Series C+  |  -.2879553   .0789406    -3.65   0.000    -.4427429   -.1331676
+                      |
+1.priorpatentdummy_VD |   1.253697   .0541623    23.15   0.000     1.147495    1.359899
+    ln_MoneyRaised_VD |   .0271317   .0075205     3.61   0.000     .0123854     .041878
+NumofFundingRounds_VD |   .0121838   .0090814     1.34   0.180     -.005623    .0299907
+                _cons |  -.2690915   .1124784    -2.39   0.017    -.4896405   -.0485426
+---------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. margins fundstage, dydx(1.VD) predict(xb) post
+
+Average marginal effects                                 Number of obs = 2,820
+Model VCE: Robust
+
+Expression: Linear prediction, predict(xb)
+dy/dx wrt:  1.VD
+
+------------------------------------------------------------------------------------
+                   |            Delta-method
+                   |      dy/dx   std. err.      t    P>|t|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+0.VD               |  (base outcome)
+-------------------+----------------------------------------------------------------
+1.VD               |
+         fundstage |
+Seed / pre-Series  |  -.0462912   .0329673    -1.40   0.160     -.110934    .0183515
+         Series A  |  -.0419899    .043851    -0.96   0.338    -.1279735    .0439938
+         Series B  |  -.1143321   .0588185    -1.94   0.052    -.2296641        .001
+        Series C+  |  -.3342465   .0722853    -4.62   0.000    -.4759845   -.1925085
+------------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+. reghdfe ln_grantedbyfiling_norm_win3 i.VD##ib1.fundstage ///
+>    i.VD##i.priorpatentdummy_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 3 HDFE groups                           F(  11,   2797) =      55.21
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4309
+                                                  Adj R-squared   =     0.4264
+                                                  Within R-sq.    =     0.3660
+                                                  Root MSE        =     0.6424
+
+----------------------------------------------------------------------------------------
+                       |               Robust
+ln_grantedbyfiling_n~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-----------------------+----------------------------------------------------------------
+                  1.VD |  -.0293821   .0319499    -0.92   0.358    -.0920298    .0332657
+                       |
+             fundstage |
+             Series A  |  -.0029377   .0419977    -0.07   0.944    -.0852873    .0794119
+             Series B  |  -.0128411   .0555951    -0.23   0.817    -.1218526    .0961705
+            Series C+  |   .1517677   .0624027     2.43   0.015     .0294078    .2741276
+                       |
+          VD#fundstage |
+           1#Series A  |   .0155569   .0547003     0.28   0.776    -.0917001    .1228138
+           1#Series B  |  -.0468044   .0669656    -0.70   0.485    -.1781113    .0845025
+          1#Series C+  |  -.2459837   .0755205    -3.26   0.001    -.3940652   -.0979022
+                       |
+ 1.priorpatentdummy_VD |   1.343799   .0792585    16.95   0.000     1.188388     1.49921
+                       |
+VD#priorpatentdummy_VD |
+                  1 1  |  -.1849302   .1039337    -1.78   0.075    -.3887248    .0188644
+                       |
+     ln_MoneyRaised_VD |   .0271655   .0074673     3.64   0.000     .0125236    .0418074
+ NumofFundingRounds_VD |   .0121873    .009013     1.35   0.176    -.0054855      .02986
+                 _cons |  -.2779449   .1122392    -2.48   0.013    -.4980249   -.0578649
+----------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. margins fundstage, dydx(1.VD) predict(xb) post
+
+Average marginal effects                                 Number of obs = 2,820
+Model VCE: Robust
+
+Expression: Linear prediction, predict(xb)
+dy/dx wrt:  1.VD
+
+------------------------------------------------------------------------------------
+                   |            Delta-method
+                   |      dy/dx   std. err.      t    P>|t|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+0.VD               |  (base outcome)
+-------------------+----------------------------------------------------------------
+1.VD               |
+         fundstage |
+Seed / pre-Series  |   -.061253   .0358017    -1.71   0.087    -.1314535    .0089475
+         Series A  |  -.0456962    .044444    -1.03   0.304    -.1328426    .0414503
+         Series B  |  -.1080574   .0581379    -1.86   0.063     -.222055    .0059402
+        Series C+  |  -.3072367   .0671369    -4.58   0.000    -.4388796   -.1755938
+------------------------------------------------------------------------------------
+Note: dy/dx for factor levels is the discrete change from the base level.
+
+. 
+. * Figure 4-2: full-model stage-specific VD effects and pointwise 95% CIs.
+. * Use the immediately preceding margins result, not an external results file.
+. matrix Figure42_results = r(table)'
+
+. preserve
+
+. clear
+
+. svmat double Figure42_results, names(col)
+number of observations will be reset to 8
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 8.
+
+. keep if se > 0 & !missing(se)
+(4 observations deleted)
+
+. assert _N == 4
+
+. gen byte stage = _n
+
+. gen double lower = b-invttail(df,.025)*se
+
+. gen double upper = b+invttail(df,.025)*se
+
+. gen str8 pointlabel = string(b,"%5.3f")
+
+. graph set window fontface "Times New Roman"
+
+. graph set print fontface "Times New Roman"
+
+. twoway (rcap lower upper stage, lcolor(navy) lwidth(medthick)) ///
+>     (scatter b stage, mcolor(navy) msymbol(O) msize(medlarge) ///
+>     mlabel(pointlabel) mlabposition(3) mlabcolor(navy) mlabsize(medsmall)), ///
+>     xlabel(1 "Seed / Pre-Series" 2 "Series A" 3 "Series B" 4 "Series C+", labsize(medsmall)) //
+> /
+>     xscale(range(.5 4.7)) ylabel(-.4(.1).1, angle(horizontal) format(%3.1f)) ///
+>     yline(0, lcolor(gs8) lpattern(dash)) ///
+>     xtitle("Funding stage at VD year or reference date", size(medsmall)) ///
+>     ytitle("Estimated VD effect on patent applications", size(medsmall)) ///
+>     title("Figure 4. Estimated effect of VD on subsequent patenting" "by funding stage", size(m
+> edium) color(black)) ///
+>     note("Points show average discrete effects of VD (0 to 1); bars show pointwise 95% CIs." //
+> /
+>     "Full model (Table 4-2, column 4); N = 2,820.", size(small)) ///
+>     legend(off) graphregion(color(white)) plotregion(color(white)) ///
+>     xsize(8.4) ysize(5.1) scheme(s2mono)
+
+. 
+end of do-file
+
+. exit, clear

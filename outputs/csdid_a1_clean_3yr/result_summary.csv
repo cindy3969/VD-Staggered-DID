@@ -1,0 +1,13 @@
+specification,sample,simple_att,simple_p,event_post_avg,event_post_p
+A1_only_granted_within_3y,all,-0.014557,0.439,-0.014198,0.385
+A1_only_granted_within_3y,no_prior_clean,0.009090,0.590,0.009686,0.488
+A1_only_granted_within_3y,prior_clean,-0.945037,0.012,-0.976451,0.019
+A1_only_granted_within_3y,early,-0.014025,0.513,-0.012815,0.474
+A1_only_granted_within_3y,late,-0.014833,0.528,-0.019215,0.483
+A1_only_3y_title_deduplicated,all,-0.009235,0.379,-0.005713,0.598
+A1_only_3y_title_deduplicated,no_prior_clean,0.009212,0.217,0.012555,0.101
+A1_only_3y_title_deduplicated,prior_clean,-0.730699,0.174,-0.740540,0.171
+A1_only_3y_title_deduplicated,early,-0.009658,0.417,-0.003881,0.747
+A1_only_3y_title_deduplicated,late,-0.006886,0.688,-0.012479,0.539
+A1_only_granted_within_3y,prior_original_definition,-0.020330,0.236,-0.017812,0.279
+A1_only_3y_title_deduplicated,prior_original_definition,0.002034,0.877,0.005497,0.688

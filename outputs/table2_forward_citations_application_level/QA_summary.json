@@ -1,0 +1,11 @@
+{
+  "applications": 10727,
+  "granted_applications": 6319,
+  "granted_with_recovered_citation_value": 5801,
+  "granted_without_recovered_citation_row_treated_as_zero": 518,
+  "application_id_duplicates": 0,
+  "panel_rows": 88550,
+  "panel_firms": 7273,
+  "normalization": "filing-year mean, no CPC/technology class",
+  "citation_cutoff": 2024
+}

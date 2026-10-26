@@ -1,0 +1,31 @@
+{
+  "source": "C:\\Users\\user\\iCloudDrive\\5학기\\연구미팅\\20240108-2010 to 2015 firms\\260122 winsorization.dta",
+  "output": "C:\\Users\\user\\Documents\\VD\\outputs\\psm_final_2820_package\\table3_original_2820_cross_section_v2.dta",
+  "firms": 2820,
+  "treated": 1410,
+  "controls": 1410,
+  "original_columns_preserved_exactly": 164,
+  "shared_with_rematched": 1940,
+  "same_reference_year": 1938,
+  "shared_outcome_verification": {
+    "grantedpatentbyfiling_win3": {
+      "compared": 1938,
+      "equal": 1938
+    },
+    "grantedpatentbyfiling_norm_win3": {
+      "compared": 1938,
+      "equal": 1938
+    },
+    "norm_cite_perpat_win3_v4": {
+      "compared": 1938,
+      "equal": 1938
+    }
+  },
+  "quality_nonmissing": 710,
+  "incomplete_3year_windows": 190,
+  "outcome_sums": {
+    "grantedpatentbyfiling_win3": 6183.0,
+    "grantedpatentbyfiling_norm_win3": 6805.501329476947
+  },
+  "normalization": "Same existing 39249-application universe; no change of definition"
+}

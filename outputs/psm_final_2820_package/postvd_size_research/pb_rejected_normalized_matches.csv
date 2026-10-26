@@ -1,0 +1,12 @@
+companyid,companyname,dealdate,announceddate,revenue,revenuegrowthsincelastdebtdeal,grossprofit,netincome,ebitda,totaldebt,fiscalyear,debt_ebitda,debt_equity,dealsize_ebitda,valuation_ebitda,impliedev_ebitda,impliedev_ebit,valuation_ebit,valuation_netincome,dealsize_ebit,dealsize_netincome,dealsize_revenue,valuation_revenue,impliedev_revenue,dealsize_cashflow,valuation_cashflow,impliedev_cashflow,impliedev_netincome,deal_year,source_row,exact_key,name_key,firm_id,OrganizationName,VD,VDyear,match_method
+495684-91,REDD,03/01/2022,,0.071529068,,,,,,2021.0,,,,,,,,,,,13.98033,,,,,,,2022.0,24973,redd,redd,42367,R.e.d.d.,1,2018,normalized_unique
+235241-20,Metaview,11/30/2021,10/22/2021,,,,,,0.0,2022.0,,0.0,,,,,,,,,,,,,,,,2021.0,78063,metaview,metaview,29599,Meta View,0,2018,normalized_unique
+235241-20,Metaview,07/01/2021,,,,,,,0.0,2021.0,,0.0,,,,,,,,,,,,,,,,2021.0,117504,metaview,metaview,29599,Meta View,0,2018,normalized_unique
+235241-20,Metaview,09/11/2025,,,,,,,,,,,,,,,,,,,,,,,,,,2025.0,453394,metaview,metaview,29599,Meta View,0,2018,normalized_unique
+235241-20,Metaview,12/25/2018,,,,,,,0.0,2019.0,,0.0,,,,,,,,,,,,,,,,2018.0,492804,metaview,metaview,29599,Meta View,0,2018,normalized_unique
+235241-20,Metaview,08/18/2025,06/25/2025,,,,,,,,,,,,,,,,,,,,,,,,,2025.0,532117,metaview,metaview,29599,Meta View,0,2018,normalized_unique
+537587-38,Le Monade,07/05/2024,,,,,,,,,,,,,,,,,,,,,,,,,,2024.0,860499,le monade,lemonade,51649,Lemonade,0,2020,normalized_unique
+235241-20,Metaview,03/28/2024,02/20/2024,,,,,,0.0,2024.0,,,,,,,,,,,,,,,,,,2024.0,942095,metaview,metaview,29599,Meta View,0,2018,normalized_unique
+537587-38,Le Monade,01/01/2022,,,,,,,,,,,,,,,,,,,,,,,,,,2022.0,1012975,le monade,lemonade,51649,Lemonade,0,2020,normalized_unique
+537587-38,Le Monade,01/01/2018,,,,,,,,,,,,,,,,,,,,,,,,,,2018.0,1082903,le monade,lemonade,51649,Lemonade,0,2020,normalized_unique
+495684-91,REDD,09/12/2023,,,,,,,,,,,,,,,,,,,,,,,,,,2023.0,1090410,redd,redd,42367,R.e.d.d.,1,2018,normalized_unique

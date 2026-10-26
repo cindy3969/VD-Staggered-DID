@@ -1,0 +1,237 @@
+{
+  "id": "01a15375-f894-7321-86a3-199e5978e0e6",
+  "title": "4.Revisit the pseudo-treatment-year construction",
+  "messages": [
+    {
+      "ordinal": 15,
+      "message": {
+        "type": "userMessage",
+        "id": "01a15376-af66-7a23-a4a7-cd6b3952ae75",
+        "clientId": "4c520a29-658b-4279-92f8-42a0d871bdda",
+        "content": [
+          {
+            "type": "text",
+            "text": "**4. Revisit the pseudo-treatment-year construction**\n\nBefore deciding on a new estimation approach, please examine carefully the current treatment/pseudo-treatment construction.\n\n\n\nAt present, VD-treated firms use their actual first VD year, while control firms receive a pseudo-treatment reference point based largely on average VD timing.\n\n\n\nThis was a reasonable approach for the initial draft, but a reviewer may reasonably ask whether treated and untreated startups are being compared at genuinely comparable points in:\n\n- calendar time,\n- venture age,\n- financing stage, and\n- financing-market conditions.\n\n\n\nPlease document the full distribution of actual VD timing relative to founding and first VC financing. This naturally leads to the next analysis.이거는 어떻게 할까? firm level (obs=2820 firms) crossectional analysis에서는 control group의 hypothetical VD year를 founding year+5로 했는데. 이 내용좀 확인하고 어떻게 report해야할지 제안해줘\n",
+            "text_elements": []
+          }
+        ]
+      }
+    },
+    {
+      "ordinal": 16,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad5e0f406948191b0d1000bd7e99225",
+        "text": "현재 파일에서 control의 hypothetical VD year가 실제로 `founding year + 5`로 설정됐는지, 그리고 treated의 첫 VD 시점 관련 변수가 어떻게 만들어졌는지 확인하겠습니다. 확인한 내용을 바탕으로 reviewer에게 보고할 표와 설명 문구를 제안하겠습니다.\n",
+        "phase": "commentary",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 54,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad5e136bacc81918970d06620a7bb96",
+        "text": "재구성 코드에 control의 기준연도를 `founding year + 5`로 지정한 것이 확인됩니다. 이제 실제 2,820개 기업 데이터에서도 이 규칙이 모두 적용되는지와 treated의 VD 시점 분포를 확인하겠습니다. 특히 ‘평균 시점에 맞췄다’는 설명과 ‘기업별 비교 시점이 유사하다’는 주장은 구분해서 보고할 필요가 있습니다.\n",
+        "phase": "commentary",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 83,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad5e17c5d6081919202fd04bcbabfed",
+        "text": "확인해보니, **2,820개 기업의 cross-sectional analysis에서 control의 기준연도는 실제로 모두 `founding year + 5`입니다.** 다만 현재 결과는 **“평균적인 VD 연령에 맞춘 기준점”이라는 설명은 뒷받침하지만, calendar time·venture age·financing stage가 기업별로 comparable하다는 설명까지 뒷받침하지는 않습니다.**\n\n현재 `table3_current_2820_cross_section_v2.dta`와 매칭 원자료를 대조했고, 기준연도와 설립연도는 모두 일치했습니다. 원자료나 추정 결과는 변경하지 않았습니다.\n\n**1. 실제 데이터에서 확인된 내용**\n\n| 항목 | VD-treated | Control |\n|---|---:|---:|\n| 기업 수 | 1,410 | 1,410 |\n| 기준연도 범위 | 2010–2023 | 2015–2020 |\n| 평균 기준연도 | 2017.37 | 2017.46 |\n| 기준시점의 평균 기업연령 | 4.96년 | 5년 |\n| 기업연령 표준편차 | 2.98년 | 0년 |\n| 기업연령 중앙값 | 5년 | 5년 |\n| 기업연령 25–75백분위 | 2–7년 | 5–5년 |\n| 기업연령 범위 | 0–13년 | 5년 |\n| 첫 VC 이후 기준시점까지 평균 | 3.36년 | 3.47년 |\n| 첫 VC 이후 기준시점까지 중앙값 | 3년 | 4년 |\n| 첫 VC 이후 기준시점까지 25–75백분위 | 1–5년 | 3–5년 |\n\n첫 VC 관련 수치는 저장된 `TimeToFirst_VC`와 설립연도로 계산했습니다. **원거래의 날짜까지 독립적으로 재검증한 수치는 아니며, 모두 달력연도 차이입니다.**\n\nTreated의 첫 VD 시점은 다음처럼 분산되어 있습니다.\n\n- 설립 후 5년 미만: **687개, 48.7%**\n- 정확히 5년: **144개, 10.2%**\n- 5년 초과: **579개, 41.1%**\n\n따라서 **5년은 현재 treated 표본의 평균과 중앙값에 잘 부합합니다.** 다만 이것만으로 최초에 5년을 선택한 역사적 근거까지 확인되는 것은 아닙니다.\n\n**2. Reviewer에게 설명해야 할 핵심 문제**\n\n**Calendar time:** 평균 기준연도는 거의 같지만 분포가 다릅니다. Treated의 **653개, 46.3%**는 control 기준연도 범위인 2015–2020년 밖에서 VD를 받았습니다. 따라서 평균연도가 비슷하다는 이유로 financing-market conditions까지 유사하다고 주장하기 어렵습니다. 실제 시장조건 차이의 크기는 별도 측정이 필요합니다.\n\n**Venture age:** control은 전부 5세지만 treated는 0–13세입니다. 현재 방식은 평균 연령을 맞추는 규칙이지, 기업별 연령을 맞추는 규칙은 아닙니다.\n\n**첫 VC와의 선후관계:** control **36개, 2.6%**는 계산상 pseudo-year가 첫 VC보다 앞섭니다. VC-backed 기업 간 비교라는 취지에서 우선 원거래 기록을 확인해야 할 사례입니다.\n\n**Financing stage:** 현재 `earlystage=1` 비율은 treated **11.1%**, control **52.6%**로 크게 다릅니다. 다만 생성 코드가 기준연도 stage 결측을 0으로 처리하므로, 이 차이를 그대로 경제적 stage 차이라고 해석하면 안 됩니다. **기준시점 이전 마지막 equity round로 stage를 재확인하고, unknown을 별도로 보고하는 것이 좋습니다.**\n\n추가로 treated 3개 기업에서 저장된 timing 변수와 연도 차이가 불일치하거나 결측입니다. Convo는 1년 차이, Dermira와 Eargo는 저장된 duration 결측으로, 보고 전 확인 대상으로 남겨두는 것이 좋습니다.\n\n**3. 어떻게 report하면 좋을까?**\n\n제안은 **현행 규칙을 명확히 기술하고 → 분포와 비교가능성 진단을 제시한 뒤 → 그 결과를 근거로 다음 분석을 설계하는 순서**입니다.\n\nAppendix 표는 다음처럼 구성하면 됩니다.\n\n| 구성 | 보고 내용 |\n|---|---|\n| Panel A: Actual VD timing | 설립→첫 VD, 첫 VC→첫 VD의 N·평균·SD·P10·P25·중앙값·P75·P90·최솟값·최댓값 |\n| Panel B: Reference-point comparability | 두 집단의 기준연도, 기업연령, 첫 VC 이후 경과기간, 직전 financing stage 분포 |\n| Panel C: Timing/data exceptions | 첫 VC 이전 pseudo-year, timing 불일치, stage 결측, outcome 관측기간 부족 |\n\n그림은 **설립 이후 VD까지의 연도별 빈도와 첫 VC 이후 VD까지의 연도별 빈도**를 보여주고, 설립연령 그림에 5년 기준선을 표시하면 충분합니다. 전체 연도별 빈도는 이미 [분포 점검 결과](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/timing_audit.txt)에 저장했습니다.\n\n본문에는 다음처럼 쓰는 것이 정확합니다.\n\n> In the firm-level cross-sectional analysis, treated firms are indexed by their recorded first VD year, whereas control firms are assigned a reference year equal to their founding year plus five. In the matched treated sample, the mean and median time from founding to first VD are 4.96 and 5 years, respectively. Although the five-year convention approximates the central tendency of VD timing, it does not ensure comparability in calendar year, venture age, or financing stage at the firm level. We therefore document the timing distributions and assess comparability at the assigned reference points.\n\n**4. 다음 분석으로는 무엇이 적절한가?**\n\n우선 **“treated의 실제 VD 연도에, 비슷한 연령과 직전 financing stage에 있는 control을 비교할 수 있는가”**를 점검하는 것이 가장 직접적입니다. 이 경우 control은 해당 시점까지 VC를 받았고 비교대상으로 관측 가능해야 하며, stage·누적조달액 등은 기준시점 이전 정보로 구성해야 합니다.\n\n단순히 pseudo-year를 `founding+4` 또는 `+6`으로 바꾸는 것은 보조 민감도 분석은 될 수 있지만, calendar time과 stage 비교가능성 문제를 해결하지는 못합니다. 기준연도를 바꾸는 분석에서는 **baseline covariates와 outcome window도 함께 재구성해야 합니다.**\n\n제 판단으로는, **현재 5년 규칙을 즉시 폐기하기보다는 “평균 timing에는 부합하지만 분포상 비교가능성은 제한적”이라고 투명하게 보고하는 것이 맞습니다.** 이번 진단이 다음 비교표본 구성 분석을 진행할 구체적인 근거가 됩니다.",
+        "phase": "final_answer",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 92,
+      "message": {
+        "type": "userMessage",
+        "id": "01a15379-b9f8-7322-a7f0-62584f632e9b",
+        "clientId": "6744f7ab-e190-4d9c-8429-1539733c4030",
+        "content": [
+          {
+            "type": "text",
+            "text": "저 표 영어로 바꿔줘. 그리고 그래프로도 어떻게 나타내?\n",
+            "text_elements": []
+          }
+        ]
+      }
+    },
+    {
+      "ordinal": 95,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad5e1bb9f8481918f78b64178bf94d8",
+        "text": "표를 영어로 옮기고, 실제 분포를 보여주는 3개 패널 그래프도 만들겠습니다. 기준연도, 설립 후 경과연수, 첫 VC 이후 경과연수를 나란히 비교하면 평균이 비슷해도 분포는 다르다는 점이 잘 드러납니다.\n",
+        "phase": "commentary",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 139,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad5e208572881919c1c406e2fa37aa5",
+        "text": "그래프는 그룹 내 비율(%)로 표시하겠습니다. 특히 control의 기업연령은 모두 5년이므로, 이 패널은 control을 막대로 겹치기보다 ‘5년 기준선’으로 표시해야 treated의 분포가 잘 보입니다.\n",
+        "phase": "commentary",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 174,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad5e253bb008191aac6bed960eca9d5",
+        "text": "영문 표의 수치는 그대로 유지하고, 그래프에는 첫 VC 연도가 기존 변수에서 계산된 값이라는 주석을 넣었습니다. 첫 VC 이전으로 배정된 control 36개도 음수 구간에 표시해, 추가 확인이 필요한 사례가 드러나도록 구성했습니다.\n",
+        "phase": "commentary",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 212,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad5e298fde881919cffce29c005329b",
+        "text": "아래처럼 영어로 쓰면 됩니다. Control에는 실제 treatment가 없으므로, 두 그룹을 포괄하는 표현은 **reference year**가 정확합니다.\n\n**Table X. Timing of actual VD receipt and assigned control reference years**\n\n| Characteristic | VD-treated firms | Control firms |\n|---|---:|---:|\n| Number of firms | 1,410 | 1,410 |\n| Reference year, range | 2010–2023 | 2015–2020 |\n| Reference year, mean | 2017.37 | 2017.46 |\n| Venture age at reference year, mean | 4.96 | 5.00 |\n| Venture age at reference year, SD | 2.98 | 0.00 |\n| Venture age at reference year, median | 5 | 5 |\n| Venture age at reference year, 25th–75th percentiles | 2–7 | 5–5 |\n| Venture age at reference year, range | 0–13 | 5–5 |\n| Years since first VC financing at reference year, mean | 3.36 | 3.47 |\n| Years since first VC financing at reference year, median | 3 | 4 |\n| Years since first VC financing at reference year, 25th–75th percentiles | 1–5 | 3–5 |\n\n*Notes: The sample comprises 2,820 firms. The reference year is the recorded first VD year for treated firms and the founding year plus five for control firms. Venture age and elapsed time since first VC financing are measured as calendar-year differences. First VC years are inferred from founding years and the stored time-to-first-VC variable and have not been independently verified against transaction dates.*\n\n그래프는 **다음 3개 패널**로 나타내는 것이 좋습니다. 실제 데이터로 만들었습니다.\n\n![Timing distributions](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.png)\n\n- **Panel A — Calendar year:** 두 그룹의 기준연도 분포를 비교합니다. 평균은 비슷하지만 control은 2015–2020년에만 분포한다는 점이 드러납니다.\n- **Panel B — Years since founding:** treated의 실제 VD 연령 분포에 control의 **5년 기준선**을 표시합니다. Control을 100% 막대로 표시하면 treated 분포가 작게 눌리므로 점선이 더 읽기 좋습니다.\n- **Panel C — Years since first VC:** 첫 VC 이후 경과기간을 비교합니다. 음수 구간은 pseudo-year가 첫 VC보다 앞선 control로, 추가 확인 대상입니다.\n\n논문용 영문 caption은 다음처럼 쓰면 됩니다.\n\n> **Figure X. Distributions of actual VD timing and assigned control reference points.** Panel A presents the calendar-year distribution of reference points. Panel B presents venture age at first VD receipt for treated firms; the dashed line marks the reference age of five years assigned to all control firms. Panel C compares elapsed years since first VC financing at the reference point. Bars indicate percentages within each group (N = 1,410). All intervals are calendar-year differences. First VC years are inferred from stored timing variables; negative values in Panel C indicate control reference years preceding first VC financing.\n\n이 그림의 핵심 해석은 **“The five-year rule aligns the central tendency of venture age but does not reproduce the distribution of actual VD timing.”**입니다. Financing stage와 시장조건의 비교가능성은 이 그림만으로 입증되지 않으므로 별도 진단으로 보고하면 됩니다.\n\n파일: [고해상도 PNG](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.png) · [PDF](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.pdf) · [편집용 SVG](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.svg)",
+        "phase": "final_answer",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 221,
+      "message": {
+        "type": "userMessage",
+        "id": "01a1537f-38f0-7330-8255-472b9c3d15f5",
+        "clientId": "0ada69d5-e50b-4a0f-82c5-f74bc6b4e827",
+        "content": [
+          {
+            "type": "text",
+            "text": "저 figure의 폰트를 Times new roman으로 바꿔줘\n",
+            "text_elements": []
+          }
+        ]
+      }
+    },
+    {
+      "ordinal": 222,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad5e323fc88819185674868b21ae010",
+        "text": "그림의 모든 글꼴을 Times New Roman으로 바꾸고 PNG, PDF, SVG 파일을 다시 저장하겠습니다.\n",
+        "phase": "commentary",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 241,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad5e344cdf08191a5a180858f118f73",
+        "text": "모든 글꼴을 **Times New Roman**으로 변경했습니다.\n\n![Times New Roman figure](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.png)\n\n[PNG 다운로드](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.png) · [PDF 다운로드](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.pdf) · [SVG 다운로드](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.svg)",
+        "phase": "final_answer",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 256,
+      "message": {
+        "type": "userMessage",
+        "id": "01a156a5-b638-7d41-997a-4a4d5884fa44",
+        "clientId": "d548a6fc-ff71-49d5-9cbc-56ff10c7b74f",
+        "content": [
+          {
+            "type": "text",
+            "text": "VD-treated라 하지말고 Treated로 바꿔줘. X축명을 Reference year (First VD year), Y축명을 Number of firms within group (%)로 바꿔줘. 그리고 각 figure title을 가운데 정렬해줘\n",
+            "text_elements": []
+          }
+        ]
+      }
+    },
+    {
+      "ordinal": 257,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad6b19c1e8c8191828eb6ca36a49399",
+        "text": "범례를 “Treated”로 바꾸고, X축은 “Reference year (First VD year)”, Y축은 “Number of firms within group (%)”로 수정하겠습니다. 각 패널 제목도 가운데 정렬하겠습니다.\n",
+        "phase": "commentary",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 281,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad6b1c13f04819188f8811d9d82eb48",
+        "text": "수정했습니다. Times New Roman을 유지하고, 범례·축명 변경과 패널 제목 가운데 정렬을 적용했습니다. B·C의 X축에는 경과연수를 나타내는 차감 표현을 유지했습니다.\n\n![수정된 Figure](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.png)\n\n[PNG](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.png) · [PDF](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.pdf) · [SVG](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.svg)",
+        "phase": "final_answer",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 290,
+      "message": {
+        "type": "userMessage",
+        "id": "01a156a9-ee73-7741-b7d9-416f3e21d486",
+        "clientId": "6ab31daa-ec83-42c5-b469-856ad2e75e08",
+        "content": [
+          {
+            "type": "text",
+            "text": "그리고 전체 figure명을 Actual VD year and **pseudo-treatment-year&#x20;**&#x20; 이걸로 바꿔줘\n",
+            "text_elements": []
+          }
+        ]
+      }
+    },
+    {
+      "ordinal": 291,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad6b2c45f30819187e5f0f6e382eda3",
+        "text": "전체 제목을 “Actual VD year and pseudo-treatment-year”로 바꾸겠습니다.\n",
+        "phase": "commentary",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    },
+    {
+      "ordinal": 299,
+      "message": {
+        "type": "agentMessage",
+        "id": "msg_047034f44e016a8a016ad6b2e7029c8191960fde50aad5a6dc",
+        "text": "전체 제목을 **“Actual VD year and pseudo-treatment-year”**로 변경했습니다.\n\n![수정된 Figure](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.png)\n\n[PNG](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.png) · [PDF](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.pdf) · [SVG](C:/Users/user/Documents/VD/outputs/reference_timing_audit_2820/reference_timing_distribution.svg)",
+        "phase": "final_answer",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+companyid,companyname,dealdate,announceddate,revenue,revenuegrowthsincelastdebtdeal,grossprofit,netincome,ebitda,totaldebt,fiscalyear,debt_ebitda,debt_equity,dealsize_ebitda,valuation_ebitda,impliedev_ebitda,impliedev_ebit,valuation_ebit,valuation_netincome,dealsize_ebit,dealsize_netincome,dealsize_revenue,valuation_revenue,impliedev_revenue,dealsize_cashflow,valuation_cashflow,impliedev_cashflow,impliedev_netincome,deal_year,source_row,exact_key,name_key,firm_id,OrganizationName
+85151-08,codeSpark.,05/25/2021,,,,,,,,,,,,,,,,,,,,,,,,,,2021.0,146501,codespark.,codespark,36415,codeSpark
+467562-25,I.ndigo,,,,,,,,,,,,,,,,,,,,,,,,,,,,148411,i.ndigo,indigo,39011,Indigo
+467562-25,I.ndigo,01/01/2013,,10.0,,,,,,2012.0,,,,,,,,,,,,,,,,,,2013.0,148413,i.ndigo,indigo,39011,Indigo
+432838-63,Code Spark,03/02/2020,,,,,,,,,,,,,,,,,,,,,,,,,,2020.0,279187,code spark,codespark,36415,codeSpark
+432838-63,Code Spark,03/28/2018,,,,,,,,,,,,,,,,,,,,,,,,,,2018.0,279189,code spark,codespark,36415,codeSpark
+85151-08,codeSpark.,05/31/2019,,,,,,,,,,,,,,,,,,,,,,,,,,2019.0,438610,codespark.,codespark,36415,codeSpark
+597121-93,İNDİGO,01/01/2023,,,,,,,,,,,,,,,,,,,,,,,,,,2023.0,785836,i̇ndi̇go,indigo,39011,Indigo
+85151-08,codeSpark.,06/18/2014,,,,,,,,,,,,,,,,,,,,,,,,,,2014.0,866825,codespark.,codespark,36415,codeSpark
+85151-08,codeSpark.,,,,,,,,,,,,,,,,,,,,,,,,,,,,866827,codespark.,codespark,36415,codeSpark
+85151-08,codeSpark.,09/29/2016,07/29/2016,,,,,,,,,,,,,,,,,,,,,,,,,2016.0,866829,codespark.,codespark,36415,codeSpark
+85151-08,codeSpark.,04/01/2015,,,,,,,,,,,,,,,,,,,,,,,,,,2015.0,866831,codespark.,codespark,36415,codeSpark
+85151-08,codeSpark.,05/20/2015,,,,,,,,,,,,,,,,,,,,,,,,,,2015.0,1150588,codespark.,codespark,36415,codeSpark

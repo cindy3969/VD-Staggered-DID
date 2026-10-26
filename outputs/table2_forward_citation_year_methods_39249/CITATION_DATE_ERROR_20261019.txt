@@ -1,0 +1,12 @@
+DO NOT INTERPRET THE EXISTING ANNUAL CITATION / STAGGERED DID RESULTS.
+
+Audit on 2026-10-19 identified a material construction error in
+scripts/build_forward_citation_year_panel.py: g_us_patent_citation.citation_date
+was used as the forward-citation event date. That field describes the cited
+patent's grant month; it is not the date on which the citing patent was granted.
+The post-grant filter and annual normalization therefore also used the wrong date.
+
+Use the citing patent_id joined to g_patent.patent_date for event timing.
+The two requested cross-sectional measures have a separate corrected rebuild in
+outputs/table4_window3_39249_20261019. The old DiD has not been rerun in that task.
+Existing files are preserved for auditability, not endorsed for inference.

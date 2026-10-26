@@ -1,0 +1,320 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\outputs\psm_final_2820_package\RUN_TABLE3_PATENT_
+> APPLICATION_WIN3.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. 
+. global ROOT "C:/Users/user/Documents/VD/outputs/psm_final_2820_package"
+
+. capture mkdir "$ROOT/table3_application_results"
+
+. global OUT "$ROOT/table3_application_results"
+
+. 
+. capture log close
+
+. log using "$OUT/Table3_patent_application_win3.log", text replace
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_app
+> lication_results/Table3_patent_application_win3.log
+  log type:  text
+ opened on:  14 Oct 2026, 18:25:41
+
+. use "$ROOT/table3_current_2820_cross_section.dta", clear
+
+. 
+. * DV = ln(1 + number of patent applications filed in VD year through VD+3).
+. assert ln_patentbyfiling_win3 == ln(1 + patent_application_win3)
+
+. tab VD
+
+         VD |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |      1,410       50.00       50.00
+          1 |      1,410       50.00      100.00
+------------+-----------------------------------
+      Total |      2,820      100.00
+
+. summarize patent_application_win3 ln_patentbyfiling_win3, detail
+
+                   patent_application_win3
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               2,820
+25%            0              0       Sum of wgt.       2,820
+
+50%            0                      Mean           2.956028
+                        Largest       Std. dev.      21.77816
+75%            1            206
+90%            6            328       Variance       474.2882
+95%           12            594       Skewness       26.30448
+99%           42            797       Kurtosis       842.8983
+
+                   ln_patentbyfiling_win3
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               2,820
+25%            0              0       Sum of wgt.       2,820
+
+50%            0                      Mean           .4660107
+                        Largest       Std. dev.      .9197335
+75%     .6931472       5.332719
+90%      1.94591       5.796058       Variance       .8459097
+95%     2.564949       6.388561       Skewness       2.240307
+99%       3.7612       6.682109       Kurtosis       8.189267
+
+. 
+. capture which reghdfe
+
+. if _rc ssc install reghdfe, replace
+
+. capture which esttab
+
+. if _rc ssc install estout, replace
+
+. 
+. eststo clear
+
+. 
+. * Table 3, column (1): exact specification supplied by the author.
+. eststo m1: reghdfe ln_patentbyfiling_win3 VD patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, ///
+>     absorb(Region2 Industry2) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   6,   2806) =     147.57
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4433
+                                                  Adj R-squared   =     0.4407
+                                                  Within R-sq.    =     0.3687
+                                                  Root MSE        =     0.6878
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0922534   .0316504    -2.91   0.004    -.1543139   -.0301929
+patentdummyb~g |   1.130967   .0386767    29.24   0.000     1.055129    1.206804
+    earlystage |  -.0441066   .0307313    -1.44   0.151    -.1043648    .0161516
+ln_MoneyRais~D |   .0632598   .0077633     8.15   0.000     .0480374    .0784822
+NumofFunding~D |  -.0223798   .0084809    -2.64   0.008    -.0390093   -.0057503
+  Foundingyear |   -.009966    .007736    -1.29   0.198    -.0251349    .0052029
+         _cons |   19.30647   15.55953     1.24   0.215     -11.2028    49.81574
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. 
+. * Table 3, columns (2)-(4).
+. eststo m2: reghdfe ln_patentbyfiling_win3 c.VD##c.patentdummybyfiling earlystag
+> e ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, ///
+>     absorb(Region2 Industry2) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   7,   2805) =     129.27
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4505
+                                                  Adj R-squared   =     0.4477
+                                                  Within R-sq.    =     0.3768
+                                                  Root MSE        =     0.6835
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .0179011   .0199907     0.90   0.371    -.0212968     .057099
+patentdummyb~g |   1.302485   .0595789    21.86   0.000     1.185662    1.419308
+               |
+          c.VD#|
+            c. |
+patentdummyb~g |  -.3374402   .0776393    -4.35   0.000    -.4896762   -.1852043
+               |
+    earlystage |  -.0349268   .0303116    -1.15   0.249    -.0943621    .0245085
+ln_MoneyRais~D |   .0645585   .0076939     8.39   0.000     .0494721    .0796448
+NumofFunding~D |  -.0199472   .0083226    -2.40   0.017    -.0362662   -.0036282
+  Foundingyear |  -.0098169   .0076911    -1.28   0.202    -.0248977    .0052638
+         _cons |   18.91994   15.46941     1.22   0.221    -11.41264    49.25253
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. 
+. eststo m3: reghdfe ln_patentbyfiling_win3 patentdummybyfiling c.VD##c.earlystag
+> e ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, ///
+>     absorb(Region2 Industry2) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   7,   2805) =     127.51
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4454
+                                                  Adj R-squared   =     0.4426
+                                                  Within R-sq.    =     0.3711
+                                                  Root MSE        =     0.6867
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+patentdummyb~g |    1.13001   .0385038    29.35   0.000     1.054512    1.205509
+            VD |  -.1441969   .0379689    -3.80   0.000    -.2186467   -.0697471
+    earlystage |  -.1074655   .0376291    -2.86   0.004    -.1812489   -.0336821
+               |
+          c.VD#|
+  c.earlystage |   .2253396   .0649884     3.47   0.001     .0979096    .3527696
+               |
+ln_MoneyRais~D |   .0636338    .007756     8.20   0.000     .0484257    .0788418
+NumofFunding~D |   -.021875   .0084649    -2.58   0.010     -.038473    -.005277
+  Foundingyear |  -.0100179    .007723    -1.30   0.195    -.0251613    .0051254
+         _cons |    19.4372   15.53358     1.25   0.211    -11.02121     49.8956
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. 
+. eststo m4: reghdfe ln_patentbyfiling_win3 c.VD##c.patentdummybyfiling ///
+>     c.VD##c.earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, //
+> /
+>     absorb(Region2 Industry2) vce(robust)
+(MWFE estimator converged in 5 iterations)
+note: VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   8,   2804) =     113.98
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4522
+                                                  Adj R-squared   =     0.4493
+                                                  Within R-sq.    =     0.3788
+                                                  Root MSE        =     0.6825
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0322026   .0270697    -1.19   0.234    -.0852812     .020876
+patentdummyb~g |   1.297597   .0592013    21.92   0.000     1.181514    1.413679
+               |
+          c.VD#|
+            c. |
+patentdummyb~g |  -.3295457   .0772094    -4.27   0.000    -.4809387   -.1781527
+               |
+            VD |          0  (omitted)
+    earlystage |  -.0931128   .0367073    -2.54   0.011    -.1650889   -.0211367
+               |
+          c.VD#|
+  c.earlystage |   .2061783   .0650483     3.17   0.002     .0786309    .3337257
+               |
+ln_MoneyRais~D |   .0648702   .0076877     8.44   0.000     .0497961    .0799444
+NumofFunding~D |  -.0195423   .0083109    -2.35   0.019    -.0358385   -.0032461
+  Foundingyear |  -.0098679   .0076796    -1.28   0.199    -.0249261    .0051903
+         _cons |    19.0486   15.44658     1.23   0.218    -11.23921    49.33641
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. 
+. foreach model in m1 m2 m3 m4 {
+  2.     estadd local RegionFE "Yes" : `model'
+  3.     estadd local IndustryFE "Yes" : `model'
+  4.     estadd local FoundingYearControl "Yes" : `model'
+  5. }
+
+. 
+. esttab m1 m2 m3 m4 using "$OUT/Table3_patent_application_win3.csv", ///
+>     replace csv b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     noomitted nobaselevels drop(Foundingyear) ///
+>     order(VD c.VD#c.patentdummybyfiling c.VD#c.earlystage ///
+>           patentdummybyfiling earlystage ln_MoneyRaised_VD ///
+>           NumofFundingRounds_VD _cons) ///
+>     stats(RegionFE IndustryFE FoundingYearControl N r2, ///
+>           labels("Region FE" "Industry FE" "Founding year control" ///
+>                  "Observations" "R-squared") ///
+>           fmt(%s %s %s 0 3))
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_application_results/Table3_patent_application_win3.csv)
+
+. 
+. esttab m1 m2 m3 m4 using "$OUT/Table3_patent_application_win3.rtf", ///
+>     replace rtf b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     noomitted nobaselevels drop(Foundingyear) ///
+>     order(VD c.VD#c.patentdummybyfiling c.VD#c.earlystage ///
+>           patentdummybyfiling earlystage ln_MoneyRaised_VD ///
+>           NumofFundingRounds_VD _cons) ///
+>     stats(RegionFE IndustryFE FoundingYearControl N r2, ///
+>           labels("Region FE" "Industry FE" "Founding year control" ///
+>                  "Observations" "R-squared") ///
+>           fmt(%s %s %s 0 3)) ///
+>     title("Table 3. Patent applications filed within three years") ///
+>     addnotes("Robust standard errors. * p < .10, ** p < .05, *** p < .01.")
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_application_results/Table3_patent_application_win3.rtf)
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_app
+> lication_results/Table3_patent_application_win3.log
+  log type:  text
+ closed on:  14 Oct 2026, 18:25:42
+---------------------------------------------------------------------------------
+

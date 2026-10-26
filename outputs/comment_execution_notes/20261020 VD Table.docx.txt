@@ -1,0 +1,200 @@
+0 p: 3. Revisit the Series B classification before finalizing the developmental-stage measure
+1 p: The current draft defines  | Seed through Series B as early stage | , which is defensible. However, Series B may also represent an important transition point at which ventures have achieved greater product/technology validation and are beginning to scale.
+2 p: 
+3 p: So |  I would not treat the Seed-through-Series-B definition as settled.
+4 p: 
+5 p: Please estimate the results using at least:
+6 p: Seed + Series A = early stage; Series B+ = later stage
+7 p: Seed through Series B = early stage; Series C+ = later stage
+8 p: Separate stage-specific estimates for Seed / Series A / Series B / Series C+
+9 p: 
+10 p: The stage-specific estimates could be particularly informative.
+11 p: 
+12 p: If the VD effect is small at Seed/A, begins to emerge around Series B, and becomes stronger at Series C+, that would provide much more compelling evidence that the innovation response varies systematically with  | commercialization readiness |  than any particular binary cutoff would.
+13 p: 
+14 p: T | able 4-1, 4-2
+15 bookmarkEnd: 
+16 p: 
+17 p: 4. Revisit the pseudo-treatment-year construction
+18 p: Before deciding on a new estimation approach, please examine carefully the current treatment/pseudo-treatment construction.
+19 p: 
+20 p: At present, VD-treated firms use their actual first VD year, while control firms receive a pseudo-treatment reference point based largely on average VD timing.
+21 p: 
+22 p: This was a reasonable approach for the initial draft, but a reviewer may reasonably ask whether treated and untreated startups are being compared at genuinely comparable points in:
+23 p: calendar time,
+24 p: venture age,
+25 p: financing stage, and
+26 p: financing-market conditions.
+27 p: 
+28 p: Please document the full distribution of actual VD timing relative to founding and first VC financing. |   | This naturally leads to the next analysis.
+29 p: 
+30 p: 
+31 p: 
+32 p: 5. Explore a staggered  | DiD | /event-study design—but do not assume in advance that it must replace the current design
+33 p: Because startups receive their first VD in different years and we have annual patent histories before and after VD, I think we should investigate whether the data support a  | staggered-adoption  | DiD | /event- | study design | , following Callaway and  | Sant’Anna | . |   | However, I want to emphasize that the current matching approach is  | not necessarily wrong, and we should not decide before seeing the data that staggered  | DiD |  must replace it | .
+34 p: 
+35 p: The current design provides a legitimate matched comparison of post-treatment outcomes among startups balanced on observable characteristics. The potential advantage of staggered  | DiD |  is that we could additionally exploit  | within-firm changes and pre-treatment innovation trajectories | .
+36 p: 
+37 p: Please restructure the data into a firm-year panel and investigate:
+38 p: G | i |   | = |   | year of first VD
+39 p: 
+40 p: and corresponding event time:
+41 p: t |   | − |   | G | i | .
+42 p: 
+43 p: I would initially like to see an event-study window of approximately t−4 through t+4, if the data permit.
+44 p: 
+45 p: Please examine:
+46 p: whether treated and comparison firms have similar patenting trajectories before VD;
+47 p: whether patenting is already changing at t−2 or t−1;
+48 p: whether there may be anticipation immediately before VD;
+49 p: when any post-VD divergence begins;
+50 p: whether the effect is immediate, delayed, transitory, or persistent;
+51 p: whether the results change using never-treated versus not-yet-treated firms;
+52 p: and how the patterns vary by prior technological assets and venture stage.
+53 p: 
+54 p: Only  | after we see these results |  should we decide which empirical approach deserves to be the main design.
+55 p: 
+56 p: My current thinking is:
+57 p: If pre-treatment trends are convincing and there is a clear post-VD divergence | , staggered  | DiD | /event study should probably become the main empirical design, with the current matched analysis serving as complementary evidence. |   | If the event-study pattern is broadly supportive but noisy because annual patenting is sparse | , it may be better to present the event-study and matched three-year analysis together. |   | If eventual VD firms are already clearly changing their innovation trajectory before receiving VD | , that would be important information rather than something to hide in a robustness section. We would need to reconsider the interpretation of the current results and potentially look for another identification approach.
+58 p: 
+59 p: So |  the immediate task is: |   | not “replace PSM with  | DiD | ,” but determine whether the data cooperate with a credible staggered  | DiD |  design.
+60 p: 
+61 p: T | able  | 9 | -12
+62 p: F | igure  | A | 3 | - |   | A | 5
+63 p: 
+64 p: 6. Take the VD amount/intensity analysis seriously—the coverage appears sufficiently strong
+65 p: Based on the data you checked, we have VD deal amounts for  | 1,237 of the 1,440 VD-backed firms | , with 203 missing. That is much better coverage than I initially expected and makes VD intensity a substantive empirical opportunity. |   | This also directly responds to the SMS reviewer’s question about whether the magnitude or proportion of VD relative to other financing matters.
+66 p: 
+67 p: Please construct and summarize:
+68 p: initial VD amount;
+69 p: log initial VD amount;
+70 p: initial VD amount / cumulative equity raised before VD;
+71 p: initial VD amount / previous equity-round amount;
+72 p: VD as a fraction of total capital around the VD event, if appropriate;
+73 p: number and amount of subsequent VD rounds;
+74 p: cumulative VD exposure.
+75 p: 
+76 p: I would particularly like to see  | relative measures | , rather than only raw dollar amounts. |   | Conceptually, the question for our innovation paper is:
+77 p: Is the change in subsequent innovation stronger when the venture assumes a larger repayment commitment relative to its existing financial resources?
+78 p: 
+79 p: Please compare firms with observed versus missing VD amount on observable characteristics.
+80 p: 
+81 p: Please first examine whether larger VD commitments—particularly VD relative to prior equity financing—are associated with larger changes in subsequent innovation. Simple amount/intensity regressions will be informative as a starting point, but because VD amount is itself endogenously chosen and treatment timing varies across firms, we should be cautious about interpreting a conventional |   | VD amount × Post |   | TWFE coefficient as a causal dose-response effect. If the descriptive pattern is promising, we can then explore the continuous-treatment  | DiD |  framework of Callaway, Goodman-Bacon, and  | Sant’Anna | .
+82 p: 
+83 p: I would regard this as an important  | intensive-margin/mechanism analysis | , but not necessarily the primary identification strategy.
+84 p: 
+85 p: T | able 13, 14
+86 p: 
+87 p: 7. Use lender identities primarily to validate the VD measure—not to turn the project into a lender/contract paper
+88 p: You found lender names for  | 715 of the 1,440 VD-backed firms | , with lender identity missing for the remaining 725. |   | This gives us enough information for a meaningful  | measurement-validation exercise | .
+89 p: 
+90 p: Please classify identified lenders/deals into:
+91 p: specialized venture-debt providers;
+92 p: banks with established venture/startup lending operations;
+93 p: other identifiable institutional lenders;
+94 p: ambiguous cases.
+95 p: 
+96 p: For observations without lender identity, examine what other information supports their classification as debt financing. |   | PPP and other government-backed loans have already been excluded, which is helpful, but we should neither assume that every remaining anonymous debt record is definitely VD nor assume that missing lender identity means it is not VD.
+97 p: 
+98 tbl: Classification | Firms | % of VD-treated firms | % of firms with names | Specialized venture-debt providers | 134 | 9.5 | 18.8 | Banks with established venture/startup lending operations | 106 | 7.5 | 14.8 | Other identifiable institutional lenders | 163 | 11.6 | 22.8 | Ambiguous cases | 311 | 22.1 | 43.6 | Subtotal: investor names available | 714 | 50.6 | 100.0 | Investor names missing | 696 | 49.4 | — | Total VD-treated firms | 1,410 | 100.0 | —
+99 p: 
+100 p: 
+101 p: 8. Strengthen the matching diagnostics if we retain PSM
+102 p: The conference reviewers specifically raised matching and balance as concerns, so the current diagnostics need to be improved regardless of whether PSM remains the headline design.
+103 p: 
+104 p: Figure A1 Panel B shows improved propensity-score overlap, but the distributions are not identical. Perfect density overlap is not required, and the figure itself should not carry the claim that matching has fully solved comparability.
+105 p: 
+106 p: Please report:
+107 p: standardized mean differences before and after matching;
+108 p: preferably a Love plot;
+109 p: variance ratios where appropriate;
+110 p: common-support information.
+111 p: 
+112 p: Do not rely primarily on |  or sole | l | y on |  insignificant t-tests as evidence of balance.
+113 p: 
+114 p: Also, please make sure that  | every table and figure included in either the main manuscript or the Appendix is explicitly referenced and discussed somewhere in the paper | . Each should have a clear purpose in the empirical argument. |   | In particular,  | Table A6 should be explicitly discussed in the PSM section | , because it contains the covariate-balance evidence. Likewise, if Figure A1 is retained, explain what it shows and what it does not establish. |   | If we cannot explain in the manuscript why an Appendix table or figure is useful, that is often a sign that we may not need it.
+115 p: 
+116 p: T | able A9
+117 p: Figure A1, A2
+118 p: 
+119 p: 9. Look for more direct measures of changes in startup innovation
+120 p: This may be one of the most important ways to make the paper clearly an  | Entrepreneurship & Innovation paper rather than a finance paper | . |   | Please investigate patent-based measures that allow us to characterize  | what changes in the venture's technological trajectory following VD | , rather than relying only on patent counts.
+121 p: 
+122 p: Potential measures include:
+123 p: entry into new CPC classes;
+124 p: technological distance from the firm's existing patent portfolio;
+125 p: new technological domains versus development within existing domains;
+126 p: self-citations;
+127 p: technological breadth;
+128 p: recombination/originality measures.
+129 p: 
+130 p: Polidoro |  and Yang |  (20 | 21, OS) |   | is particularly useful here—not necessarily because we should adopt their “search” framing, but because they demonstrate how an investment relationship can affect the  | direction and technological composition of startup innovation | , rather than merely the number of patents. |   | The strongest evidence for us would be that VD is associated particularly with reduced  | creation of new technological options | , while technological development closer to the venture’s existing knowledge base is less affected.
+131 p: 
+132 p: Separately, please continue investigating whether job-posting data |  (e.g.,  | Revelio |  Labs) |  might allow us to observe functional changes—for example, R&D/engineering positions relative to sales, marketing, business development, operations, or other commercialization-related functions. |  
+133 p: 
+134 p: One or two convincing measures showing  | how startup innovation changes |  would be much more valuable than many downstream financial outcomes.
+135 p: 
+136 p: T | able A7-A14
+137 p: 
+138 p: 10. Rework the downstream financing analysis, but keep it supportive rather than central
+139 p: Subsequent financing is relevant because it helps establish the institutional role of VD as bridge financing.
+140 p: 
+141 p: However, I would keep this evidence  | supportive of the innovation argument rather than allowing the paper to become primarily about subsequent financing outcomes | .
+142 p: 
+143 p: Please distinguish:
+144 p: probability/hazard of obtaining the next equity round;
+145 p: time until the next equity round;
+146 p: amount raised conditional on raising;
+147 p: cumulative financing, with genuine zeros treated appropriately.
+148 p: 
+149 p: The main purpose is to understand the financing environment surrounding the innovation response.
+150 p: 
+151 p: Table A3
+152 p: 
+153 p: 11. Move employee and revenue analyses to the Appendix
+154 p: For now, I would move the employee and revenue analyses to the Appendix. |   | The employee result may be directionally interesting, but its sample is considerably smaller than the main analysis, and the revenue data are too sparse to support a central argument. |   | Please do not devote substantial space to these in the main manuscript unless the underlying data improve materially.
+155 p: 
+156 p: Table A4-A6
+157 p: 
+158 p: 12. Keep the interpretation of M&A/IPO and downstream outcomes cautious
+159 p: Please avoid interpreting M&A or IPO mechanically as “better performance” or treating these estimates as having the same causal status as the primary innovation analyses. |   | Their more limited role should be to help establish that:
+160 p: reduced patenting does not appear to represent a generalized deterioration in the startup's subsequent trajectory.
+161 p: 
+162 p: 13. Clean up redundant Appendix analyses
+163 p: There appears to be substantial redundancy between Table 7 and Tables A3–A5. |   | Ignoring the interaction terms, the baseline M&A, IPO, and defunct estimates in A3–A5 largely reproduce the corresponding results already shown in Table 7, while the additional interaction terms are not significant.
+164 p: 
+165 p: Please make a note that we should clean this up substantially once the main empirical architecture is settled. One compact Appendix table may ultimately be sufficient.
+166 p: 
+167 p: Again, every Appendix table we retain should be cited in the paper and have a clear purpose.
+168 p: 
+169 p: 14. Run the IV versions of H2/H3 as a diagnostic, but do not force this paper to become an IV/finance paper
+170 p: I would like to see what happens to H2 and H3 under the IV specification. |   | If  | Prior Patent |  and  | Early Stage |  are treated as exogenous moderators, the endogenous regressors are potentially:
+171 p: VD, |   | VD×PriorPatent | , |   | VD×EarlyStage | .
+172 p: 
+173 p: Corresponding instruments |  (IV= |   | RegionalVD | )  | can potentially include:
+174 p: RegionalVD | , |   | RegionalVD×PriorPatent | , |   | RegionalVD×EarlyStage | .
+175 p: 
+176 p: So |  we do not necessarily need two entirely unrelated new instruments. However, those interaction  | instruments must themselves be valid and sufficiently strong.
+177 p: 
+178 p: Please estimate these as diagnostics and report appropriate first-stage statistics. Do not simply interact fitted VD with the moderators.
+179 p: 
+180 p: More broadly, I do  | not |  think we should force  | the current |  IV. |   | The existing regional-supply IV has a reasonably strong first stage, but its  | exclusion restriction |  may be  | severely  | questioned because | , |   | theoretically,  | local VD availability could correlate with entrepreneurial and technological conditions. |   | Whether we need stronger exogenous variation will depend importantly on what we learn from the staggered  | DiD | . |   | The goal should be to provide the  | most credible evidence about the effect of VD on startup innovation | , not to check an econometric box.
+181 p: 
+182 p: Table A1
+183 p: 
+184 p: 15. Think about a simple research-design timeline, but wait before finalizing it
+185 p: I think the paper will eventually benefit from a simple research-design timeline because readers need to understand where VD enters the lifecycle of an already VC-backed startup. |   | For now, please do not finalize it because the empirical-design component depends on what we learn from staggered  | DiD | .
+186 p: 
+187 p: One panel could probably be used regardless of the final design:
+188 p: Founding → First VC → technological development → First VD → commercialization / subsequent financing or liquidity milestone
+189 p: 
+190 p: If staggered  | DiD |  works well, a second panel could illustrate event time around actual first VD:
+191 p: t−3 |   | → |   | t−2 |   | → |   | t−1 |   | → |   | t=0: First VD |   | → |   | t+1 |   | → |   | t+2 |   | → |   | t+3
+192 p: 
+193 p: with an eligible not-yet-treated/never-treated VC-backed startup underneath.
+194 p: 
+195 p: If staggered  | DiD |  does not become the primary design, we can instead illustrate the matched VD/pseudo-treatment comparison.
+196 p: 
+197 p: Let's therefore decide its final form after seeing the event-study results.
+198 p: 
+199 sectPr: 

@@ -1,0 +1,20 @@
+	(1)
+VARIABLES	ln_revenue_t2
+	
+VD	0.638
+	(0.255)
+1.priorpatentdummy_VD	-0.167
+	(0.821)
+1.Earlystage_VD	-1.437**
+	(0.029)
+ln_MoneyRaised_VD	0.238*
+	(0.099)
+NumofFundingRounds_VD	0.182
+	(0.131)
+Constant	11.070***
+	(0.000)
+	
+Observations	228
+R-squared	0.361
+Robust pval in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

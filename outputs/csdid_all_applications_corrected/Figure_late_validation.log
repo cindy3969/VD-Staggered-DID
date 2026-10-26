@@ -1,0 +1,120 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Figure_late_validation.log
+  log type:  text
+ opened on:  19 Oct 2026, 17:05:38
+
+. use "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/firm_year_all_applications_and_truncation_specs.dta", clear
+
+. keep if year<=2024
+(0 observations deleted)
+
+. drop if missing(grantedapp_norm, ln1p_cum_funding_l1, cum_funding_rounds_l1, region_fe, industry_fe, full_firm_id, year, G)
+(7,273 observations deleted)
+
+. * (5) Late stage
+. ********************************************************************************
+. display as result "(5) Late stage"
+(5) Late stage
+
+. quietly count if (G==0 | early==0)
+
+. scalar eligible_observations = r(N)
+
+. egen byte firm_tag = tag(full_firm_id) if (G==0 | early==0)
+
+. quietly count if firm_tag==1
+
+. scalar eligible_firms = r(N)
+
+. drop firm_tag
+
+. 
+. quietly csdid grantedapp_norm ///
+>     ln1p_cum_funding_l1 cum_funding_rounds_l1 ///
+>     i.region_fe i.industry_fe if (G==0 | early==0), ///
+>     ivar(full_firm_id) time(year) gvar(G) method(dripw)
+Panel is not balanced
+Will use observations with Pair balanced (observed at t0 and t1)
+
+. 
+. csdid_estat simple
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |  -.4236793   .1759838    -2.41   0.016    -.7686011   -.0787574
+------------------------------------------------------------------------------
+
+. 
+. * Event-study estimates followed immediately by their graph.
+. csdid_estat event, window(-4 4)
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     Pre_avg |   .0481761   .0432099     1.11   0.265    -.0365137    .1328659
+    Post_avg |   -.418877   .1673931    -2.50   0.012    -.7469614   -.0907926
+         Tm4 |  -.0695013   .0894121    -0.78   0.437    -.2447459    .1057433
+         Tm3 |   .2423187   .1355469     1.79   0.074    -.0233483    .5079857
+         Tm2 |   .0776251   .1271119     0.61   0.541    -.1715097    .3267599
+         Tm1 |   -.057738   .0921805    -0.63   0.531    -.2384085    .1229325
+         Tp0 |   .0184508   .1388527     0.13   0.894    -.2536955    .2905972
+         Tp1 |  -.1785198   .1302059    -1.37   0.170    -.4337188    .0766791
+         Tp2 |  -.4383242   .1716039    -2.55   0.011    -.7746618   -.1019866
+         Tp3 |  -.6798373   .2707058    -2.51   0.012    -1.210411   -.1492636
+         Tp4 |  -.8161545   .2838603    -2.88   0.004     -1.37251   -.2597985
+------------------------------------------------------------------------------
+
+. csdid_plot, yline(0, lcolor(gs8)) xline(0, lpattern(dash)) ///
+>     xtitle("Years relative to first VD") ///
+>     ytitle("ATT on normalized granted applications") ///
+>     title("(5) Late stage") ///
+>     graphregion(color(white)) name(Event_Late, replace)
+
+. 
+. * Keep the aggregated event estimates, not the underlying ATT(g,t) matrix.
+. matrix fig_late_b = r(b)
+
+. matrix fig_late_V = r(V)
+
+. 
+. csdid_estat group
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |  -.3342461   .1444849    -2.31   0.021    -.6174313    -.051061
+       G2012 |  -.5899639   .5971717    -0.99   0.323    -1.760399    .5804712
+       G2013 |  -.4357921   .4377374    -1.00   0.319    -1.293742    .4221575
+       G2014 |  -.5092453   .2775475    -1.83   0.067    -1.053228    .0347378
+       G2015 |  -.6616258   .5536795    -1.19   0.232    -1.746818     .423566
+       G2016 |  -.4993584   .3681141    -1.36   0.175    -1.220849    .2221319
+       G2017 |  -.7967889   .5957229    -1.34   0.181    -1.964384    .3708065
+       G2018 |  -.2871084   .2867656    -1.00   0.317    -.8491586    .2749418
+       G2019 |  -.0837839   .2660804    -0.31   0.753    -.6052919    .4377241
+       G2020 |  -.6303449   .2921156    -2.16   0.031    -1.202881   -.0578088
+       G2021 |  -.4747326   .5493893    -0.86   0.388    -1.551516    .6020507
+       G2022 |   -.027027   .3245344    -0.08   0.934    -.6631028    .6090488
+       G2023 |   .4326996   .2592503     1.67   0.095    -.0754216    .9408207
+------------------------------------------------------------------------------
+
+. display as text "Observations (complete-case input): " as result %12.0fc eligible_observations
+Observations (complete-case input):       69,955
+
+. display as text "Firms (complete-case input):        " as result %12.0fc eligible_firms
+Firms (complete-case input):               6,287
+
+. display as text "Control group: Never-treated"
+Control group: Never-treated
+
+. 
+. 
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Figure_late_validation.log
+  log type:  text
+ closed on:  19 Oct 2026, 17:14:10
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

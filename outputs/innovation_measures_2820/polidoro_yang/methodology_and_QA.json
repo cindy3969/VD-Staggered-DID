@@ -1,0 +1,44 @@
+{
+  "source": "Polidoro & Yang (2021), Organization Science 32(4), 909-939; pp915-916,920,931,935-936",
+  "classification": "CPC3",
+  "classification_coverage": {
+    "USPC": 0.023869949927978598,
+    "CPC3": 0.9996570409493106
+  },
+  "cutoff": "2024-12-31; available local PatentsView snapshot; NOT a 2025 update",
+  "partner_definition": "All named investors in any observed funding type by first debt date in VD year, where available, otherwise reference year-end; fixed thereafter. Exact normalized assignee names or sourced parent alias only. Portfolio companies excluded.",
+  "partner_baseline": "Own granted patents granted by reference date; backward citation profiles fixed at baseline. Shares are normalized across classified numeric US patent references; coverage fraction retained in partner audit.",
+  "originality": "Literal p916: 1 - sum_{class != focal primary class} (citations_class / all backward patent citations)^2. Missing with zero references or incomplete classification. Conventional all-class alternative retained at patent level.",
+  "breadth": "Count all distinct backward-cited primary classes; missing with zero/incompletely classified backward citations.",
+  "self_citations": "Count distinct US backward-cited patents sharing the matched startup owner; not restricted to event window for cited prior patents.",
+  "generality": "1 - sum(forward citing patent primary-class shares squared), through snapshot; missing with no forward citations or incomplete class mapping.",
+  "search": "Patent-level sum class counts times partner pretreatment backward-class shares, equal average over usable partners; firm window ln(1+sum patent contributions).",
+  "distance": "Patent backward-citation proportion vector vs each fixed partner vector. Covariance from unique partner-baseline and pre-VD startup profiles. Eigenvalue cutoff max(1e-8*max_eigenvalue,1e-12), pseudoinverse; sqrt(quadratic_form/rank). Equal partner average then patent mean. Explicit implementation choice: article does not specify exact normalization.",
+  "distance_covariance_rank": 119,
+  "distance_reference_profiles": 1341,
+  "firm_window": "Ultimately granted patents filed reference_year+1..+3; patent means except log sum for partner search. Multiple grant documents are separate patent observations.",
+  "partner_date_limitation": "Actual first debt date in VD year when observed. Year-end reference for controls and treated firms lacking an identified dated debt round; per-firm date_basis is saved.",
+  "matching_limitation": "No-match is not proof of zero patents. Unmatched institutions retained as unusable with reason. Acquired-parent historical ownership is not inferred.",
+  "adaptations": "All VC/CVC/VD partners instead of one CVC; fixed baseline instead of rolling partner weights; post-window patent means instead of cumulative lifetime; explicit covariance normalization; modern CPC if USPC coverage insufficient.",
+  "rows_patent": 14574,
+  "rows_window": 5667,
+  "rows_cross_section": 2820,
+  "withdrawn_grant_documents_excluded": 5,
+  "citation_universe": "US numeric utility-patent citations; foreign, nonpatent, design and reissue references excluded. Old numeric references retained in denominators even when their classification is unavailable.",
+  "nonmissing_firms": {
+    "patent_originality": 526,
+    "bc_technological_breadth": 526,
+    "self_citations": 649,
+    "search_in_partners_domains": 206,
+    "technological_distance": 195,
+    "patent_generality": 412
+  },
+  "partner_status_counts": {
+    "no_matched_pre_reference_patents": 18508,
+    "usable": 1030,
+    "ambiguous_investor_identity": 457,
+    "no_classified_backward_citations": 14
+  },
+  "preserved_existing_columns": true,
+  "csv_dta_new_columns_equal": true
+}

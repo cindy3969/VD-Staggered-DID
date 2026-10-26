@@ -1,0 +1,7 @@
+﻿metric,value
+merged_v4 raw VD-backed firms,1441
+merged_v4 after Dermira/Eargo correction,1439
+legacy 240626 raw VD-backed firms,1442
+legacy 240626 after Dermira/Eargo correction,1440
+treatment-definition disagreements,1
+firms without legacy normalized-name match,4

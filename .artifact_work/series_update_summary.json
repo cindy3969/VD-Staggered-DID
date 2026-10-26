@@ -1,0 +1,32 @@
+{
+  "input": "C:\\Users\\user\\iCloudDrive\\5학기\\연구미팅\\20240108-2010 to 2015 firms\\2010 2015 Crunchbase deals merged_v4.xlsx",
+  "output": "C:\\Users\\user\\Documents\\VD\\2010 2015 Crunchbase deals merged_v4_series-updated.xlsx",
+  "sheet": "Sheet1",
+  "updated_column": "L",
+  "unknown_before": 5977,
+  "xml_cells_changed": 5977,
+  "inferred_distribution": {
+    "Series A": 1675,
+    "Series B": 1352,
+    "Seed": 1203,
+    "Series C": 866,
+    "Series D": 492,
+    "Series E": 219,
+    "Series F": 102,
+    "Series G": 43,
+    "Series H": 14,
+    "Series I": 6,
+    "Series J": 3,
+    "Pre-Seed": 2
+  },
+  "methods": {
+    "advanced from lead series": 2725,
+    "formal venture-round order": 854,
+    "backcast from lag series": 369,
+    "lead-lag bounded sequence": 1601,
+    "round order because lag backcast precedes Seed": 386,
+    "lead series retained due to reverse lag": 42
+  },
+  "row_count": 37662,
+  "column_count": 94
+}

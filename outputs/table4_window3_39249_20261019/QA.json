@@ -1,0 +1,16 @@
+{
+  "applications": 39249,
+  "grant_linked_applications": 34855,
+  "valid_application_citing_edges": 245629,
+  "missing_citing_dates": 0,
+  "pre_grant_edges_excluded": 3,
+  "matched_firms": 2820,
+  "complete_window_firms": 2630,
+  "incomplete_window_firms": 190,
+  "firms_with_eligible_patents": 649,
+  "eligible_postvd_applications": 5667,
+  "date_source": "g_patent.patent_date of citing patent, NOT g_us_patent_citation.citation_date",
+  "year_FE": "Foundingyear, matching existing Table 4 specification",
+  "window": "filing_year - VDyear in [1,3]; citations observed through 2024",
+  "no_patent_convention": "quality=0 when denominator=0, explicitly following full-firm table convention"
+}

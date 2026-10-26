@@ -1,0 +1,35 @@
+﻿firm_id,OrganizationName,source_classification,Industry2_label,match_method
+46412,Anyplace,Other,Other,firm_id and name verified
+34965,AskNicely,Other,Other,firm_id and name verified
+7907,Bellhop,Other,Other,firm_id and name verified
+25284,BlackSky Global,Other,Other,firm_id and name verified
+35579,Bombora,Other,Other,firm_id and name verified
+25744,Catalant,Other,Other,firm_id and name verified
+8572,Circ,Other,Other,firm_id and name verified
+47854,Civic Eagle,Other,Other,firm_id and name verified
+36375,Clutter,Other,Other,firm_id and name verified
+48181,Convoy,Other,Other,firm_id and name verified
+26280,Countable,Other,Other,firm_id and name verified
+49182,EquipmentShare,Other,Other,firm_id and name verified
+9974,FLASH,Other,Other,firm_id and name verified
+49601,Flip CX,Other,Other,firm_id and name verified
+18726,Futurestay,Other,Other,firm_id and name verified
+18936,Greenhouse Software,Other,Other,firm_id and name verified
+2892,Indow,Other,Other,firm_id and name verified
+3417,LiquidSpace,Other,Other,firm_id and name verified
+12005,Modern Meadow,Description: protein/materials technology,Hardware/Manufacturing/DeepTech,firm_id and name verified; inferred from source description
+12466,OPAL,Other,Other,firm_id and name verified
+21164,Perzo,Other,Other,firm_id and name verified
+54042,Promobot,Description: autonomous service robot manufacturer,Hardware/Manufacturing/DeepTech,firm_id and name verified; inferred from source description
+44378,Ten Spot,Description: workforce engagement platform,Software/IT services,firm_id and name verified; inferred from source description
+44487,The Wanderlust Group,"Industries: Boating, Outdoors, Recreation",Other,firm_id and name verified; classified from source Industries
+33195,Transfix,Other,Other,firm_id and name verified
+33413,UNIFi Software,Description: enterprise data acquisition and integration software,Software/IT services,firm_id and name verified; inferred from source description
+34061,Workframe,Other,Other,firm_id and name verified
+15912,Zentila,Other,Other,firm_id and name verified
+15961,Zirtual,Other,Other,firm_id and name verified
+48594,Deep Instinct,Description: deep-learning cybersecurity software,Software/IT services,firm_id and name verified; inferred from source description
+37021,Dolly,Other,Other,firm_id and name verified
+50600,Hostfully,Other,Other,firm_id and name verified
+33153,Tracxn,"Industries: Analytics, Big Data, Enterprise Software, Information Technology, Software",Software/IT services,firm_id and name verified; classified from source Industries
+57471,Workyard,Other,Other,firm_id and name verified

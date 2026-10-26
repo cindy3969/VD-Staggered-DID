@@ -1,0 +1,13 @@
+﻿specification,order,eligible_treated,matched_treated,old_control_overlap,overlap_pct
+manuscript_7,original,1410,1410,525,37.234042553191486
+manuscript_7,ascending,1410,1410,528,37.4468085106383
+manuscript_7,descending,1410,1410,524,37.163120567375884
+plus_vd_year,original,1410,735,292,20.70921985815603
+plus_vd_year,ascending,1410,735,292,20.70921985815603
+plus_vd_year,descending,1410,735,293,20.78014184397163
+plus_time_to_vd,original,1408,1,0,0.0
+plus_time_to_vd,ascending,1408,1,0,0.0
+plus_time_to_vd,descending,1408,1,0,0.0
+plus_both,original,1408,0,0,0.0
+plus_both,ascending,1408,0,0,0.0
+plus_both,descending,1408,0,0,0.0

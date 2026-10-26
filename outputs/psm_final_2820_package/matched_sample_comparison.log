@@ -1,0 +1,176 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/matched_sa
+> mple_comparison.log
+  log type:  text
+ opened on:  11 Oct 2026, 22:23:19
+
+. 
+. tempfile OLD NEW
+
+. 
+. use "$PKG/ORIGINAL_final_matched_2820.dta", clear
+
+. keep OrganizationName VD
+
+. rename OrganizationName organization_name
+
+. gen str100 name_key=ustrlower(ustrtrim(organization_name))
+
+. replace name_key=ustrregexra(name_key,"[^a-z0-9]","")
+(1,133 real changes made)
+
+. duplicates drop name_key VD, force
+
+Duplicates in terms of name_key VD
+
+(0 observations are duplicates)
+
+. rename VD old_treated
+
+. save `OLD'
+file C:\Users\user\AppData\Local\Temp\ST_5f04_000001.tmp saved as .dta format
+
+. 
+. use "$BASE/psm_matched_2820.dta", clear
+
+. keep organization_name vd_backed
+
+. gen str100 name_key=ustrlower(ustrtrim(organization_name))
+
+. replace name_key=ustrregexra(name_key,"[^a-z0-9]","")
+(1,119 real changes made)
+
+. duplicates drop name_key vd_backed, force
+
+Duplicates in terms of name_key vd_backed
+
+(0 observations are duplicates)
+
+. rename vd_backed new_treated
+
+. save `NEW'
+file C:\Users\user\AppData\Local\Temp\ST_5f04_000002.tmp saved as .dta format
+
+. 
+. use `OLD', clear
+
+. merge 1:1 name_key using `NEW'
+(variable organization_name was str50, now str58 to accommodate using data's
+       values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,778
+        from master                       889  (_merge==1)
+        from using                        889  (_merge==2)
+
+    Matched                             1,931  (_merge==3)
+    -----------------------------------------
+
+. 
+. gen byte old_control=old_treated==0 if !missing(old_treated)
+(889 missing values generated)
+
+. gen byte new_control=new_treated==0 if !missing(new_treated)
+(889 missing values generated)
+
+. gen byte old_treat=old_treated==1 if !missing(old_treated)
+(889 missing values generated)
+
+. gen byte new_treat=new_treated==1 if !missing(new_treated)
+(889 missing values generated)
+
+. 
+. display as text _newline "OVERLAP COUNTS"
+
+OVERLAP COUNTS
+
+. count if old_control==1
+  1,410
+
+. display "Old controls: " r(N)
+Old controls: 1410
+
+. count if new_control==1
+  1,410
+
+. display "New controls: " r(N)
+New controls: 1410
+
+. count if old_control==1 & new_control==1
+  522
+
+. display "Controls in both: " r(N)
+Controls in both: 522
+
+. count if old_control==1 & new_control!=1
+  888
+
+. display "Old controls not retained: " r(N)
+Old controls not retained: 888
+
+. count if new_control==1 & old_control!=1
+  888
+
+. display "New replacement controls: " r(N)
+New replacement controls: 888
+
+. 
+. count if old_treat==1
+  1,410
+
+. display "Old treated: " r(N)
+Old treated: 1410
+
+. count if new_treat==1
+  1,410
+
+. display "New treated: " r(N)
+New treated: 1410
+
+. count if old_treat==1 & new_treat==1
+  1,408
+
+. display "Treated in both: " r(N)
+Treated in both: 1408
+
+. count if old_treat==1 & new_treat!=1
+  2
+
+. display "Old treated not retained as treated: " r(N)
+Old treated not retained as treated: 2
+
+. count if new_treat==1 & old_treat!=1
+  2
+
+. display "New treated not formerly treated: " r(N)
+New treated not formerly treated: 2
+
+. 
+. preserve
+
+. keep if (old_control==1 & new_control!=1) | (new_control==1 & old_control!=1) |
+>  ///
+>         (old_treat==1 & new_treat!=1) | (new_treat==1 & old_treat!=1)
+(1,930 observations deleted)
+
+. keep organization_name name_key old_treated new_treated _merge
+
+. export delimited using "$PKG/matched_sample_membership_changes.csv", replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/matched_sample_me
+    > mbership_changes.csv not found)
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/matched_sample_mem
+> bership_changes.csv saved
+
+. restore
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/matched_sa
+> mple_comparison.log
+  log type:  text
+ closed on:  11 Oct 2026, 22:23:19
+---------------------------------------------------------------------------------

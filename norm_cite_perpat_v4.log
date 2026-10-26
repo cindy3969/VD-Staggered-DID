@@ -1,0 +1,283 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:/Users/user/Documents/VD/outputs/refresh_did_20261023/norm_cite_perpat_v4.
+> do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. set linesize 255
+
+. capture log close _all
+
+. log using "C:/Users/user/Documents/VD/outputs/refresh_did_20261023/norm_cite_perpat_v4.log", text replace
+(file C:/Users/user/Documents/VD/outputs/refresh_did_20261023/norm_cite_perpat_v4.log not found)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/refresh_did_20261023/norm_cite_perpat_v4.log
+  log type:  text
+ opened on:  23 Oct 2026, 03:38:51
+
+. capture program drop construct_late
+
+. program define construct_late
+  1.     confirm variable full_firm_id year G stage_preyear_text
+  2.     capture drop late
+  3.     capture drop late_at_G
+  4.     capture drop stage_at_G
+  5.     gen str244 stage_at_G = lower(strtrim(stage_preyear_text)) if G>0 & year==G
+  6.     gen byte late_at_G = .
+  7.     replace late_at_G = 1 if G>0 & year==G & regexm(stage_at_G,"^series [c-z][0-9]*$")
+  8.     replace late_at_G = 0 if G>0 & year==G & ///
+>         (regexm(stage_at_G,"^series [ab][0-9]*$") | inlist(stage_at_G,"seed","pre-seed","angel"))
+  9.     bysort full_firm_id: egen byte late = max(late_at_G)
+ 10.     label variable late "Series C+ through G-1 (1); Seed through B (0); unknown missing"
+ 11.     label define late_stage_label 0 "Seed through Series B" 1 "Series C+", replace
+ 12.     label values late late_stage_label
+ 13.     drop late_at_G stage_at_G
+ 14. end
+
+. 
+. 
+. global P "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected"
+
+. global Q "C:/Users/user/Documents/VD/outputs/refresh_did_20261023"
+
+. use "$P/firm_year_all_applications_and_truncation_specs.dta", clear
+
+. construct_late
+(87,148 missing values generated)
+(88,547 missing values generated)
+(128 real changes made)
+(824 real changes made)
+(76,624 missing values generated)
+
+. local dv norm_cite_perpat_v4
+
+. keep if year<=2024
+(0 observations deleted)
+
+. drop if missing(`dv',ln1p_cum_funding_l1,cum_funding_rounds_l1,region_fe,industry_fe,full_firm_id,year,G)
+(80,284 observations deleted)
+
+. tempname H
+
+. postfile `H' str12 sample str12 control str12 aggregation str40 effect double att se p N firms int rc using "$Q/norm_cite_perpat_v4_results.dta", replace
+(file C:/Users/user/Documents/VD/outputs/refresh_did_20261023/norm_cite_perpat_v4_results.dta not found)
+
+. foreach sample in all noprior prior nonlate late notyet {
+  2.     local condition "1"
+  3.     local opt ""
+  4.     local ctrl "never"
+  5.     if "`sample'"=="noprior" local condition "G==0 | prior==0"
+  6.     if "`sample'"=="prior" local condition "G==0 | prior==1"
+  7.     if "`sample'"=="nonlate" local condition "G==0 | late==0"
+  8.     if "`sample'"=="late" local condition "G==0 | late==1"
+  9.     if "`sample'"=="notyet" {
+ 10.         local opt "notyet"
+ 11.         local ctrl "notyet"
+ 12.     }
+ 13.     quietly count if `condition'
+ 14.     local N=r(N)
+ 15.     egen byte tag=tag(full_firm_id) if `condition'
+ 16.     quietly count if tag==1
+ 17.     local firms=r(N)
+ 18.     drop tag
+ 19.     display "BEGIN_SPEC v4 `sample' N=`N' firms=`firms'"
+ 20.     capture quietly csdid `dv' ln1p_cum_funding_l1 cum_funding_rounds_l1 i.region_fe i.industry_fe if `condition', ivar(full_firm_id) time(year) gvar(G) method(dripw) `opt'
+ 21.     local rc=_rc
+ 22.     if `rc' {
+ 23.         post `H' ("`sample'") ("`ctrl'") ("failed") ("csdid") (.) (.) (.) (`N') (`firms') (`rc')
+ 24.         continue
+ 25.     }
+ 26.     foreach agg in simple event group {
+ 27.         local window ""
+ 28.         if "`agg'"=="event" local window ", window(-4 4)"
+ 29.         capture noisily csdid_estat `agg' `window'
+ 30.         local rc=_rc
+ 31.         if `rc' {
+ 32.             post `H' ("`sample'") ("`ctrl'") ("`agg'") ("failed") (.) (.) (.) (`N') (`firms') (`rc')
+ 33.             continue
+ 34.         }
+ 35.         matrix T=r(table)
+ 36.         local names: colnames T
+ 37.         local j=0
+ 38.         foreach term of local names {
+ 39.             local ++j
+ 40.             post `H' ("`sample'") ("`ctrl'") ("`agg'") ("`term'") (T[1,`j']) (T[2,`j']) (T[4,`j']) (`N') (`firms') (0)
+ 41.         }
+ 42.     }
+ 43.     display "END_SPEC v4 `sample'"
+ 44. }
+BEGIN_SPEC v4 all N=8263 firms=2111
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |   .0624911   .1976172     0.32   0.752    -.3248315    .4498137
+------------------------------------------------------------------------------
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     Pre_avg |   .0359836   .0599371     0.60   0.548    -.0814911    .1534582
+    Post_avg |   .0569448    .167297     0.34   0.734    -.2709513    .3848409
+         Tm4 |   .7517763   .5478488     1.37   0.170    -.3219876     1.82554
+         Tm3 |  -.5434351   .4515352    -1.20   0.229    -1.428428    .3415576
+         Tm2 |  -.0424079   .1181245    -0.36   0.720    -.2739277    .1891119
+         Tm1 |   -.021999   .1104997    -0.20   0.842    -.2385743    .1945763
+         Tp0 |   .1141304   .1465549     0.78   0.436    -.1731118    .4013727
+         Tp1 |   .1155792   .2277342     0.51   0.612    -.3307717      .56193
+         Tp2 |   .0435151   .1756781     0.25   0.804    -.3008077    .3878379
+         Tp3 |   .0638891   .3249818     0.20   0.844    -.5730635    .7008418
+         Tp4 |    -.05239   .4880584    -0.11   0.915    -1.008967    .9041869
+------------------------------------------------------------------------------
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |   .1557078   .2020019     0.77   0.441    -.2402085    .5516242
+       G2012 |  -.7023518   2.695805    -0.26   0.794    -5.986032    4.581328
+       G2013 |   1.852933   .9152977     2.02   0.043      .058982    3.646883
+       G2014 |  -.0828509   .3262583    -0.25   0.800    -.7223055    .5566037
+       G2015 |  -.4212238   .4458994    -0.94   0.345    -1.295171     .452723
+       G2016 |   .0901533   .3150749     0.29   0.775    -.5273823    .7076888
+       G2017 |   .1577143   2.234547     0.07   0.944    -4.221917    4.537345
+       G2018 |  -.0822977   .4856055    -0.17   0.865    -1.034067    .8694716
+       G2019 |  -.1718106   .1583767    -1.08   0.278    -.4822231     .138602
+       G2020 |   .1540709   .1873351     0.82   0.411    -.2130991    .5212409
+       G2021 |   .4083596   .2383153     1.71   0.087    -.0587298    .8754491
+       G2022 |   .7281103    1.14388     0.64   0.524    -1.513853    2.970074
+       G2023 |   .7100484   .8803429     0.81   0.420    -1.015392    2.435489
+------------------------------------------------------------------------------
+END_SPEC v4 all
+BEGIN_SPEC v4 noprior N=6566 firms=1738
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |          0  (omitted)
+------------------------------------------------------------------------------
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+           csdid_event():  3301  subscript invalid
+                 <istmt>:     -  function returned error
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |          0  (omitted)
+------------------------------------------------------------------------------
+conformability error
+END_SPEC v4 noprior
+BEGIN_SPEC v4 prior N=7854 firms=1960
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |   .0624911   .1976172     0.32   0.752    -.3248315    .4498137
+------------------------------------------------------------------------------
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     Pre_avg |   .0359836   .0599371     0.60   0.548    -.0814911    .1534582
+    Post_avg |   .0569448    .167297     0.34   0.734    -.2709513    .3848409
+         Tm4 |   .7517763   .5478488     1.37   0.170    -.3219876     1.82554
+         Tm3 |  -.5434351   .4515352    -1.20   0.229    -1.428428    .3415576
+         Tm2 |  -.0424079   .1181245    -0.36   0.720    -.2739277    .1891119
+         Tm1 |   -.021999   .1104997    -0.20   0.842    -.2385743    .1945763
+         Tp0 |   .1141304   .1465549     0.78   0.436    -.1731118    .4013727
+         Tp1 |   .1155792   .2277342     0.51   0.612    -.3307717      .56193
+         Tp2 |   .0435151   .1756781     0.25   0.804    -.3008077    .3878379
+         Tp3 |   .0638891   .3249818     0.20   0.844    -.5730635    .7008418
+         Tp4 |    -.05239   .4880584    -0.11   0.915    -1.008967    .9041869
+------------------------------------------------------------------------------
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |   .1557078   .2020019     0.77   0.441    -.2402085    .5516242
+       G2012 |  -.7023518   2.695805    -0.26   0.794    -5.986032    4.581328
+       G2013 |   1.852933   .9152977     2.02   0.043      .058982    3.646883
+       G2014 |  -.0828509   .3262583    -0.25   0.800    -.7223055    .5566037
+       G2015 |  -.4212238   .4458994    -0.94   0.345    -1.295171     .452723
+       G2016 |   .0901533   .3150749     0.29   0.775    -.5273823    .7076888
+       G2017 |   .1577143   2.234547     0.07   0.944    -4.221917    4.537345
+       G2018 |  -.0822977   .4856055    -0.17   0.865    -1.034067    .8694716
+       G2019 |  -.1718106   .1583767    -1.08   0.278    -.4822231     .138602
+       G2020 |   .1540709   .1873351     0.82   0.411    -.2130991    .5212409
+       G2021 |   .4083596   .2383153     1.71   0.087    -.0587298    .8754491
+       G2022 |   .7281103    1.14388     0.64   0.524    -1.513853    2.970074
+       G2023 |   .7100484   .8803429     0.81   0.420    -1.015392    2.435489
+------------------------------------------------------------------------------
+END_SPEC v4 prior
+BEGIN_SPEC v4 nonlate N=7244 firms=1875
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |  -.1396225   .3315259    -0.42   0.674    -.7894013    .5101563
+------------------------------------------------------------------------------
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     Pre_avg |   .0814368   .1737785     0.47   0.639    -.2591628    .4220365
+    Post_avg |  -.1370537   .3405126    -0.40   0.687    -.8044462    .5303387
+         Tm4 |    1.89857   2.060723     0.92   0.357    -2.140374    5.937514
+         Tm3 |  -1.346984   1.634141    -0.82   0.410    -4.549841    1.855873
+         Tm2 |  -.2767017   .3199145    -0.86   0.387    -.9037225    .3503192
+         Tm1 |   .0508631   .2214555     0.23   0.818    -.3831817    .4849079
+         Tp0 |  -.0906474    .272053    -0.33   0.739    -.6238615    .4425666
+         Tp1 |  -.1227708   .2374685    -0.52   0.605    -.5882006    .3426589
+         Tp2 |   .1397727   .3790663     0.37   0.712    -.6031835     .882729
+         Tp3 |  -.2334119   .4713205    -0.50   0.620    -1.157183    .6903594
+         Tp4 |  -.3782112   1.018698    -0.37   0.710    -2.374823      1.6184
+------------------------------------------------------------------------------
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |  -.0996728   .3692559    -0.27   0.787    -.8234011    .6240555
+       G2012 |  -.7023518   2.695805    -0.26   0.794    -5.986032    4.581328
+       G2013 |   3.383286   12.43175     0.27   0.786    -20.98249    27.74907
+       G2014 |  -1.202452   1.737989    -0.69   0.489    -4.608847    2.203943
+       G2015 |  -.5159358   .6836766    -0.75   0.450    -1.855917    .8240456
+       G2016 |   .0552422   .4003769     0.14   0.890     -.729482    .8399664
+       G2017 |   .8972213   1.760256     0.51   0.610    -2.552817    4.347259
+       G2018 |   -.305564    .916132    -0.33   0.739     -2.10115    1.490022
+       G2019 |  -.0275071   .2175934    -0.13   0.899    -.4539823    .3989681
+       G2020 |   .1733542   .3574932     0.48   0.628    -.5273196     .874028
+       G2021 |   .2838668   .5402957     0.53   0.599    -.7750933    1.342827
+       G2022 |  -.4858809   .4736749    -1.03   0.305    -1.414267    .4425048
+------------------------------------------------------------------------------
+END_SPEC v4 nonlate
+BEGIN_SPEC v4 late N=6508 firms=1655

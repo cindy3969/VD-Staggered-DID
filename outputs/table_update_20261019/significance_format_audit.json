@@ -1,0 +1,11 @@
+{
+  "checked_cells": 1014,
+  "star_thresholds": [
+    0.1,
+    0.05,
+    0.01
+  ],
+  "p_decimals": 3,
+  "excluded_tables_preserved": true,
+  "layout_verified": false
+}

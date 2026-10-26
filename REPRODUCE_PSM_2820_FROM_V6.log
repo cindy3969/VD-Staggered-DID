@@ -1,0 +1,810 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\outputs\psm_final_2820_package\REPRODUCE_PSM_2820
+> _FROM_V6.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. 
+. global PSM_ROOT "C:/Users/user/Documents/VD/outputs/psm_final_2820_package"
+
+. global PREMATCH "C:/Users/user/iCloudDrive/5학기/연구미팅/20240108-2010 to 2015
+>  firms/exact matched sample v6 unmatched.xlsx"
+
+. global DIAG "$PSM_ROOT/replicated_appendix"
+
+. global APPUNION "C:/Users/user/Documents/VD/outputs/csdid_union_corrected_3yr/a
+> pplication_level_union_corrected_visible_mismatches.csv"
+
+. global FIRMMAP "C:/Users/user/Documents/VD/outputs/csdid_ultimately_granted_pri
+> mary/csdid_ultimately_granted_full7316_controls.dta"
+
+. capture mkdir "$DIAG"
+
+. 
+. capture log close
+
+. log using "$PSM_ROOT/REPRODUCE_PSM_2820_FROM_V6.log", text replace
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/REPRODUCE_
+> PSM_2820_FROM_V6.log
+  log type:  text
+ opened on:  14 Oct 2026, 18:23:13
+
+. 
+. *******************************************************************************
+> *
+. * 1. PRE-MATCH FIRM-LEVEL SAMPLE: 7,316 FIRMS
+. *******************************************************************************
+> *
+. import excel using "$PREMATCH", firstrow clear
+(33 vars, 7,316 obs)
+
+. 
+. * Stata may import the headers with slightly different legal names.
+. capture confirm variable OrganizationName
+
+. if _rc rename OrganizationNameURL organization_url
+
+. capture confirm variable OrganizationName
+
+. 
+. capture confirm numeric variable VD_Backing
+
+. if _rc destring VD_Backing, replace
+
+. 
+. * Historical treatment definition used for the archived 2,820 sample.
+. replace VD_Backing = 1 if inlist(OrganizationName,"Dermira","Eargo")
+(2 real changes made)
+
+. replace VD_Backing = 0 if inlist(OrganizationName,"Cortex","Nomi1")
+(2 real changes made)
+
+. 
+. * The funding amount is missing for 30 of the 1,440 VD-backed firms.
+. * Those 30 cannot enter a logit containing Log(Total Funding Amount_VD),
+. * leaving 1,410 eligible treated firms.
+. capture drop ln_Total_Funding_Amount_FirstVD
+
+. gen double ln_Total_Funding_Amount_FirstVD = ln(Total_Funding_Amount_FirstVD + 
+> 1)
+(775 missing values generated)
+
+. 
+. capture confirm numeric variable Founding_Year
+
+. if _rc destring Founding_Year, replace
+
+. * All controls use the hypothetical reference year Founding Year + 5.
+. replace VDYear = Founding_Year + 5 if VD_Backing==0
+(2 real changes made)
+
+. capture confirm numeric variable TimeToFirst_VC
+
+. if _rc destring TimeToFirst_VC, replace
+
+. capture confirm numeric variable Grant_VD
+
+. if _rc destring Grant_VD, replace
+
+. capture confirm numeric variable NumberOfFunding_Rounds_FirstVD
+
+. if _rc destring NumberOfFunding_Rounds_FirstVD, replace
+
+. 
+. capture confirm numeric variable Region2
+
+. if _rc {
+.     encode Region2, gen(Region2_n)
+.     drop Region2
+.     rename Region2_n Region2
+. }
+
+. capture confirm numeric variable Industry2
+
+. if _rc {
+.     encode Industry2, gen(Industry2_n)
+.     drop Industry2
+.     rename Industry2_n Industry2
+. }
+
+. 
+. count
+  7,316
+
+. assert r(N)==7316
+
+. count if VD_Backing==1
+  1,440
+
+. assert r(N)==1440
+
+. count if VD_Backing==0
+  5,876
+
+. assert r(N)==5876
+
+. 
+. *******************************************************************************
+> *
+. * 2. BUILD PRE-REFERENCE AND WINDOW-3 APPLICATION COUNTS BEFORE MATCHING
+. *******************************************************************************
+> *
+. tempfile firm_reference application_counts
+
+. preserve
+
+.     gen str244 name_key=ustrlower(OrganizationName)
+
+.     replace name_key=ustrregexra(name_key,"[^a-z0-9]","")
+(2,916 real changes made)
+
+.     gen double reference_year=VDYear
+
+.     keep name_key reference_year
+
+.     bysort name_key: egen reference_min=min(reference_year)
+
+.     bysort name_key: egen reference_max=max(reference_year)
+
+.     assert reference_min==reference_max
+
+.     bysort name_key: keep if _n==1
+(1 observation deleted)
+
+.     drop reference_min reference_max
+
+.     save `firm_reference', replace
+(file C:\Users\user\AppData\Local\Temp\ST_4cc4_000001.tmp not found)
+file C:\Users\user\AppData\Local\Temp\ST_4cc4_000001.tmp saved as .dta format
+
+. 
+.     import delimited using "$APPUNION", clear varnames(1) encoding(utf8)
+(38 vars, 39,721 obs)
+
+.     keep if inrange(filing_year,2010,2024)
+(472 observations deleted)
+
+.     duplicates drop full_firm_id application_id, force
+
+Duplicates in terms of full_firm_id application_id
+
+(0 observations are duplicates)
+
+.     count
+  39,249
+
+.     assert r(N)==39249
+
+.     gen str244 name_key=ustrlower(organization_name)
+
+.     replace name_key=ustrregexra(name_key,"[^a-z0-9]","")
+(19,956 real changes made)
+
+.     merge m:1 name_key using `firm_reference', keep(match) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                            39,249  
+    -----------------------------------------
+
+.     gen byte app_at_vd=(filing_year<=reference_year)
+
+.     gen byte app_win3=inrange(filing_year-reference_year,0,3)
+
+.     collapse (sum) patent_application_VD=app_at_vd ///
+>                    patent_application_win3=app_win3, by(name_key)
+
+.     save `application_counts', replace
+(file C:\Users\user\AppData\Local\Temp\ST_4cc4_000002.tmp not found)
+file C:\Users\user\AppData\Local\Temp\ST_4cc4_000002.tmp saved as .dta format
+
+. restore
+
+. 
+. capture drop patent_application_VD patent_application_win3 name_key
+
+. gen str244 name_key=ustrlower(OrganizationName)
+
+. replace name_key=ustrregexra(name_key,"[^a-z0-9]","")
+(2,916 real changes made)
+
+. merge m:1 name_key using `application_counts', keep(master match) gen(_merge_ap
+> pcounts)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         5,011
+        from master                     5,011  (_merge_appcounts==1)
+        from using                          0  (_merge_appcounts==2)
+
+    Matched                             2,305  (_merge_appcounts==3)
+    -----------------------------------------
+
+. replace patent_application_VD=0 if missing(patent_application_VD)
+(5,011 real changes made)
+
+. replace patent_application_win3=0 if missing(patent_application_win3)
+(5,011 real changes made)
+
+. label var patent_application_VD "Applications filed through actual or hypotheti
+> cal VD year"
+
+. label var patent_application_win3 "Applications filed in years t=0 to t+3"
+
+. 
+. assert patent_application_VD==9 if OrganizationName=="Affirmed Networks"
+
+. assert patent_application_VD==38 & patent_application_win3==16 if OrganizationN
+> ame=="AliveCor"
+
+. assert patent_application_VD==9 & patent_application_win3==0 if OrganizationNam
+> e=="Health Outcomes Sciences"
+
+. 
+. *******************************************************************************
+> *
+. * 3. 1:1 NEAREST-NEIGHBOR PSM, COMMON SUPPORT, WITHOUT REPLACEMENT
+. *
+. * Matching variables stated in the manuscript:
+. * - Log(Total Funding Amount_VD)
+. * - Number of Funding Rounds_VD
+. * - Patent applications filed through the reference year
+. * - Founding Year
+. * - Region
+. * - Industry
+. * - Time to First VC
+. *******************************************************************************
+> *
+. capture which psmatch2
+
+. if _rc ssc install psmatch2
+
+. 
+. set seed 20250901
+
+. psmatch2 VD_Backing ///
+>     i.Founding_Year ///
+>     i.Region2 ///
+>     i.Industry2 ///
+>     ln_Total_Funding_Amount_FirstVD ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     patent_application_VD ///
+>     TimeToFirst_VC, ///
+>     logit neighbor(1) noreplacement common
+
+Logistic regression                                     Number of obs =  6,541
+                                                        LR chi2(16)   = 337.34
+                                                        Prob > chi2   = 0.0000
+Log likelihood = -3240.7281                             Pseudo R2     = 0.0495
+
+--------------------------------------------------------------------------------
+    VD_Backing | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+ Founding_Year |
+         2011  |  -.1655104   .1068252    -1.55   0.121     -.374884    .0438631
+         2012  |  -.2446002   .1109515    -2.20   0.027    -.4620613   -.0271392
+         2013  |  -.6042025   .1100721    -5.49   0.000    -.8199398   -.3884651
+         2014  |  -.7380503   .1076191    -6.86   0.000    -.9489799   -.5271208
+         2015  |   -.919456   .1081723    -8.50   0.000     -1.13147   -.7074422
+               |
+       Region2 |
+Massachusetts  |   .2661608   .1216507     2.19   0.029     .0277299    .5045917
+     New York  |   .4451374   .0978976     4.55   0.000     .2532616    .6370133
+        Other  |   .6036081   .0738839     8.17   0.000     .4587983     .748418
+               |
+     Industry2 |
+Bio/Healthc~e  |   .3020618   .3210875     0.94   0.347    -.3272581    .9313817
+Hardware/Ma~h  |   .3038232   .3244645     0.94   0.349    -.3321155     .939762
+        Other  |   .2549315   .3190295     0.80   0.424    -.3703548    .8802179
+Software/IT..  |   .0723879   .3166606     0.23   0.819    -.5482555    .6930314
+               |
+ln_Total_Fun~D |   .0419825   .0179231     2.34   0.019     .0068538    .0771112
+NumberOfFund~D |   .1648295   .0170532     9.67   0.000     .1314058    .1982532
+patent_appli~D |   .0009291   .0021247     0.44   0.662    -.0032353    .0050934
+TimeToFirst_VC |  -.0572833   .0194913    -2.94   0.003    -.0954856    -.019081
+         _cons |  -2.537548   .4352073    -5.83   0.000    -3.390539   -1.684557
+--------------------------------------------------------------------------------
+
+. 
+. gen byte matched_2820 = (_weight==1) if !missing(_weight)
+(4,496 missing values generated)
+
+. replace matched_2820 = 0 if missing(matched_2820)
+(4,496 real changes made)
+
+. 
+. tab VD_Backing matched_2820, missing
+
+           |     matched_2820
+VD_Backing |         0          1 |     Total
+-----------+----------------------+----------
+         0 |     4,466      1,410 |     5,876 
+         1 |        30      1,410 |     1,440 
+-----------+----------------------+----------
+     Total |     4,496      2,820 |     7,316 
+
+. count if matched_2820==1
+  2,820
+
+. display as result "Matched observations = " r(N)
+Matched observations = 2820
+
+. count if matched_2820==1 & VD_Backing==1
+  1,410
+
+. display as result "Matched VD-backed firms = " r(N)
+Matched VD-backed firms = 1410
+
+. count if matched_2820==1 & VD_Backing==0
+  1,410
+
+. display as result "Matched controls = " r(N)
+Matched controls = 1410
+
+. 
+. count if matched_2820==1
+  2,820
+
+. assert r(N)==2820
+
+. count if matched_2820==1 & VD_Backing==1
+  1,410
+
+. assert r(N)==1410
+
+. count if matched_2820==1 & VD_Backing==0
+  1,410
+
+. assert r(N)==1410
+
+. 
+. *******************************************************************************
+> *
+. * 4. SAVE MATCHED SAMPLE AND APPLICATION-COUNT AUDIT
+. *******************************************************************************
+> *
+. * Firm-level audit against the legacy granted-patent variable.  Grant_3years
+. * and patent_application_win3 measure different events, so disagreement is
+. * expected; this file is intended to make implausible firm mappings visible.
+. preserve
+
+.     keep no OrganizationName VD_Backing Founding_Year VDYear Grant_VD ///
+>          Grant_3years patent_application_VD patent_application_win3 ///
+>          _merge_appcounts
+
+.     sort OrganizationName
+
+.     export delimited using "$DIAG/patent_application_count_audit.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/replicated_appendi
+> x/patent_application_count_audit.csv saved
+
+. restore
+
+. 
+. drop _merge_appcounts
+
+. 
+. save "$PSM_ROOT/psm_stata_full7316_with_scores.dta", replace
+file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/psm_stata_full731
+    > 6_with_scores.dta saved
+
+. preserve
+
+.     keep if matched_2820==1
+(4,496 observations deleted)
+
+.     save "$PSM_ROOT/psm_stata_matched_2820.dta", replace
+file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/psm_stata_matched
+    > _2820.dta saved
+
+.     export delimited using "$PSM_ROOT/psm_stata_matched_2820.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/psm_stata_matched_
+> 2820.csv saved
+
+. restore
+
+. 
+. *******************************************************************************
+> *
+. * 4. LEGACY PSTEST OUTPUT
+. *******************************************************************************
+> *
+. pstest ln_Total_Funding_Amount_FirstVD ///
+>     NumberOfFunding_Rounds_FirstVD patent_application_VD TimeToFirst_VC, both
+
+---------------------------------------------------------------------------------
+> ----------------
+                         Unmatched |       Mean               %reduct |     t-tes
+> t    |  V(T)/
+Variable                   Matched | Treated Control    %bias  |bias| |    t    p
+> >|t| |  V(C)
+-----------------------------------+----------------------------------+----------
+> -----+----------
+ln_Total_Funding_Amount_FirstVD U  | 16.015   15.704     15.3         |   5.26  0
+> .000 |  1.26*
+                                M  | 16.015   16.018     -0.2    99.0 |  -0.04  0
+> .966 |  1.38*
+                                   |                                  |          
+>      |
+NumberOfFunding_Rounds_FirstVD  U  | 4.1525   3.4432     34.8         |  12.13  0
+> .000 |  1.36*
+                                M  | 4.1525   4.1738     -1.0    97.0 |  -0.26  0
+> .793 |  1.06
+                                   |                                  |          
+>      |
+patent_application_VD           U  |  2.856   2.3011      4.3         |   1.29  0
+> .196 |  0.41*
+                                M  |  2.856    3.505     -5.1   -16.9 |  -0.89  0
+> .376 |  0.15*
+                                   |                                  |          
+>      |
+TimeToFirst_VC                  U  |  1.595   1.8928    -16.0         |  -5.44  0
+> .000 |  1.14*
+                                M  |  1.595   1.4858      5.9    63.3 |   1.65  0
+> .100 |  1.46*
+                                   |                                  |          
+>      |
+---------------------------------------------------------------------------------
+> ----------------
+* if variance ratio outside [0.90; 1.11] for U and [0.90; 1.11] for M
+
+---------------------------------------------------------------------------------
+> --
+ Sample    | Ps R2   LR chi2   p>chi2   MeanBias   MedBias      B      R     %Var
+-----------+---------------------------------------------------------------------
+> --
+ Unmatched | 0.020    139.58    0.000     17.6      15.7      35.3*   1.25    100
+ Matched   | 0.001      3.66    0.454      3.0       3.1       7.1    0.95     75
+---------------------------------------------------------------------------------
+> --
+* if B>25%, R outside [0.5; 2]
+
+. 
+. *******************************************************************************
+> *
+. * 5. TABLE A6: STANDARDIZED DIFFERENCES AND VARIANCE RATIOS
+. * Balance is assessed with SMDs, not primarily with t-tests.
+. * Variance ratios are reported for continuous covariates only.
+. *******************************************************************************
+> *
+. gen byte psm_esample = !missing(_pscore)
+
+. 
+. tempname BAL
+
+. postfile `BAL' str64 covariate str20 variable_type ///
+>  double treated_before control_before smd_before variance_ratio_before ///
+>  treated_after control_after smd_after variance_ratio_after ///
+>  using "$DIAG/Table_A6_balance.dta", replace
+
+. 
+. local continuous ln_Total_Funding_Amount_FirstVD ///
+>  NumberOfFunding_Rounds_FirstVD patent_application_VD Founding_Year TimeToFirst
+> _VC
+
+. foreach v of local continuous {
+  2.     local lab "`v'"
+  3.     if "`v'"=="ln_Total_Funding_Amount_FirstVD" local lab "Log total funding
+>  amount at reference year"
+  4.     if "`v'"=="NumberOfFunding_Rounds_FirstVD" local lab "Number of funding 
+> rounds at reference year"
+  5.     if "`v'"=="patent_application_VD" local lab "Patent applications through
+>  reference year"
+  6.     if "`v'"=="Founding_Year" local lab "Founding year"
+  7.     if "`v'"=="TimeToFirst_VC" local lab "Time to first VC"
+  8. 
+.     quietly summarize `v' if VD_Backing==1 & psm_esample
+  9.     local mt0=r(mean)
+ 10.     local vt0=r(Var)
+ 11.     quietly summarize `v' if VD_Backing==0 & psm_esample
+ 12.     local mc0=r(mean)
+ 13.     local vc0=r(Var)
+ 14.     local pool0=sqrt((`vt0'+`vc0')/2)
+ 15. 
+.     quietly summarize `v' if VD_Backing==1 & matched_2820
+ 16.     local mt1=r(mean)
+ 17.     local vt1=r(Var)
+ 18.     quietly summarize `v' if VD_Backing==0 & matched_2820
+ 19.     local mc1=r(mean)
+ 20.     local vc1=r(Var)
+ 21.     local pool1=sqrt((`vt1'+`vc1')/2)
+ 22. 
+.     post `BAL' ("`lab'") ("Continuous") ///
+>       (`mt0') (`mc0') (cond(`pool0'>0,(`mt0'-`mc0')/`pool0',0)) (cond(`vc0'>0,`
+> vt0'/`vc0',.)) ///
+>         (`mt1') (`mc1') (cond(`pool1'>0,(`mt1'-`mc1')/`pool1',0)) (cond(`vc1'>0
+> ,`vt1'/`vc1',.))
+ 23. }
+
+. 
+. * Region2 and Industry2 are reported as the original variables, one row each,
+. * matching the historical Appendix table. Variance ratios are omitted because
+. * their numeric codes represent categories rather than continuous quantities.
+. foreach v in Region2 Industry2 {
+  2.     if "`v'"=="Region2" local lab "Region2"
+  3.     if "`v'"=="Industry2" local lab "Industry2"
+  4.     quietly summarize `v' if VD_Backing==1 & psm_esample
+  5.     local mt0=r(mean)
+  6.     local vt0=r(Var)
+  7.     quietly summarize `v' if VD_Backing==0 & psm_esample
+  8.     local mc0=r(mean)
+  9.     local vc0=r(Var)
+ 10.     local pool0=sqrt((`vt0'+`vc0')/2)
+ 11.     quietly summarize `v' if VD_Backing==1 & matched_2820
+ 12.     local mt1=r(mean)
+ 13.     local vt1=r(Var)
+ 14.     quietly summarize `v' if VD_Backing==0 & matched_2820
+ 15.     local mc1=r(mean)
+ 16.     local vc1=r(Var)
+ 17.     local pool1=sqrt((`vt1'+`vc1')/2)
+ 18.     post `BAL' ("`lab'") ("Categorical code") ///
+>       (`mt0') (`mc0') (cond(`pool0'>0,(`mt0'-`mc0')/`pool0',0)) (.) ///
+>       (`mt1') (`mc1') (cond(`pool1'>0,(`mt1'-`mc1')/`pool1',0)) (.)
+ 19. }
+
+. postclose `BAL'
+
+. 
+. preserve
+
+. use "$DIAG/Table_A6_balance.dta", clear
+
+. gen abs_smd_before=abs(smd_before)
+
+. gen abs_smd_after=abs(smd_after)
+
+. gen byte exceeds_010_after=abs_smd_after>.10 if !missing(abs_smd_after)
+
+. format treated_before control_before treated_after control_after %9.3f
+
+. format smd_before smd_after variance_ratio_before variance_ratio_after %9.3f
+
+. export delimited using "$DIAG/Table_A6_balance.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/replicated_appendi
+> x/Table_A6_balance.csv saved
+
+. 
+. quietly summarize abs_smd_before, meanonly
+
+. scalar max_smd_before=r(max)
+
+. quietly summarize abs_smd_after, meanonly
+
+. scalar max_smd_after=r(max)
+
+. count if exceeds_010_after==1
+  0
+
+. scalar rows_over_010=r(N)
+
+. 
+. *******************************************************************************
+> *
+. * 5. LOVE PLOT
+. *******************************************************************************
+> *
+. gsort -abs_smd_before
+
+. gen plot_order=_n
+
+. forvalues i=1/`=_N' {
+  2.     local lab=covariate[`i']
+  3.     label define balance_order `i' "`lab'", add
+  4. }
+
+. label values plot_order balance_order
+
+. 
+. twoway ///
+>  (scatter plot_order abs_smd_before, msymbol(O) mcolor(maroon)) ///
+>  (scatter plot_order abs_smd_after, msymbol(D) mcolor(navy)), ///
+>  xline(.10, lpattern(dash) lcolor(gs7)) ///
+>  ylabel(1(1)`=_N', valuelabel angle(horizontal) labsize(vsmall)) ///
+>  xtitle("Absolute standardized mean difference") ytitle("") ///
+>  title("Covariate balance before and after matching") ///
+>  legend(order(1 "Before matching" 2 "After matching") rows(1) position(6)) ///
+>  graphregion(color(white)) plotregion(color(white)) name(LOVE_A2, replace)
+
+. graph export "$DIAG/Figure_A2_Love_plot.png", replace width(3000)
+file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/replicated_append
+    > ix/Figure_A2_Love_plot.png saved as PNG format
+
+. graph save "$DIAG/Figure_A2_Love_plot.gph", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/replicated_appendi
+> x/Figure_A2_Love_plot.gph saved
+
+. restore
+
+. 
+. *******************************************************************************
+> *
+. * 6. FIGURE A1: PROPENSITY-SCORE OVERLAP BEFORE AND AFTER MATCHING
+. * Improved overlap is descriptive; identical densities are not required.
+. *******************************************************************************
+> *
+. twoway ///
+>  (kdensity _pscore if VD_Backing==1 & psm_esample, lcolor(maroon) lwidth(medthi
+> ck)) ///
+>  (kdensity _pscore if VD_Backing==0 & psm_esample, lcolor(navy) lpattern(dash) 
+> lwidth(medthick)), ///
+>  title("Panel A. Before matching") xtitle("Estimated propensity score") ytitle(
+> "Density") ///
+>  legend(order(1 "VD-backed" 2 "VC-only")) graphregion(color(white)) name(PS_PRE
+> , replace)
+
+. 
+. twoway ///
+>  (kdensity _pscore if VD_Backing==1 & matched_2820, lcolor(maroon) lwidth(medth
+> ick)) ///
+>  (kdensity _pscore if VD_Backing==0 & matched_2820, lcolor(navy) lpattern(dash)
+>  lwidth(medthick)), ///
+>  title("Panel B. After 1:1 matching") xtitle("Estimated propensity score") ytit
+> le("Density") ///
+>  legend(order(1 "VD-backed" 2 "Matched VC-only")) graphregion(color(white)) nam
+> e(PS_POST, replace)
+
+. 
+. graph combine PS_PRE PS_POST, cols(2) ///
+>  title("Propensity-score distributions before and after matching") ///
+>  graphregion(color(white)) name(FIG_A1, replace)
+
+. graph export "$DIAG/Figure_A1_propensity_score_overlap.png", replace width(3600
+> )
+file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/replicated_append
+    > ix/Figure_A1_propensity_score_overlap.png saved as PNG format
+
+. graph save "$DIAG/Figure_A1_propensity_score_overlap.gph", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/replicated_appendi
+> x/Figure_A1_propensity_score_overlap.gph saved
+
+. 
+. *******************************************************************************
+> *
+. * 7. COMMON-SUPPORT INFORMATION
+. *******************************************************************************
+> *
+. quietly summarize _pscore if VD_Backing==1 & psm_esample, meanonly
+
+. scalar treated_min=r(min)
+
+. scalar treated_max=r(max)
+
+. quietly summarize _pscore if VD_Backing==0 & psm_esample, meanonly
+
+. scalar control_min=r(min)
+
+. scalar control_max=r(max)
+
+. scalar support_lower=max(treated_min,control_min)
+
+. scalar support_upper=min(treated_max,control_max)
+
+. gen byte empirical_support=inrange(_pscore,support_lower,support_upper) if psm_
+> esample
+(775 missing values generated)
+
+. 
+. tempname SUP
+
+. postfile `SUP' str60 statistic double value using "$DIAG/Table_A6_common_suppor
+> t.dta", replace
+
+. post `SUP' ("Treated propensity-score minimum") (treated_min)
+
+. post `SUP' ("Treated propensity-score maximum") (treated_max)
+
+. post `SUP' ("Control propensity-score minimum") (control_min)
+
+. post `SUP' ("Control propensity-score maximum") (control_max)
+
+. post `SUP' ("Empirical common-support lower bound") (support_lower)
+
+. post `SUP' ("Empirical common-support upper bound") (support_upper)
+
+. foreach g in 0 1 {
+  2.     quietly count if VD_Backing==`g' & psm_esample
+  3.     post `SUP' ("Group `g': propensity-score estimation N") (r(N))
+  4.     quietly count if VD_Backing==`g' & psm_esample & empirical_support==1
+  5.     post `SUP' ("Group `g': within empirical support N") (r(N))
+  6.     quietly count if VD_Backing==`g' & psm_esample & empirical_support==0
+  7.     post `SUP' ("Group `g': outside empirical support N") (r(N))
+  8.     quietly count if VD_Backing==`g' & matched_2820
+  9.     post `SUP' ("Group `g': final matched N") (r(N))
+ 10. }
+
+. postclose `SUP'
+
+. 
+. preserve
+
+. use "$DIAG/Table_A6_common_support.dta", clear
+
+. export delimited using "$DIAG/Table_A6_common_support.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/replicated_appendi
+> x/Table_A6_common_support.csv saved
+
+. restore
+
+. 
+. *******************************************************************************
+> *
+. * 8. MANUSCRIPT TEXT AND PLACEMENT CHECKLIST
+. *******************************************************************************
+> *
+. file open TXT using "$DIAG/PSM_manuscript_text_and_placement.txt", write replac
+> e
+
+. file write TXT "PSM SECTION TEXT" _n _n
+
+. file write TXT "Table A6 reports treated and control means, standardized mean d
+> ifferences before and after matching, and variance ratios for continuous covari
+> ates. The Love plot provides a visual summary using an absolute-SMD benchmark o
+> f 0.10. These diagnostics assess balance on observed covariates and do not esta
+> blish balance on unobserved determinants of venture-debt receipt." _n _n
+
+. file write TXT "Figure A1 displays the estimated propensity-score distributions
+>  before and after matching. Panel B shows improved overlap, although the distri
+> butions are not identical and perfect density overlap is not required. The figu
+> re documents overlap in estimated scores; it does not establish conditional ind
+> ependence, eliminate endogeneity, or prove that matching fully resolves compara
+> bility." _n _n
+
+. file write TXT "PLACEMENT CHECKLIST" _n
+
+. file write TXT "1. Cite and discuss Table A6 in the PSM subsection." _n
+
+. file write TXT "2. Cite Figure A1 immediately after the common-support discussi
+> on." _n
+
+. file write TXT "3. Cite the Love plot when discussing standardized balance." _n
+
+. file write TXT "4. State explicitly that all diagnostics concern observed covar
+> iates only." _n
+
+. file write TXT "5. Check that every retained main-text and Appendix table or fi
+> gure is referenced and serves a stated empirical purpose." _n
+
+. file close TXT
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/REPRODUCE_
+> PSM_2820_FROM_V6.log
+  log type:  text
+ closed on:  14 Oct 2026, 18:24:40
+---------------------------------------------------------------------------------
+

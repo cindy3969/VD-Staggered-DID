@@ -1,0 +1,556 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/REBUILD_PSM_LEGACY_ALIGNED.log
+  log type:  text
+ opened on:  11 Oct 2026, 23:03:59
+
+. 
+. ********************************************************************************
+. * 1. RESTORE HISTORICAL TREATMENT AND PRE-VD PATENT-APPLICATION COUNT
+. ********************************************************************************
+. tempfile PATCOUNT
+
+. use "$LEGACY", clear
+
+. keep OrganizationName Patents_VD
+
+. rename OrganizationName organization_name
+
+. gen str100 name_key=ustrlower(ustrtrim(organization_name))
+
+. replace name_key=ustrregexra(name_key,"[^a-z0-9]","")
+(2,905 real changes made)
+
+. collapse (max) Patents_VD, by(name_key)
+
+. rename Patents_VD pre_vd_patent_count
+
+. save `PATCOUNT'
+file C:\Users\user\AppData\Local\Temp\ST_4d70_000001.tmp saved as .dta format
+
+. 
+. use "$SRC", clear
+
+. 
+. gen str100 name_key=ustrlower(ustrtrim(organization_name))
+
+. replace name_key=ustrregexra(name_key,"[^a-z0-9]","")
+(2,906 real changes made)
+
+. merge m:1 name_key using `PATCOUNT', keep(master match) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             2
+        from master                         2  
+        from using                          0  
+
+    Matched                             7,314  
+    -----------------------------------------
+
+. replace pre_vd_patent_count=0 if missing(pre_vd_patent_count)
+(2 real changes made)
+
+. assert pre_vd_patent_count>=0 & !missing(pre_vd_patent_count)
+
+. 
+. replace vd_backed=1 if inlist(name_key,"dermira","eargo")
+(2 real changes made)
+
+. replace vd_backed=0 if inlist(name_key,"cortex","nomi1")
+(2 real changes made)
+
+. replace first_vd_year=. if inlist(name_key,"cortex","nomi1")
+(2 real changes made, 2 to missing)
+
+. replace g_first_vd=0 if inlist(name_key,"cortex","nomi1")
+(2 real changes made)
+
+. 
+. count if vd_backed==1
+  1,440
+
+. assert r(N)==1440
+
+. 
+. ********************************************************************************
+. * 2. HISTORICAL 1:1 PSM SPECIFICATION
+. * Same score model used in the historical do-file:
+. * founding year FE, industry, reference-year funding rounds and funding amount,
+. * region, and years from founding to first VC.
+. ********************************************************************************
+. capture which psmatch2
+
+. if _rc {
+.     display as error "psmatch2 is not installed. Run: ssc install psmatch2"
+.     exit 199
+. }
+
+. 
+. sort full_firm_id
+
+. psmatch2 vd_backed i.founding_year ib4.industry2 funding_rounds_ref ///
+>     ln_funding_ref pre_vd_patent_count ib4.region2 time_first_vc, ///
+>     neighbor(1) logit noreplacement
+
+Logistic regression                                     Number of obs =  6,538
+                                                        LR chi2(15)   = 337.84
+                                                        Prob > chi2   = 0.0000
+Log likelihood = -3239.7495                             Pseudo R2     = 0.0496
+
+-------------------------------------------------------------------------------------
+          vd_backed | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+--------------------+----------------------------------------------------------------
+      founding_year |
+              2011  |  -.1662051   .1068243    -1.56   0.120    -.3755769    .0431668
+              2012  |  -.2458258    .110956    -2.22   0.027    -.4632956   -.0283559
+              2013  |  -.6028102   .1100651    -5.48   0.000    -.8185338   -.3870866
+              2014  |  -.7353293   .1076322    -6.83   0.000    -.9462844   -.5243741
+              2015  |  -.9170909   .1081883    -8.48   0.000    -1.129136   -.7050458
+                    |
+          industry2 |
+                 1  |   .2288546    .087014     2.63   0.009     .0583103    .3993988
+                 2  |   .2284722   .0981376     2.33   0.020     .0361261    .4208183
+                 3  |   .1922517   .0777795     2.47   0.013     .0398066    .3446968
+                    |
+ funding_rounds_ref |   .1642101   .0170737     9.62   0.000     .1307463     .197674
+     ln_funding_ref |   .0407111   .0178375     2.28   0.022     .0057502    .0756719
+pre_vd_patent_count |   .0033441   .0029106     1.15   0.251    -.0023606    .0090487
+                    |
+            region2 |
+                 1  |   -.603899   .0738841    -8.17   0.000    -.7487091   -.4590888
+                 2  |  -.3333286   .1185777    -2.81   0.005    -.5657366   -.1009206
+                 3  |   -.157521    .093791    -1.68   0.093     -.341348     .026306
+                    |
+      time_first_vc |   -.057321   .0194889    -2.94   0.003    -.0955186   -.0191234
+              _cons |  -1.847556   .2875706    -6.42   0.000    -2.411184   -1.283928
+-------------------------------------------------------------------------------------
+
+. 
+. gen byte psm_esample=!missing(_pscore)
+
+. gen byte psm_matched=(_weight>0 & !missing(_weight))
+
+. replace psm_matched=1 if vd_backed==1 & psm_esample
+(0 real changes made)
+
+. 
+. count if vd_backed==1 & psm_esample
+  1,410
+
+. assert r(N)==1410
+
+. count if vd_backed==1 & psm_matched
+  1,410
+
+. assert r(N)==1410
+
+. count if vd_backed==0 & psm_matched
+  1,410
+
+. assert r(N)==1410
+
+. 
+. save "$OUT/legacy_aligned_full7316_with_scores.dta", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/legacy_aligned_full7316_with_scores.dta saved
+
+. preserve
+
+.     keep if psm_matched
+(4,496 observations deleted)
+
+.     save "$OUT/legacy_aligned_matched_2820.dta", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/legacy_aligned_matched_2820.dta saved
+
+.     export delimited using "$OUT/legacy_aligned_matched_2820.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/legacy_aligned_matched_2820.csv saved
+
+. restore
+
+. 
+. ********************************************************************************
+. * 3. COMPARE MEMBERSHIP WITH THE ARCHIVED ORIGINAL 2,820 SAMPLE
+. ********************************************************************************
+. tempfile OLD NEW
+
+. preserve
+
+.     use "$PKG/ORIGINAL_final_matched_2820.dta", clear
+
+.     keep OrganizationName VD
+
+.     rename OrganizationName organization_name
+
+.     gen str100 name_key=ustrlower(ustrtrim(organization_name))
+
+.     replace name_key=ustrregexra(name_key,"[^a-z0-9]","")
+(1,133 real changes made)
+
+.     duplicates drop name_key VD, force
+
+Duplicates in terms of name_key VD
+
+(0 observations are duplicates)
+
+.     rename VD old_treated
+
+.     save `OLD'
+file C:\Users\user\AppData\Local\Temp\ST_4d70_000003.tmp saved as .dta format
+
+. restore
+
+. 
+. ********************************************************************************
+. * 3A. EXACTLY RESTORE THE ARCHIVED 2,820-FIRM MEMBERSHIP
+. * Re-estimated scores are retained, but sample membership is fixed to the
+. * archived matched sample so the manuscript analyses remain reproducible.
+. ********************************************************************************
+. preserve
+
+.     merge m:1 name_key using `OLD', keep(master match) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         4,496
+        from master                     4,496  
+        from using                          0  
+
+    Matched                             2,820  
+    -----------------------------------------
+
+.     sort name_key full_firm_id
+
+.     gen byte legacy_exact_sample=(!missing(old_treated) & old_treated==vd_backed)
+
+.     by name_key: gen int legacy_name_rank=sum(legacy_exact_sample)
+
+.     replace legacy_exact_sample=0 if legacy_exact_sample & legacy_name_rank>1
+(0 real changes made)
+
+.     drop legacy_name_rank
+
+.     count if legacy_exact_sample
+  2,820
+
+.     assert r(N)==2820
+
+.     rename psm_matched selected_by_fresh_rematch
+
+.     gen byte psm_matched=legacy_exact_sample
+
+.     save "$OUT/legacy_aligned_full7316_EXACT_membership.dta", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/legacy_aligned_full7316_EXACT_membership.dta saved
+
+.     keep if legacy_exact_sample
+(4,496 observations deleted)
+
+.     assert old_treated==vd_backed
+
+.     count if vd_backed==1
+  1,410
+
+.     assert r(N)==1410
+
+.     count if vd_backed==0
+  1,410
+
+.     assert r(N)==1410
+
+.     save "$OUT/EXACT_original_membership_2820_with_updated_scores.dta", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/EXACT_original_membership_2820_with_updated_scores.dta saved
+
+.     export delimited using ///
+>         "$OUT/EXACT_original_membership_2820_with_updated_scores.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/EXACT_original_membership_2820_with_updated_scores.csv saved
+
+. restore
+
+. 
+. preserve
+
+.     keep if psm_matched
+(4,496 observations deleted)
+
+.     keep organization_name name_key vd_backed
+
+.     duplicates drop name_key vd_backed, force
+
+Duplicates in terms of name_key vd_backed
+
+(0 observations are duplicates)
+
+.     rename vd_backed new_treated
+
+.     save `NEW'
+file C:\Users\user\AppData\Local\Temp\ST_4d70_000004.tmp saved as .dta format
+
+. restore
+
+. 
+. use `OLD', clear
+
+. merge 1:1 name_key using `NEW'
+(variable organization_name was str50, now str58 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,760
+        from master                       880  (_merge==1)
+        from using                        880  (_merge==2)
+
+    Matched                             1,940  (_merge==3)
+    -----------------------------------------
+
+. gen byte old_control=old_treated==0 if !missing(old_treated)
+(880 missing values generated)
+
+. gen byte new_control=new_treated==0 if !missing(new_treated)
+(880 missing values generated)
+
+. gen byte old_treat=old_treated==1 if !missing(old_treated)
+(880 missing values generated)
+
+. gen byte new_treat=new_treated==1 if !missing(new_treated)
+(880 missing values generated)
+
+. 
+. tempname O
+
+. postfile `O' str48 statistic long value using "$OUT/original_overlap_summary.dta", replace
+
+. quietly count if old_control==1
+
+. post `O' ("Original matched controls") (r(N))
+
+. quietly count if new_control==1
+
+. post `O' ("Legacy-aligned rematched controls") (r(N))
+
+. quietly count if old_control==1 & new_control==1
+
+. post `O' ("Controls in both samples") (r(N))
+
+. quietly count if old_control==1 & new_control!=1
+
+. post `O' ("Original controls not retained") (r(N))
+
+. quietly count if new_control==1 & old_control!=1
+
+. post `O' ("Replacement controls") (r(N))
+
+. quietly count if old_treat==1 & new_treat==1
+
+. post `O' ("Treated firms in both samples") (r(N))
+
+. quietly count if old_treat==1 & new_treat!=1
+
+. post `O' ("Original treated not retained") (r(N))
+
+. quietly count if new_treat==1 & old_treat!=1
+
+. post `O' ("New treated not in original") (r(N))
+
+. postclose `O'
+
+. 
+. preserve
+
+.     keep if (old_control==1 & new_control!=1) | ///
+>         (new_control==1 & old_control!=1) | ///
+>         (old_treat==1 & new_treat!=1) | ///
+>         (new_treat==1 & old_treat!=1)
+(1,940 observations deleted)
+
+.     keep organization_name name_key old_treated new_treated _merge
+
+.     export delimited using "$OUT/membership_differences.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/membership_differences.csv saved
+
+. restore
+
+. 
+. use "$OUT/original_overlap_summary.dta", clear
+
+. export delimited using "$OUT/original_overlap_summary.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/original_overlap_summary.csv saved
+
+. list, noobs clean
+
+                            statistic   value  
+            Original matched controls    1410  
+    Legacy-aligned rematched controls    1410  
+             Controls in both samples     530  
+       Original controls not retained     880  
+                 Replacement controls     880  
+        Treated firms in both samples    1410  
+        Original treated not retained       0  
+          New treated not in original       0  
+
+. 
+. ********************************************************************************
+. * 4. EXPOSE PROPENSITY SCORES AND REPLICATE FIGURE A1
+. ********************************************************************************
+. use "$OUT/legacy_aligned_full7316_EXACT_membership.dta", clear
+
+. preserve
+
+.     keep full_firm_id organization_name vd_backed pre_vd_patent_count ///
+>         _pscore _weight psm_esample psm_matched legacy_exact_sample ///
+>         selected_by_fresh_rematch
+
+.     rename _pscore propensity_score
+
+.     rename _weight psmatch2_weight
+
+.     save "$OUT/propensity_scores_full7316.dta", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/propensity_scores_full7316.dta saved
+
+.     export delimited using "$OUT/propensity_scores_full7316.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/propensity_scores_full7316.csv saved
+
+. restore
+
+. 
+. graph set window fontface "Times New Roman"
+
+. graph set print fontface "Times New Roman"
+
+. twoway ///
+>  (kdensity _pscore if vd_backed==1 & psm_esample, lcolor(maroon)) ///
+>  (kdensity _pscore if vd_backed==0 & psm_esample, lcolor(navy) lpattern(dash)), ///
+>  title("Panel A. Before matching") xtitle("Propensity score") ytitle("Density") ///
+>  legend(order(1 "VD-backed" 2 "VC-only")) graphregion(color(white)) ///
+>  name(A1PRE, replace)
+
+. twoway ///
+>  (kdensity _pscore if vd_backed==1 & psm_matched, lcolor(maroon)) ///
+>  (kdensity _pscore if vd_backed==0 & psm_matched, lcolor(navy) lpattern(dash)), ///
+>  title("Panel B. After 1:1 matching without replacement") ///
+>  xtitle("Propensity score") ytitle("Density") ///
+>  legend(order(1 "VD-backed" 2 "Matched VC-only")) graphregion(color(white)) ///
+>  name(A1POST, replace)
+
+. graph combine A1PRE A1POST, cols(2) ///
+>  title("Figure A1. Propensity-score overlap") graphregion(color(white))
+
+. graph export "$OUT/Figure_A1_legacy_exact_sample.png", replace width(3600)
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/Figure_A1_legacy_exact_sample.png saved as PNG format
+
+. graph save "$OUT/Figure_A1_legacy_exact_sample.gph", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/Figure_A1_legacy_exact_sample.gph saved
+
+. 
+. ********************************************************************************
+. * 5. TABLE A6: ORIGINAL APPENDIX LAYOUT
+. ********************************************************************************
+. gen double reference_year=cond(vd_backed==1,first_vd_year,founding_year+5)
+(2 missing values generated)
+
+. tempname A6
+
+. postfile `A6' str52 covariate ///
+>  double treated_before control_before difference_before p_before ///
+>  treated_after control_after difference_after p_after ///
+>  using "$OUT/Table_A6_legacy_exact_sample.dta", replace
+
+. local a6vars founding_year reference_year time_first_vc funding_rounds_ref ///
+>  ln_funding_ref pre_vd_patent_count region2 industry2
+
+. foreach v of local a6vars {
+  2.     local lab "`v'"
+  3.     if "`v'"=="founding_year" local lab "Founding Year"
+  4.     if "`v'"=="reference_year" local lab "VD/Pseudo-VD Year"
+  5.     if "`v'"=="time_first_vc" local lab "Time To First VC"
+  6.     if "`v'"=="funding_rounds_ref" local lab "Num Of Funding Rounds VD"
+  7.     if "`v'"=="ln_funding_ref" local lab "Log(Total Funding Amt VD)"
+  8.     if "`v'"=="pre_vd_patent_count" local lab "Pre-VD Granted Patent Applications"
+  9.     if "`v'"=="region2" local lab "Startup Hub (coded mean)"
+ 10.     if "`v'"=="industry2" local lab "Tech Intensive Industry (coded mean)"
+ 11.     quietly summarize `v' if vd_backed==1 & psm_esample, meanonly
+ 12.     local tb=r(mean)
+ 13.     quietly summarize `v' if vd_backed==0 & psm_esample, meanonly
+ 14.     local cb=r(mean)
+ 15.     quietly ttest `v' if psm_esample, by(vd_backed)
+ 16.     local pb=r(p)
+ 17.     quietly summarize `v' if vd_backed==1 & psm_matched, meanonly
+ 18.     local ta=r(mean)
+ 19.     quietly summarize `v' if vd_backed==0 & psm_matched, meanonly
+ 20.     local ca=r(mean)
+ 21.     quietly ttest `v' if psm_matched, by(vd_backed)
+ 22.     local pa=r(p)
+ 23.     post `A6' ("`lab'") (`tb') (`cb') (`tb'-`cb') (`pb') ///
+>         (`ta') (`ca') (`ta'-`ca') (`pa')
+ 24. }
+
+. postclose `A6'
+
+. use "$OUT/Table_A6_legacy_exact_sample.dta", clear
+
+. format treated* control* difference* p_* %9.3f
+
+. export delimited using "$OUT/Table_A6_legacy_exact_sample.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/Table_A6_legacy_exact_sample.csv saved
+
+. list, noobs clean abbreviate(34)
+
+                               covariate   treated_before   control_before   difference_before   p_before   treated_after   control_after   difference_after   p_after  
+                           Founding Year         2012.417         2012.904              -0.487      0.000        2012.417        2012.382              0.035     0.582  
+                       VD/Pseudo-VD Year         2017.377         2017.904              -0.527      0.000        2017.377        2017.382             -0.004     0.964  
+                        Time To First VC            1.595            1.892              -0.297      0.000           1.595           1.598             -0.003     0.966  
+                Num Of Funding Rounds VD            4.152            3.444               0.709      0.000           4.152           4.135              0.018     0.827  
+               Log(Total Funding Amt VD)           16.015           15.703               0.312      0.000          16.015          15.989              0.026     0.733  
+      Pre-VD Granted Patent Applications            2.188            1.436               0.752      0.009           2.188           2.074              0.113     0.811  
+                Startup Hub (coded mean)            2.784            2.505               0.278      0.000           2.784           2.809             -0.025     0.611  
+    Tech Intensive Industry (coded mean)            2.881            2.977              -0.096      0.005           2.881           2.887             -0.006     0.882  
+
+. 
+. ********************************************************************************
+. * 6. TABLE A7: FULL-COHORT FUNDING TIMELINES
+. ********************************************************************************
+. use "$OUT/legacy_aligned_full7316_EXACT_membership.dta", clear
+
+. gen double time_to_first_vd=first_vd_year-founding_year if vd_backed==1
+(5,878 missing values generated)
+
+. gen double time_between_vc_vd=first_vd_year-first_vc_year if vd_backed==1
+(5,878 missing values generated)
+
+. tempname A7
+
+. postfile `A7' byte vd_backing long firms double time_to_first_vd ///
+>  time_to_first_vc time_between_vc_vd using "$OUT/Table_A7_funding_timeline.dta", replace
+
+. foreach g in 1 0 {
+  2.     quietly count if vd_backed==`g'
+  3.     local n=r(N)
+  4.     quietly summarize time_to_first_vd if vd_backed==`g', meanonly
+  5.     local mvd=r(mean)
+  6.     quietly summarize time_first_vc if vd_backed==`g', meanonly
+  7.     local mvc=r(mean)
+  8.     quietly summarize time_between_vc_vd if vd_backed==`g', meanonly
+  9.     local mgap=r(mean)
+ 10.     post `A7' (`g') (`n') (`mvd') (`mvc') (`mgap')
+ 11. }
+
+. postclose `A7'
+
+. use "$OUT/Table_A7_funding_timeline.dta", clear
+
+. format time_* %9.3f
+
+. export delimited using "$OUT/Table_A7_funding_timeline.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/Table_A7_funding_timeline.csv saved
+
+. list, noobs clean
+
+    vd_bac~g   firms   time_t~d   time_t~c   time_b~d  
+           1    1440      4.993      1.663      3.331  
+           0    5876          .      2.104          .  
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/legacy_aligned_rematch/REBUILD_PSM_LEGACY_ALIGNED.log
+  log type:  text
+ closed on:  11 Oct 2026, 23:04:13
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

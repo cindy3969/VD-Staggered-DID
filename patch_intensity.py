@@ -1,0 +1,10 @@
+from pathlib import Path
+p=Path('scripts/add_vd_intensity.py');s=p.read_text(encoding='utf-8-sig')
+s=s.replace("rows=[]; audit=[]","rows=[]; audit=[]\ngroups=dict(tuple(x.groupby('Organization Name',sort=False)))")
+s=s.replace("z=x[x['Organization Name'].eq(f.organization_name)].sort_values(['date','deal no'])","z=groups[f.organization_name].sort_values(['date','deal no'])")
+s=s.replace("assert not (debt['date']<date).any()","earlier=debt[debt.date.lt(date)]\n debt=debt[debt.date.ge(date)]")
+s=s.replace("vd_initial_missing=int(pd.isna(amount)),vd_pre_equity_rounds=len(prior),","vd_initial_missing=int(pd.isna(amount)),vd_earlier_debt_rounds=len(earlier),vd_pre_equity_rounds=len(prior),")
+s=s.replace("'vd_initial_missing':'Initial VD amount undisclosed=1; controls missing',","'vd_initial_missing':'Initial VD amount undisclosed=1; controls missing',\n'vd_earlier_debt_rounds':'Debt rounds before source First VD marker: timing discrepancy',")
+s=s.replace("All VD USD in source snapshot; any undisclosed round=missing","VD USD from First VD marker onward; any undisclosed round=missing")
+s=s.replace("Sum of DISCLOSED all VD only; lower bound if incomplete","Disclosed VD USD from First VD onward; lower bound if incomplete")
+p.write_text(s,encoding='utf8')

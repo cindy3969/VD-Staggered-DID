@@ -1,0 +1,6 @@
+[
+  "reghdfe ln_grantedbyfiling_norm_win3 i.VD ib1.fundstage ///\n    i.priorpatentdummy_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)",
+  "reghdfe ln_grantedbyfiling_norm_win3 i.VD##i.priorpatentdummy_VD ib1.fundstage ///\n     ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)",
+  "reghdfe ln_grantedbyfiling_norm_win3 i.VD##ib1.fundstage ///\n    i.priorpatentdummy_VD  ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)",
+  "reghdfe ln_grantedbyfiling_norm_win3 i.VD##ib1.fundstage ///\n   i.VD##i.priorpatentdummy_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+]

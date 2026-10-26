@@ -1,0 +1,10 @@
+{
+  "matched_legacy_employee_firms": 1937,
+  "original_table8_N": 611,
+  "original_table8_current_cohort_overlap": 353,
+  "lastdeal_difference_equals_t": 2804,
+  "legacy_total": 2820,
+  "source": "C:\\Users\\user\\Documents\\VD\\260122 winsorization_stage4.dta",
+  "employee_date_verified": false,
+  "backup": "C:\\Users\\user\\Documents\\VD\\outputs\\psm_final_2820_package\\backups\\before_legacy_recovery_20261020_105112"
+}

@@ -1,0 +1,117 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\outputs\table2_forward_citation_year_methods\MAST
+> ER_forward_citation_staggered_DiD.do 
+
+. version 19.0
+
+. clear all
+
+. set more off
+
+. capture log close _all
+
+. global R "C:/Users/user/Documents/VD/outputs/table2_forward_citation_year_metho
+> ds"
+
+. log using "$R/forward_citation_csdid_results.log", replace text
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/table2_forward_citation_year_meth
+> ods/forward_citation_csdid_results.log
+  log type:  text
+ opened on:  13 Oct 2026, 11:05:11
+
+. 
+. use "$R/firm_year_with_citations.dta", clear
+
+. drop if g_first_vd > 0 & g_first_vd <= founding_year
+(0 observations deleted)
+
+. foreach v in ln1p_cum_funding_l1 cum_funding_rounds_l1 region_fe industry_fe {
+  2.     replace `v' = 0 if missing(`v')
+  3. }
+(7,273 real changes made)
+(7,273 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. xtset full_firm_id year
+
+Panel variable: full_firm_id (unbalanced)
+ Time variable: year, 2010 to 2024
+         Delta: 1 unit
+
+. 
+. capture program drop run_fc_spec
+
+. program define run_fc_spec
+  1.     syntax varname, Label(string) Keepif(string)
+  2.     preserve
+  3.     quietly keep if `keepif'
+  4.     quietly count
+  5.     display "=== BEGIN_SPEC outcome=`varlist' sample=`label' OBS_RAW=" r(N) 
+> " ==="
+  6.     quietly egen __tag=tag(full_firm_id)
+  7.     quietly count if __tag
+  8.     display "FIRMS_RAW=" r(N)
+  9.     drop __tag
+ 10.     csdid `varlist' ln1p_cum_funding_l1 cum_funding_rounds_l1 i.region_fe i.
+> industry_fe, ///
+>         ivar(full_firm_id) time(year) gvar(g_first_vd) method(dripw)
+ 11.     estat simple
+ 12.     estat event, window(-4 4)
+ 13.     display "=== END_SPEC outcome=`varlist' sample=`label' ==="
+ 14.     restore
+ 15. end
+
+. 
+. * Six right-truncation/outcome constructions.
+. * fwd_raw: annual citation links received by all focal applications of the firm
+> .
+. * fwd_norm_cohort: patent-year raw / filing-year x citation-year cohort mean.
+. * fwd_norm_cohort_cpc: same denominator additionally split by primary CPC3.
+. * fwd_rate: sum of patent cumulative citations / observed post-grant years.
+. * fwd_rate_norm: filing-year x citation-year normalized annualized rate.
+. * fwd_rate_norm_cpc: rate normalization additionally split by primary CPC3.
+. local outcomes fwd_raw fwd_norm_cohort fwd_norm_cohort_cpc fwd_rate fwd_rate_no
+> rm fwd_rate_norm_cpc
+
+. 
+. foreach y of local outcomes {
+  2.     run_fc_spec `y', label(all) keepif("1")
+  3.     run_fc_spec `y', label(noprior) keepif("g_first_vd==0 | prior_patent_vd=
+> =0")
+  4.     run_fc_spec `y', label(prior) keepif("g_first_vd==0 | prior_patent_vd==1
+> ")
+  5.     run_fc_spec `y', label(early) keepif("g_first_vd==0 | early_stage_vd==1"
+> )
+  6.     run_fc_spec `y', label(late) keepif("g_first_vd==0 | early_stage_vd==0")
+  7. }
+=== BEGIN_SPEC outcome=fwd_raw sample=all OBS_RAW=88547 ===
+FIRMS_RAW=7273
+Panel is not balanced
+Will use observations with Pair balanced (observed at t0 and t1)
+..................................................
+..................................................

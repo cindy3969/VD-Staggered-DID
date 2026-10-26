@@ -1,0 +1,2821 @@
+﻿firm_id,OrganizationName,VDyear,supplement_same_reference,innovation_uncollected,readability_patents_missing,readability_patents_expected,status,status_year,revenue_t1,revenue_t2,revenue_t3,gunning_fog_mean_win3,newpat_win3,oldpat_win3,newcpc_win3,cite_breadth_win3,self_citations_total_win3
+25,3BG Supply Co.,2022,1,0,0,0,private,,,,,,,,,,0.0
+49,9Lenses,2015,1,0,0,0,private,,,,,,,,,,0.0
+54,9SLIDES,2013,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+63,AboutOne,2014,1,0,0,0,defunct,2016.0,,,,,,,,,0.0
+76,AchieveIt,2015,0,0,0,0,private,,,,3900000.0,,,,,,
+94,Ad Summos,2011,1,0,0,0,acquired,2014.0,,,,,,,,,0.0
+109,Adial Pharmaceuticals,2017,1,0,0,0,public,2018.0,0.0,,0.0,,,,,,0.0
+133,ADstruc,2017,1,0,0,0,private,,,,,,,,,,0.0
+139,AdYapper,2015,1,0,0,0,private,,,,,,,,,,0.0
+156,Affirmed Networks,2015,1,0,0,9,acquired,2020.0,,,,17.784923029065702,1.0,8.0,1.0,1.7142857142857142,3.0
+165,Agile Networks,2015,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+183,Alcyone Lifesciences,2015,1,0,0,14,private,,,,,16.782299362782798,,,,1.6666666666666667,32.0
+196,AliveCor,2019,1,0,0,10,private,,,,,18.27843576224624,3.0,7.0,1.0,2.0,5.0
+228,Alta Motors,2016,1,0,0,0,defunct,,,,,,,,,,0.0
+251,Ambassador,2022,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+257,Ambiq Micro,2012,1,0,0,6,private,,,,,17.518512975114362,,,,1.75,0.0
+279,Ambri,2015,0,1,7,7,private,,,,,,,,,,
+292,Amicrobe,2020,1,0,0,1,private,,,,,17.503915238013413,0.0,1.0,0.0,4.0,5.0
+326,Antengo,2011,1,0,0,0,private,,,,,,,,,,0.0
+335,Aperia Technologies,2016,1,0,0,6,private,,,,,20.5694836348306,6.0,0.0,1.0,,27.0
+364,Appconomy,2015,1,0,0,0,defunct,2017.0,,,,,,,,,0.0
+393,Aquaback Technologies,2015,0,0,0,0,private,,,,,,,,,,
+402,Aratana Therapeutics,2015,1,0,0,2,acquired,2019.0,694000.01,,,18.965687882608766,,,,,0.0
+422,Aria CV,2015,1,0,0,4,private,,,,,18.458904756717587,0.0,4.0,0.0,,19.0
+428,Aries Clean Energy,2020,1,0,0,0,private,,,,,,,,,,0.0
+446,AudiencePoint,2015,0,0,0,0,private,,,1000000.0,,,,,,,
+460,Aurora Spectral Technologies,2012,1,0,0,0,private,,,,,,,,,,0.0
+481,Axcella,2015,0,1,9,9,public,2019.0,,0.0,0.0,,,,,,
+488,Axtria,2015,0,0,0,0,private,,,,61000000.0,,,,,,
+513,Banjo,2015,1,0,0,16,defunct,2020.0,,,,18.86364731638451,6.0,10.0,1.0,3.8,0.0
+533,BaubleBar,2017,1,0,0,0,private,,,,,,,,,,0.0
+543,Beamable,2013,1,0,0,0,private,,7085637.1,7000000.0,23883101.0,,,,,,0.0
+580,Benu Networks,2015,0,0,0,0,acquired,2022.0,,,,,,,,,
+597,Beva,2015,0,0,0,0,private,,,,,,,,,,
+603,Big Health,2015,0,0,0,0,private,,,,,,,,,,
+607,Big Switch Networks,2015,0,1,10,10,acquired,2020.0,,64500000.0,,,,,,,
+632,Biological Dynamics,2019,1,0,0,0,private,,,270000.01,360000.01,,0.0,0.0,0.0,,0.0
+650,Birchbox,2017,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+663,Bitzer Mobile,2013,1,0,0,0,acquired,2013.0,,,,,,,,,0.0
+684,Block Six Analytics,2020,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+691,Bloomfire,2015,0,0,0,0,private,,,,,,,,,,
+723,BlueRock Energy,2018,1,0,0,0,private,,,,,,,,,,0.0
+729,Board on Track,2017,1,0,0,0,private,,,,,,,,,,0.0
+738,Bolder Surgical,2013,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+759,Boston Technology Research,2022,1,0,0,0,private,,,,,,,,,,0.0
+793,Bright Light Systems - BSL,2015,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+829,Bucketfeet,2015,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+866,Bypass Mobile,2015,0,0,0,0,acquired,2020.0,,,,,,,,,
+873,C3Nano,2015,1,0,0,6,private,,,,,18.90792691775935,,,,6.666666666666667,17.0
+878,Cadent Therapeutics,2015,0,1,9,9,acquired,2020.0,,,,,,,,,
+886,Califia Farms,2015,0,0,0,0,private,,128500000.0,150000000.0,,,,,,,
+916,CapLinked,2016,1,0,0,0,private,,,,,,,,,,0.0
+923,Capson,2018,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+935,CarbonLITE Industries,2019,1,0,0,0,private,,,,,,,,,,0.0
+949,Catapult Health,2015,1,0,0,1,private,,,,,16.162850729517398,,,,2.0,0.0
+959,CellARide,2015,1,0,0,0,private,,,,,,,,,,0.0
+989,Ceterix Orthopaedics,2014,1,0,0,11,acquired,2018.0,,,6000000.0,14.284691543070478,0.0,11.0,0.0,,178.0
+1047,Cibiem,2016,1,0,0,1,private,,,,,21.69679046480865,0.0,1.0,0.0,,9.0
+1054,Cignifi,2013,1,0,0,0,private,,,,,,,,,,0.0
+1076,Cirro,2015,0,0,0,0,defunct,2020.0,,,,,,,,,
+1080,Citizens Rx,2015,0,0,0,0,private,,,,,,,,,,
+1085,Citus Data,2015,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+1093,Citymaps,2015,0,0,0,0,acquired,2016.0,,,,,,,,,
+1099,CLEAR Secure,2015,1,0,0,0,public,2021.0,,,,,,,,,0.0
+1111,ClearObject,2015,0,0,0,0,private,,10500000.0,,,,,,,,
+1122,Click Notices,2015,1,0,0,0,private,,,,,,,,,,0.0
+1127,ClickDimensions,2015,0,0,0,0,acquired,2023.0,,,,,,,,,
+1130,ClickMedix,2015,1,0,0,0,private,,,,,,,,,,0.0
+1145,Clothia,2015,1,0,0,0,private,,,,,,,,,,0.0
+1148,Cloud Cruiser,2011,1,0,0,0,acquired,2017.0,,8000000.0,,,,,,,0.0
+1157,CloudBees,2018,1,0,0,0,private,,,,100000000.0,,,,,,0.0
+1186,Cocomama Foods,2015,0,0,0,0,private,,,,,,,,,,
+1193,Codeship,2015,0,0,0,0,acquired,2018.0,,,,,,,,,
+1199,Cognuse,2014,1,0,0,0,private,,,,,,,,,,0.0
+1220,Complete Solar,2022,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+1227,Comprehend Systems,2015,1,0,0,1,acquired,2019.0,,,,18.078338602833327,0.0,1.0,0.0,2.0,4.0
+1241,Concert Genetics,2015,1,0,0,1,private,,,,,17.69888038115975,,,,,0.0
+1248,Concert Window,2015,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+1261,Confluence Life Sciences,2015,1,0,0,1,acquired,2017.0,,,,24.18381957067062,1.0,0.0,1.0,1.0,1.0
+1268,Confluence Pharmaceuticals,2015,1,0,0,2,private,,,175000.0,824999.99,19.038690382336647,,,,1.0,0.0
+1274,ConnXus,2015,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+1286,Contently,2011,1,0,0,0,private,,,1743227.0,,,,,,,0.0
+1295,ConveyIQ,2012,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+1305,CoolChip Technologies,2012,1,0,0,0,defunct,2021.0,,,,,,,,,0.0
+1321,Copilot Labs,2012,1,0,0,0,acquired,2014.0,,,,,,,,,0.0
+1332,Corent Technology,2022,1,0,0,1,private,,,18299999.0,,18.79624531318839,,,,2.0,6.0
+1341,Corvium,2016,1,0,0,0,private,,,,,,,,,,0.0
+1346,Cosmitto,2015,0,0,0,0,private,,,,,,,,,,
+1351,CoverHound,2015,0,0,0,0,acquired,2020.0,,,,,,,,,
+1358,Craft Coffee,2015,0,0,0,0,private,,,,,,,,,,
+1370,CreativeLive,2015,0,0,0,0,acquired,2021.0,,,,,,,,,
+1373,Credit Sesame,2017,1,0,0,1,private,,,,,15.13367981107764,,,,2.0,0.0
+1381,CreditSuppliers,2015,1,0,0,0,private,,,,,,,,,,0.0
+1383,Cresilon,2015,1,0,0,2,private,,,,,20.223131934650173,,,,1.5,1.0
+1391,Criquet Shirts,2018,1,0,0,0,private,,10900000.0,,,,,,,,0.0
+1398,Crossbar,2015,1,0,0,44,private,,,,,19.245664917759978,6.0,38.0,1.0,2.878787878787879,233.0
+1405,Crosslake Technologies,2022,1,0,0,0,private,,,,,,,,,,0.0
+1417,CrowdOptic,2012,1,0,0,0,private,,,,,,,,,,0.0
+1440,Cue,2015,0,1,7,7,acquired,,,,,,,,,,
+1470,Curiosityville,2013,1,0,0,0,defunct,,,,,,,,,,0.0
+1476,cycleWood Solutions,2015,0,0,0,0,private,,,,,,,,,,
+1487,d2i,2015,0,0,0,0,private,,,,,,,,,,
+1502,DAQRI,2015,0,1,52,52,defunct,2021.0,,,,,,,,,
+1504,Dashbid Media,2014,1,0,0,0,defunct,2018.0,,,,,,,,,0.0
+1509,Data.ai,2015,0,0,0,0,private,,,,,,,,,,
+1518,Datadog,2015,1,0,0,1,public,2019.0,,100761000.0,198077000.0,18.356105087523385,,,,1.0,0.0
+1540,DataStax,2015,1,0,0,8,private,,,,100000000.0,18.08513253520455,4.0,4.0,1.0,1.125,0.0
+1555,DealCloud,2015,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+1561,Decisyon,2013,1,0,0,3,private,,,,,18.9160543140156,,,,2.0,3.0
+1570,Delphinus Medical Technologies,2015,1,0,0,10,private,,,,,20.53045446099871,0.0,10.0,0.0,1.5,19.0
+1587,Dermandar,2015,1,0,0,0,private,,,,,,,,,,0.0
+1591,Dermira,2013,0,1,3,9,acquired,2014.0,0.0,,,,,,,,
+1607,Device42,2015,0,1,1,1,private,,,,13000000.0,,,,,,
+1615,Diagnotes,2020,1,0,0,0,private,,,,,,,,,,0.0
+1637,Digitour Media,2015,0,0,0,0,defunct,2019.0,,,,,,,,,
+1660,Dome9 Security,2015,0,0,0,0,acquired,2018.0,,,,,,,,,
+1666,Domo,2015,1,0,0,9,public,2018.0,,74500000.0,108500000.0,18.018536269514925,2.0,7.0,1.0,2.625,8.0
+1679,Donuts,2013,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+1685,Dooet,2015,0,0,0,0,defunct,2017.0,,,,,,,,,
+1706,Duo Security,2015,1,0,0,34,acquired,2018.0,,100000000.0,,21.308220975862945,0.0,34.0,0.0,2.9523809523809526,115.0
+1721,Dynasty Financial Partners,2022,1,0,0,0,private,,,,,,,,,,0.0
+1728,Eargo,2018,0,1,6,6,acquired,2020.0,32790000.999999996,,,,,,,,
+1742,EatStreet,2015,0,0,0,0,private,,,,,,,,,,
+1750,EcoDomus,2017,1,0,0,0,private,,,,,,,,,,0.0
+1752,Ecolibrium Solar,2016,1,0,0,4,acquired,2020.0,27200001.0,,,15.907447191306924,0.0,4.0,0.0,4.5,19.0
+1763,Edge Intelligence Software,2015,0,0,0,0,acquired,2021.0,,,,,,,,,
+1800,Embedly,2012,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+1805,Emerald Cloud Lab,2015,1,0,0,2,private,,,,,21.423656341975867,,,,1.5,0.0
+1823,Emplify,2015,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+1845,Energy Materials Corporation,2015,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+1848,Enevo,2016,1,0,0,2,private,,2256656.6,,,22.164336188960185,2.0,0.0,2.0,4.0,5.0
+1863,Enlace Health,2012,1,0,0,0,private,,,,,,,,,,0.0
+1907,eSpark,2015,0,0,0,0,private,,,,,,,,,,
+1911,Essential Medical Supply,2015,1,0,0,0,defunct,,,,,,0.0,0.0,0.0,,0.0
+1928,Event Farm,2013,1,0,0,0,acquired,2025.0,,,,,,,,,0.0
+1934,Events.com,2022,1,0,0,0,private,,,,,,,,,,0.0
+1951,Everlane,2022,1,0,0,0,private,,,,,,,,,,0.0
+1960,Everlaw,2015,0,0,0,0,private,,,,,,,,,,
+1997,Exclusively,2015,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+2007,Eyenuk,2015,0,0,0,0,private,,,,,,,,,,
+2026,FabFitFun,2020,1,0,0,5,private,,,,,21.3177713936656,,,,2.2,2.0
+2036,Facteus,2015,0,0,0,0,private,,,,,,,,,,
+2059,Fanplayr,2020,1,0,0,3,private,,,,,18.969765596057787,,,,1.0,0.0
+2094,Fibroblast,2015,0,0,0,0,defunct,,,,,,,,,,
+2098,Field Agent,2015,1,0,0,0,private,,,,,,,,,,0.0
+2106,Fingerprint,2016,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+2114,FINsix,2015,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+2128,Firefly BioWorks,2014,1,0,0,2,acquired,2015.0,,,,16.556022604389447,1.0,1.0,1.0,1.0,0.0
+2136,FirstFuel Software,2015,0,0,0,0,acquired,2019.0,,,,,,,,,
+2148,Flashpoint,2015,0,0,0,0,acquired,2021.0,,,,,,,,,
+2152,FlexDex,2016,1,0,0,0,private,,,,,,,,,,0.0
+2161,Flipboard,2015,0,1,29,29,private,,,,,,,,,,
+2167,Fliptop,2012,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+2179,FloWater,2015,1,0,0,0,private,,,,5329999.899999999,,,,,,0.0
+2190,Flud,2012,1,0,0,0,defunct,2013.0,,,,,,,,,0.0
+2193,Fluent Home,2019,1,0,0,0,private,,,,,,,,,,0.0
+2199,Flyby Media,2013,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+2206,Flywheel Sports,2018,1,0,0,0,acquired,2013.0,,,,,,,,,0.0
+2213,Fonteva,2018,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+2220,Foodem,2012,1,0,0,0,defunct,2016.0,,,,,,,,,0.0
+2226,Foodsmart,2019,1,0,0,0,private,,,,,,,,,,0.0
+2236,Force Therapeutics,2015,0,0,0,0,private,,,,,,,,,,
+2242,ForgeRock,2015,0,0,0,0,acquired,2021.0,100000000.0,,,,,,,,
+2250,ForSight VISION5,2015,1,0,0,4,acquired,2016.0,,,,16.566471047986074,0.0,4.0,0.0,,13.0
+2257,Fortress Risk Management,2014,1,0,0,0,defunct,2023.0,,,,,,,,,0.0
+2274,Fractyl Health,2022,1,0,0,0,private,,120000.0,,17000.001,,,,,,0.0
+2282,Freedcamp,2015,1,0,0,0,private,,,,,,,,,,0.0
+2290,Frequency Networks,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+2296,Freshworks,2015,0,1,10,10,public,2022.0,,70000000.0,40219410.0,,,,,,
+2306,friendbuy,2018,1,0,0,0,private,,,,,,,,,,0.0
+2308,FSAstore.com,2013,1,0,0,0,private,,,,,,,,,,0.0
+2315,Fuel3D,2015,1,0,0,0,private,,1893500.0,856542.11,196066.31,,,,,,0.0
+2327,Fullbridge,2015,0,0,0,0,private,,,,,,,,,,
+2339,Fundrise,2021,1,0,0,0,private,,57800000.0,64119000.0,57350000.0,,,,,,0.0
+2377,Geli,2015,0,0,0,0,acquired,2020.0,,,,,,,,,
+2384,Genability,2016,1,0,0,0,private,,,,,,,,,,0.0
+2386,Genapsys,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+2414,GetOne Rewards,2013,1,0,0,0,private,,,,,,,,,,0.0
+2421,GigSky,2016,1,0,0,2,private,,,,,19.07175628770544,0.0,2.0,0.0,5.0,0.0
+2447,Global Data Consortium,2019,1,0,0,1,acquired,2022.0,,20000000.0,,21.19263278618597,,,,2.0,0.0
+2451,Global Thermostat,2015,1,0,0,1,private,,,,,16.53702821710999,,,,,0.0
+2460,GlobeSherpa,2014,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+2465,Glooko,2021,1,0,0,0,private,,4099999.9,,,,0.0,0.0,0.0,,0.0
+2484,Gobble,2015,0,0,0,0,acquired,2022.0,,100000000.0,,,,,,,
+2505,GoMiles,2010,1,0,0,0,acquired,2012.0,,,,,,,,,0.0
+2507,GoNoodle,2015,0,0,0,0,private,,,,,,,,,,
+2525,Grassroots Unwired,2012,1,0,0,0,private,,,1200000.0,,,,,,,0.0
+2542,Gridco,2015,0,0,0,0,defunct,2019.0,,,,,,,,,
+2558,G-RO,2015,0,0,0,0,private,,,,,,,,,,
+2565,GroundMetrics,2015,1,0,0,4,private,,,50000000.0,,18.75617256653904,,,,2.3333333333333335,4.0
+2579,Grovo,2015,0,0,0,0,acquired,2018.0,,,,,,,,,
+2594,Haiku Deck,2015,0,0,0,0,acquired,2018.0,,,,,,,,,
+2600,Halio,2014,1,0,0,1,private,,,,,16.355051476907004,,,,,0.0
+2618,Halo Health,2021,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+2621,Hapten Sciences,2015,0,0,0,0,private,,,,,,,,,,
+2640,Headspace,2014,1,0,0,0,private,,,,40000000.0,,,,,,0.0
+2657,Health Outcomes Sciences,2019,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+2666,HealthPlan Data Solutions,2015,0,1,1,1,private,,,,,,,,,,
+2669,HealthTap,2010,1,0,0,0,private,,,,,,,,,,0.0
+2685,HG Insights,2015,1,0,0,0,private,,,,,,,,,,0.0
+2694,HigherNext,2012,1,0,0,0,acquired,2014.0,,,,,,,,,0.0
+2726,Holganix,2015,1,0,0,1,private,,5300000.2,,,20.367047716679195,0.0,1.0,0.0,,1.0
+2764,Hoverfly,2015,0,1,1,1,private,,,,,,,,,,
+2799,ID.me,2014,1,0,0,0,private,,,,,,,,,,0.0
+2822,iDonate,2020,1,0,0,3,private,,5199999.8,,,19.70228787576355,,,,1.0,1.0
+2843,iHear Medical,2017,1,0,0,5,acquired,2021.0,,,,16.243658738854638,0.0,5.0,0.0,2.0,64.0
+2850,Imbed Biosciences,2016,1,0,0,1,private,,,,,24.30813675665388,0.0,1.0,0.0,4.0,0.0
+2867,Imprint Energy,2015,1,0,0,6,private,,,,,18.956249287663994,,,,4.6,7.0
+2876,IMRSV,2011,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+2887,InCrowd,2014,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+2900,Infinite Composites,2015,1,0,0,0,private,,,,,,,,,,0.0
+2925,INMATECH,2015,0,1,1,1,private,,,,,,,,,,
+2929,Innovatient Solutions,2012,1,0,0,0,defunct,2020.0,,,,,,,,,0.0
+2942,Inova Payroll,2015,0,0,0,0,private,,,9300000.0,,,,,,,
+2950,InsightSquared,2015,0,1,1,1,acquired,2021.0,,,,,,,,,
+2958,Inspirna,2015,1,0,0,2,private,,,,,25.24414810859831,,,,5.0,0.0
+2971,Instart,2015,0,1,11,11,defunct,2024.0,,,,,,,,,
+2977,Integrate,2013,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+3019,Iora Health,2015,0,0,0,0,acquired,2021.0,,,,,,,,,
+3026,iQ Media,2015,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+3036,Iterion Therapeutics,2015,0,0,0,0,private,,,,,,,,,,
+3075,JOOR,2015,1,0,0,0,private,,,,,,,,,,0.0
+3083,Jumo,2015,0,0,0,0,acquired,2011.0,,,,,,,,,
+3094,Junar,2015,0,0,0,0,private,,,,,,,,,,
+3116,Kapost,2015,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+3129,Kate Farms,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+3137,Kedzoh,2015,0,0,0,0,defunct,2021.0,,,,,,,,,
+3150,Kenna Security,2015,1,0,0,5,acquired,2021.0,1152838.0,,,18.454632763357395,,,,1.8,1.0
+3156,KeraFAST,2014,1,0,0,0,private,,,,,,,,,,0.0
+3160,Kevel,2018,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+3169,Keystone Tower Systems,2015,0,1,11,11,private,,,,,,,,,,
+3179,Kiip,2015,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+3189,Kindara,2015,0,0,0,0,acquired,2018.0,,2500000.0,,,,,,,
+3200,Kindling,2014,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+3206,Kingdom Trust Co.,2018,1,0,0,1,private,,,,,16.263777831729154,,,,,0.0
+3212,Kipsu,2017,1,0,0,0,private,,,6099999.9,,,,,,,0.0
+3234,KnowledgeVision,2013,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+3329,LearnBoost,2011,1,0,0,0,acquired,2013.0,,,,,,,,,0.0
+3341,Lend Street Financial,2018,1,0,0,0,private,,,,,,,,,,0.0
+3353,Lessonly,2015,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+3373,Lighter Capital,2021,1,0,0,0,private,,,,,,,,,,0.0
+3395,Linkovery,2011,1,0,0,0,private,,,,,,,,,,0.0
+3406,Liquid Grids,2015,0,0,0,0,acquired,2021.0,,,,,,,,,
+3437,loanDepot,2016,1,0,0,2,public,2021.0,,,,20.08295404649448,,,,1.5,0.0
+3444,LocalOn,2010,1,0,0,0,private,,,,,,,,,,0.0
+3455,Logicbroker,2015,1,0,0,0,private,,,,,,,,,,0.0
+3471,Loupe,2015,1,0,0,0,defunct,2017.0,,,,,,,,,0.0
+3497,Luminoso,2015,1,0,0,0,private,,,,,,,,,,0.0
+3506,Luxury Garage Sale,2015,1,0,0,0,private,,,,,,,,,,0.0
+3511,M87,2015,0,1,6,6,acquired,2019.0,,,,,,,,,
+3517,Macheen,2013,1,0,0,0,acquired,2014.0,,,,,,,,,0.0
+3546,Main Street Hub,2015,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+3576,Mapbox,2015,0,1,27,27,private,,,,,,,,,,
+3584,Marginize,2015,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+3594,Marqeta,2015,0,1,2,2,public,2023.0,,75000000.0,150000000.0,,,,,,
+3609,Mars Reel,2015,0,0,0,0,private,,,,,,,,,,
+3627,MAZ,2015,0,0,0,0,acquired,2021.0,,,,,,,,,
+3632,Meal Ticket,2015,1,0,0,0,private,,,,,,,,,,0.0
+3642,Mederi Therapeutics,2013,1,0,0,16,private,,,,,15.51799230423525,1.0,15.0,1.0,1.0,31.0
+3647,Medical Informatics,2022,1,0,0,0,private,,,,,,,,,,0.0
+3656,Medley Health,2012,1,0,0,0,defunct,2014.0,,,,,,,,,0.0
+3660,MedMen,2015,0,0,0,0,acquired,,,,,,,,,,
+3679,Mela Artisans,2015,1,0,0,0,private,,,,,,,,,,0.0
+3712,MessageParty,2015,0,0,0,0,private,,,,,,,,,,
+3716,Metamarkets,2016,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+3728,Micatu,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+3731,Micro Interventional Devices,2012,1,0,0,5,private,,,,,15.625858235348698,,,,,0.0
+3736,Microf,2017,1,0,0,0,defunct,,,,,,,,,,0.0
+3752,MileWise,2010,1,0,0,1,acquired,2013.0,,,,16.31970066844274,,,,1.0,0.0
+3764,MineralTree,2015,0,0,0,0,acquired,2021.0,,,,,,,,,
+3770,Minus,2012,1,0,0,0,private,,,,,,,,,,0.0
+3782,MJ Freeway,2015,1,0,0,0,acquired,,,,,,,,,,0.0
+3786,Moasis,2014,1,0,0,1,private,,,,,25.713952613847688,,,,,0.0
+3794,MoBeam,2012,1,0,0,2,private,,,,,16.011061373345893,0.0,2.0,0.0,2.5,5.0
+3811,Mobilewalla,2013,1,0,0,0,private,,,,,,,,,,0.0
+3828,Moda Operandi,2020,1,0,0,0,private,,175000000.0,,,,,,,,0.0
+3837,Modern Energy Management,2020,1,0,0,0,private,,,,,,,,,,0.0
+3841,Moderna,2015,1,0,0,0,public,2018.0,101536000.0,176974000.0,178112000.0,,0.0,0.0,0.0,,0.0
+3862,Modo Labs,2015,1,0,0,1,private,,,,,18.363493862308093,,,,2.0,0.0
+3868,MOGL,2011,1,0,0,0,private,,,,,,,,,,0.0
+3891,Moon Express,2015,1,0,0,0,private,,,,,,,,,,0.0
+3908,Motiga,2014,1,0,0,0,defunct,,,,,,,,,,0.0
+3919,Move This World,2022,1,0,0,0,private,,,,,,,,,,0.0
+3931,Munetrix,2015,0,0,0,0,private,,,,,,,,,,
+3938,Murfie,2015,1,0,0,0,private,,,,,,,,,,0.0
+3962,Naiku,2015,0,0,0,0,private,,,,,,,,,,
+3966,Nanigans,2015,1,0,0,2,acquired,2019.0,,,,21.02600126408491,,,,1.0,0.0
+3979,Nanotronics Imaging,2015,0,1,13,13,private,,,4800000.0,4800000.0,,,,,,
+3991,Narrative Science,2012,1,0,0,10,acquired,2021.0,,,,18.157863638465706,,,,3.9,82.0
+3999,Nativo,2023,1,0,0,0,private,,,,,,,,,,0.0
+4033,netBlazr,2015,1,0,0,0,acquired,2022.0,,,,,0.0,0.0,0.0,,0.0
+4042,Neumitra,2015,0,0,0,0,defunct,2017.0,,,,,,,,,
+4066,Nexmo,2015,1,0,0,9,acquired,2022.0,,,,17.719976738827807,,,,1.3333333333333333,0.0
+4087,Niantic,2015,0,1,12,12,private,,,890000000.0,,,,,,,
+4093,NiceChart,2016,1,0,0,1,private,,,,,19.348816343239992,1.0,0.0,1.0,4.0,2.0
+4095,Nightfood,2015,0,0,0,0,public,2015.0,,,,,,,,,
+4098,Nimbix,2019,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+4118,Noodle,2015,0,0,0,0,private,,,,,,,,,,
+4123,Nordic,2015,0,0,0,0,acquired,2022.0,,,,,,,,,
+4127,Norse,2012,1,0,0,1,private,,,,,20.165466179541472,,,,2.0,1.0
+4136,NovaTract Surgical,2015,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+4144,Novel,2012,1,0,0,0,defunct,,,,,,,,,,0.0
+4148,Now Account Network,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+4152,Nowait,2011,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+4162,Nukona,2010,1,0,0,0,acquired,2012.0,,,,,,,,,0.0
+4171,NuoDB,2015,0,1,6,6,acquired,2020.0,,,,,,,,,
+4179,NuPulseCV,2015,1,0,0,2,private,,,,,15.122521409172194,,,,1.5,1.0
+4186,NurturMe,2018,1,0,0,0,private,,,,,,,,,,0.0
+4207,NX Development Corp.,2015,0,0,0,0,acquired,2018.0,,,,,,,,,
+4209,NX Pharmagen,2013,1,0,0,0,private,,,,,,,,,,0.0
+4215,Octiv,2015,1,0,0,0,acquired,2018.0,,,,,0.0,0.0,0.0,,0.0
+4226,Ojos Locos,2018,1,0,0,0,private,,,,,,,,,,0.0
+4228,Olapic,2015,0,0,0,0,acquired,2020.0,,,,,,,,,
+4262,OneRooftop,2016,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+4268,OneTwoSee,2012,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+4286,OpenFin,2015,0,1,1,1,private,,,,,,,,,,
+4306,Optimizely,2019,1,0,0,8,acquired,2020.0,,,,18.336657445217902,1.0,7.0,1.0,1.5714285714285714,1.0
+4318,Optoro,2016,1,0,0,1,private,,,,,20.079754223266647,,,,1.0,0.0
+4335,Ordergroove,2013,1,0,0,0,private,,,,,,,,,,0.0
+4340,Ordoro,2015,0,0,0,0,private,,,,,,,,,,
+4346,Origin,2015,0,0,0,0,private,,,,,,,,,,
+4364,OtoNexus Medical Technologies,2015,1,0,0,5,private,,,,,22.007586457995863,,,,2.5,3.0
+4378,Outset Medical,2015,1,0,0,3,public,2020.0,,,2007000.0,16.661813127659745,,,,,12.0
+4388,Ovenly,2016,1,0,0,0,private,,,,,,,,,,0.0
+4395,OwnLocal,2015,0,1,1,1,private,,,,,,,,,,
+4408,Panjo,2015,0,0,0,0,acquired,2017.0,,,,,,,,,
+4434,Passport,2015,1,0,0,0,private,,,,,,,,,,0.0
+4448,Pathfinder Health Innovations,2015,0,1,1,1,acquired,2019.0,,,,,,,,,
+4456,PathSensors,2013,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+4472,Peerform,2014,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+4496,Persimmon Technologies,2014,1,0,0,37,acquired,2017.0,,,,16.363340444681683,,,,4.214285714285714,18.0
+4506,Personal Genome Diagnostics,2015,1,0,0,3,acquired,2021.0,,,,18.630081672370938,,,,1.0,0.0
+4512,Personetics,2015,0,0,0,0,private,,,,,,,,,,
+4518,PetHub,2015,0,0,0,0,private,,,,,,,,,,
+4526,PFP Cybersecurity,2015,0,0,0,0,private,,,,,,,,,,
+4531,pH Matter,2015,0,0,0,0,private,,,,,,,,,,
+4538,Phenom,2015,0,0,0,0,private,,,8700000.0,,,,,,,
+4564,Pika Energy,2012,1,0,0,3,acquired,2019.0,,,,17.43419170293679,,,,2.0,1.0
+4585,Pinterest,2015,1,0,0,42,public,2019.0,,472851990.0,755932010.0,18.793158655036375,,,,1.6756756756756757,4.0
+4611,Pipedrive,2015,1,0,0,0,acquired,2020.0,12000000.0,,,,,,,,0.0
+4624,PJX Media,2015,0,0,0,0,private,,,,,,,,,,
+4630,PlaceIQ,2018,1,0,0,8,acquired,2022.0,,,,20.94109508614934,0.0,8.0,0.0,1.6,13.0
+4639,Planet,2015,1,0,0,6,public,2021.0,,,,18.29668229724449,6.0,0.0,6.0,3.25,0.0
+4654,Playrific,2015,1,0,0,0,defunct,,,,,,,,,,0.0
+4660,Plexxi,2015,1,0,0,4,acquired,2018.0,,,,19.020478716997857,0.0,4.0,0.0,2.0,0.0
+4676,Pluribus Networks,2015,1,0,0,9,acquired,2022.0,,,10760000.0,15.994789077706379,0.0,9.0,0.0,1.4285714285714286,3.0
+4686,PodPonics,2015,1,0,0,0,defunct,2017.0,,,,,,,,,0.0
+4703,Post.Bid.Ship,2020,1,0,0,0,private,,,,,,,,,,0.0
+4722,PreCision Dermatology,2013,1,0,0,2,acquired,2014.0,,,,23.593807069881926,,,,2.0,3.0
+4766,Prognos Health,2015,0,0,0,0,private,,,9100000.0,,,,,,,
+4772,Promoboxx,2011,1,0,0,0,private,,,,,,,,,,0.0
+4787,PSafe Technology,2015,0,0,0,0,acquired,2021.0,,,,,,,,,
+4816,PuzzleSocial,2016,1,0,0,0,acquired,2016.0,,,,,0.0,0.0,0.0,,0.0
+4826,Qnovo,2015,1,0,0,8,private,,,,,21.071375262976986,2.0,6.0,2.0,5.166666666666667,71.0
+4851,Quinn Snacks,2014,1,0,0,0,private,,,,,,,,,,0.0
+4866,Qulsar,2015,1,0,0,0,private,,,,,,,,,,0.0
+4875,Qwilt,2015,0,1,5,5,private,,,,,,,,,,
+4887,Racktop Systems,2015,0,0,0,0,private,,,,,,,,,,
+4916,Reach Production Solutions,2019,1,0,0,0,private,,,,,,,,,,0.0
+4931,ReadyPulse,2015,0,0,0,0,acquired,2016.0,,,,,,,,,
+4961,Relay Network,2015,0,0,0,0,private,,,,,,,,,,
+4993,Resilinc,2015,1,0,0,0,private,,,,,,,,,,0.0
+4999,Resolve Therapeutics,2012,1,0,0,1,defunct,,,,,19.617481268166244,,,,,0.0
+5009,Respiratory Motion,2015,1,0,0,5,private,,,,,19.120206879067194,,,,,0.0
+5032,Rev.com,2015,0,0,0,0,private,,,,,,,,,,
+5036,Revel Systems,2015,1,0,0,2,private,,,,,19.27342416337491,,,,3.0,0.0
+5061,Rexante,2012,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+5067,Rezolute,2015,1,0,0,4,public,2012.0,0.0,0.0,,15.972629008575334,,,,3.6666666666666665,0.0
+5084,Rhythm Pharmaceuticals,2014,1,0,0,2,public,2017.0,0.0,0.0,0.0,21.713595584023743,,,,1.5,1.0
+5112,Rockbot,2015,1,0,0,0,private,,,,,,,,,,0.0
+5130,Ruckus Media Group,2015,1,0,0,0,acquired,,,,,,,,,,0.0
+5138,Runtime Verification,2015,0,0,0,0,private,,,,,,,,,,
+5141,Runwise,2021,1,0,0,0,private,,,,,,,,,,0.0
+5146,RxFunction,2015,0,1,3,3,private,,,,,,,,,,
+5177,Sagegreenlife,2015,0,0,0,0,private,,,,,,,,,,
+5187,Sanguine,2023,1,0,0,0,private,,,,,,,,,,0.0
+5197,SavingStar,2015,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+5204,Saviynt,2023,1,0,0,0,private,,,,,,,,,,0.0
+5209,Savoteur,2015,0,0,0,0,defunct,2016.0,,,,,,,,,
+5227,Schweiger Dermatology,2015,1,0,0,0,private,,,,,,,,,,0.0
+5234,Scoutmob,2015,0,0,0,0,defunct,2017.0,,,,,,,,,
+5240,scrible,2015,0,0,0,0,private,,,,,,,,,,
+5257,Seikowave,2015,1,0,0,2,private,,,,1200000.0,17.25198422380197,,,,2.0,0.0
+5271,Seldon Energy,2015,1,0,0,0,private,,,,,,,,,,0.0
+5275,Sensity Systems,2015,1,0,0,7,acquired,2018.0,,,,18.099605774931725,5.0,2.0,2.0,8.0,8.0
+5294,Sesen Bio,2015,1,0,0,1,acquired,,,,0.0,19.23883790078649,,,,8.0,0.0
+5302,Shadow Networks,2015,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+5310,Sharecare,2017,1,0,0,6,acquired,,,339540990.0,328804990.0,16.84347262702755,,,,1.5,2.0
+5334,SheerWind,2015,0,0,0,0,defunct,2018.0,,,,,,,,,
+5341,Sher.ly,2015,1,0,0,0,defunct,2018.0,,,,,,,,,0.0
+5357,ShopRunner,2015,0,0,0,0,acquired,2020.0,,,,,,,,,
+5363,Shout TV,2012,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+5365,Shoutlet,2015,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+5392,Signpost,2015,1,0,0,1,acquired,2023.0,,,,17.08976444500491,,,,2.0,0.0
+5400,Silicone Arts Laboratories,2015,1,0,0,0,private,,,,,,,,,,0.0
+5405,Silo Pharma,2015,1,0,0,0,public,2022.0,,,,,,,,,0.0
+5408,Silver Creek Pharmaceuticals,2022,1,0,0,0,private,,,,,,,,,,0.0
+5413,Silvergate Pharmaceuticals,2015,0,1,12,12,acquired,2019.0,,,,,,,,,
+5425,Simply Measured,2015,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+5435,SinglePlatform,2011,1,0,0,0,acquired,2012.0,,,,,,,,,0.0
+5451,Siva Therapeutics,2015,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+5458,Skillshare,2018,1,0,0,0,private,,,,,,,,,,0.0
+5473,Skydance Media,2023,1,0,0,0,private,,,,,,,,,,0.0
+5485,Small Demons,2012,1,0,0,1,private,,,,,19.317703349282297,,,,1.0,0.0
+5503,SmarterHQ,2014,1,0,0,0,acquired,2020.0,3839999.9,3800000.0,5699999.8,,,,,,0.0
+5526,SmartyPants Vitamins,2015,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+5544,SnapRetail,2016,1,0,0,0,private,,,,,,,,,,0.0
+5560,SoapBox Soaps,2013,1,0,0,0,private,,287907.99,,,,,,,,0.0
+5572,Social Rewards,2015,1,0,0,0,private,,,,,,,,,,0.0
+5617,Spanfeller Media Group,2015,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+5632,Speakr,2016,1,0,0,0,defunct,2021.0,,,,,,,,,0.0
+5643,Sphero,2014,1,0,0,34,private,,,,,18.513782223014054,,,,2.7,180.0
+5698,SPR Therapeutics,2014,1,0,0,15,private,,,,,19.70578410649231,0.0,15.0,0.0,1.1666666666666667,42.0
+5716,Sprout Social,2015,1,0,0,0,public,2019.0,,,78813004.0,,,,,,0.0
+5723,Spruce Media,2012,1,0,0,0,private,,,,,,,,,,0.0
+5748,StarMaker Interactive,2015,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+5754,Start.io,2015,0,0,0,0,private,,,,,,,,,,
+5761,Station X,2012,1,0,0,0,private,,,,,,,,,,0.0
+5775,Stimwave Technologies,2014,1,0,0,13,private,,,,,19.390072553437815,,,,1.0,11.0
+5788,StitcherAds,2017,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+5805,StreamSpot,2015,0,0,0,0,acquired,2020.0,,,,,,,,,
+5810,Stripe,2015,1,0,0,26,private,,,,2000000000.0,18.202001555260413,,,,2.0416666666666665,2.0
+5838,Submittable,2015,1,0,0,0,private,,7554348.0,,3000000.0,,,,,,0.0
+5858,SumRidge Partners,2015,0,0,0,0,acquired,2022.0,,,,,,,,,
+5864,Sunverge Energy,2023,1,0,0,0,private,,,,,,,,,,0.0
+5878,Surefire Local,2017,1,0,0,0,private,,,,7520999.899999999,,,,,,0.0
+5887,Surgical Theater,2015,1,0,0,4,private,,,,,20.155058005611036,4.0,0.0,3.0,5.0,8.0
+5896,Sustainable Real Estate Solutions (SRS),2011,1,0,0,0,private,,,,,,,,,,0.0
+5901,SwervePay,2015,0,0,0,0,acquired,2020.0,,,,,,,,,
+5916,Swivl,2011,1,0,0,0,private,,,,,,,,,,0.0
+5923,Sworkit Health,2015,1,0,0,0,acquired,2014.0,460000.01,,,,,,,,0.0
+5943,TableSafe,2016,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+5950,Tabula Rasa Healthcare (formerly CareKinesis),2015,1,0,0,0,acquired,,,,,,0.0,0.0,0.0,,0.0
+5981,Tapad,2015,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+6031,Tendyne Holdings,2014,1,0,0,25,acquired,2015.0,,,,16.666819735587335,,,,,183.0
+6063,Tetra Discovery,2013,1,0,0,0,private,,,,,,,,,,0.0
+6080,The Daily Dot,2018,1,0,0,0,private,,,,,,,,,,0.0
+6092,The Shared Web,2011,1,0,0,0,acquired,2012.0,,,,,,,,,0.0
+6099,Thermalin,2013,1,0,0,1,private,,,,,20.95391725452933,,,,2.0,0.0
+6117,Thinkster Math,2015,1,0,0,0,private,,,,,,,,,,0.0
+6122,ThousandEyes,2011,1,0,0,4,acquired,2020.0,,,,17.937998789631166,,,,1.75,1.0
+6148,Tiesta Tea,2020,1,0,0,0,private,,,,,,,,,,0.0
+6167,Tin Whiskers,2015,1,0,0,0,private,,,,,,,,,,0.0
+6170,Tipalti,2019,1,0,0,0,private,,,100000000.0,,,,,,,0.0
+6182,TokenEx,2015,0,1,4,4,private,,,,,,,,,,
+6185,Tommie Copper,2018,1,0,0,0,private,,,,,,,,,,0.0
+6199,Topia,2020,1,0,0,0,private,,,,,,,,,,0.0
+6221,Tout,2012,1,0,0,1,private,,,,,18.425901485535576,,,,4.0,0.0
+6232,Transatomic Power,2015,0,0,0,0,defunct,2018.0,,,,,,,,,
+6235,Trapit,2013,1,0,0,0,private,,,,,,,,,,0.0
+6241,Treasury Intelligence Solutions,2016,1,0,0,0,private,,,,,,,,,,0.0
+6257,Trinity Guardion,2019,1,0,0,1,private,,,,,15.056726556220998,0.0,1.0,0.0,,2.0
+6270,TroopSwap,2013,1,0,0,0,defunct,,,,,,,,,,0.0
+6283,True Fit,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+6294,trueEX,2012,1,0,0,0,defunct,2016.0,,,,,,,,,0.0
+6304,Trusted Insight,2015,0,0,0,0,private,,,,,,,,,,
+6336,Umami,2012,1,0,0,0,private,,,,,,,,,,0.0
+6346,UniKey Technologies,2015,1,0,0,4,private,,,,,18.727509927585643,,,,2.3333333333333335,3.0
+6365,Upland BlueVenn,2015,1,0,0,0,public,2014.0,,,,,,,,,0.0
+6372,Uproxx Media Group,2015,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+6384,Upstream Commerce,2014,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+6391,UrbanSitter,2014,1,0,0,0,private,,,,,,,,,,0.0
+6398,Urjanet,2015,0,0,0,0,acquired,2022.0,,,,,,,,,
+6416,Validic,2015,0,1,1,1,private,,,,,,,,,,
+6424,Vantage Data Centers,2014,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+6444,Vastrm,2014,1,0,0,0,private,,,,,,,,,,0.0
+6449,Vedanta Biosciences,2020,1,0,0,1,private,,,,,19.18501087351653,1.0,0.0,1.0,1.0,1.0
+6466,Venatorx Pharmaceuticals,2015,1,0,0,17,private,,,,,21.638718140260753,2.0,15.0,1.0,2.875,113.0
+6479,Vendscreen,2015,0,0,0,0,acquired,2016.0,,,,,,,,,
+6487,Veniti,2015,1,0,0,0,acquired,2018.0,,,,,0.0,0.0,0.0,,0.0
+6494,VenueBook,2015,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+6500,Verastem Oncology,2015,0,1,2,2,public,2012.0,,,,,,,,,
+6534,VHX,2015,0,0,0,0,acquired,2016.0,,,,,,,,,
+6558,Ving,2015,1,0,0,0,private,,,,,,,,,,0.0
+6602,VoiceBase,2015,0,1,1,1,acquired,2021.0,,,,,,,,,
+6607,Voxy,2022,1,0,0,0,private,,,,,,,,,,0.0
+6627,WatchParty,2015,1,0,0,0,defunct,2014.0,,,,,,,,,0.0
+6633,Watt Fuel Cell,2015,1,0,0,6,private,,,,,20.26404635649867,5.0,1.0,3.0,5.5,3.0
+6638,Wayin,2015,1,0,0,0,acquired,2019.0,,,,,0.0,0.0,0.0,,0.0
+6657,WedPics,2015,0,0,0,0,acquired,2017.0,,,,,,,,,
+6675,Wentworth Technology,2012,1,0,0,0,defunct,2016.0,,,,,,,,,0.0
+6683,WeSpire,2015,1,0,0,0,acquired,2023.0,1600000.0,,,,,,,,0.0
+6694,WEVR,2012,1,0,0,0,private,,,,,,,,,,0.0
+6700,WeWork,2018,1,0,0,1,public,2022.0,3458592000.0,3416000000.0,,15.758104873966374,,,,3.0,1.0
+6747,Winestyr,2015,0,0,0,0,private,,,,,,,,,,
+6758,Wish,2015,1,0,0,0,public,2020.0,,,,,,,,,0.0
+6774,WorkMarket,2015,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+6797,Wyng,2015,1,0,0,0,private,,,,,,,,,,0.0
+6821,Yellow Rose Distilling,2015,0,0,0,0,private,,,,,,,,,,
+6824,Yesware,2015,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+6830,Ygrene Energy Fund,2016,1,0,0,0,private,,,,,,,,,,0.0
+6833,Yieldbot,2015,0,0,0,0,private,,,,,,,,,,
+6887,ZelosDx,2015,1,0,0,0,private,,,,,,,,,,0.0
+6894,Zenoti,2015,1,0,0,0,private,,8500000.0,,,,,,,,0.0
+6909,Zesty.io,2021,1,0,0,0,private,,,,,,,,,,0.0
+6914,Ziften Technologies,2015,1,0,0,2,defunct,2020.0,,,,18.668996574575317,,,,1.0,0.0
+6918,Zillion Group,2015,1,0,0,2,private,,,,,19.726174010550515,,,,1.0,0.0
+6928,Zinrelo,2015,1,0,0,0,private,,,,,,,,,,0.0
+6938,Zippy Shell,2020,1,0,0,0,private,,,,,,,,,,0.0
+6944,ZipZap,2015,0,0,0,0,defunct,2019.0,,,,,,,,,
+6949,Zurex Pharma,2015,1,0,0,1,private,,,,,17.347144096671112,1.0,0.0,1.0,3.0,0.0
+7020,480 Biomedical,2012,1,0,0,4,defunct,,,,,18.405098294701403,,,,11.0,5.0
+7025,4C Insights,2020,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+7039,Ablative Solutions,2012,1,0,0,14,private,,,,,15.96860793968389,,,,2.0,95.0
+7047,Able Lending,2016,1,0,0,0,defunct,2017.0,,,,,,,,,0.0
+7053,Absci,2019,1,0,0,0,public,2021.0,4780000.2,4782000.0,5747000.0,,0.0,0.0,0.0,,0.0
+7072,access.mobile,2016,1,0,0,0,private,,,,,,,,,,0.0
+7079,Accuitis,2016,1,0,0,0,private,,,,,,,,,,0.0
+7084,Acertiv,2013,1,0,0,0,private,,,,,,,,,,0.0
+7097,Acutus Medical,2012,1,0,0,5,public,2020.0,,,,19.1264359440967,,,,4.6,11.0
+7106,Adagio Medical,2022,1,0,0,0,private,,300000.01,398999.9900000001,,,,,,,0.0
+7112,Adaptive Symbiotic Technologies,2016,0,0,0,0,private,,,,2700000.0,,,,,,
+7114,Adavium,2016,1,0,0,0,private,,,,,,,,,,0.0
+7121,AddShoppers,2018,1,0,0,0,private,,,,,,,,,,0.0
+7158,ADYOULIKE,2014,1,0,0,0,acquired,2022.0,,20000000.0,,,,,,,0.0
+7163,AEENA Dx,2014,1,0,0,0,private,,,,,,,,,,0.0
+7175,Aerin Medical,2017,1,0,0,18,private,,,,,16.191688015031747,0.0,18.0,0.0,4.444444444444445,449.0
+7183,Aerpio Pharmaceuticals,2016,1,0,0,6,public,2018.0,,,,19.031091394127248,,,,4.833333333333333,4.0
+7206,Agilvax,2016,0,0,0,0,defunct,2021.0,,,,,,,,,
+7228,Aireon,2023,1,0,0,0,private,,,,,,,,,,0.0
+7232,Airware,2016,1,0,0,7,acquired,2018.0,,,,17.323491779037813,0.0,7.0,0.0,1.1428571428571428,8.0
+7243,Airway Therapeutics,2016,0,1,2,2,private,,,,,,,,,,
+7255,Akili Interactive Labs,2021,1,0,0,5,public,2022.0,,,,25.336496752197586,3.0,2.0,1.0,2.6666666666666665,1.0
+7263,Akston Biosciences,2016,1,0,0,2,private,,,,,19.53249277651088,,,,2.0,5.0
+7276,Akumina,2015,1,0,0,0,acquired,2015.0,,,4400000.1,,,,,,0.0
+7280,Alafair Biosciences,2014,1,0,0,0,private,,,,,,,,,,0.0
+7290,Alcresta,2016,1,0,0,9,private,,,,,17.310475722683965,,,,4.0,2.0
+7305,Allena Pharmaceuticals,2016,0,1,4,4,public,2017.0,0.0,,0.0,,,,,,
+7337,Altiostar Networks,2016,1,0,0,11,acquired,2021.0,,,,17.520068103845567,0.0,11.0,0.0,1.125,10.0
+7359,Amaze Software,2017,1,0,0,0,private,,,,,,,,,,0.0
+7384,Amiigo,2014,1,0,0,0,private,,,,,,,,,,0.0
+7395,Amphora Medical,2016,0,1,2,2,defunct,2020.0,,,,,,,,,
+7399,Ample Hills Creamery,2018,1,0,0,0,private,,10700000.0,,,,,,,,0.0
+7414,Ancera,2013,1,0,0,2,private,,,,,19.60022942193089,,,,,2.0
+7425,Annexon Biosciences,2016,0,1,2,2,public,2020.0,,0.0,,,,,,,
+7443,Apiary,2016,0,0,0,0,acquired,2017.0,,,,,,,,,
+7461,AppCard,2016,0,0,0,0,private,,,,,,,,,,
+7482,Applicaster,2016,0,0,0,0,private,,,,,,,,,,
+7496,Appsembler,2019,1,0,0,0,private,,,,,,,,,,0.0
+7514,Appthority,2016,0,1,1,1,acquired,2018.0,,,,,,,,,
+7518,Apptopia,2016,1,0,0,0,private,,,,5099999.9,,,,,,0.0
+7560,ArborMetrix,2015,1,0,0,0,private,,,,,,,,,,0.0
+7623,Artist Growth,2016,0,0,0,0,private,,,,,,,,,,
+7638,Ascletis,2016,0,0,0,0,public,2019.0,,21788767.0,,,,,,,
+7665,Athira Pharma,2016,0,1,1,1,public,2020.0,,,,,,,,,
+7674,Atlas5D,2013,1,0,0,3,private,,,,,19.01605754416137,,,,8.0,4.0
+7765,Avitus Orthopaedics,2016,1,0,0,0,private,,,,,,,,,,0.0
+7783,AZTherapies,2016,1,0,0,4,private,,,,,19.19294082202822,,,,1.0,5.0
+7791,Azubu,2015,1,0,0,0,defunct,2024.0,,,,,,,,,0.0
+7795,Azuqua,2013,1,0,0,2,acquired,2019.0,,,,17.60852937624579,,,,,0.0
+7801,Babylist,2016,0,0,0,0,private,,,,,,,,,,
+7805,Back At You,2015,1,0,0,0,private,,,,,,,,,,0.0
+7818,BAM Worldwide,2019,1,0,0,0,private,,,,,,,,,,0.0
+7823,Banyan Water,2014,1,0,0,0,private,,,,,,,,,,0.0
+7834,Batterii,2016,1,0,0,0,private,,,,,,,,,,0.0
+7848,BeatBox Beverages,2022,1,0,0,0,private,,,,175000000.0,,,,,,0.0
+7855,Beauty Bakerie Cosmetics Brand,2019,1,0,0,0,private,,,,,,,,,,0.0
+7882,Beet Analytics Technology,2016,0,1,6,6,private,,,,,,,,,,
+7886,BEGiN,2020,1,0,0,0,private,,,,,,,,,,0.0
+7898,Behalf,2018,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+7907,Bellhop,2017,1,0,0,0,private,,,,,,,,,,0.0
+7917,BenchmarkONE,2016,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+7922,BeneStream,2014,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+7928,Berkeley Lights,2018,1,0,0,22,public,2020.0,,,,17.460498833706115,6.0,16.0,4.0,6.0,39.0
+7943,Bespoke Post,2016,1,0,0,5,private,,,,,19.153630197743812,5.0,0.0,2.0,5.8,0.0
+7964,BetterCloud,2016,1,0,0,2,private,,21000000.0,,,20.537641063913963,,,,2.0,0.0
+7984,Betterworks,2016,1,0,0,0,private,,,,,,,,,,0.0
+8032,BitSight,2016,0,1,12,12,private,,50000000.0,,,,,,,,
+8053,Bizzabo,2016,0,0,0,0,private,,,,,,,,,,
+8068,Blitsy,2014,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+8104,Bluesight,2017,1,0,0,0,private,,,,,,,,,,0.0
+8111,Bluon,2022,1,0,0,0,private,,,,,,,,,,0.0
+8122,Bolstr,2016,0,0,0,0,acquired,2019.0,,,,,,,,,
+8131,Bonfyre,2016,1,0,0,0,private,,,,,,,,,,0.0
+8145,Boosted USA,2016,1,0,0,2,acquired,2020.0,,,,17.923103617779205,,,,2.5,2.0
+8168,Bractlet,2014,1,0,0,0,private,,,,,,,,,,0.0
+8199,Brazil Minerals,2022,1,0,0,0,private,,,,,,,,,,0.0
+8205,Breaktime Studios,2012,1,0,0,0,private,,,,,,,,,,0.0
+8219,BrightFarms,2020,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+8233,Brit + Co,2016,0,0,0,0,private,,,,,,,,,,
+8265,BuzzTable,2011,1,0,0,2,acquired,2013.0,,,,20.46824934696046,,,,1.0,0.0
+8272,ByNext,2022,1,0,0,0,private,,,,,,,,,,0.0
+8282,Bytemark,2014,1,0,0,6,acquired,2017.0,,8000000.0,,16.959611634789567,3.0,3.0,2.0,5.166666666666667,0.0
+8295,CallRail,2018,1,0,0,0,private,,,60000000.0,,,,,,,0.0
+8335,Candescent Eye Holdings,2015,1,0,0,0,private,,,,,,,,,,0.0
+8370,Cardionomic,2021,1,0,0,1,private,,,,,16.463716571683253,0.0,1.0,0.0,8.0,13.0
+8382,Care Thread,2016,0,1,1,1,private,,,,,,,,,,
+8385,CareLinx,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+8389,CareSync,2016,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+8403,Carlotz,2016,1,0,0,0,acquired,,24700001.0,,102486000.0,,,,,,0.0
+8413,Cartiva,2014,1,0,0,5,acquired,2018.0,,,,16.750775999079405,,,,,15.0
+8421,Cashie Commerce,2013,1,0,0,0,defunct,2017.0,,,,,,,,,0.0
+8424,Cask,2016,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+8436,Cellink,2023,1,0,0,1,private,,,,,16.97102319970918,,,,,8.0
+8444,Centerfield,2017,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+8478,Chargeback,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+8510,ChefsFeed,2016,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+8527,Chewy,2017,1,0,0,0,acquired,,2104287100.0,,3878247100.0,,,,,,0.0
+8556,Chubbies Shorts,2017,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+8562,Chute,2016,0,0,0,0,acquired,2018.0,,,,,,,,,
+8572,Circ,2021,1,0,0,1,private,,,,,17.713722665783397,,,,9.0,0.0
+8588,CircleCI,2016,0,0,0,0,private,,,,,,,,,,
+8598,Circuit,2020,1,0,0,0,private,,,,,,,,,,0.0
+8616,Citelighter,2015,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+8629,Citymart,2016,0,0,0,0,private,,,,,,,,,,
+8637,Civitas Learning,2016,0,0,0,0,private,,,,,,,,,,
+8643,Clarify,2014,1,0,0,0,defunct,,,,,,,,,,0.0
+8678,CleanChoice Energy,2021,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+8682,ClearDATA,2016,0,0,0,0,private,,,,,,,,,,
+8690,Clearside Biomedical,2016,1,0,0,12,public,2016.0,,340000.0,,20.639784997467462,0.0,12.0,0.0,,96.0
+8707,Clearstream.TV,2011,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+8719,Clinkle,2013,1,0,0,0,defunct,2012.0,,,,,,,,,0.0
+8747,Cloudability,2018,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+8761,CloudCheckr,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+8772,CloudMine,2012,1,0,0,0,defunct,2018.0,,,,,,,,,0.0
+8800,Cobalt1,2016,0,0,0,0,private,,,,,,,,,,
+8808,Cobalt Software,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+8811,Codagenix,2016,1,0,0,3,private,,,,,19.856833722701367,,,,2.3333333333333335,2.0
+8833,Codecademy,2016,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+8839,CodeNow,2016,0,0,0,0,private,,,,,,,,,,
+8846,Cofense,2016,0,0,0,0,acquired,2018.0,33799999.0,,100000000.0,,,,,,
+8856,CoFoundersLab,2014,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+8881,Combined Energies,2023,1,0,0,0,private,,,,,,,,,,0.0
+8896,CommonBond,2013,1,0,0,0,private,,,5000000.0,20000000.0,,,,,,0.0
+8912,Compass Datacenters,2014,1,0,0,2,private,,,,,16.99306944364956,,,,,1.0
+8930,CoNextions Medical,2016,0,0,0,0,private,,,,,,,,,,
+8945,ConnectDER,2016,0,0,0,0,private,,,,,,,,,,
+8975,Consumer Physics,2014,1,0,0,1,private,,,,,16.931512324760387,,,,,0.0
+8992,ControlRad,2019,1,0,0,3,private,,,1600000.0,,17.46896424112957,,,,2.0,0.0
+8998,Convergent Dental,2023,1,0,0,0,private,,,,,,,,,,0.0
+9022,Coravin,2011,1,0,0,0,private,,,,,,,,,,0.0
+9033,COTA Healthcare,2020,1,0,0,0,private,,,,,,,,,,0.0
+9040,Cotera,2014,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+9052,CourseStorm,2018,1,0,0,0,private,,,,,,,,,,0.0
+9061,Covalent Data,2016,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+9076,Create Real Estate,2023,1,0,0,0,defunct,2017.0,,,,,,,,,0.0
+9080,Credence MedSystems,2016,0,1,14,14,private,,,,,,,,,,
+9101,CrowdStrike,2016,0,1,42,42,public,2019.0,,,,,,,,,
+9141,Dabble,2016,1,0,0,0,private,,574999.99,,,,,,,,0.0
+9171,DarioHealth,2016,1,0,0,0,public,2013.0,,7271999.8,7461000.0,,,,,,0.0
+9203,Databox,2016,1,0,0,0,private,,,,,,,,,,0.0
+9218,Davra,2016,0,0,0,0,private,,,,,,,,,,
+9273,Desmos,2012,1,0,0,0,acquired,2022.0,,,,,0.0,0.0,0.0,,0.0
+9295,Diagnovus,2016,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+9315,Digital Currency Group,2021,1,0,0,0,private,,,,,,,,,,0.0
+9330,Directly,2018,1,0,0,1,private,,,,,16.81437348518375,0.0,1.0,0.0,2.0,0.0
+9346,DivvyHQ,2018,1,0,0,0,private,,,,,,,,,,0.0
+9352,Dizzion,2017,1,0,0,0,private,,5699999.8,6599999.9,,,,,,,0.0
+9389,DreamsCloud,2016,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+9410,Dsco,2016,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+9436,Dynamic Yield,2016,0,1,1,1,acquired,2021.0,,,,,,,,,
+9442,Dynamo Micropower,2018,1,0,0,2,private,,,,,15.109921142840111,1.0,1.0,1.0,6.5,1.0
+9462,Eat Just,2016,1,0,0,3,private,,,,,17.614958522311966,,,,1.0,0.0
+9522,eko,2016,1,0,0,0,private,,3299193.1,,,,,,,,0.0
+9547,Elevate,2023,1,0,0,0,private,,,,,,,,,,0.0
+9552,Elevate Digital,2013,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+9563,Elicio Therapeutics,2018,1,0,0,1,private,,,0.0,0.0,16.789286579405832,,,,3.0,0.0
+9595,Email Copilot,2015,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+9626,Empyr,2011,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+9636,Enable Injections,2020,1,0,0,5,private,,24799999.0,,,16.124520974665725,0.0,5.0,0.0,1.0,4.0
+9659,enEvolv,2016,0,1,3,3,acquired,2020.0,,,,,,,,,
+9665,Enigma Technologies,2016,1,0,0,1,private,,,,,17.748356229638215,,,,,0.0
+9678,Entac Medical,2016,1,0,0,0,defunct,,,,,,,,,,0.0
+9708,Enzium,2016,1,0,0,0,private,,,,,,,,,,0.0
+9713,Epion Health,2016,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+9745,Euclises Pharmaceuticals,2016,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+9761,Everpix,2011,1,0,0,0,defunct,2014.0,,,,,,,,,0.0
+9800,Exo Labs,2014,1,0,0,0,private,,,,,,,,,,0.0
+9804,Explain Everything,2016,0,1,1,1,acquired,2022.0,,,,,,,,,
+9825,FamilyTech,2016,1,0,0,0,private,,,,,,,,,,0.0
+9837,Fandeavor,2016,0,0,0,0,acquired,2019.0,,,,,,,,,
+9845,Fashion Project,2015,1,0,0,0,private,,,,,,,,,,0.0
+9886,Fieldlens,2016,0,0,0,0,acquired,2020.0,,,,,,,,,
+9895,Fileboard,2015,1,0,0,0,defunct,2018.0,,,,,,,,,0.0
+9897,Filely,2016,0,0,0,0,defunct,2020.0,,,,,,,,,
+9905,FileThis,2016,0,0,0,0,private,,978524.0,,,,,,,,
+9917,FindIt,2013,1,0,0,0,defunct,,,,,,,,,,0.0
+9935,First Access,2016,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+9948,Fishidy,2016,0,0,0,0,acquired,2018.0,,,,,,,,,
+9967,Five Stars,2020,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+10011,flok,2016,0,0,0,0,acquired,2017.0,,,,,,,,,
+10019,Fluent City,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+10049,Fore Biotherapeutics,2016,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+10059,ForeverCar,2017,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+10063,Forge Nano,2018,1,0,0,4,private,,,,,20.43741895701343,,,,3.3333333333333335,0.0
+10069,Formlabs,2016,1,0,0,32,private,,100000000.0,100000000.0,,19.47895138580446,4.0,28.0,2.0,2.0952380952380953,22.0
+10085,Fortus Medical,2016,1,0,0,4,private,,,,,17.365237560614215,,,,2.0,3.0
+10094,FreedomPop,2018,1,0,0,0,private,,,,,,,,,,0.0
+10103,Freepoint Commodities,2022,1,0,0,0,private,,,,,,,,,,0.0
+10130,Fundation,2016,1,0,0,0,acquired,,,,,,,,,,0.0
+10137,Game Closure,2016,0,0,0,0,private,,,,,,,,,,
+10161,General Assembly,2017,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+10169,Genesis Media,2014,1,0,0,0,defunct,2019.0,,,,,0.0,0.0,0.0,,0.0
+10178,Geofeedia,2016,0,0,0,0,private,,,,,,,,,,
+10186,Geostellar,2016,1,0,0,0,defunct,2020.0,,,,,0.0,0.0,0.0,,0.0
+10193,Getaround,2016,1,0,0,0,public,2022.0,,,,,,,,,0.0
+10216,Giftbit,2016,0,0,0,0,private,,,,,,,,,,
+10298,GoCheck,2016,0,0,0,0,private,,,,,,,,,,
+10310,Good Eggs,2016,1,0,0,0,private,,,,,,,,,,0.0
+10323,Goodnight Midstream,2016,1,0,0,0,acquired,,,,,,,,,,0.0
+10362,Grafighters,2013,1,0,0,0,defunct,,,,,,,,,,0.0
+10376,Gravy Analytics,2022,1,0,0,0,private,,,,,,,,,,0.0
+10383,GrayBug,2015,1,0,0,10,acquired,,,,,20.861740256016148,,,,6.333333333333333,4.0
+10389,Greatist,2016,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+10392,Green Cloud Defense,2013,1,0,0,0,acquired,2021.0,1494975.0,3885602.0,11871840.0,,,,,,0.0
+10427,Greentown Labs,2016,0,0,0,0,private,,,,,,,,,,
+10432,Gremlin Social,2019,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+10442,GreyOrange,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+10451,Gridium,2023,1,0,0,0,private,,,,,,,,,,0.0
+10464,GroupZoom,2014,1,0,0,0,defunct,2020.0,,,,,,,,,0.0
+10473,Growers,2016,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+10517,Halo Labs,2016,1,0,0,0,private,,,,,,,,,,0.0
+10528,Handle,2013,1,0,0,0,private,,,,,,,,,,0.0
+10544,Happy Cloud,2015,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+10563,Hatch Collection,2018,1,0,0,0,private,,,,,,,,,,0.0
+10575,hc1,2015,1,0,0,1,private,,,,,21.24198373130412,,,,1.0,0.0
+10598,healthfinch,2016,0,0,0,0,acquired,2020.0,,,,,,,,,
+10652,Hire An Esquire,2016,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+10661,Hiver,2021,1,0,0,0,private,,,,,,,,,,0.0
+10675,HomeLight,2019,1,0,0,0,private,,100000000.0,,,,,,,,0.0
+10691,HookLogic,2016,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+10703,Houseparty,2016,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+10719,Hubble Telemedical,2016,0,0,0,0,acquired,2015.0,,,,,,,,,
+10734,Hyperice,2023,1,0,0,1,private,,,,,15.087568139622938,,,,,7.0
+10740,HZO,2019,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+10758,iBillionaire.api,2016,0,0,0,0,private,,,,,,,,,,
+10767,Ibotta,2016,0,1,5,5,private,,,,,,,,,,
+10799,Ignyta,2013,1,0,0,14,acquired,,150000.00999999998,150000.00999999998,0.0,17.90821774515174,,,,1.5454545454545454,14.0
+10813,image32,2015,1,0,0,0,defunct,,,,,,,,,,0.0
+10824,ImmusanT,2016,0,0,0,0,defunct,2021.0,,,,,,,,,
+10832,Impossible Foods,2016,1,0,0,20,private,,,,130000000.0,19.862445736512182,6.0,14.0,2.0,3.2857142857142856,86.0
+10844,Impossible Objects,2016,1,0,0,13,private,,,,,13.0256798496625,13.0,0.0,4.0,1.0,2.0
+10894,Infrascale,2016,0,0,0,0,private,,,,,,,,,,
+10898,Infrastructure Networks,2014,1,0,0,0,private,,,,,,,,,,0.0
+10930,InquisitHealth,2016,0,0,0,0,private,,,,,,,,,,
+10976,inui Health,2016,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+11045,IVY,2016,0,0,0,0,private,,,,,,,,,,
+11073,Jetlore,2016,0,0,0,0,acquired,2018.0,,,,,,,,,
+11086,JobNimbus,2023,1,0,0,0,private,,25000000.0,,,,,,,,0.0
+11110,just.me,2012,1,0,0,0,defunct,2013.0,,,,,,,,,0.0
+11119,Kahuna,2016,0,0,0,0,defunct,2020.0,,,,,,,,,
+11164,Keona Health,2021,1,0,0,0,private,,,,,,,,,,0.0
+11170,KeriCure,2012,1,0,0,0,private,,,,,,,,,,0.0
+11175,KeyedIn Solutions,2015,1,0,0,0,private,,,,,,,,,,0.0
+11203,KiteDesk,2016,1,0,0,0,defunct,2018.0,,,,,,,,,0.0
+11253,Kogent Surgical,2016,0,1,5,5,defunct,,,,,,,,,,
+11259,Koupon,2020,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+11326,Lark,2020,1,0,0,4,private,,,,,18.923084296564067,4.0,0.0,1.0,1.0,2.0
+11338,Lastline,2016,0,1,2,2,acquired,2020.0,,13700000.0,,,,,,,
+11355,LawLytics,2018,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+11393,LearnZillion,2016,1,0,0,1,acquired,2020.0,,,,15.598869675772567,,,,1.0,0.0
+11397,LeaseQ,2016,1,0,0,0,acquired,2024.0,,,,,,,,,0.0
+11410,Lendio,2011,1,0,0,0,private,,,,,,,,,,0.0
+11419,LendUp,2014,1,0,0,0,defunct,2022.0,,,,,,,,,0.0
+11438,Leonardo247,2019,1,0,0,1,private,,2300000.0,,,16.81570558761194,,,,,0.0
+11462,Liberty SBF,2016,1,0,0,0,private,,,,,,,,,,0.0
+11489,LightCyber,2016,0,0,0,0,acquired,2017.0,,,,,,,,,
+11501,Lincoln Peak Partners,2016,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+11536,LiveSchool,2016,1,0,0,0,private,,,,,,,,,,0.0
+11544,Living Greens Farm,2016,1,0,0,4,private,,,,,14.896948849250753,,,,,6.0
+11554,LocalBonus,2013,1,0,0,0,defunct,,,,,,,,,,0.0
+11597,Lua,2016,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+11603,Lucid Energy Group,2014,1,0,0,0,acquired,2022.0,,,,,0.0,0.0,0.0,,0.0
+11633,Lygos,2016,1,0,0,7,acquired,,,,,19.959389430743165,,,,1.6666666666666667,2.0
+11650,MacStadium,2016,1,0,0,2,private,,,14800000.0,24200001.0,15.55459004008718,,,,,0.0
+11682,Manus Bio,2016,0,1,6,6,private,,,,,,,,,,
+11696,MAP Health Management,2021,1,0,0,0,private,,,,,,,,,,0.0
+11721,Matrix Industries,2014,1,0,0,3,private,,,,,17.415590674535853,3.0,0.0,1.0,3.0,0.0
+11751,Mavatar,2016,1,0,0,0,private,,,,,,,,,,0.0
+11754,MaxQ,2016,0,0,0,0,private,,,,,,,,,,
+11759,MD Revolution,2019,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+11766,MDsave,2014,1,0,0,0,acquired,2023.0,,3691508.1,15500000.0,,,,,,0.0
+11775,MediaHound,2016,0,0,0,0,acquired,2022.0,,,,,,,,,
+11785,MediBeacon,2015,1,0,0,12,private,,,,,19.379980876384817,1.0,11.0,1.0,2.0,21.0
+11800,Medium,2016,0,0,0,0,private,,,,,,,,,,
+11814,MegaHoot Technologies,2016,1,0,0,0,acquired,,,,,,,,,,0.0
+11818,Mellitus,2015,1,0,0,1,private,,,,,18.75315330475576,,,,3.0,0.0
+11840,Merganser Biotech,2016,1,0,0,0,private,,,,,,,,,,0.0
+11858,Metromile,2016,0,1,1,1,acquired,2021.0,,,53000000.0,,,,,,
+11867,MeUndies,2016,0,0,0,0,private,,32599998.0,,75000000.0,,,,,,
+11888,Millendo Therapeutics,2016,0,0,0,0,acquired,,325000.0,294000.0,,,,,,,
+11915,MindTickle,2020,1,0,0,0,private,,40000000.0,,,,,,,,0.0
+11928,Mingle Health,2018,1,0,0,0,private,,,,,,,,,,0.0
+11965,MixRank,2015,1,0,0,0,private,,,,,,,,,,0.0
+11979,Mobile Pulse,2013,1,0,0,0,private,,,,,,,,,,0.0
+11997,Mobiquity,2012,1,0,0,5,acquired,2019.0,41142857.0,,56452000.0,24.873664197276163,,,,2.4,4.0
+12005,Modern Meadow,2016,1,0,0,13,private,,,,,17.697325004386304,,,,2.6666666666666665,48.0
+12041,Mortar Data,2012,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+12045,Mosaic,2013,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+12087,Mozio,2016,0,0,0,0,private,,,,,,,,,,
+12096,Muddy Creek Caf챕 & Music Hall,2016,0,0,0,0,private,,,,,,,,,,
+12099,Munchery,2016,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+12139,MyTime,2016,0,0,0,0,private,,,,,,,,,,
+12172,nChannel,2015,1,0,0,0,private,,,,,,,,,,0.0
+12179,Ndustrial,2016,0,1,1,1,private,,,,,,,,,,
+12182,Nebula,2014,1,0,0,0,defunct,2024.0,,,,,,,,,0.0
+12196,NetSpeed Systems,2016,0,1,23,23,acquired,2018.0,,,,,,,,,
+12199,NeueHouse,2016,0,0,0,0,private,,,,,,,,,,
+12231,Nexgenia,2016,0,0,0,0,private,,,,,,,,,,
+12250,NG Advantage,2013,1,0,0,0,acquired,2014.0,,,,,,,,,0.0
+12264,Nirvana Science,2016,1,0,0,2,private,,,,,19.554990124381455,,,,6.0,0.0
+12272,Nitrogen,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+12285,Nohms Technologies,2013,1,0,0,8,private,,,,,18.967435265251577,,,,1.5,0.0
+12299,Nok Nok Labs,2016,0,1,10,10,private,,,,,,,,,,
+12320,Nudge Coach,2016,0,0,0,0,private,,,,,,,,,,
+12330,NuORDER,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+12336,nuPSYS,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+12359,Observable Networks,2016,1,0,0,0,acquired,2017.0,,,,,0.0,0.0,0.0,,0.0
+12370,ODK Media,2016,1,0,0,0,private,,,,,,,,,,0.0
+12375,OfferUp,2016,1,0,0,0,private,,,,,,,,,,0.0
+12396,Omada Health,2023,1,0,0,0,private,,,,,,,,,,0.0
+12412,Onclusive,2022,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+12447,OnKure Therapeutics,2019,1,0,0,3,private,,,,0.0,19.581756727928795,1.0,2.0,1.0,1.6666666666666667,5.0
+12455,ONL Therapeutics,2016,1,0,0,1,private,,,,,19.60100584292957,,,,2.0,0.0
+12463,Ontera,2016,0,1,5,5,defunct,,,,,,,,,,
+12466,OPAL,2016,0,1,2,2,private,,,,,,,,,,
+12480,Openbucks,2014,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+12498,OpenSesame,2016,0,1,2,2,private,,,,,,,,,,
+12511,Optimere (ArchiveSocial + Monsido + NextRequest),2016,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+12520,Opus One Solutions,2021,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+12530,Orb Health,2016,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+12539,Orderly by Siftit,2016,0,0,0,0,private,,,,,,,,,,
+12542,OrderWithMe,2014,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+12558,oroeco,2013,1,0,0,0,private,,,,,,,,,,0.0
+12562,ORTHOReBIRTH,2016,0,1,3,3,private,,,,,,,,,,
+12601,Outreach,2016,1,0,0,2,private,,10000000.0,,,14.604036149734817,,,,1.5,1.0
+12625,Ovia Health,2016,1,0,0,1,acquired,2021.0,,,,19.14372821430524,0.0,1.0,0.0,,1.0
+12637,Owler,2016,0,0,0,0,acquired,2021.0,,,3000000.0,,,,,,
+12656,Paddle8,2016,0,0,0,0,acquired,2018.0,,,,,,,,,
+12669,Panbela Therapeutics,2013,1,0,0,0,public,2012.0,,0.0,,,,,,,0.0
+12682,PandaDoc,2016,0,0,0,0,private,,,,,,,,,,
+12722,Pay By Group,2016,0,0,0,0,private,,,,,,,,,,
+12748,Payveris,2020,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+12764,PECA Labs,2022,1,0,0,0,private,,,,,,,,,,0.0
+12801,PerceptiMed,2016,1,0,0,4,private,,,,,17.864409638336365,,,,4.5,1.0
+12805,Percolate,2016,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+12822,PetDesk,2014,1,0,0,0,private,,,,,,,,,,0.0
+12836,PhotoPharmics,2015,1,0,0,1,private,,,,,23.037751108044127,,,,1.0,0.0
+12848,PHRQL,2012,1,0,0,0,private,,,,,,,,,,0.0
+12864,Picmonic,2016,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+12871,Picsart,2016,0,1,1,1,private,,,,,,,,,,
+12889,Pindrop,2016,0,1,32,32,private,,,,,,,,,,
+12903,Pinpoint Software,2016,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+12915,Pivot Bio,2016,1,0,0,9,private,,,,,20.98000565476277,,,,,34.0
+12927,Pixowl,2016,0,0,0,0,acquired,2018.0,,3600000.0,,,,,,,
+12956,Playdek,2014,1,0,0,0,private,,,,,,,,,,0.0
+12963,PlayerLync,2017,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+12994,PokitDok,2014,1,0,0,6,defunct,2019.0,,,,17.743767860993852,,,,3.0,0.0
+13015,Poshly,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+13020,Poshmark,2016,0,0,0,0,acquired,,,148304990.0,204983000.0,,,,,,
+13027,PosiGen,2017,1,0,0,0,private,,,,,,,,,,0.0
+13044,Postmates,2016,1,0,0,2,acquired,2020.0,250000000.0,159877000.0,320838010.0,17.26705037032179,,,,1.0,0.0
+13065,Practice,2016,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+13093,Prevenio,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+13100,Pricing Engine,2014,1,0,0,0,private,,,,,,,,,,0.0
+13108,Primizie Snacks,2016,0,0,0,0,defunct,2020.0,,,,,,,,,
+13124,Privateer Holdings,2016,1,0,0,0,acquired,2019.0,,,,,0.0,0.0,0.0,,0.0
+13128,Privlo,2014,1,0,0,0,defunct,2015.0,,,,,,,,,0.0
+13176,PullString,2016,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+13193,PUSH Wellness,2016,0,0,0,0,acquired,2012.0,,,,,,,,,
+13196,Pushpay,2016,1,0,0,1,public,2014.0,33956001.0,,,21.544200962340085,,,,1.0,0.0
+13215,Pyrochem Catalyst,2016,0,0,0,0,private,,,,,,,,,,
+13221,QASymphony,2016,1,0,0,0,acquired,2019.0,5000000.0,,,,,,,,0.0
+13232,Quad Geometrics,2016,0,0,0,0,defunct,2021.0,,,,,,,,,
+13243,Qualaris Healthcare Solutions,2016,0,0,0,0,private,,,,,,,,,,
+13246,QualSights,2016,1,0,0,0,private,,,,,,,,,,0.0
+13256,QuantConnect,2016,0,0,0,0,private,,,,,,,,,,
+13263,Quantopian,2016,0,0,0,0,defunct,2022.0,,,,,,,,,
+13283,Qure4u,2021,1,0,0,0,private,,,,,,,,,,0.0
+13288,Rabbit,2016,1,0,0,0,defunct,2021.0,,,,,0.0,0.0,0.0,,0.0
+13291,Radius Networks,2015,1,0,0,3,private,,,,,19.457345050342763,0.0,3.0,0.0,1.0,4.0
+13326,Razberi Technologies,2016,0,1,3,3,acquired,2020.0,,,,,,,,,
+13332,Reaction,2014,1,0,0,2,defunct,,,,,17.490995563519583,2.0,0.0,1.0,,0.0
+13347,Realvolve,2016,1,0,0,0,private,,,,2000000.0,,,,,,0.0
+13355,Rebiotix,2016,1,0,0,12,acquired,2018.0,,,,18.815901451474932,,,,,24.0
+13365,Recombine,2016,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+13368,RecruitLoop,2016,1,0,0,0,defunct,2024.0,,,,,,,,,0.0
+13378,Redeemr,2012,1,0,0,0,defunct,2014.0,,,,,,,,,0.0
+13391,REDWAVE ENERGY,2014,1,0,0,2,private,,,,,16.651467891634475,,,,,0.0
+13399,Regroup,2016,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+13418,Reliam,2016,1,0,0,0,defunct,2017.0,,,,,,,,,0.0
+13441,Remitly,2016,1,0,0,0,public,2021.0,,,126567000.0,,,,,,0.0
+13461,Rentable,2019,1,0,0,0,private,,,,,,,,,,0.0
+13477,Replay Technologies,2014,1,0,0,4,acquired,2016.0,,,,18.924514338651864,,,,1.75,2.0
+13483,Republic Wireless,2016,0,1,17,17,acquired,2021.0,,,,,,,,,
+13484,Rescale,2016,0,1,6,6,private,,,,,,,,,,
+13565,RiskLens,2016,1,0,0,1,acquired,2023.0,,,,20.86763285024155,,,,1.0,0.0
+13571,River Vision Development,2016,0,0,0,0,acquired,2017.0,,,,,,,,,
+13583,RNAgri,2013,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+13591,Roadtrippers,2014,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+13627,Rover,2018,1,0,0,0,acquired,,95052000.0,48800000.0,109837000.0,,,,,,0.0
+13639,Rowheels,2017,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+13656,RS Metrics,2016,0,0,0,0,private,,,,,,,,,,
+13669,Rumble,2016,1,0,0,0,acquired,2025.0,,,,,,,,,0.0
+13684,RxAnte,2020,1,0,0,2,private,,,,66793816.00000001,19.072175527017524,0.0,2.0,0.0,2.0,0.0
+13692,Ryver,2014,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+13722,Salveo Specialty Pharmacy,2011,1,0,0,0,acquired,2014.0,,,,,,,,,0.0
+13733,Sanuthera,2014,1,0,0,0,defunct,2017.0,,,,,,,,,0.0
+13735,Saranas,2016,1,0,0,0,private,,,,0.0,,,,,,0.0
+13745,Savari,2016,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+13779,Science,2015,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+13785,Science Exchange,2019,1,0,0,0,private,,,,,,,,,,0.0
+13832,Seaborn Networks,2016,1,0,0,0,private,,,,,,,,,,0.0
+13845,SecureWaters,2016,0,0,0,0,private,,,,,,,,,,
+13849,Securisyn Medical,2016,1,0,0,1,private,,,,,20.026186171803403,0.0,1.0,0.0,,1.0
+13856,Securus Medical Group,2016,0,0,0,0,acquired,2018.0,,,,,,,,,
+13864,Seelio,2012,1,0,0,0,defunct,2016.0,,,,,,,,,0.0
+13868,Segment,2016,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+13902,Sensulin,2016,0,0,0,0,private,,,,,,,,,,
+13915,Sentrian,2016,1,0,0,0,defunct,2018.0,,,,,,,,,0.0
+13925,Sentry Health,2014,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+13932,Serionix,2022,1,0,0,0,private,,,,,,,,,,0.0
+13974,SharpenCX,2014,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+14004,Shibumi,2016,1,0,0,2,private,,,,,17.11515087798813,,,,,0.0
+14022,ShopAdvisor,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+14027,Shoppable,2016,0,0,0,0,private,,,,,,,,,,
+14033,Shoptiques,2016,1,0,0,0,private,,,,,,,,,,0.0
+14044,Sickweather,2015,1,0,0,0,private,,,394209.0,551232.99,,,,,,0.0
+14069,Sight Sciences,2016,0,1,10,10,public,2021.0,,7530000.0,23348000.0,,,,,,
+14105,SilverCloud Health,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+14112,Simple Energy,2013,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+14129,Simplyredible Foods,2016,1,0,0,0,private,,,,,,,,,,0.0
+14143,SingleStore,2020,1,0,0,7,private,,,50000000.0,,17.77313969822398,,,,1.4,0.0
+14154,Sinopsys Surgical,2013,1,0,0,5,private,,,,,17.95547032697749,,,,,12.0
+14160,Sinovia Technologies,2016,1,0,0,2,private,,,,,19.075025788458955,,,,1.0,0.0
+14176,Skinnyprice,2015,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+14183,SKU IQ,2015,1,0,0,0,private,,,,,,,,,,0.0
+14204,Smart Lunches,2016,0,0,0,0,private,,,,,,,,,,
+14217,Snap,2016,1,0,0,724,public,2017.0,,,,19.064987083353298,,,,3.625730994152047,2614.0
+14243,SnipSnap,2013,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+14255,Social Tables,2013,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+14272,SoFi,2013,1,0,0,0,public,2021.0,,,,,,,,,0.0
+14290,SOL REPUBLIC,2012,1,0,0,2,acquired,2016.0,,,,17.244426237683754,,,,3.0,0.0
+14297,Solavei,2013,1,0,0,0,private,,,,,,,,,,0.0
+14307,Solid Power,2021,1,0,0,2,public,2021.0,,,,18.380753222979305,,,,1.0,1.0
+14334,SoMoLend,2012,1,0,0,0,defunct,,,,,,,,,,0.0
+14340,Sonobi,2016,0,0,0,0,private,,,,,,,,,,
+14365,Sparkcentral,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+14386,Spirosure,2016,0,1,1,1,acquired,2020.0,,,,,,,,,
+14419,SpotHero,2016,1,0,0,0,private,,,,,,,,,,0.0
+14429,SpotRight,2016,1,0,0,0,acquired,2018.0,,,,,0.0,0.0,0.0,,0.0
+14441,Spring,2016,1,0,0,0,acquired,2022.0,,,,,0.0,0.0,0.0,,0.0
+14455,Sqord,2016,0,0,0,0,acquired,2019.0,,,,,,,,,
+14487,Stio,2016,0,0,0,0,private,,,,,,,,,,
+14493,Stitch Fix,2016,1,0,0,10,public,2017.0,,1036698000.0,,16.919128959647725,,,,1.6666666666666667,0.0
+14540,Stylitics,2017,1,0,0,3,private,,,,,18.638027659115878,,,,1.0,0.0
+14552,SumAll,2013,1,0,0,0,defunct,2020.0,,,,,,,,,0.0
+14558,SunFarmer,2016,1,0,0,0,private,,,,,,,,,,0.0
+14585,Surf Air,2014,1,0,0,0,public,2023.0,,,10000000.0,,,,,,0.0
+14609,Sway Medical,2016,1,0,0,1,private,,,,,18.47510138596775,,,,,0.0
+14654,Tagore Technology,2021,1,0,0,0,private,,,1400000.0,,,0.0,0.0,0.0,,0.0
+14664,Talkdesk,2016,1,0,0,30,private,,,,,17.793411947653862,,,,1.6,10.0
+14683,Tanvas,2016,1,0,0,0,private,,,,,,,,,,0.0
+14734,tastylive,2016,0,0,0,0,private,,,,,,,,,,
+14757,Tellagence,2016,1,0,0,0,private,,,,,,,,,,0.0
+14795,Testin,2016,0,0,0,0,private,,,,,,,,,,
+14801,Testive,2016,1,0,0,0,private,,,,,,,,,,0.0
+14845,The RealReal,2016,0,1,2,2,public,2019.0,137521000.0,213731990.0,,,,,,,
+14884,ThermoAura,2016,0,0,0,0,defunct,,,,,,,,,,
+14903,Thetis Pharmaceuticals,2016,1,0,0,4,private,,,,,19.84665420242398,0.0,4.0,0.0,2.75,16.0
+14925,Thread,2018,1,0,0,0,private,,,,,,,,,,0.0
+14986,Toast,2015,1,0,0,18,public,2021.0,,,,18.94459425929594,,,,1.375,1.0
+15005,Toopher,2015,1,0,0,0,acquired,2015.0,,,,,0.0,0.0,0.0,,0.0
+15009,Topical Remedy,2019,1,0,0,0,defunct,,,,,,0.0,0.0,0.0,,0.0
+15039,Traitify,2013,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+15051,TranscribeMe,2016,1,0,0,0,private,,3599999.9,,6000000.0,,,,,,0.0
+15069,TransVoyant,2019,1,0,0,3,private,,,,,19.291049190884113,0.0,3.0,0.0,6.333333333333333,4.0
+15078,Treasure Data,2016,0,0,0,0,private,,,,,,,,,,
+15091,TRED,2016,1,0,0,0,private,,,,,,,,,,0.0
+15103,Trelora,2016,1,0,0,0,acquired,2022.0,,2599999.9,,,,,,,0.0
+15108,Tresata,2016,0,0,0,0,private,,,,,,,,,,
+15111,Trevi Therapeutics,2015,1,0,0,1,public,2019.0,,,0.0,20.556294261367498,1.0,0.0,1.0,2.0,0.0
+15125,Trice Medical,2016,1,0,0,9,private,,,,,17.697380933332465,,,,5.0,16.0
+15147,Tripl,2012,1,0,0,0,defunct,,3865164.5,,,,,,,,0.0
+15151,Triplemint,2016,1,0,0,0,private,,,,,,,,,,0.0
+15158,TripLingo,2011,1,0,0,0,private,,,,,,,,,,0.0
+15210,Twenty20,2016,0,0,0,0,private,,,,,,,,,,
+15222,Twistle,2015,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+15251,Ubiquitous Energy,2016,1,0,0,5,private,,,,,19.866110865672113,,,,3.5,4.0
+15265,uConnect,2016,0,0,0,0,private,,,,,,,,,,
+15270,Udacity,2020,1,0,0,0,private,,,100000000.0,,,0.0,0.0,0.0,,0.0
+15286,Unified,2015,1,0,0,0,private,,,,,,,,,,0.0
+15308,Updater,2022,1,0,0,0,public,2015.0,,,,,,,,,0.0
+15324,Upthere,2016,0,0,0,0,acquired,2017.0,,,,,,,,,
+15336,UrbanBound,2015,1,0,0,0,private,,,,,,,,,,0.0
+15344,Urgent Team Holdings,2016,0,0,0,0,private,,,,,,,,,,
+15350,Useful Systems,2016,0,0,0,0,private,,,,,,,,,,
+15360,VA Loan Captain,2019,1,0,0,0,defunct,,,,,,,,,,0.0
+15379,vArmour,2016,1,0,0,8,acquired,2025.0,,,,17.98501579282734,0.0,8.0,0.0,3.125,153.0
+15411,Veenome,2013,1,0,0,1,acquired,2015.0,,,,18.637486288221584,,,,,0.0
+15424,Vensun Pharmaceuticals,2015,1,0,0,0,acquired,2019.0,,,17000000.0,,,,,,0.0
+15441,Veristride,2016,0,0,0,0,defunct,2019.0,,,,,,,,,
+15450,Versa,2013,1,0,0,0,acquired,2015.0,,,,,0.0,0.0,0.0,,0.0
+15459,Vi,2016,0,0,0,0,private,,,,,,,,,,
+15484,Vigilant Biosciences,2014,1,0,0,1,private,,,,,13.88691260214602,,,,2.0,0.0
+15514,Vistar Media,2013,1,0,0,2,private,,,,,21.709412641172726,,,,1.0,0.0
+15523,VitalConnect,2016,1,0,0,30,private,,,,,18.751444181250537,4.0,26.0,3.0,1.5833333333333333,12.0
+15537,Vivint Solar,2013,1,0,0,4,acquired,,20368999.0,64181999.00000001,,16.555047533340506,,,,2.3333333333333335,0.0
+15551,Vizify,2011,1,0,0,0,acquired,2014.0,,,,,,,,,0.0
+15559,VoiceVibes,2016,0,0,0,0,acquired,2021.0,,,,,,,,,
+15606,WalkMe,2016,1,0,0,7,public,2021.0,,,,20.981915443492873,,,,1.0,0.0
+15658,Weave,2016,1,0,0,0,public,2021.0,,,,,,,,,0.0
+15674,Welcome,2013,1,0,0,0,acquired,2018.0,,,,,0.0,0.0,0.0,,0.0
+15688,WeVideo,2011,1,0,0,3,acquired,2020.0,,,,19.039923346159572,,,,5.0,0.0
+15728,Wildfang,2016,1,0,0,0,private,,,,,,,,,,0.0
+15734,Winc,2017,1,0,0,0,acquired,,,36446999.0,64707001.00000001,,,,,,0.0
+15744,Windgap Medical,2014,1,0,0,12,private,,,,,18.363270541742857,,,,3.0,0.0
+15761,Windsor Circle,2016,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+15777,WISErg,2017,1,0,0,2,acquired,2021.0,,,,17.573376701705342,0.0,2.0,0.0,,3.0
+15790,Womply,2016,1,0,0,0,private,,,,,,,,,,0.0
+15806,Worthy,2016,0,0,0,0,private,,,,,,,,,,
+15851,Yotpo,2016,1,0,0,0,private,,,,,,,,,,0.0
+15866,YouEye,2014,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+15881,Zadara Storage,2016,0,1,4,4,private,,,,,,,,,,
+15887,ZAF Energy Systems,2016,1,0,0,6,private,,,,,18.407517723424036,0.0,6.0,0.0,1.0,0.0
+15892,Zapier,2016,0,0,0,0,private,,,,,,,,,,
+15896,Zello,2022,1,0,0,0,private,,,,,,,,,,0.0
+15912,Zentila,2016,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+15926,Zignal Labs,2019,1,0,0,1,private,,,,,16.814111843489083,,,,2.0,0.0
+15937,Zipline,2016,0,0,0,0,private,,,,,,,,,,
+15961,Zirtual,2014,1,0,0,0,acquired,2015.0,11000000.0,,,,,,,,0.0
+15971,Zoom,2016,1,0,0,0,public,2019.0,,,,,0.0,0.0,0.0,,0.0
+15982,Zuldi,2013,1,0,0,0,private,,,,,,,,,,0.0
+15986,&pizza,2017,1,0,0,0,private,,,,,,,,,,0.0
+16004,123Compliance,2015,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+16011,250ok,2017,0,0,0,0,acquired,2020.0,,,,,,,,,
+16013,2Morrow,2015,1,0,0,0,private,,,,,,,,,,0.0
+16021,365 Data Centers,2014,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+16024,3Derm Systems,2014,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+16034,3DLT,2014,1,0,0,0,defunct,,,,,,,,,,0.0
+16049,720 Degrees,2017,0,0,0,0,acquired,2021.0,776484.0,,,,,,,,
+16062,908 Devices,2017,1,0,0,2,public,2020.0,,17972000.0,26894000.0,19.28576207912787,1.0,1.0,1.0,1.0,2.0
+16079,Able Device,2018,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+16095,Accend,2014,1,0,0,0,defunct,,,,,,,,,,0.0
+16121,Actively Learn,2016,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+16152,AdaptHealth,2018,1,0,0,0,public,2019.0,529644247.0,,1731970000.0,,,,,,0.0
+16169,Adient Medical,2017,1,0,0,0,private,,,,,,,,,,0.0
+16177,Administrate,2017,0,0,0,0,private,,,,,,,,,,
+16189,AdStage,2015,1,0,0,0,acquired,2020.0,,,,,0.0,0.0,0.0,,0.0
+16196,Advanced Seismic Technologies,2012,1,0,0,0,defunct,,,,,,,,,,0.0
+16201,Adwanted Group,2017,0,0,0,0,private,,,1003975.0000000001,22798258.0,,,,,,
+16220,Affirm,2016,1,0,0,10,public,2021.0,,,264367000.00000003,17.426617845876667,,,,1.1111111111111112,0.0
+16283,Alchemist Accelerator,2017,0,0,0,0,private,,,,,,,,,,
+16294,Algolia,2017,1,0,0,0,private,,,60000000.0,,,,,,,0.0
+16314,AllCampus,2014,1,0,0,0,private,,,,,,,,,,0.0
+16330,Alzeca Biosciences,2017,1,0,0,0,private,,,,,,,,,,0.0
+16376,Antiva Biosciences,2014,1,0,0,0,private,,,,,,,,,,0.0
+16388,Apeel Sciences,2022,1,0,0,1,private,,,,,17.64475713358414,,,,2.0,0.0
+16406,AppLovin,2017,1,0,0,0,public,2021.0,483399990.0,994104000.0,1451086100.0,,,,,,0.0
+16420,AppSheet,2017,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+16428,Appuri,2017,0,0,0,0,defunct,2017.0,,,,,,,,,
+16455,Apton Biosystems,2017,0,1,6,6,acquired,2023.0,,,,,,,,,
+16471,Arcaris,2017,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+16508,Atara Biotherapeutics,2017,0,1,2,2,public,2014.0,0.0,,,,,,,,
+16515,Atentiv,2017,0,0,0,0,private,,,,,,,,,,
+16525,Atia Vision,2021,1,0,0,0,private,,,,,,,,,,0.0
+16542,Attentive.ly,2014,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+16562,August Home,2014,1,0,0,29,acquired,2022.0,,,,15.794793874369592,,,,1.6363636363636365,236.0
+16573,Aura Financial,2014,1,0,0,0,private,,,,,,,,,,0.0
+16587,Aura Frames,2022,1,0,0,0,private,,,,,,,,,,0.0
+16594,Aurochs Brewing,2018,1,0,0,0,private,,,276357.0,276357.0,,,,,,0.0
+16617,automed,2018,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+16626,Avant,2013,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+16646,AVIA,2017,1,0,0,0,private,,,,,,,,,,0.0
+16671,Axonics Modulation Technologies,2017,0,1,3,3,public,2018.0,,,,,,,,,
+16699,Backspaces,2013,1,0,0,0,private,,,,,,,,,,0.0
+16703,backstitch,2017,1,0,0,0,private,,,,,,,,,,0.0
+16721,Barnana,2017,1,0,0,0,private,,,,,,,,,,0.0
+16735,Bayshore Networks,2017,1,0,0,1,acquired,2021.0,,,,23.62121392846122,0.0,1.0,0.0,1.0,1.0
+16751,Bean Box,2017,1,0,0,0,private,,,3000000.0,,,,,,,0.0
+16782,Benefitter,2014,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+16788,Bergen Medical Products,2016,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+16811,BillingPlatform,2017,0,0,0,0,private,,,,,,,,,,
+16817,Biolinq,2020,1,0,0,10,private,,,,,19.335411882075647,0.0,10.0,0.0,9.5,72.0
+16825,Biomason,2017,1,0,0,5,private,,,,,19.093187370010973,4.0,1.0,3.0,6.0,33.0
+16832,Biomeme,2014,1,0,0,1,private,,,,,14.103214037014878,,,,,1.0
+16843,Bioscape Digital,2018,1,0,0,0,private,,,,,,,,,,0.0
+16866,Biscayne Pharmaceuticals,2015,1,0,0,0,private,,,,,,,,,,0.0
+16881,Bitmovin,2019,1,0,0,10,private,,,,,18.242918254160873,0.0,10.0,0.0,1.2857142857142858,0.0
+16905,Bloomerang,2021,1,0,0,0,private,,,,,,,,,,0.0
+16909,Blue Apron,2017,1,0,0,0,acquired,,833038020.0,,439471980.0,,,,,,0.0
+16934,BoardBookit,2014,1,0,0,0,defunct,,,,,,,,,,0.0
+16954,Boatsetter,2017,0,0,0,0,private,,7400000.0,7700000.0,10100000.0,,,,,,
+16974,Bombfell,2017,0,0,0,0,acquired,2020.0,,100000000.0,,,,,,,
+17001,Boston Metal,2017,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+17013,Bounce Imaging,2017,1,0,0,4,private,,,,,16.410338667537157,0.0,4.0,0.0,2.0,0.0
+17035,BovControl,2017,0,0,0,0,private,,,,,,,,,,
+17056,Braeburn,2018,1,0,0,4,private,,,,,16.01067898213285,2.0,2.0,2.0,2.0,27.0
+17077,Brigham Resources,2017,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+17110,Bugsnag,2017,0,0,0,0,acquired,2021.0,,,,,,,,,
+17115,Business Rockstars,2017,0,0,0,0,acquired,2020.0,,,,,,,,,
+17117,Butterfly Health,2015,1,0,0,0,acquired,2016.0,,,,,0.0,0.0,0.0,,0.0
+17133,CadenceMD,2014,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+17135,California Safe Soil,2017,1,0,0,0,private,,,6000000.0,3300000.0,,,,,,0.0
+17153,Cambly,2017,0,0,0,0,private,,,,,,,,,,
+17160,Canary,2017,1,0,0,0,acquired,2018.0,,,,,0.0,0.0,0.0,,0.0
+17180,Capy,2017,0,0,0,0,private,,,,,,,,,,
+17214,Carroll County Energy,2015,1,0,0,0,private,,,,,,,,,,0.0
+17240,Carvana,2016,1,0,0,9,public,2017.0,,1635682000.0,2350279100.0,17.47255323349617,4.0,5.0,1.0,3.0,1.0
+17294,Cephasonics,2017,1,0,0,0,private,,,,,,,,,,0.0
+17305,Cerkl,2017,0,0,0,0,private,,,,,,,,,,
+17315,ChannelMeter,2017,0,0,0,0,private,,,,,,,,,,
+17323,ChartSpan Medical Technologies,2017,1,0,0,1,defunct,,,,,18.982604412598302,,,,,0.0
+17334,Chat Sports,2017,0,0,0,0,private,,,,,,,,,,
+17372,Choozle,2017,1,0,0,0,private,,,17400000.0,,,,,,,0.0
+17411,CIMCON Lighting,2019,1,0,0,1,acquired,2021.0,,,,16.01834036254213,1.0,0.0,1.0,3.0,1.0
+17432,Cingulate Therapeutics,2017,0,0,0,0,public,2021.0,,,,,,,,,
+17449,CircleUp,2019,1,0,0,0,acquired,2023.0,,,,,0.0,0.0,0.0,,0.0
+17456,CirrusMD,2017,1,0,0,0,private,,,,,,,,,,0.0
+17464,Citizen Energy,2017,0,0,0,0,private,,,,,,,,,,
+17473,Claravine,2017,0,0,0,0,private,,,,,,,,,,
+17482,Clean Chemistry,2016,1,0,0,8,private,,,,,19.460193270328055,,,,,57.0
+17500,Click Therapeutics,2020,1,0,0,10,private,,,,,18.194930023409874,5.0,5.0,3.0,2.0,0.0
+17514,Cloud Elements,2017,0,0,0,0,acquired,2021.0,,,,,,,,,
+17520,Cloud Lending,2014,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+17549,CloudTags,2016,1,0,0,0,defunct,2020.0,,,,,,,,,0.0
+17603,Coinsetter,2014,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+17627,CommitChange,2014,1,0,0,0,private,,,,,,,,,,0.0
+17631,Common Sensing,2015,1,0,0,5,private,,,,,19.084828982090155,4.0,1.0,2.0,7.8,33.0
+17666,Complion,2013,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+17674,CompStak,2015,1,0,0,0,private,,,5000000.0,,,,,,,0.0
+17684,Comr.se,2015,1,0,0,0,private,,,,,,,,,,0.0
+17702,Connexient,2018,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+17727,ContractRoom,2020,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+17734,ConvenientMD,2017,1,0,0,0,acquired,2018.0,,,105000000.0,,,,,,0.0
+17737,Convercent,2015,1,0,0,1,acquired,2021.0,10000000.0,,,16.807995771884222,,,,1.0,0.0
+17762,Cortexyme,2017,1,0,0,7,public,2019.0,,,,16.53972901174081,,,,2.0,19.0
+17768,Cosaic,2018,1,0,0,0,private,,,,,,,,,,0.0
+17795,Credible,2017,1,0,0,0,acquired,,,,,,,,,,0.0
+17803,Credly,2017,0,1,1,1,acquired,2022.0,,,,,,,,,
+17827,Crowd Supply,2017,0,0,0,0,acquired,2018.0,,,,,,,,,
+17848,CueThink,2017,0,0,0,0,private,,,,,,,,,,
+17855,Curb,2017,1,0,0,2,acquired,2020.0,,,,16.08717943447073,,,,11.0,0.0
+17878,Customer.io,2017,0,0,0,0,private,,,,20000000.0,,,,,,
+17885,Cybereason,2017,0,1,6,6,private,,,,,,,,,,
+17898,Cylance,2017,0,1,52,52,acquired,2024.0,130000000.0,,,,,,,,
+17906,Danger!Awesome,2017,1,0,0,0,defunct,2015.0,,,,,,,,,0.0
+17943,Dealstruck,2015,1,0,0,0,private,,,,,,,,,,0.0
+17957,Defense Mobile,2016,1,0,0,0,private,,,,,,,,,,0.0
+17975,Derbywire,2012,1,0,0,0,defunct,2015.0,,,,,,,,,0.0
+18006,Digital Dream Labs,2014,1,0,0,1,private,,,,,19.832335686365624,,,,1.0,0.0
+18015,Digital Fortress,2016,1,0,0,0,private,,,,,,,,,,0.0
+18020,Digital Global Systems,2015,1,0,0,0,private,,,,,,,,,,0.0
+18030,DigitalOcean,2013,1,0,0,0,public,2021.0,,77000000.0,118000000.0,,0.0,0.0,0.0,,0.0
+18052,DigitalPay,2017,0,0,0,0,private,,,,,,,,,,
+18061,CS Disco,2020,1,0,0,0,public,2021.0,,,,,0.0,0.0,0.0,,0.0
+18073,Disease Diagnostic Group,2017,0,0,0,0,private,,,,,,,,,,
+18084,Dolcezza Gelato & Coffee Company,2019,1,0,0,0,private,,,,,,,,,,0.0
+18111,DraftKings,2017,1,0,0,13,public,2022.0,226276990.0,323410000.0,,17.92836638467212,,,,1.0,0.0
+18125,Dreamlines,2015,1,0,0,0,private,,,,,,,,,,0.0
+18136,Drizly,2017,0,0,0,0,acquired,2021.0,,,,,,,,,
+18149,Drop,2019,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+18155,DropThought,2014,1,0,0,0,private,,,,,,,,,,0.0
+18167,Dunami,2014,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+18191,Earshot,2015,1,0,0,1,defunct,2019.0,,,,18.060815259052173,,,,3.0,0.0
+18205,EasyPost,2017,1,0,0,0,private,,,,,,,,,,0.0
+18219,eBrevia,2017,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+18229,EchoPixel,2017,0,1,4,4,private,,,,,,,,,,
+18238,Eco-Site,2018,1,0,0,0,acquired,2020.0,,,,,0.0,0.0,0.0,,0.0
+18244,ECOSURG,2015,1,0,0,0,defunct,,,,,,,,,,0.0
+18303,Ellipsis Technologies,2017,1,0,0,0,private,,,,,,,,,,0.0
+18307,Eloquii,2018,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+18314,Emailage,2017,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+18317,Ember Technologies,2019,1,0,0,18,private,,,,,18.053040090486036,2.0,16.0,2.0,,61.0
+18325,EmboMedics,2017,0,0,0,0,private,,,,,,,,,,
+18346,Emtora Biosciences,2014,1,0,0,0,private,,,,,,,,,,0.0
+18359,Encounter Telehealth,2019,1,0,0,0,private,,,,,,,,,,0.0
+18396,Entrupy,2022,1,0,0,0,private,,,,,,,,,,0.0
+18408,EpiCypher,2017,1,0,0,4,private,,,,,19.899355386059792,,,,1.5,0.0
+18411,Epifany,2015,1,0,0,0,private,,,,,,,,,,0.0
+18439,Everactive,2017,0,1,3,3,private,,,,,,,,,,
+18468,Evrys Bio,2017,0,1,2,2,private,,,,,,,,,,
+18473,ExecOnline,2016,1,0,0,0,private,,,,,,,,,,0.0
+18487,EXTEN Technologies,2018,1,0,0,2,acquired,2020.0,,,,16.546942190185675,,,,,0.0
+18493,Extraordinary Re,2017,0,0,0,0,private,,,,,,,,,,
+18496,EyeVerify,2014,1,0,0,18,acquired,2016.0,,,,19.0445042448975,5.0,13.0,2.0,2.823529411764706,30.0
+18502,FactGem,2017,0,0,0,0,private,,,,,,,,,,
+18520,Faraday Bicycles,2014,1,0,0,0,acquired,2017.0,,,,,0.0,0.0,0.0,,0.0
+18540,Favor Delivery,2017,0,0,0,0,acquired,2018.0,,,,,,,,,
+18551,Federated Wireless,2017,1,0,0,22,private,,,,,19.270184421337074,0.0,22.0,0.0,1.1111111111111112,0.0
+18563,Field Squared,2017,0,0,0,0,private,,,,,,,,,,
+18581,First Derm (iDoc24),2017,0,0,0,0,private,,,,,,,,,,
+18586,Fishpeople Seafood,2018,1,0,0,0,private,,,,,,,,,,0.0
+18597,Fivetran,2023,1,0,0,0,private,,300000000.0,,,,,,,,0.0
+18625,Fluence Analytics,2017,0,1,1,1,acquired,2023.0,,,,,,,,,
+18656,Foodsby,2017,1,0,0,0,private,,,,,,,,,,0.0
+18704,Fugue,2017,1,0,0,1,acquired,2022.0,,,,19.98384705867988,0.0,1.0,0.0,1.0,0.0
+18720,FutureDerm,2014,1,0,0,0,private,,,,,,,,,,0.0
+18733,G2,2017,1,0,0,0,private,,,,,,,,,,0.0
+18745,Galvanize,2019,1,0,0,5,acquired,2020.0,,,,18.525250716357228,,,,1.2,4.0
+18776,Gecko Health Innovations (formerly GeckoCap),2013,1,0,0,2,acquired,2015.0,,,,21.297673820061966,,,,13.5,0.0
+18802,GetSet,2017,0,0,0,0,private,,,,,,,,,,
+18816,Girihlet,2022,1,0,0,0,private,,,,,,,,,,0.0
+18850,GlucanBio,2017,1,0,0,0,defunct,2022.0,,,,,,,,,0.0
+18857,Goldbelly,2017,1,0,0,0,private,,,,,,,,,,0.0
+18887,Gooten,2023,1,0,0,0,private,,,,,,,,,,0.0
+18898,goTenna,2019,1,0,0,6,private,,,,,15.81313363062543,0.0,6.0,0.0,17.0,5.0
+18920,Graylog,2023,1,0,0,0,private,,,,,,,,,,0.0
+18932,Green Zebra Grocery,2016,1,0,0,0,private,,10000000.0,,,,,,,,0.0
+18936,Greenhouse Software,2017,1,0,0,0,acquired,2021.0,26299999.0,38000000.0,125390420.0,,,,,,0.0
+18984,Guardant Health,2017,0,1,39,39,public,2018.0,77767998.0,,,,,,,,
+19018,H2O.ai,2017,1,0,0,5,private,,,,,15.64748269837683,,,,2.5,0.0
+19055,HaptX,2021,1,0,0,1,private,,,,,17.615071723343625,0.0,1.0,0.0,17.0,6.0
+19074,Harri,2017,1,0,0,0,private,,,,,,,,,,0.0
+19098,Healbe,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+19113,Health Recovery Solutions,2018,1,0,0,0,private,,,23500000.0,52000000.0,,,,,,0.0
+19141,Heelstone Renewable Energy,2023,1,0,0,0,private,,,,,,,,,,0.0
+19148,Helixbind,2017,1,0,0,3,private,,,,,18.167557439420545,,,,2.0,4.0
+19181,Highspot,2013,1,0,0,5,private,,,,,16.353634299085893,,,,1.0,0.0
+19195,HireArt,2017,1,0,0,0,private,,,14000000.0,,,,,,,0.0
+19204,HistoWiz,2017,0,0,0,0,private,,,,,,,,,,
+19221,Honest Buildings,2016,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+19247,HoneyComb Corporation,2014,1,0,0,0,defunct,,,,,,,,,,0.0
+19255,Horse Network,2014,1,0,0,0,private,,,,,,,,,,0.0
+19280,HUMAN,2017,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+19288,Humanco,2013,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+19308,Hylete,2017,0,0,0,0,private,,,12565206.0,11123917.0,,,,,,
+19334,iFlipd,2014,1,0,0,0,defunct,,,,,,,,,,0.0
+19357,Ikonopedia,2017,0,1,1,1,private,,,,,,,,,,
+19362,ILiAD Biotechnologies,2015,1,0,0,0,private,,,,,,,,,,0.0
+19368,Illumagear,2013,1,0,0,1,private,,,,,19.560966967798738,,,,,0.0
+19374,Imago BioSciences,2017,0,1,5,5,acquired,,,,0.0,,,,,,
+19383,import.io,2017,0,0,0,0,acquired,2025.0,,,,,,,,,
+19411,InfluxData,2023,1,0,0,0,private,,,,,,,,,,0.0
+19420,Innovapptive,2022,1,0,0,0,private,,,,,,,,,,0.0
+19427,Inprentus,2019,1,0,0,0,private,,770682.99,288749.99,1000000.0,,,,,,0.0
+19439,Inside Social,2013,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+19456,Instacart,2013,1,0,0,0,public,2023.0,75000000.0,120000000.0,185000000.0,,,,,,0.0
+19485,Insticator,2017,0,0,0,0,private,,,8900000.0,,,,,,,
+19497,Integrated Micro-Chromatography Systems,2017,0,1,2,2,private,,,,,,,,,,
+19503,Invi Labs,2017,0,1,1,1,defunct,2019.0,,,,,,,,,
+19536,iSpecimen,2017,0,0,0,0,public,2021.0,,,5199374.0,,,,,,
+19541,iWABOO,2020,1,0,0,0,defunct,2018.0,,,,,,,,,0.0
+19545,Ixcela,2017,0,1,3,3,private,,,,,,,,,,
+19561,Jibu,2018,1,0,0,0,private,,,,,,,,,,0.0
+19587,JumpCloud,2018,1,0,0,8,private,,,,,17.491544388927693,0.0,8.0,0.0,2.0,0.0
+19601,Juristat,2017,0,0,0,0,private,,,,,,,,,,
+19621,Kairos AR,2015,1,0,0,0,private,,,,,,,,,,0.0
+19645,KangaDo,2017,0,0,0,0,private,,,,,,,,,,
+19651,Kaymbu,2017,1,0,0,0,private,,,,,,,,,,0.0
+19658,Keaton Row,2013,1,0,0,0,private,,,,,,,,,,0.0
+19669,KeyMe,2015,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+19710,Kitsy Lane,2014,1,0,0,0,private,,,,,,,,,,0.0
+19725,Knot Standard,2017,0,1,1,1,private,,,,,,,,,,
+19740,Knowre,2014,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+19759,kWh Analytics,2014,1,0,0,0,private,,,,,,,,,,0.0
+19768,Kymeta,2017,1,0,0,45,private,,,,,17.459303090932462,,,,1.5806451612903225,32.0
+19784,Lambda,2021,1,0,0,0,private,,,250000000.0,600000000.0,,0.0,0.0,0.0,,0.0
+19798,LaunchKey,2014,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+19831,Lenda,2015,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+19849,Levelset,2017,0,0,0,0,acquired,2021.0,,7400000.0,,,,,,,
+19877,Likarda,2017,0,0,0,0,private,,,,,,,,,,
+19883,Lineage Logistics,2021,1,0,0,18,private,,,,,17.552326846032653,5.0,13.0,3.0,3.235294117647059,28.0
+19892,Lion Semiconductor,2017,0,1,8,8,acquired,2021.0,,,,,,,,,
+19902,Liquibase,2017,1,0,0,1,private,,,,,17.521615483361312,,,,1.0,0.0
+19914,LiquiGlide,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+19935,LiteSheet,2019,1,0,0,0,defunct,2025.0,,1444000.0,,,,,,,0.0
+19943,Litterati,2017,0,0,0,0,private,,,,,,,,,,
+19952,LiveSafe,2013,1,0,0,1,acquired,2020.0,,,,19.04698321865704,,,,3.0,1.0
+19994,Logical Buildings,2023,1,0,0,0,private,,,,,,,,,,0.0
+20008,Loopster,2017,0,0,0,0,private,,,,,,,,,,
+20014,Luminar,2017,0,1,71,71,public,2020.0,,,,,,,,,
+20025,Lumiode,2017,0,1,3,3,private,,,,,,,,,,
+20036,Lyft,2017,1,0,0,285,public,2019.0,2156616000.0,,,20.485785284539237,213.0,72.0,12.0,2.925233644859813,184.0
+20065,Lytics,2013,1,0,0,0,private,,,,,,,,,,0.0
+20080,Mack Weldon,2017,1,0,0,0,private,,,,,,,,,,0.0
+20088,Madison Vaccines,2017,0,0,0,0,private,,,,,,,,,,
+20093,Maine Craft Distilling,2018,1,0,0,0,private,,,,,,,,,,0.0
+20099,MakeSchool,2017,0,0,0,0,defunct,2024.0,,,,,,,,,
+20126,Mark43,2017,1,0,0,1,private,,,,,21.54626428249897,,,,2.0,0.0
+20154,MATI Energy,2017,0,0,0,0,defunct,2020.0,,,,,,,,,
+20161,MAXEX,2017,0,0,0,0,private,,,,,,,,,,
+20168,Maystreet,2021,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+20204,Memebox,2017,0,0,0,0,private,,,,,,,,,,
+20219,MentorcliQ,2017,1,0,0,0,private,,,,,,,,,,0.0
+20236,Meshify,2014,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+20249,Mic Network,2017,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+20288,Ministry of Supply,2013,1,0,0,0,private,,,,,,,,,,0.0
+20306,Mission Bio,2022,1,0,0,0,private,,,,,,,,,,0.0
+20362,Monolith,2017,1,0,0,1,private,,,,,22.562068782361354,1.0,0.0,1.0,1.0,0.0
+20387,Mousam Valley Mushrooms,2017,0,0,0,0,private,,,,,,,,,,
+20413,Murphy Door,2017,0,0,0,0,private,,,5700000.0,,,,,,,
+20428,myaNUMBER,2014,1,0,0,0,defunct,2015.0,,,,,,,,,0.0
+20446,Mythic,2016,1,0,0,12,private,,,,,23.10353361398697,,,,2.9166666666666665,4.0
+20464,Namely,2017,1,0,0,0,acquired,2022.0,34799999.0,,,,,,,,0.0
+20474,NanoGraf Corporation,2017,0,1,5,5,private,,,,,,,,,,
+20504,Nature's Fynd,2020,1,0,0,0,private,,4599999.9,,,,,,,,0.0
+20514,NBD Nanotechnologies,2017,1,0,0,5,acquired,2022.0,,,,18.060263334697794,2.0,3.0,2.0,2.25,2.0
+20523,nCino,2017,0,0,0,0,public,2023.0,,,138179990.0,,,,,,
+20533,Near Intelligence,2022,1,0,0,0,public,2023.0,,,,,,,,,0.0
+20547,NEIWAI,2017,0,0,0,0,private,,,,,,,,,,
+20581,Neurolens,2021,1,0,0,2,private,,,,,16.424114732172526,2.0,0.0,1.0,,9.0
+20598,NeuroTronik,2016,1,0,0,2,defunct,2020.0,,,,18.14287229742113,,,,,0.0
+20607,NewCo,2015,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+20614,NewsCrafted,2014,1,0,0,0,defunct,2016.0,,,,,,,,,0.0
+20623,NextInput,2017,1,0,0,12,acquired,2021.0,,,,15.5175691870595,2.0,10.0,1.0,9.8,35.0
+20635,nextSociety,2014,1,0,0,0,defunct,2015.0,,,,,,,,,0.0
+20659,Nimia,2017,0,0,0,0,private,,,,,,,,,,
+20676,Nomiku,2017,1,0,0,0,defunct,2020.0,,,,,0.0,0.0,0.0,,0.0
+20691,NotesFirst,2014,1,0,0,0,private,,,,,,,,,,0.0
+20712,OBMedical,2017,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+20735,Offline,2017,1,0,0,0,defunct,,,,,,,,,,0.0
+20770,Omaze,2017,0,0,0,0,private,,18100000.0,27000000.0,,,,,,,
+20781,One,2017,0,0,0,0,acquired,2020.0,,,,,,,,,
+20842,Opsidio,2017,0,1,1,1,private,,,,,,,,,,
+20853,Orange EV,2017,1,0,0,0,private,,,17000000.0,,,,,,,0.0
+20868,Orijin PBC,2017,1,0,0,0,private,,,,,,,,,,0.0
+20879,OrthogenRx,2016,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+20886,Oscar Health,2017,1,0,0,0,public,2021.0,1200000000.0,553778990.0,589640990.0,,,,,,0.0
+20913,OutboundEngine,2019,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+20927,Overdog,2017,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+20951,P2Binvestor,2016,1,0,0,0,private,,,,10000000.0,,,,,,0.0
+20970,PAIRIN,2023,1,0,0,0,private,,3099999.9,,,,,,,,0.0
+20980,Pangea Money Transfer,2017,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+21000,Parabel,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+21007,Parallel Wireless,2016,1,0,0,119,private,,,,,16.969747795766384,5.0,114.0,3.0,1.2121212121212122,33.0
+21018,ParLevel Systems,2017,0,0,0,0,private,,,,,,,,,,
+21029,Particle,2017,1,0,0,1,defunct,,,,,18.47339890162668,,,,,0.0
+21052,Patriapps,2017,1,0,0,0,defunct,,,,,,,,,,0.0
+21061,Pax8,2016,1,0,0,0,private,,,11000000.0,42400002.0,,,,,,0.0
+21088,Peek,2017,1,0,0,0,private,,,,,,,,,,0.0
+21097,Peer5,2017,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+21107,Peloton,2017,1,0,0,26,public,2019.0,435000000.0,915000000.0,,18.505193229296943,,,,5.043478260869565,25.0
+21164,Perzo,2014,1,0,0,0,acquired,2014.0,,,,,,,,,0.0
+21166,Petcube,2017,1,0,0,0,private,,,,,,,,,,0.0
+21179,Petnet,2015,1,0,0,0,private,,,,,,,,,,0.0
+21201,Pigeonly,2017,0,0,0,0,private,,,,,,,,,,
+21214,Pinnacle Agriculture Holdings,2017,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+21246,Plastiq,2017,0,0,0,0,acquired,2023.0,40000000.0,100000000.0,,,,,,,
+21284,Pogoseat,2017,1,0,0,0,private,,,,,,,,,,0.0
+21291,PolicyEngage,2020,1,0,0,0,private,,,,,,,,,,0.0
+21316,Pontera,2017,0,0,0,0,private,,,,,,,,,,
+21330,PopSockets,2017,0,1,25,25,private,,,,,,,,,,
+21341,Postclick,2022,1,0,0,0,private,,,,,,,,,,0.0
+21343,PostProcess Technologies,2018,1,0,0,8,private,,,,,18.49622438547277,,,,3.3333333333333335,1.0
+21363,PreciseTarget,2017,1,0,0,0,private,,,10000000.0,,,,,,,0.0
+21381,Premama,2017,1,0,0,0,private,,,,5500000.0,,,,,,0.0
+21391,Preply,2023,1,0,0,0,private,,,,,,,,,,0.0
+21401,Prescient,2017,1,0,0,0,private,,,,,,,,,,0.0
+21407,Prescient Surgical,2017,0,1,1,1,private,,,,,,,,,,
+21428,Previvo Genetics,2017,0,1,2,2,private,,,,,,,,,,
+21431,PriceWaiter,2015,1,0,0,0,defunct,2022.0,,,3000000.0,,,,,,0.0
+21450,Profilepasser,2014,1,0,0,0,defunct,2020.0,,,,,,,,,0.0
+21516,Qu,2017,0,0,0,0,private,,,,,,,,,,
+21525,Qualio,2017,0,0,0,0,private,,,,,,,,,,
+21534,Quanergy Systems,2017,0,1,3,3,public,2022.0,,6361000.0,,,,,,,
+21553,Quikly,2017,1,0,0,0,private,,,,500000.0,,,,,,0.0
+21561,quip,2016,1,0,0,1,private,,,,,18.86755103220248,1.0,0.0,1.0,,0.0
+21573,Quivers,2023,1,0,0,0,private,,,,,,,,,,0.0
+21576,Qumulo,2017,0,1,28,28,private,,,,,,,,,,
+21591,Rachio,2017,1,0,0,6,private,,,,,17.83619491554785,,,,2.5,0.0
+21615,Rallyware,2013,1,0,0,0,private,,,,,,,,,,0.0
+21626,Rani Therapeutics,2017,0,1,38,38,public,2021.0,,,462000.0,,,,,,
+21672,RealConnex,2018,1,0,0,0,private,,,,,,,,,,0.0
+21700,Rebound Technologies,2017,1,0,0,6,private,,,,,15.911728360938278,0.0,6.0,0.0,1.0,20.0
+21718,Red Duck Foods,2020,1,0,0,0,private,,,,,,,,,,0.0
+21722,RedShelf,2017,0,0,0,0,private,,47320000.0,75160004.0,122000000.0,,,,,,
+21743,Reify Health,2013,1,0,0,0,private,,,,,,,,,,0.0
+21781,REPP,2014,1,0,0,0,defunct,,,,,,,,,,0.0
+21797,Restore Medical Solutions,2012,1,0,0,2,defunct,2019.0,,,,16.818852139961386,,,,,0.0
+21823,ReviewTrackers,2016,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+21831,RevolutionCredit,2017,0,0,0,0,defunct,2021.0,,,,,,,,,
+21870,Ripl,2013,1,0,0,0,private,,,,,,,,,,0.0
+21893,Rippleshot,2017,0,0,0,0,private,,,,,,,,,,
+21899,Riskified,2015,1,0,0,0,public,2021.0,,,,,,,,,0.0
+21913,Roadie Music by Band Industries,2017,0,0,0,0,private,,,,,,,,,,
+21937,Rollbar,2019,1,0,0,0,private,,,,,,,,,,0.0
+21953,Roostify,2017,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+21961,Rosie,2017,0,0,0,0,acquired,2022.0,,,,,,,,,
+21987,Safe Security,2019,1,0,0,0,private,,,,,,,,,,0.0
+22001,Saildrone,2017,0,1,2,2,private,,,14552782.0,14818868.0,,,,,,
+22013,SALIDO,2017,0,0,0,0,acquired,2020.0,,,,,,,,,
+22027,Sandstone Diagnostics,2016,1,0,0,1,private,,,,,10.95923295328905,,,,,0.0
+22045,Saratoga Energy,2017,0,1,1,1,private,,,,,,,,,,
+22056,Scanalytics,2017,1,0,0,3,private,,,,,18.227360296574982,,,,5.333333333333333,1.0
+22074,SchoolStatus,2017,1,0,0,0,private,,,,,,,,,,0.0
+22078,Schoox,2017,0,0,0,0,private,,,,,,,,,,
+22083,SciArt Software,2017,1,0,0,0,private,,,,,,,,,,0.0
+22088,Scilex Holding Company,2017,0,0,0,0,acquired,,,,,,,,,,
+22110,SDBIC,2012,1,0,0,0,private,,,,,,,,,,0.0
+22119,SeamlessDocs,2017,0,0,0,0,acquired,2020.0,,,,,,,,,
+22164,SeeMore Interactive,2012,1,0,0,0,defunct,2016.0,,,,,,,,,0.0
+22169,Seer,2017,0,1,1,1,defunct,,,,,,,,,,
+22187,Sensoro,2017,1,0,0,0,private,,,,,,,,,,0.0
+22217,SES,2017,0,0,0,0,public,2022.0,,,,,,,,,
+22248,Sharrow Marine,2023,1,0,0,0,private,,,,,,,,,,0.0
+22266,ShipHawk,2021,1,0,0,0,private,,,,,,,,,,0.0
+22304,simMachines,2017,0,0,0,0,acquired,2021.0,,,,,,,,,
+22310,Simply Reliable,2016,1,0,0,0,private,,,,,,,,,,0.0
+22321,Sintavia,2017,1,0,0,0,private,,,,,,,,,,0.0
+22336,Sketchfab,2017,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+22346,Skillz,2015,1,0,0,6,public,2021.0,,100000000.0,50778000.0,16.81585018924915,0.0,6.0,0.0,3.1666666666666665,40.0
+22363,Skye Bioscience,2017,0,0,0,0,public,2014.0,,,0.0,,,,,,
+22372,Skyepack,2018,1,0,0,0,private,,,,1000000.0,,,,,,0.0
+22378,SkyGiraffe,2017,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+22395,Skytree,2012,1,0,0,1,acquired,2017.0,,,,18.86094030324949,,,,,0.0
+22409,SmartAsset,2017,0,0,0,0,private,,,,,,,,,,
+22417,SmartLam North America,2017,0,0,0,0,private,,,,,,,,,,
+22450,Snowflake,2017,1,0,0,217,public,2022.0,,96666000.0,264747990.00000003,18.22991956374112,,,,1.489247311827957,117.0
+22460,SNUPI Technologies,2014,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+22464,SOCi,2023,1,0,0,0,private,,100000000.0,,,,,,,,0.0
+22475,Socure,2015,1,0,0,4,private,,,,100000000.0,20.187263026942073,,,,2.75,9.0
+22566,Spectra7 Microsystems,2017,1,0,0,0,public,2015.0,5710962.8,,,,0.0,0.0,0.0,,0.0
+22590,SpinGo,2015,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+22596,Spire Global,2020,1,0,0,2,public,2021.0,,,,18.801961356588293,0.0,2.0,0.0,2.5,0.0
+22613,Splitit,2015,1,0,0,0,acquired,,,,,,,,,,0.0
+22621,Splitwise,2017,0,0,0,0,private,,,,,,,,,,
+22633,SportsManias,2017,0,0,0,0,private,,,,,,,,,,
+22644,Springbot,2017,0,0,0,0,private,,5600000.0,9300000.0,11300000.0,,,,,,
+22655,Sproutel,2017,0,1,4,4,private,,,,,,,,,,
+22665,Stackify,2019,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+22677,Staging & Design Network,2020,1,0,0,0,private,,,,,,,,,,0.0
+22708,Stony Creek Colors,2017,0,1,2,2,private,,,,,,,,,,
+22720,storeFlix,2012,1,0,0,0,private,,,,,,,,,,0.0
+22727,Storone,2017,0,0,0,0,private,,,,,,,,,,
+22730,Storyhunter,2017,0,0,0,0,private,,,,,,,,,,
+22734,Strateos,2017,0,1,2,2,private,,,,,,,,,,
+22752,StreetLight Data,2017,0,0,0,0,acquired,2022.0,,,,,,,,,
+22760,StudySoup,2017,1,0,0,0,private,,,,,,,,,,0.0
+22780,Sun Diagnostics,2017,0,0,0,0,private,,,,,,,,,,
+22786,Sunfolding,2017,1,0,0,8,private,,,,,15.238474721427002,,,,,23.0
+22795,Sunnova,2015,1,0,0,0,public,2019.0,,,,,,,,,0.0
+22825,Superpedestrian,2022,1,0,0,0,private,,,,,,,,,,0.0
+22869,Swift Navigation,2017,0,1,11,11,private,,,,,,,,,,
+22907,Symbiomix Therapeutics,2017,1,0,0,4,acquired,2017.0,,,,20.159317809789144,,,,,3.0
+22912,Symic Biomedical,2017,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+22934,Syros Pharmaceuticals,2020,1,0,0,1,public,2016.0,,25242001.0,9550000.2,19.01333171100941,0.0,1.0,0.0,1.0,1.0
+22947,Syxsense,2019,1,0,0,0,private,,,,,,,,,,0.0
+22950,Tab Media,2017,0,0,0,0,defunct,,,,,,,,,,
+22983,Tagboard,2014,1,0,0,1,private,,,,,18.43163636800397,,,,3.0,1.0
+22993,Tala,2018,1,0,0,0,private,,100000000.0,,,,,,,,0.0
+23012,Talkspace,2017,1,0,0,0,public,2021.0,29000000.0,,76190002.0,,,,,,0.0
+23025,Tall City Exploration,2017,1,0,0,0,private,,,,,,,,,,0.0
+23031,Tamr,2017,1,0,0,9,private,,,,,15.447435033307904,,,,1.6666666666666667,3.0
+23053,Tarveda Therapeutics,2017,1,0,0,0,defunct,2022.0,,,8029999.699999999,,0.0,0.0,0.0,,0.0
+23096,Testlio,2017,1,0,0,0,private,,,,,,,,,,0.0
+23102,Tethis,2014,1,0,0,0,private,,,,,,,,,,0.0
+23114,Textile-Based Delivery,2017,0,1,3,3,defunct,2019.0,,,,,,,,,
+23119,TextUs,2017,1,0,0,0,private,,,7599999.9,8600000.4,,,,,,0.0
+23125,Thalchemy,2017,1,0,0,0,private,,,,,,,,,,0.0
+23161,The Freightos Group,2017,1,0,0,0,public,2023.0,,,,,,,,,0.0
+23177,theEMPLOYEEapp,2018,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+23212,Thrive Nutritious Ice Cream,2017,1,0,0,0,private,,,,,,,,,,0.0
+23225,TigerGraph,2017,0,1,1,1,private,,,,,,,,,,
+23236,Tile,2021,1,0,0,31,acquired,2021.0,,,,19.048140125758678,0.0,31.0,0.0,2.962962962962963,119.0
+23255,Tinybeans,2017,0,0,0,0,public,2017.0,,,,,,,,,
+23311,Tradefox,2017,1,0,0,0,private,,,,,,,,,,0.0
+23325,TrademarkNow,2017,1,0,0,0,acquired,2020.0,,,7464150.0,,,,,,0.0
+23328,Tradesy,2017,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+23335,Trak,2017,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+23355,tray.io,2017,0,0,0,0,private,,,15000000.0,,,,,,,
+23367,TrendKite,2017,1,0,0,0,acquired,2019.0,25400000.0,,,,,,,,0.0
+23393,Trifacta,2017,0,0,0,0,acquired,2022.0,,,,,,,,,
+23401,TrillerTV,2016,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+23455,Tubular Labs,2013,1,0,0,1,acquired,2023.0,,,,15.928521756888202,,,,1.0,0.0
+23463,Tuee,2015,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+23490,TVlize,2017,0,0,0,0,private,,,,,,,,,,
+23527,Understory,2017,1,0,0,8,private,,,,,23.553131407464512,,,,4.0,6.0
+23544,UpCounsel,2017,0,0,0,0,acquired,2020.0,,,,,,,,,
+23552,UpGuard,2017,1,0,0,7,private,,,,,19.253445599141177,,,,1.8571428571428572,11.0
+23568,Urban Electric Power,2017,0,1,1,1,private,,,,,,,,,,
+23575,Urova Medical,2014,1,0,0,0,defunct,2014.0,,,,,,,,,0.0
+23579,US HealthVest,2019,1,0,0,0,private,,,,,,,,,,0.0
+23620,Vaxess Technologies,2013,1,0,0,0,private,,,,,,,,,,0.0
+23645,Velano Vascular,2017,0,1,14,14,acquired,2021.0,,,,,,,,,
+23653,VelociData,2015,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+23664,Vengo,2016,1,0,0,2,private,,,3000000.0,,20.440637548884094,2.0,0.0,1.0,,6.0
+23674,Venuefox,2014,1,0,0,0,defunct,2018.0,,,,,,,,,0.0
+23680,Versa Networks,2022,1,0,0,1,private,,,,,15.618987867875852,,,,,0.0
+23687,Versium,2015,1,0,0,0,private,,,,,,,,,,0.0
+23694,Versive,2017,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+23717,Vid Grid,2017,0,0,0,0,defunct,,,,,,,,,,
+23748,VIOLET GREY,2020,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+23754,ViralGains,2023,1,0,0,0,private,,,,,,,,,,0.0
+23776,Virtru,2014,1,0,0,3,private,,,,,19.208174598083676,2.0,1.0,1.0,1.5,0.0
+23790,Visby Medical,2018,1,0,0,7,private,,,,,17.458236990468976,,,,8.0,17.0
+23809,Vital Herd,2014,1,0,0,0,private,,,,,,,,,,0.0
+23823,VNN,2017,0,0,0,0,private,,,,,,,,,,
+23847,Voxeet,2017,0,0,0,0,acquired,2019.0,,,,,,,,,
+23855,Voyat,2015,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+23861,VTS,2022,1,0,0,0,private,,,,,,,,,,0.0
+23879,Wantable,2017,1,0,0,0,private,,,,,,,,,,0.0
+23894,Wayspring,2017,1,0,0,0,private,,,,,,,,,,0.0
+23916,Wefunder,2022,1,0,0,0,private,,,,,,,,,,0.0
+23935,WellTrackONE,2017,0,0,0,0,private,,,,,,,,,,
+23946,WePlann,2017,0,0,0,0,defunct,2022.0,,,,,,,,,
+23950,Wevorce,2014,1,0,0,0,private,,,,,,,,,,0.0
+23967,WHILL,2017,1,0,0,6,private,,,,,19.63823924488807,3.0,3.0,1.0,2.0,2.0
+23985,Whistle,2017,0,0,0,0,acquired,2021.0,,,,,,,,,
+24014,Wild Calling! Pet Foods,2015,1,0,0,0,acquired,2018.0,9000000.0,12000000.0,,,,,,,0.0
+24033,Wochit,2017,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+24040,Wonder Workshop,2017,1,0,0,1,private,,,,,23.341771126036026,,,,11.0,0.0
+24094,Yates Electrospace,2019,1,0,0,0,private,,,,,,,,,,0.0
+24112,YourMechanic,2017,0,0,0,0,acquired,2022.0,,19799999.0,,,,,,,
+24138,Zakipoint Health,2017,0,0,0,0,private,,,1000000.0,,,,,,,
+24149,Zenreach,2017,1,0,0,0,private,,,,,,,,,,0.0
+24161,ZipFit Denim,2017,0,0,0,0,defunct,2013.0,,,,,,,,,
+24168,Zoomdata,2017,1,0,0,0,acquired,2019.0,,,,,0.0,0.0,0.0,,0.0
+24197,zyBooks,2014,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+24215,360Learning,2018,0,0,0,0,private,,,,,,,,,,
+24234,410 Medical,2021,1,0,0,2,private,,,,,16.274026908333532,0.0,2.0,0.0,6.0,10.0
+24254,6sense,2023,1,0,0,0,private,,200000000.0,,,,,,,,0.0
+24335,Adnoviv,2018,0,1,3,3,private,,,,,,,,,,
+24364,Aerobiotix,2022,1,0,0,0,private,,,,,,,,,,0.0
+24372,AEye,2020,1,0,0,27,public,2021.0,,4359000.199999999,1464000.0,16.187924540070064,0.0,27.0,0.0,14.851851851851851,989.0
+24404,AirHelp,2018,1,0,0,0,private,,,,,,,,,,0.0
+24427,Airwavz Solutions,2015,1,0,0,0,private,,,,,,,,,,0.0
+24450,Alector,2018,0,1,14,14,public,2019.0,21219000.0,,,,,,,,
+24482,Allego,2018,0,0,0,0,private,,28881674.0,,,,,,,,
+24489,Allovue,2018,0,0,0,0,private,,,,,,,,,,
+24495,AllTheRooms,2022,1,0,0,0,private,,,,,,,,,,0.0
+24542,Ambient Clinical Analytics,2019,1,0,0,0,private,,349999.99,389999.99,1000000.0,,0.0,0.0,0.0,,0.0
+24552,Ambition,2018,0,0,0,0,private,,,,,,,,,,
+24559,Amino,2023,1,0,0,0,private,,,,,,,,,,0.0
+24569,AMOpportunities,2018,0,0,0,0,private,,,,,,,,,,
+24585,AnaOno,2018,0,0,0,0,private,,,,,,,,,,
+24593,andros,2017,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+24607,Anomali,2018,0,1,3,3,private,,,,,,,,,,
+24632,Aperiomics,2018,1,0,0,0,private,,1500000.0,3000000.0,,,,,,,0.0
+24646,App Orchid,2022,1,0,0,0,private,,,6099999.9,,,,,,,0.0
+24653,Appcues,2022,1,0,0,0,private,,,,,,,,,,0.0
+24659,Applecart,2018,1,0,0,0,private,,,,,,,,,,0.0
+24662,ApplePie Capital,2015,1,0,0,0,private,,815307.97,,,,,,,,0.0
+24668,Applied Cavitation,2014,1,0,0,2,defunct,,,,,19.275510925557107,,,,1.0,0.0
+24679,Apptimize,2018,1,0,0,7,acquired,2019.0,,,,18.44596447750035,0.0,7.0,0.0,1.2857142857142858,0.0
+24696,Aqueduct Critical Care,2018,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+24729,ARMO BioSciences,2018,1,0,0,0,acquired,,,,,,0.0,0.0,0.0,,0.0
+24744,Arrive Health,2018,0,1,1,1,private,,,,,,,,,,
+24770,Artemis Health,2018,0,0,0,0,acquired,2022.0,,,,,,,,,
+24798,Arvinas,2018,1,0,0,0,public,2018.0,14848408.0,,,,,,,,0.0
+24812,Aspiration,2018,0,0,0,0,private,,,,,,,,,,
+24874,ATOMIZED,2018,0,0,0,0,acquired,2021.0,,,,,,,,,
+24891,Attend,2015,1,0,0,0,acquired,,,,,,,,,,0.0
+24896,Audentes Therapeutics,2018,0,0,0,0,acquired,,0.0,,,,,,,,
+24908,Augmate,2018,1,0,0,0,private,,,,,,,,,,0.0
+24928,Aureus Analytics,2018,1,0,0,0,private,,799555.6,965318.74,1211422.6,,,,,,0.0
+24940,Auth0,2018,1,0,0,1,acquired,2021.0,,,,17.162547620709216,,,,2.0,1.0
+24950,Automatiq,2018,1,0,0,0,private,,,,4000000.0,,,,,,0.0
+24959,Autonomous Healthcare,2018,0,1,3,3,private,,,,,,,,,,
+24986,Avalon Healthcare Solutions,2018,1,0,0,0,private,,,,,,,,,,0.0
+25007,Avizia,2017,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+25016,AWAIR,2018,0,1,1,1,private,,,,,,,,,,
+25048,Babyscripts,2018,1,0,0,0,private,,,,,,,,,,0.0
+25063,Bagaveev Corporation,2014,1,0,0,0,private,,,,,,,,,,0.0
+25067,Balena,2018,0,1,1,1,private,,,,,,,,,,
+25081,Banyan,2018,0,0,0,0,acquired,2019.0,,,,,,,,,
+25132,BeehiveID,2013,1,0,0,0,defunct,2015.0,,,,,,,,,0.0
+25145,Bellabeat,2018,0,0,0,0,private,,,,,,,,,,
+25152,Bellwether Coffee,2018,1,0,0,8,private,,,,,14.358238468786094,,,,,10.0
+25191,BetterUp,2018,0,1,4,4,private,,,100000000.0,100000000.0,,,,,,
+25247,Bit Fry Game Studios,2018,0,0,0,0,private,,140000000.0,,,,,,,,
+25284,BlackSky Global,2019,1,0,0,0,public,2021.0,,,,,,,,,0.0
+25288,Blade Therapeutics,2018,1,0,0,1,private,,,,,13.758877143249515,,,,6.0,2.0
+25297,Blind,2018,0,0,0,0,private,,,,,,,,,,
+25334,Blueground,2022,1,0,0,0,private,,544537840.0,,,,,,,,0.0
+25354,Bluesmart,2015,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+25370,Bluevine,2017,1,0,0,0,private,,,100000000.0,,,,,,,0.0
+25404,Bond Street,2015,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+25444,BorrowersFirst,2017,1,0,0,0,private,,,,,,,,,,0.0
+25462,BoxC,2014,1,0,0,0,private,,,,,,,,,,0.0
+25476,Branching Minds,2019,1,0,0,0,private,,,,,,,,,,0.0
+25497,Brideside,2018,1,0,0,0,defunct,2013.0,,,,,,,,,0.0
+25579,Butterfleye,2016,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+25600,Calendly,2018,0,0,0,0,private,,,70000000.0,,,,,,,
+25650,Carbon,2018,0,1,93,93,private,,,,,,,,,,
+25659,Card Isle,2015,1,0,0,0,private,,,,,,,,,,0.0
+25675,CardFlight,2014,1,0,0,1,private,,169042.00999999998,,,17.721532649757147,,,,,0.0
+25708,Carevive Systems,2018,0,0,0,0,private,,,,,,,,,,
+25754,Celect,2018,0,0,0,0,acquired,2019.0,,,,,,,,,
+25760,CellMax Life,2018,0,1,3,3,private,,,,,,,,,,
+25786,Centrexion Therapeutics,2016,1,0,0,14,private,,0.0,,,20.146521566802935,,,,2.727272727272727,23.0
+25803,Certa Dose,2018,1,0,0,1,private,,,,,17.955037182986597,,,,,0.0
+25811,Chairish,2018,0,0,0,0,private,,12000000.0,,,,,,,,
+25855,Chiron Health,2018,0,0,0,0,acquired,2019.0,,,,,,,,,
+25878,Circle,2018,0,1,2,2,private,,,,,,,,,,
+25890,Cirrus Identity,2016,1,0,0,0,private,,,,,,,,,,0.0
+25909,CITYBASE,2018,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+25918,Civil Maps,2018,0,0,0,0,private,,,,,,,,,,
+25930,Cladwell,2018,0,0,0,0,private,,,,,,,,,,
+25958,Classkick,2018,0,0,0,0,private,,,,,,,,,,
+25967,CleanFiber,2017,1,0,0,0,private,,,,,,,,,,0.0
+25985,Cleanly,2018,0,0,0,0,defunct,2020.0,,,,,,,,,
+26005,Cleveland Diagnostics,2018,0,1,1,1,private,,,,,,,,,,
+26020,Clicktivated,2018,0,1,1,1,private,,,,,,,,,,
+26055,CloudEngage,2015,1,0,0,0,private,,,,,,,,,,0.0
+26085,CoachMePlus,2018,0,0,0,0,private,,,,,,,,,,
+26089,Cobalt,2014,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+26110,Coding Dojo,2022,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+26123,Cognoa,2018,0,0,0,0,private,,33771999.0,,,,,,,,
+26206,ConsortiEX,2014,1,0,0,0,private,,,,,,,,,,0.0
+26227,Convey,2018,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+26232,Convo,2013,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+26252,Corelight,2018,0,1,4,4,private,,8000000.0,,25000000.0,,,,,,
+26278,Counselytics,2015,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+26297,Covercress,2018,0,1,4,4,acquired,2022.0,,,,,,,,,
+26304,Crate.io,2018,0,0,0,0,private,,,,,,,,,,
+26353,CrowdForce,2022,1,0,0,0,private,,,,,,,,,,0.0
+26367,CrowdStreet,2022,1,0,0,0,private,,,,,,,,,,0.0
+26376,Cruise,2021,1,0,0,0,acquired,2016.0,,102000000.0,,,,,,,0.0
+26408,Curate,2018,0,0,0,0,private,,,,,,,,,,
+26445,CyMedica,2018,0,1,1,1,private,,,,,,,,,,
+26455,CytoVale,2021,1,0,0,5,private,,,,,20.465808205061396,0.0,5.0,0.0,3.2,8.0
+26463,D2iq,2018,0,0,0,0,private,,,,,,,,,,
+26534,Datometry,2018,0,1,17,17,private,,,,,,,,,,
+26539,DATTUS,2018,0,0,0,0,acquired,2018.0,,,,,,,,,
+26582,Denali Therapeutics,2018,0,1,21,21,public,2018.0,26677999.0,27726999.0,,,,,,,
+26601,Deserve,2018,1,0,0,0,private,,,5000000.0,,,,,,,0.0
+26615,DetraPel,2018,0,0,0,0,private,,6000000.0,,,,,,,,
+26658,DirectScale,2022,1,0,0,0,private,,,,,,,,,,0.0
+26663,Discotech,2018,0,0,0,0,private,,,,,,,,,,
+26674,DispatchHealth,2022,1,0,0,0,private,,,,,,,,,,0.0
+26689,Divergent,2022,1,0,0,3,private,,,,,18.923997246765044,,,,45.0,3.0
+26720,DocMatter,2022,1,0,0,0,private,,,,,,,,,,0.0
+26774,Dots,2018,0,0,0,0,private,,,,,,,,,,
+26803,DroneDeploy,2018,1,0,0,3,private,,,,,22.449330393625672,,,,5.0,0.0
+26816,Dropbox DocSend,2014,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+26825,Dropoff,2014,1,0,0,0,private,,,5599999.9,,,,,,,0.0
+26839,Dunwello,2015,1,0,0,0,private,,,,,,,,,,0.0
+26868,Earnest,2015,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+26885,Eccrine Systems,2019,1,0,0,0,defunct,,,,,,0.0,0.0,0.0,,0.0
+26904,Ecto,2018,1,0,0,5,private,,,,,22.005575131452066,,,,2.4,1.0
+26910,EdConnective,2017,1,0,0,0,private,,,,,,,,,,0.0
+26931,EdjAnalytics,2018,0,0,0,0,private,,,,,,,,,,
+26976,Eko Health,2018,0,1,1,1,private,,,,,,,,,,
+26996,Elevated Careers,2018,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+27000,Eleven James,2017,1,0,0,0,defunct,2018.0,,,,,,,,,0.0
+27035,Emissary,2018,0,0,0,0,private,,,9200000.0,,,,,,,
+27051,Emulate,2020,1,0,0,10,private,,,,,15.92176848756888,0.0,10.0,0.0,2.9,6.0
+27067,e-Nicotine Technology,2014,1,0,0,0,defunct,,,,,,,,,,0.0
+27079,ENTvantageDX,2018,1,0,0,0,private,,,,,,,,,,0.0
+27086,Envisia Therapeutics,2015,1,0,0,1,defunct,2017.0,,,,10.452780016878089,,,,,0.0
+27095,EpiBiome,2016,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+27100,EpiBone,2021,1,0,0,0,private,,,,,,,,,,0.0
+27111,Epic,2018,0,0,0,0,acquired,2021.0,,,,,,,,,
+27121,Epica International,2017,1,0,0,13,private,,,,25000000.0,18.72570481980714,0.0,13.0,0.0,2.0,1.0
+27213,Evolv Technology,2021,1,0,0,1,public,2021.0,,,,18.47361798701297,0.0,1.0,0.0,1.0,0.0
+27227,Exabeam,2018,0,0,0,0,private,,,,,,,,,,
+27235,Examity,2017,1,0,0,0,acquired,2023.0,20000000.0,,,,,,,,0.0
+27245,ExpenseBot,2015,1,0,0,0,defunct,2023.0,,,,,,,,,0.0
+27265,Factor_,2019,1,0,0,0,acquired,2020.0,100000000.0,,,,,,,,0.0
+27357,Figo Pet Insurance,2018,0,0,0,0,acquired,2021.0,,,,,,,,,
+27368,FilmRise,2018,1,0,0,0,private,,,,,,,,,,0.0
+27375,Find Your Trainer,2018,0,0,0,0,private,,,,,,,,,,
+27390,FiscalNote,2020,1,0,0,0,public,2022.0,,99481003.0,119223000.0,,0.0,0.0,0.0,,0.0
+27434,Flexe,2018,1,0,0,1,private,,,,,20.890697471059863,,,,1.0,0.0
+27441,Flexport,2022,1,0,0,0,private,,1600000000.0,2100000000.0,,,,,,,0.0
+27487,Floyd,2021,1,0,0,0,private,,,,,,,,,,0.0
+27532,Follain,2018,0,0,0,0,acquired,2022.0,,,,,,,,,
+27542,Footprint,2022,1,0,0,0,private,,,,,,,,,,0.0
+27562,Forge Therapeutics,2018,0,1,2,2,acquired,2023.0,,,,,,,,,
+27584,Forward Networks,2018,0,0,0,0,private,,,,,,,,,,
+27593,Foxtrot,2023,1,0,0,0,private,,,,,,,,,,0.0
+27616,Front,2018,0,0,0,0,private,,34000000.0,,,,,,,,
+27626,FSLogix,2017,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+27642,Full Measure Education,2018,0,0,0,0,acquired,2023.0,,,646328.0,,,,,,
+27646,Fullgreen,2018,0,0,0,0,private,,,,,,,,,,
+27657,Fundbox,2019,1,0,0,0,private,,,160000000.0,,,,,,,0.0
+27690,Gamalon,2021,1,0,0,0,private,,,,,,,,,,0.0
+27695,Gameface Media,2018,0,0,0,0,private,,,,,,,,,,
+27710,Gamma Medica,2014,1,0,0,0,private,,,,,,,,,,0.0
+27747,Genuity Science,2018,0,0,0,0,acquired,2021.0,,,,,,,,,
+27849,GoMoto,2019,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+27899,Grand Round Table,2014,1,0,0,0,private,,,,,,,,,,0.0
+27904,Gravie,2018,0,0,0,0,private,,,,,,,,,,
+27927,Green Badger,2018,0,0,0,0,private,,,,,,,,,,
+27940,GROUNDFLOOR,2018,1,0,0,0,private,,6403110.0,,11220100.0,,,,,,0.0
+27975,Guerrilla RF,2019,1,0,0,0,public,2022.0,,10479899.0,11600904.0,,0.0,0.0,0.0,,0.0
+28023,HANDLE Global,2023,1,0,0,0,private,,,,,,,,,,0.0
+28042,Harry's,2018,1,0,0,2,private,,,,,18.063494282590124,1.0,1.0,1.0,2.0,0.0
+28053,Haystack News,2018,0,0,0,0,private,,,,,,,,,,
+28065,HealthCrowd,2018,0,0,0,0,acquired,2022.0,,,,,,,,,
+28076,HealthMyne,2018,1,0,0,2,defunct,2023.0,,,4800000.2,18.088323248025105,,,,1.0,1.0
+28116,Helion Energy,2018,0,0,0,0,private,,,,,,,,,,
+28133,HelixNano,2018,1,0,0,0,private,,,,,,,,,,0.0
+28169,HemoGenyx,2018,0,1,2,2,public,2015.0,,,,,,,,,
+28186,Hifi Finance,2018,0,0,0,0,private,,,,,,,,,,
+28188,High Brew Coffee,2018,0,0,0,0,acquired,2023.0,,,,,,,,,
+28241,Holler,2018,0,0,0,0,private,,,,,,,,,,
+28257,Home Chef,2016,1,0,0,0,acquired,2018.0,250000000.0,,,,,,,,0.0
+28265,Home Delivery Service (HDS Global),2018,1,0,0,0,private,,,,,,,,,,0.0
+28299,Hospital IQ,2018,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+28309,Housecall Pro,2022,1,0,0,0,private,,,,,,,,,,0.0
+28327,Hull,2018,0,0,0,0,acquired,2021.0,,,,,,,,,
+28337,Human Longevity,2018,1,0,0,0,private,,,,,,,,,,0.0
+28348,Hyperloop Transportation Technologies,2018,1,0,0,6,private,,,,,16.41258889180409,,,,2.0,0.0
+28368,Ichor Therapeutics,2018,1,0,0,10,private,,,,,15.597099659605044,,,,3.0,3.0
+28376,Identified Technologies,2018,0,0,0,0,acquired,2021.0,,,,,,,,,
+28388,Igor,2018,1,0,0,2,private,,,,,15.876214803864462,2.0,0.0,1.0,2.0,0.0
+28434,Indico Data,2018,0,0,0,0,private,,,,,,,,,,
+28459,inFeedo,2018,0,0,0,0,private,,,,,,,,,,
+28497,Inside Warehouse,2018,0,0,0,0,defunct,2020.0,,,,,,,,,
+28499,Inspire,2014,1,0,0,0,acquired,2025.0,,,,,0.0,0.0,0.0,,0.0
+28535,Interior Define,2022,1,0,0,0,private,,,,,,,,,,0.0
+28554,INTURN,2018,0,0,0,0,acquired,2022.0,,,,,,,,,
+28570,Ionica Sciences,2018,0,0,0,0,private,,,,,,,,,,
+28594,IsoPlexis,2021,1,0,0,2,acquired,,16761000.0,,,19.83163462379187,0.0,2.0,0.0,9.0,10.0
+28616,itopia,2020,1,0,0,0,private,,,,7099999.9,,,,,,0.0
+28637,Jaanuu,2018,1,0,0,0,private,,,,,,,,,,0.0
+28660,Jaguar Health,2014,1,0,0,0,public,2015.0,,167832.0,,,,,,,0.0
+28700,Jounce Therapeutics,2018,0,1,3,3,acquired,2017.0,,,,,,,,,
+28704,Joylux,2018,1,0,0,0,private,,,5000000.0,,,,,,,0.0
+28735,K4Connect,2021,1,0,0,0,private,,2200000.0,,,,0.0,0.0,0.0,,0.0
+28753,Kashable,2018,1,0,0,2,private,,,,,21.10028120780441,,,,2.0,0.0
+28782,Kelvin,2023,1,0,0,0,private,,,,,,,,,,0.0
+28794,Kensho,2014,1,0,0,1,acquired,2018.0,,,,20.00109999240337,,,,1.0,0.0
+28881,KnipBio,2018,1,0,0,0,private,,,,,,,,,,0.0
+28907,Kong Studios,2023,1,0,0,0,private,,,,,,,,,,0.0
+28913,Kontakt.io,2022,1,0,0,0,private,,15800000.0,,,,,,,,0.0
+28922,Kore.ai,2021,1,0,0,7,private,,,,,19.363283334254195,,,,1.4285714285714286,1.0
+28931,KPI Therapeutics,2016,1,0,0,0,defunct,,,,,,,,,,0.0
+28966,Lantern Pharma,2018,0,1,1,1,public,2020.0,,0.0,,,,,,,
+28977,Lateral SV,2014,1,0,0,0,defunct,2017.0,,,,,,,,,0.0
+28982,LawnStarter,2018,1,0,0,0,private,,,,,,,,,,0.0
+29060,LensBricks,2018,1,0,0,0,private,,,,,,,,,,0.0
+29124,Liqid,2018,1,0,0,34,private,,,,,17.487291706551066,1.0,33.0,1.0,2.303030303030303,48.0
+29132,LiquidM,2016,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+29167,Localeur,2018,1,0,0,0,private,,,,,,,,,,0.0
+29178,Locus Fermentation Solutions,2023,1,0,0,0,private,,,,,,,,,,0.0
+29188,LoginRadius,2018,0,0,0,0,private,,,,,,,,,,
+29206,LoopPay,2014,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+29279,LumiThera,2022,1,0,0,0,private,,,,,,,,,,0.0
+29290,Lumoid,2016,1,0,0,0,defunct,2017.0,,,,,,,,,0.0
+29297,Lung Therapeutics,2018,1,0,0,1,private,,,,,18.21456282570932,,,,4.0,0.0
+29310,Lyte,2020,1,0,0,0,private,,,,,,,,,,0.0
+29321,MacroFab,2018,1,0,0,1,private,,,,,13.47947705933633,,,,2.0,0.0
+29347,Madison Reed,2017,1,0,0,0,private,,50000000.0,50000000.0,100000000.0,,,,,,0.0
+29404,Major League Hacking (MLH),2018,0,0,0,0,private,,,,,,,,,,
+29409,MakeSpace,2020,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+29418,Managed by Q,2018,0,0,0,0,acquired,2020.0,,,,,,,,,
+29436,MarcoPolo Learning,2018,1,0,0,0,private,,,,,,,,,,0.0
+29461,Marlette Funding,2016,1,0,0,0,private,,,,,,,,,,0.0
+29477,MasteryPrep,2015,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+29563,Melboss Music,2021,1,0,0,0,private,,500000.0,,,,,,,,0.0
+29593,Merchbar,2018,0,0,0,0,private,,,,,,,,,,
+29618,Microshare,2018,1,0,0,0,private,,,916199.98,,,,,,,0.0
+29631,MindCare Solutions,2018,1,0,0,0,private,,,,,,,,,,0.0
+29635,MiNDERA Corporation,2022,1,0,0,0,private,,,,,,,,,,0.0
+29642,Mindoula Health,2020,1,0,0,0,private,,,,,,,,,,0.0
+29673,MobileQubes,2016,1,0,0,0,private,,,,,,,,,,0.0
+29687,Mode Analytics,2014,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+29740,Monica+Andy,2018,1,0,0,0,private,,,,,,,,,,0.0
+29776,Motiv,2015,1,0,0,8,acquired,2020.0,,,,16.227106766921843,,,,5.0,6.0
+29805,Moving Analytics,2018,0,0,0,0,private,,,,,,,,,,
+29819,mParticle,2015,1,0,0,0,private,,,,,,,,,,0.0
+29864,MyLabBox,2018,0,0,0,0,private,,6240435.0,,,,,,,,
+29902,NarrativeDx,2015,1,0,0,3,acquired,2020.0,,,,16.518454006949042,,,,1.0,0.0
+29923,Nautilus Data Technologies,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+29964,NETSHIELD,2014,1,0,0,1,defunct,2022.0,,,,21.26447137012112,,,,2.0,0.0
+30002,NewVector Group,2018,1,0,0,0,private,,,,,,,,,,0.0
+30011,Nexkey,2018,0,1,1,1,defunct,2022.0,,,,,,,,,
+30015,Next Thing Co,2018,0,0,0,0,defunct,2019.0,,,,,,,,,
+30026,Next U,2014,1,0,0,0,acquired,2015.0,,,,,,,,,0.0
+30033,NextHealth Technologies,2021,1,0,0,0,acquired,2022.0,,,,,0.0,0.0,0.0,,0.0
+30041,Nextracker,2018,1,0,0,47,acquired,,,,,17.34426478568647,10.0,37.0,4.0,3.289473684210526,43.0
+30057,NGD Systems,2018,1,0,0,6,private,,,,,19.382680070250757,0.0,6.0,0.0,2.0,3.0
+30109,Normal,2015,1,0,0,0,private,,,,,,,,,,0.0
+30128,NovaSignal,2013,1,0,0,1,private,,,,,16.51170912141421,,,,,0.0
+30165,NS1,2018,0,0,0,0,private,,,,,,,,,,
+30171,NuMat Technologies,2013,1,0,0,5,private,,,,,16.922845304771396,5.0,0.0,2.0,1.3333333333333333,0.0
+30198,Nuvolo,2016,1,0,0,4,acquired,2023.0,,,,20.222516767087697,,,,1.6666666666666667,0.0
+30231,Oculogica,2022,1,0,0,0,private,,,,,,,,,,0.0
+30280,Onboard Dynamics,2018,0,0,0,0,private,,961000.0,8300000.000000001,,,,,,,
+30287,Oncternal Therapeutics,2016,1,0,0,10,public,2019.0,0.0,0.0,0.0,18.071732252088296,,,,2.125,14.0
+30334,OpenCounter,2016,1,0,0,0,acquired,2024.0,,,,,,,,,0.0
+30404,Osteal Therapeutics,2020,1,0,0,0,private,,,,,,,,,,0.0
+30425,Outdoor Voices,2018,0,0,0,0,private,,40000000.0,,,,,,,,
+30472,PactSafe,2018,0,0,0,0,acquired,2021.0,,,,,,,,,
+30482,Page Vault,2018,0,0,0,0,private,,,,,,,,,,
+30500,Panaceutics Nutrition,2021,1,0,0,0,private,,,,,,,,,,0.0
+30522,Paracosm,2014,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+30528,Paravision,2016,1,0,0,0,private,,,,,,,,,,0.0
+30552,Pasta Chips,2018,1,0,0,0,private,,,,,,,,,,0.0
+30557,Patch of Land,2014,1,0,0,0,private,,,,,,,,,,0.0
+30564,Patient IO,2013,1,0,0,0,acquired,2016.0,,1000000.0,,,,,,,0.0
+30580,Patreon,2018,1,0,0,16,private,,,100000000.0,,20.592646802251004,,,,1.9375,57.0
+30610,PaymentWorks,2018,0,0,0,0,private,,3000000.0,,10000000.0,,,,,,
+30628,Peachjar,2018,0,0,0,0,private,,,,,,,,,,
+30630,Pear Therapeutics,2020,1,0,0,1,public,2023.0,2921999.9,12694000.0,,19.63820647140436,1.0,0.0,1.0,,0.0
+30643,PebblePost,2021,1,0,0,0,private,,,,,,,,,,0.0
+30663,PeerStreet,2015,1,0,0,0,private,,,,,,,,,,0.0
+30678,Pendo,2015,1,0,0,0,private,,478589.0,,21000000.0,,,,,,0.0
+30699,Peptilogics,2018,0,1,7,7,private,,,,,,,,,,
+30712,Perfect Price,2018,0,0,0,0,defunct,2024.0,,,,,,,,,
+30751,Phenix,2018,1,0,0,8,private,,,,,17.044248223988404,8.0,0.0,1.0,1.0,0.0
+30760,Phoenix Tower International,2022,1,0,0,0,private,,,,,,,,,,0.0
+30768,PhotoniCare,2022,1,0,0,0,private,,,,,,,,,,0.0
+30793,Picus Security,2018,0,0,0,0,private,,,,,,,,,,
+30813,Pillir,2016,1,0,0,0,private,,,,,,,,,,0.0
+30827,Pingboard,2018,0,0,0,0,private,,,,,,,,,,
+30834,Pip’s Island,2018,0,0,0,0,private,,,,,,,,,,
+30845,PittMoss,2023,1,0,0,1,private,,878588.02,,,17.390410994730168,,,,,2.0
+30857,PivotalPath,2021,1,0,0,0,private,,,,,,,,,,0.0
+30870,Planted,2014,1,0,0,0,private,,,,,,,,,,0.0
+30878,Platform9,2021,1,0,0,1,private,,,,,16.440338633594013,0.0,1.0,0.0,2.0,0.0
+30897,Plethora,2020,1,0,0,0,defunct,2022.0,,,,,0.0,0.0,0.0,,0.0
+30912,PMV Pharmaceuticals,2018,0,1,6,6,public,2020.0,,,,,,,,,
+30971,Porch Group,2020,1,0,0,0,public,2021.0,,,,,,,,,0.0
+30994,Powerful,2017,1,0,0,0,private,,,,,,,,,,0.0
+31009,Praxis,2018,0,1,1,1,private,,,,,,,,,,
+31057,Prisma SD-WAN,2018,0,0,0,0,acquired,2020.0,,,,,,,,,
+31062,Pristine,2016,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+31070,Pro.com,2018,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+31104,Provivi,2020,1,0,0,4,private,,,,,19.663874529875496,0.0,4.0,0.0,3.5,18.0
+31123,Public Good Software,2014,1,0,0,0,private,,,,,,,,,,0.0
+31139,Qapital,2020,1,0,0,0,private,,,,,,,,,,0.0
+31149,QMENTA,2016,1,0,0,1,private,,,,,16.993252005714915,,,,1.0,0.0
+31198,Querium,2015,1,0,0,1,private,,,,,18.96951113067264,,,,1.0,1.0
+31219,Quietyme,2014,1,0,0,0,private,,,,,,,,,,0.0
+31251,R&B Technology Group,2018,0,0,0,0,private,,,,,,,,,,
+31258,Rad,2018,0,0,0,0,private,,,,,,,,,,
+31326,Reactful,2018,0,0,0,0,acquired,2022.0,,,,,,,,,
+31344,RealtyShares,2016,1,0,0,0,acquired,2019.0,,13100000.0,,,,,,,0.0
+31353,Realync,2018,0,0,0,0,private,,,4500000.0,,,,,,,
+31359,Rebel,2018,0,0,0,0,acquired,2018.0,,,,,,,,,
+31388,Relayr,2018,0,0,0,0,acquired,2018.0,,,,,,,,,
+31405,RENOVION,2018,0,0,0,0,private,,,,,,,,,,
+31416,Reonomy,2015,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+31429,RepScrubs,2018,0,0,0,0,private,,,,,,,,,,
+31448,Retrieve,2014,1,0,0,0,private,,,,,,,,,,0.0
+31536,Ripio,2013,1,0,0,0,private,,,,,,,,,,0.0
+31571,Roar Organic,2023,1,0,0,0,private,,,,,,,,,,0.0
+31620,Rock My World Media,2015,1,0,0,2,private,,,,,18.791128307313812,,,,5.0,2.0
+31636,Rocketrip,2018,0,0,0,0,acquired,2020.0,,,,,,,,,
+31662,ROH,2022,1,0,0,0,private,,,,,,,,,,0.0
+31676,Roomi,2018,0,0,0,0,private,,,,,,,,,,
+31719,Ru's Pierogi,2018,0,0,0,0,private,,,,,,,,,,
+31736,Safely,2022,1,0,0,0,private,,,,,,,,,,0.0
+31741,SafeTraces,2023,1,0,0,0,private,,,,,,,,,,0.0
+31754,SalesRabbit,2018,1,0,0,0,private,,,,2000000.0,,,,,,0.0
+31773,Sarah Flint,2018,1,0,0,0,private,,,,3500000.0,,,,,,0.0
+31809,Scout Security,2015,1,0,0,0,public,2017.0,,,,,,,,,0.0
+31861,Sellbrite,2016,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+31867,Selz,2018,0,0,0,0,acquired,2021.0,,,,,,,,,
+31979,Sharper Shape,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+31989,Shift,2018,1,0,0,0,public,,,,,,0.0,0.0,0.0,,0.0
+32003,Shippo,2018,0,0,0,0,private,,,,,,,,,,
+32040,ShotTracker,2018,0,1,2,2,private,,,,,,,,,,
+32057,sight4all,2020,1,0,0,0,private,,,,,,,,,,0.0
+32068,Signal Vine,2016,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+32085,Silk Therapeutics,2018,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+32104,Simple-Fill,2018,1,0,0,0,defunct,2022.0,,,,,,,,,0.0
+32119,Simplify Medical,2018,0,1,19,19,acquired,2021.0,,,,,,,,,
+32144,Sitetracker,2022,1,0,0,0,private,,,75000000.0,,,,,,,0.0
+32150,SiteZeus,2018,1,0,0,0,private,,,,,,,,,,0.0
+32163,Skedulo,2018,0,1,1,1,private,,,,,,,,,,
+32196,Skycatch,2015,1,0,0,11,private,,,18500000.0,,19.30370606847255,,,,3.0,5.0
+32204,Skydrop,2018,0,0,0,0,private,,,,5050000.0,,,,,,
+32331,Sonavex,2015,1,0,0,0,private,,,,,,,,,,0.0
+32363,Sotheby's Home,2016,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+32379,SourceDay,2018,0,0,0,0,private,,9800000.0,,,,,,,,
+32425,Sparkfund,2020,1,0,0,0,private,,,,,,,,,,0.0
+32430,SparkMeter,2017,1,0,0,0,private,,,,,,,,,,0.0
+32451,Spero Therapeutics,2018,0,1,3,3,public,2017.0,,,,,,,,,
+32472,Spiceology,2020,1,0,0,0,private,,,,,,,,,,0.0
+32477,Spire Health,2018,0,0,0,0,private,,,,,,,,,,
+32485,Splendid Lab,2014,1,0,0,0,private,,,,,,,,,,0.0
+32507,Sportsy,2014,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+32529,Springbok Analytics,2018,1,0,0,1,private,,,,,15.770639738957165,,,,,0.0
+32551,SQZ Biotech,2018,0,0,0,0,public,2020.0,19318001.0,,,,,,,,
+32598,StatSocial,2016,1,0,0,0,private,,,1100000.0,,,,,,,0.0
+32603,Stayful,2014,1,0,0,0,private,,,,,,,,,,0.0
+32607,Steward Partners Global Advisory,2022,1,0,0,0,private,,,,66599998.0,,,,,,0.0
+32631,Streamroot,2018,0,1,6,6,acquired,2019.0,3246208.0,,,,,,,,
+32670,StyleSage,2018,0,0,0,0,private,,,,,,,,,,
+32728,Sustain,2018,0,0,0,0,acquired,2019.0,,,,,,,,,
+32752,Symbiont,2015,1,0,0,2,private,,,,,19.332989598530382,,,,1.0,0.0
+32801,SysCloud,2017,1,0,0,0,private,,,,,,,,,,0.0
+32813,Tabit,2018,0,0,0,0,private,,,,4900000.0,,,,,,
+32817,Tablelist,2015,1,0,0,0,private,,,,,,,,,,0.0
+32853,Tallyfy,2018,0,0,0,0,private,,,,,,,,,,
+32906,Tempo Automation,2018,0,1,1,1,public,2022.0,,,,,,,,,
+32954,Tethr,2018,1,0,0,0,private,,,,,,,,,,0.0
+33014,ThirdLove,2023,1,0,0,0,private,,,,,,,,,,0.0
+33028,ThreatQuotient,2016,1,0,0,1,private,,,,,19.431106712848425,,,,1.0,0.0
+33065,Tienda Pago,2018,1,0,0,0,private,,,,,,,,,,0.0
+33147,Tracksmith,2017,1,0,0,0,private,,,,,,,,,,0.0
+33195,Transfix,2015,1,0,0,0,private,,16000000.0,43000000.0,80000000.0,,,,,,0.0
+33218,Trendalytics Innovation Labs,2019,1,0,0,0,acquired,2024.0,,,,,,,,,0.0
+33228,Tricida,2018,1,0,0,2,public,2018.0,0.0,,0.0,21.003155633358254,0.0,2.0,0.0,6.0,9.0
+33237,Trilio,2020,1,0,0,1,private,,,,,15.55708908149136,0.0,1.0,0.0,2.0,6.0
+33266,Trucker Path,2017,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+33278,TrueAccord,2019,1,0,0,0,private,,,,,,,,,,0.0
+33290,TrueFacet,2018,0,0,0,0,private,,,,,,,,,,
+33299,Trufa,2015,1,0,0,1,defunct,2019.0,,,,17.005148686969655,,,,2.0,0.0
+33328,Turning Point Therapeutics,2018,0,1,9,9,acquired,2019.0,0.0,,,,,,,,
+33358,Twist Bioscience,2014,1,0,0,19,public,2018.0,,,,16.603644912299924,,,,,134.0
+33378,Ubix Labs,2015,1,0,0,0,private,,,,,,,,,,0.0
+33404,Underground Cellar,2018,0,0,0,0,private,,,,,,,,,,
+33418,Uniken,2018,1,0,0,2,private,,,,,18.415225937525427,,,,1.0,0.0
+33425,Union Station,2014,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+33489,Upward Farms,2018,0,0,0,0,private,,,,,,,,,,
+33500,Urgently,2021,1,0,0,0,public,2023.0,,,142905000.0,,,,,,0.0
+33544,Vantage Robotics,2021,1,0,0,0,private,,8699999.8,,,,0.0,0.0,0.0,,0.0
+33553,Vault,2018,1,0,0,0,defunct,,,,,,0.0,0.0,0.0,,0.0
+33635,Viakoo,2018,0,1,1,1,private,,,,,,,,,,
+33641,VICIS,2018,1,0,0,0,acquired,2020.0,13800000.0,,,,,,,,0.0
+33673,Viken Detection,2015,1,0,0,1,private,,,,,14.010316381081916,,,,4.0,0.0
+33699,Virtuix,2018,0,1,5,5,private,,300000.0,,2103090.0,,,,,,
+33711,Visibly,2018,0,1,1,1,private,,,,,,,,,,
+33742,Vixiar Medical,2018,1,0,0,0,private,,,,,,,,,,0.0
+33748,Vizbii Technologies (Morphii),2018,0,0,0,0,private,,,,,,,,,,
+33773,Voxpopme,2018,1,0,0,0,private,,,,,,,,,,0.0
+33800,vXchnge,2017,1,0,0,0,defunct,,,,,,,,,,0.0
+33812,Vyv,2019,1,0,0,6,private,,,,,17.38828128703279,,,,,2.0
+33844,WattIQ,2015,1,0,0,0,private,,,,,,,,,,0.0
+33865,Waypoint Leasing Services,2013,1,0,0,0,defunct,,,,,,,,,,0.0
+33879,Weaver Labs,2015,1,0,0,0,defunct,2016.0,,,,,,,,,0.0
+33911,Welkin Health,2018,1,0,0,0,private,,,,,,,,,,0.0
+33938,Wheels Up Experience,2016,1,0,0,0,public,2021.0,300000000.0,400000000.0,384911990.0,,,,,,0.0
+33952,Whitebox,2018,0,0,0,0,private,,,,,,,,,,
+33976,Wings Capital Partners,2018,1,0,0,0,private,,,,,,,,,,0.0
+33981,Wipster,2018,1,0,0,0,private,,,,,,,,,,0.0
+33992,Wise Athena,2018,1,0,0,0,private,,,,,,,,,,0.0
+34048,Workato,2018,0,1,1,1,private,,,50000000.0,,,,,,,
+34061,Workframe,2018,0,0,0,0,acquired,2019.0,,,,,,,,,
+34080,Wyre,2018,0,0,0,0,defunct,,,,90000000.0,,,,,,
+34110,Xperiel,2018,0,1,1,1,defunct,,,,,,,,,,
+34145,Yonomi,2018,1,0,0,2,acquired,2021.0,,,,19.811877095884416,,,,3.0,3.0
+34172,Zenefits,2018,1,0,0,0,acquired,2021.0,,100000000.0,100000000.0,,,,,,0.0
+34227,Zymergen,2020,1,0,0,11,acquired,,14065000.0,14092000.0,,18.95602730564678,2.0,9.0,1.0,7.2727272727272725,73.0
+34237,Zype,2019,1,0,0,1,acquired,2022.0,2450000.0,,,15.043253728219618,,,,2.0,0.0
+34254,128 Technology,2019,0,1,17,17,acquired,2020.0,,,,,,,,,
+34266,2nd Address,2019,0,0,0,0,private,,,,,,,,,,
+34277,3DBio,2016,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+34289,4th & Heart,2022,1,0,0,0,private,,,,,,,,,,0.0
+34347,Actionfigure,2019,1,0,0,0,private,,,,,,,,,,0.0
+34377,Adaptive3D,2019,0,0,0,0,acquired,,,,,,,,,,
+34413,Advantia Health,2019,1,0,0,0,private,,,,,,,,,,0.0
+34424,AdvisorEngine,2015,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+34462,Agbotic,2019,1,0,0,0,private,,,924000.02,,,0.0,0.0,0.0,,0.0
+34510,Akadeum Life Sciences,2019,1,0,0,3,private,,,,,21.48669495390713,,,,,4.0
+34535,Akros Medical,2018,1,0,0,1,private,,,,,17.87656162185841,,,,3.0,0.0
+34593,Allbound,2019,0,0,0,0,private,,,,,,,,,,
+34613,Almabase,2018,1,0,0,0,private,,,,,,,,,,0.0
+34634,Ambassador Labs,2019,0,0,0,0,private,,,,,,,,,,
+34643,American Unagi,2021,1,0,0,0,private,,,,,,,,,,0.0
+34677,Amylyx Pharmaceuticals,2018,1,0,0,4,public,2022.0,0.0,,0.0,18.87278888962626,,,,3.3333333333333335,10.0
+34696,AnchorIDInc.,2020,1,0,0,0,defunct,2020.0,,,,,,,,,0.0
+34706,Andela,2019,0,0,0,0,private,,,,,,,,,,
+34734,Ankura,2021,1,0,0,0,private,,,,,,,,,,0.0
+34741,Anutra Medical,2019,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+34791,Appcast,2015,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+34795,Applied Particle Technology,2019,1,0,0,1,private,,,,,21.1856836055996,,,,4.0,1.0
+34849,ArangoDB,2019,1,0,0,0,private,,,,,,,,,,0.0
+34858,Arcadia,2018,1,0,0,2,private,,,,,21.057716669894695,2.0,0.0,1.0,,0.0
+34887,AreaMetrics,2019,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+34918,Arrive,2021,1,0,0,0,private,,,,,,,,,,0.0
+34932,Artichoke,2019,1,0,0,0,defunct,2020.0,,,,,,,,,0.0
+34957,Ask.Vet,2021,1,0,0,0,private,,,,,,,,,,0.0
+34965,AskNicely,2019,0,0,0,0,private,,,5000000.0,,,,,,,
+34997,Astrocyte Pharmaceuticals,2022,1,0,0,0,private,,,,,,,,,,0.0
+35077,Automizy,2019,0,0,0,0,private,,,,,,,,,,
+35090,AutoRABIT,2021,1,0,0,0,private,,,,,,,,,,0.0
+35101,Avaamo,2021,1,0,0,0,private,,,,,,,,,,0.0
+35109,Avant-garde Health,2019,0,0,0,0,private,,,,,,,,,,
+35123,AwareAbility Technolgies,2019,0,0,0,0,private,,,,,,,,,,
+35164,Backbone PLM,2019,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+35180,Baebies,2015,1,0,0,1,private,,,,,13.994808521985188,,,,2.0,0.0
+35208,BANDIER,2022,1,0,0,0,private,,,,,,,,,,0.0
+35232,Bartesian,2019,1,0,0,1,private,,,100000000.0,,17.65829095147277,,,,,0.0
+35252,Bastille Networks Internet Security,2016,1,0,0,5,private,,,,,18.81657865380214,,,,1.0,1.0
+35313,Bento for Business,2021,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+35325,Bestmile,2016,1,0,0,0,private,,,,,,,,,,0.0
+35331,Betterview,2019,0,0,0,0,private,,,,,,,,,,
+35353,Big River Steel,2019,1,0,0,1,acquired,2020.0,,,,12.13630683042448,,,,,0.0
+35382,BioConsortia,2016,1,0,0,1,private,,,,,20.51028490036091,,,,,0.0
+35401,Birddogs,2015,1,0,0,0,private,,,,,,,,,,0.0
+35405,Bitnomial,2016,1,0,0,1,private,,,,,19.900304125781837,,,,,0.0
+35466,Blockfolio,2019,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+35471,Blockparty,2015,1,0,0,0,private,,,,,,,,,,0.0
+35479,BlocPower,2021,1,0,0,0,private,,,,,,,,,,0.0
+35502,Bloomlife,2019,0,0,0,0,private,,,,,,,,,,
+35529,BlueCheck,2017,1,0,0,0,private,,,,,,,,,,0.0
+35535,Blueshift,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+35561,Boll & Branch,2019,0,0,0,0,private,,,,,,,,,,
+35579,Bombora,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+35598,Boom Supersonic,2021,1,0,0,0,private,,,,,,,,,,0.0
+35630,Braavo Capital,2017,1,0,0,0,private,,,,,,,,,,0.0
+35648,Branch Technology,2019,1,0,0,1,private,,,,,16.72972353073646,,,,,2.0
+35668,Breath Diagnostics,2019,0,0,0,0,private,,,,,,,,,,
+35680,Bricata,2016,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+35693,Bright,2022,1,0,0,24,private,,,,,17.702266253751837,,,,11.333333333333334,43.0
+35745,brrr!,2017,1,0,0,4,private,,10000000.0,,,18.631795369425685,,,,,5.0
+35755,Bruin Sports Capital,2019,0,0,0,0,private,,,,,,,,,,
+35758,Brydge Technologies,2018,1,0,0,0,private,,,,,,,,,,0.0
+35771,Buffalo Automation,2019,1,0,0,1,private,,,,,14.82273883789194,,,,,0.0
+35803,ButterflyMX,2019,0,0,0,0,private,,,,,,,,,,
+35872,Camino Financial,2017,1,0,0,0,private,,,,,,,,,,0.0
+35894,Canopy,2019,1,0,0,0,private,,,,2333433.9000000004,,0.0,0.0,0.0,,0.0
+35906,Canopy Lawn Care,2019,0,0,0,0,private,,,,,,,,,,
+35915,Cape Analytics,2019,0,1,11,11,private,,,2700000.0,,,,,,,
+35920,Capillary Biomedical,2020,1,0,0,0,acquired,2022.0,,,,,0.0,0.0,0.0,,0.0
+35956,CareDash,2017,1,0,0,0,private,,,,,,,,,,0.0
+35988,Carson Life,2019,0,0,0,0,private,,,,,,,,,,
+36006,Casetabs,2019,0,0,0,0,acquired,2020.0,,,,,,,,,
+36089,Cequence Security,2019,0,1,1,1,private,,,,,,,,,,
+36104,Ceribell,2020,1,0,0,0,private,,,25922001.0,45224998.0,,0.0,0.0,0.0,,0.0
+36137,Chatbooks,2016,1,0,0,0,private,,,,,,,,,,0.0
+36185,Chronicled,2019,0,0,0,0,private,,,,,,,,,,
+36198,Cinemood,2020,1,0,0,0,private,,,,,,,,,,0.0
+36203,Circle Media,2019,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+36263,ClassWallet,2020,1,0,0,0,private,,750000000.0,,,,0.0,0.0,0.0,,0.0
+36282,ClearMetal,2019,0,0,0,0,acquired,2021.0,,,,,,,,,
+36290,Clerio Vision,2019,0,1,2,2,private,,,4500000.0,,,,,,,
+36317,Climb Credit,2019,1,0,0,0,private,,,,,,,,,,0.0
+36344,Cloud DX,2019,0,1,2,2,public,2021.0,867287.0,,,,,,,,
+36354,Cloud4Wi,2020,1,0,0,0,private,,,,,,,,,,0.0
+36384,CMES Robotics,2019,0,0,0,0,private,,,,,,,,,,
+36388,Coastal Risk Consulting,2019,0,0,0,0,private,,,,,,,,,,
+36402,CODA Biotherapeutics,2021,1,0,0,0,defunct,2024.0,,,,,0.0,0.0,0.0,,0.0
+36424,Cogent Biosciences,2017,1,0,0,0,public,2018.0,8753000.3,,23867001.0,,,,,,0.0
+36436,Cognixion,2018,1,0,0,5,private,,,,,16.70383807600383,,,,4.0,1.0
+36463,College Ave Student Loans,2019,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+36505,Compression Kinetics,2015,1,0,0,0,defunct,2024.0,,,,,,,,,0.0
+36545,connectRN,2022,1,0,0,0,private,,,,,,,,,,0.0
+36578,Conversa Health,2019,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+36611,Cordata Healthcare Innovations,2019,0,0,0,0,private,,,,,,,,,,
+36617,Cordial,2019,0,0,0,0,private,,,,,,,,,,
+36627,Corinth MedTech,2020,1,0,0,1,private,,,,,16.980921935274022,0.0,1.0,0.0,1.0,4.0
+36629,Coro,2019,0,0,0,0,private,,,,,,,,,,
+36638,Cortica,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+36648,Corvus Pharmaceuticals,2019,0,1,3,3,public,,,,,,,,,,
+36668,Cover,2019,0,0,0,0,defunct,,,,,,,,,,
+36682,Crayon,2019,0,0,0,0,private,,6873480.0,14972290.0,,,,,,,
+36711,CREtelligent,2021,1,0,0,0,private,,,,,,,,,,0.0
+36721,CrossRoads Extremity Systems,2021,1,0,0,5,acquired,2022.0,,,,14.637597824442867,0.0,5.0,0.0,1.3333333333333333,8.0
+36727,Crowdz,2019,0,0,0,0,private,,500000.0,1600000.0,500000.0,,,,,,
+36745,Cue Biopharma,2019,0,1,18,18,public,2018.0,,,9348370.0,,,,,,
+36749,CultureIQ,2020,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+36772,Curology,2019,0,1,1,1,private,,,,200000000.0,,,,,,
+36799,Cyph,2016,1,0,0,3,private,,,,,18.125005812909734,,,,2.6666666666666665,0.0
+36816,DaoCloud,2019,1,0,0,0,private,,,,,,,,,,0.0
+36825,Dark Cubed,2019,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+36868,DC BLOX,2019,1,0,0,0,private,,,,,,,,,,0.0
+36939,Diamanti,2019,1,0,0,5,private,,,,,17.358191842231285,,,,1.5,0.0
+36979,Dimensional Energy,2021,1,0,0,1,private,,,,,13.661157546989774,,,,3.0,0.0
+36997,Disco (Discotheque),2019,0,0,0,0,acquired,2021.0,,,,,,,,,
+37000,Disruptive Enterprises,2019,1,0,0,0,defunct,,,,,,,,,,0.0
+37033,Donde Search,2019,0,0,0,0,private,,,,,,,,,,
+37049,Dote Shopping,2019,0,0,0,0,private,,,,,,,,,,
+37114,DropWise Technologies,2016,1,0,0,0,private,,,,,,,,,,0.0
+37126,Dubsmash,2019,0,0,0,0,acquired,2020.0,,,,,,,,,
+37176,Echodyne,2019,0,1,1,1,private,,,5000.0,,,,,,,
+37186,EdCast,2019,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+37208,Edu101,2019,0,0,0,0,private,,,,,,,,,,
+37240,EGenesis,2019,1,0,0,0,private,,,,,,,,,,0.0
+37258,EIP Pharma,2021,1,0,0,0,acquired,2023.0,,,,,0.0,0.0,0.0,,0.0
+37303,EliteGamingLIVE,2020,1,0,0,0,private,,,,,,,,,,0.0
+37316,Ello,2019,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+37326,Elsen,2019,0,0,0,0,defunct,2021.0,,,,,,,,,
+37338,Elysium,2017,1,0,0,5,private,,,,,19.852255560337728,5.0,0.0,2.0,1.0,0.0
+37358,Emrgy,2021,1,0,0,0,private,,,30000000.0,,,0.0,0.0,0.0,,0.0
+37379,Encoded Therapeutics,2019,0,1,1,1,private,,,,,,,,,,
+37389,ENGAGE Talent,2019,0,0,0,0,acquired,2019.0,,,,,,,,,
+37429,Entrinsic Bioscience,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+37497,Even.com,2019,0,0,0,0,acquired,2022.0,,,,,,,,,
+37507,Eventus Systems,2016,1,0,0,0,private,,,,,,,,,,0.0
+37521,Everstream,2020,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+37545,Evrnu,2017,1,0,0,0,private,,,,,,,,,,0.0
+37594,Exyn Technologies,2020,1,0,0,0,private,,,,,,,,,,0.0
+37610,Factom,2019,0,1,1,1,acquired,2021.0,,,,,,,,,
+37629,Family First,2021,1,0,0,0,private,,,,,,,,,,0.0
+37653,Faraday Pharmaceuticals,2019,0,0,0,0,private,,,,,,,,,,
+37694,Fatherly,2019,0,0,0,0,acquired,2020.0,,,,,,,,,
+37719,Fetch Robotics,2019,0,1,10,10,acquired,2021.0,,10000000.0,,,,,,,
+37757,FinLocker,2019,1,0,0,1,private,,,,,22.02140574531157,0.0,1.0,0.0,3.0,3.0
+37768,FinTech Studios,2022,1,0,0,0,private,,,,,,,,,,0.0
+37816,Flair,2019,0,0,0,0,private,,,,,,,,,,
+37868,Florence Healthcare,2019,0,0,0,0,private,,,,,,,,,,
+37873,Flow Cannabis Co.,2019,1,0,0,0,private,,,,,,,,,,0.0
+37893,FlyGuys,2019,1,0,0,0,private,,,,,,,,,,0.0
+37898,Flyp Nebulizer,2019,0,0,0,0,private,,,,,,,,,,
+37937,Fountain,2019,0,0,0,0,private,,,,,,,,,,
+37956,Fracture ID,2019,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+37958,Frame.io,2019,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+38002,FrenchFounders,2019,0,0,0,0,private,,,,,,,,,,
+38025,Fruit Street,2014,1,0,0,0,private,,,,,,,,,,0.0
+38033,FS Card,2017,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+38038,fuboTV,2019,1,0,0,0,public,2020.0,,,,,,,,,0.0
+38131,Genomenon,2019,1,0,0,0,private,,,,,,,,,,0.0
+38144,GeoCV,2019,0,0,0,0,acquired,2019.0,,,,,,,,,
+38184,Gig Wage,2021,1,0,0,0,private,,,,,,,,,,0.0
+38193,Gila Therapeutics,2021,1,0,0,0,private,,,,,,,,,,0.0
+38213,GLAMSQUAD,2019,1,0,0,0,private,,,,,,,,,,0.0
+38241,Glowforge,2019,1,0,0,12,private,,,100000000.0,,19.165344897751613,,,,2.5,19.0
+38287,GOQii,2019,1,0,0,0,private,,,,,,,,,,0.0
+38330,Gradle,2019,0,0,0,0,private,,,,,,,,,,
+38378,Green Leaf Medical,2020,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+38399,Grenova,2019,1,0,0,3,private,,,2200000.0,,16.491220796135938,2.0,1.0,2.0,4.0,5.0
+38409,GrocerKey,2019,0,0,0,0,acquired,2021.0,12000000.0,,,,,,,,
+38463,Growbots,2019,0,0,0,0,private,,,,,,,,,,
+38488,Guard Llama,2016,1,0,0,0,defunct,2021.0,,,,,,,,,0.0
+38491,Guardhat Technologies,2019,1,0,0,1,private,,,,,17.793299707329222,0.0,1.0,0.0,10.0,0.0
+38509,Habitat Logistics,2020,1,0,0,0,private,,,,,,,,,,0.0
+38514,HabitAware,2019,0,0,0,0,private,,,,,,,,,,
+38534,Harvest Savings & Wealth Technologies,2016,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+38550,Haste,2019,0,0,0,0,acquired,2020.0,,,,,,,,,
+38629,Helius Medical Technologies,2019,1,0,0,0,public,2016.0,621999.98,,676000.0,,,,,,0.0
+38657,HelloTech,2019,1,0,0,0,private,,,,,,,,,,0.0
+38677,Heureka Software,2015,1,0,0,1,private,,,,,20.03816821155677,,,,1.0,0.0
+38696,Hidrate,2019,1,0,0,0,private,,,,,,,,,,0.0
+38728,HoloBuilder,2019,1,0,0,1,acquired,2021.0,,,,15.2410925841599,,,,1.0,0.0
+38731,Hologram,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+38746,Homebase,2021,1,0,0,0,private,,,40099998.0,,,,,,,0.0
+38784,Honor,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+38790,Honorlock,2019,0,0,0,0,private,,,,,,,,,,
+38809,HopSkipDrive,2019,0,0,0,0,private,,,,,,,,,,
+38829,Hound Labs,2021,1,0,0,6,private,,,,,20.364004525869618,2.0,4.0,2.0,,49.0
+38842,Hungry Harvest,2017,1,0,0,0,private,,,,,,,,,,0.0
+38858,HUVRData,2019,0,0,0,0,private,,,,,,,,,,
+38902,Ice Mobility,2015,1,0,0,0,private,,,,,,,,,,0.0
+38908,IDbyDNA,2020,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+38923,Ideon,2019,0,0,0,0,private,,,,,,,,,,
+38930,iGlass Technology,2015,1,0,0,1,private,,,,,21.14433085665649,,,,,0.0
+38985,INBRACE,2022,1,0,0,0,private,,,,,,,,,,0.0
+39011,Indigo,2020,1,0,0,14,private,,,,,20.041070881260225,7.0,7.0,1.0,5.875,51.0
+39065,Inkitt,2019,0,0,0,0,private,,,,,,,,,,
+39094,Innovium,2019,0,1,35,35,acquired,2021.0,,150000000.0,,,,,,,
+39123,Instamotor Technologies,2016,1,0,0,0,private,,,,,,,,,,0.0
+39171,IOTAS,2019,0,0,0,0,acquired,2022.0,,,,,,,,,
+39232,Janus Choice,2019,0,0,0,0,defunct,2019.0,,,,,,,,,
+39249,Jet,2014,1,0,0,1,acquired,2016.0,,1000000000.0,,15.74224766829809,0.0,1.0,0.0,1.0,0.0
+39326,Jubi,2018,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+39347,Juvo,2019,0,0,0,0,private,,,,,,,,,,
+39362,Kaiyo,2022,1,0,0,0,private,,,,,,,,,,0.0
+39374,Kalo,2019,0,0,0,0,defunct,,,,,,,,,,
+39392,Karbon,2019,1,0,0,0,private,,,,,,,,,,0.0
+39404,Karius,2018,1,0,0,4,private,,,,,18.450175466955827,,,,3.5,11.0
+39415,Katapult,2016,1,0,0,0,public,,,,,,,,,,0.0
+39497,Kineta (Reverse Merger With Yumanity Therapeutics),2019,0,0,0,0,acquired,2020.0,,,,,,,,,
+39530,Knock1,2019,0,0,0,0,acquired,,,,,,,,,,
+39549,Koalafi,2016,1,0,0,0,private,,,,200000000.0,,,,,,0.0
+39563,Koio,2017,1,0,0,0,private,,,,,,,,,,0.0
+39591,Kompyte,2019,0,0,0,0,acquired,2022.0,,2400000.0,,,,,,,
+39653,KWAMBIO,2019,1,0,0,0,private,,,,,,,,,,0.0
+39686,Lapetus Solutions,2019,0,0,0,0,defunct,,,,,,,,,,
+39743,LeadMethod,2019,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+39780,Leia,2022,1,0,0,3,private,,,,,19.151579199787456,,,,3.0,74.0
+39804,LePrix,2019,1,0,0,0,private,,,,,,,,,,0.0
+39839,LiFT Learning,2016,1,0,0,0,private,,,,,,,,,,0.0
+39870,Lightstream,2018,1,0,0,0,acquired,2021.0,,1794618.7,,,,,,,0.0
+39890,Line Health,2016,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+39920,Lish,2015,1,0,0,0,private,,,,,,,,,,0.0
+39955,Liveoak Technologies,2015,1,0,0,1,acquired,2020.0,,,,20.30326003194139,,,,2.0,1.0
+39962,Loadsmart,2019,0,0,0,0,private,,140000000.0,,,,,,,,
+40016,LOLA,2019,1,0,0,0,private,,,,,,,,,,0.0
+40075,Lukka,2019,0,1,2,2,private,,,,,,,,,,
+40125,Lyric,2019,1,0,0,0,private,,,,,,,,,,0.0
+40134,M.Gemi,2016,1,0,0,0,private,,50000000.0,,,,,,,,0.0
+40150,Madorra,2019,0,0,0,0,private,,,,,,,,,,
+40229,MakerDAO,2019,0,0,0,0,private,,,,,,,,,,
+40255,Manta Biofuel,2019,0,0,0,0,private,,,,,,,,,,
+40283,Marketware,2019,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+40309,Matic Insurance,2023,1,0,0,0,private,,,,,,,,,,0.0
+40316,Maven Clinic,2019,0,0,0,0,private,,,,,,,,,,
+40323,Maven Machines,2016,1,0,0,0,private,,,,,,,,,,0.0
+40345,MaxOne,2022,1,0,0,0,private,,,,,,,,,,0.0
+40369,MedPilot,2019,0,0,0,0,acquired,2021.0,,,,,,,,,
+40380,Med-X,2019,0,1,1,1,private,,,,,,,,,,
+40390,MegaBots,2016,1,0,0,0,private,,,,,,,,,,0.0
+40406,Men's Style Lab,2016,1,0,0,0,defunct,2018.0,,,,,,,,,0.0
+40416,Mercury Financial,2023,1,0,0,0,acquired,2025.0,,6000000.0,,,,,,,0.0
+40425,Mesa Natural Gas Solutions,2019,0,0,0,0,private,,,,,,,,,,
+40428,Metabase,2019,0,0,0,0,private,,,,,,,,,,
+40436,Meter Feeder,2018,1,0,0,1,private,,,,,18.498376310032235,,,,3.0,1.0
+40446,Meural,2016,1,0,0,1,acquired,2018.0,,,,16.364161560480063,,,,4.0,0.0
+40476,Migo,2019,0,0,0,0,private,,,,,,,,,,
+40477,Mikey's,2021,1,0,0,0,private,,,,,,,,,,0.0
+40493,Mimir,2016,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+40501,Mindshare Medical,2019,1,0,0,0,private,,,,,,,,,,0.0
+40516,Mines,2017,1,0,0,0,private,,,,,,,,,,0.0
+40539,Misapplied Sciences,2019,0,1,5,5,private,,,,,,,,,,
+40546,Mish Guru,2019,0,0,0,0,acquired,2023.0,,,,,,,,,
+40555,Mission Secure,2019,1,0,0,2,private,,,,,19.591460756455398,1.0,1.0,1.0,2.0,3.0
+40605,Mobility Designed,2019,0,1,4,4,private,,,,,,,,,,
+40656,Molio,2015,1,0,0,0,private,,,,,,,,,,0.0
+40672,MonkeyLearn,2021,1,0,0,0,private,,,,,,,,,,0.0
+40693,Morning Consult,2019,0,0,0,0,private,,,,,,,,,,
+40701,Movellus,2019,1,0,0,15,private,,,,,16.507249148442572,0.0,15.0,0.0,3.066666666666667,8.0
+40723,MPOWER Financing,2018,1,0,0,0,private,,,,,,,,,,0.0
+40783,Myagi,2021,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+40789,myNEXUS,2019,0,0,0,0,acquired,2021.0,,,,,,,,,
+40820,NanoAvionics,2019,0,0,0,0,acquired,2022.0,,,,,,,,,
+40842,Nativus,2019,0,1,2,2,private,,,,,,,,,,
+40906,Network Perception,2019,0,1,1,1,private,,,,,,,,,,
+40927,New York Shipping Exchange,2019,0,0,0,0,private,,,,,,,,,,
+40968,Nikola Motor Company,2019,1,0,0,1,public,2021.0,,,,15.669796153529592,,,,1.0,0.0
+40993,No Evil Foods,2019,0,0,0,0,private,,,,,,,,,,
+40998,NOBULL,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+41004,NOCD,2019,0,0,0,0,private,,,,,,,,,,
+41065,Notable Labs,2019,1,0,0,0,private,,,285000.0,8000.0004,,,,,,0.0
+41150,Octane,2016,1,0,0,0,private,,,,,,,,,,0.0
+41175,Oden Technologies,2019,0,0,0,0,private,,,,,,,,,,
+41188,Ogee,2019,1,0,0,0,private,,,,,,,,,,0.0
+41251,Oncora Medical,2019,1,0,0,0,private,,,,,,,,,,0.0
+41259,One Model,2019,0,0,0,0,private,,,,,,,,,,
+41263,OneDrop,2019,1,0,0,0,private,,,,,,,,,,0.0
+41303,Opendoor Labs ,2018,1,0,0,4,public,,,,,19.6017851309249,,,,1.3333333333333333,4.0
+41321,OpenSponsorship,2019,0,0,0,0,private,,,5000000.0,,,,,,,
+41326,Opentrons,2019,0,1,5,5,private,,,,,,,,,,
+41341,Opsonix,2017,1,0,0,0,private,,,,,,,,,,0.0
+41345,OpsRamp,2019,0,0,0,0,acquired,2023.0,,,,,,,,,
+41393,Othot,2019,0,0,0,0,acquired,2021.0,,,,,,,,,
+41415,Outdoorsy,2021,1,0,0,0,private,,98000000.0,78000000.0,91000000.0,,,,,,0.0
+41436,OvationCXM,2022,1,0,0,0,private,,,,,,,,,,0.0
+41480,Packet,2016,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+41487,Pager,2020,1,0,0,0,private,,,,,,,,,,0.0
+41509,Pana,2014,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+41534,Parallel,2019,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+41577,Passage,2019,1,0,0,0,private,,1442000.0,2400000.1,,,,,,,0.0
+41595,Pathmind,2019,0,0,0,0,private,,,,,,,,,,
+41610,Patpat,2019,0,0,0,0,private,,,,,,,,,,
+41636,Payzer,2016,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+41654,PeerIQ,2016,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+41666,Peerspace,2014,1,0,0,0,private,,,,,,,,,,0.0
+41680,Pendulum Systems (formerly Macro-Eyes),2019,1,0,0,0,private,,,,,,,,,,0.0
+41714,Periodic,2019,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+41741,Petronics,2019,0,0,0,0,defunct,2020.0,,,,,,,,,
+41769,Photosonix Medical,2016,1,0,0,3,private,,,,,20.014956880321915,1.0,2.0,1.0,,2.0
+41773,Phyla,2022,1,0,0,0,private,,,,,,,,,,0.0
+41793,PICKUP,2019,0,0,0,0,acquired,2023.0,,,,,,,,,
+41806,PierianDx,2021,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+41819,Pillar Biosciences,2019,0,1,1,1,private,,,,,,,,,,
+41845,Pine Gate Renewables,2022,1,0,0,0,private,,,,,,,,,,0.0
+41878,Place Pixel,2015,1,0,0,0,private,,,,,,,,,,0.0
+41893,Platelet BioGenesis,2016,1,0,0,0,private,,,,,,,,,,0.0
+41907,Platina Systems,2019,0,0,0,0,private,,,,,,,,,,
+41959,PLOWZ & MOWZ,2020,1,0,0,0,private,,,,,,,,,,0.0
+41962,Plum Lending,2019,0,0,0,0,private,,,,,,,,,,
+41971,Pnp Loyalty,2016,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+41993,Pointivo,2019,1,0,0,6,private,,,,,22.280398321443432,1.0,5.0,1.0,4.666666666666667,7.0
+42007,Policygenius,2022,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+42083,PowerTech Water,2019,1,0,0,1,private,,,,,16.11778077298361,,,,3.0,0.0
+42090,PowerToFly,2022,1,0,0,0,private,,,,,,,,,,0.0
+42103,Prefix,2019,0,0,0,0,private,,,,,,,,,,
+42107,Pregistry,2015,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+42136,PriorAuthNow,2019,1,0,0,0,private,,,,,,,,,,0.0
+42150,ProducePay ,2016,1,0,0,0,private,,,,,,,,,,0.0
+42165,Product Hunt,2014,1,0,0,0,acquired,2016.0,,,,,,,,,0.0
+42204,ProofPilot,2019,1,0,0,0,private,,,,,,,,,,0.0
+42217,Property Meld,2022,1,0,0,0,private,,,,15000000.0,,,,,,0.0
+42223,Proscia,2019,0,1,4,4,private,,,,,,,,,,
+42234,Protenus,2019,0,1,9,9,private,,,,,,,,,,
+42277,Puzzlium,2014,1,0,0,0,private,,,,,,,,,,0.0
+42305,Qleek,2016,1,0,0,0,defunct,2023.0,,,,,,,,,0.0
+42311,QSM Diagnostics,2019,0,0,0,0,private,,,10000.0,40000.0,,,,,,
+42367,R.e.d.d.,2018,1,0,0,0,acquired,2022.0,,,,,0.0,0.0,0.0,,0.0
+42374,Rabbet,2023,1,0,0,0,private,,,,,,,,,,0.0
+42392,Rack Performance,2019,1,0,0,0,private,,,,,,,,,,0.0
+42460,Real Savvy,2015,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+42481,Rebag,2019,0,0,0,0,defunct,,,,,,,,,,
+42528,Redox,2018,1,0,0,3,private,,,,,18.851614940936262,3.0,0.0,2.0,3.0,4.0
+42599,Reneo Pharmaceuticals,2019,0,1,2,2,public,2021.0,0.0,0.0,,,,,,,
+42606,Rent Ready,2019,0,0,0,0,private,,,,,,,,,,
+42608,Rental Equipment Investment,2020,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+42616,Replicated,2019,1,0,0,0,private,,,,,,,,,,0.0
+42637,Restream,2019,0,0,0,0,private,,4700000.0,,,,,,,,
+42649,RetroLabs,2019,0,0,0,0,private,,,,,,,,,,
+42682,REX - Real Estate Exchange,2022,1,0,0,0,acquired,,,,,,,,,,0.0
+42692,Rhumbix,2019,0,0,0,0,private,,,,,,,,,,
+42727,Ripcord,2017,1,0,0,0,private,,,,,,,,,,0.0
+42732,Ripple Foods,2019,0,1,3,3,private,,,,,,,,,,
+42769,ROAR,2019,0,1,2,2,private,,,,,,,,,,
+42852,Rubrik,2019,0,1,113,113,private,,600000000.0,387751010.0,506148010.0,,,,,,
+42881,RXQ Compounding,2019,0,0,0,0,private,,,,,,,,,,
+42895,Sabio,2015,1,0,0,0,public,2021.0,,,,,,,,,0.0
+42904,SafeBreach,2019,0,1,2,2,private,,,,,,,,,,
+42909,SafeGuard Cyber,2020,1,0,0,0,private,,,,,,,,,,0.0
+42935,San Draw,2019,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+42988,SBLive Sports,2017,1,0,0,0,private,,,,,,,,,,0.0
+42995,ScaleFactor,2019,0,0,0,0,private,,,,,,,,,,
+43015,Scentbird,2019,0,0,0,0,private,,,,,,,,,,
+43052,scPharmaceuticals,2019,0,1,4,4,public,2017.0,0.0,,0.0,,,,,,
+43074,Seal the Seasons,2017,1,0,0,0,private,,750000.0,,,,,,,,0.0
+43129,SELECT,2019,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+43139,Selery,2021,1,0,0,0,private,,,,,,,,,,0.0
+43145,SeLux Diagnostics,2022,1,0,0,1,private,,,,,18.560917367570763,,,,4.0,6.0
+43229,seqWell,2019,1,0,0,0,private,,,,,,,,,,0.0
+43243,SerImmune,2019,1,0,0,1,private,,,,,16.60297369157888,,,,6.0,0.0
+43251,Servato,2014,1,0,0,3,private,,,,,18.377319592818996,,,,2.6666666666666665,0.0
+43255,Service Fusion,2020,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+43264,Servy,2015,1,0,0,0,acquired,2024.0,,,,,,,,,0.0
+43272,SetSchedule,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+43279,Sevenhugs,2019,0,0,0,0,acquired,2020.0,,,,,,,,,
+43292,Shade,2019,1,0,0,0,defunct,,,,,,0.0,0.0,0.0,,0.0
+43311,Sharestates,2022,1,0,0,0,private,,,,,,,,,,0.0
+43320,Shinesty,2019,1,0,0,0,private,,,,,,,,,,0.0
+43394,Sigma Computing,2021,1,0,0,19,private,,,,130000000.0,19.52186993118252,2.0,17.0,1.0,1.4444444444444444,7.0
+43444,Simplus,2015,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+43482,Sisu Global Health,2022,1,0,0,0,private,,,,,,,,,,0.0
+43495,Skinny Dipped Almonds,2019,1,0,0,0,private,,,,,,,,,,0.0
+43527,Skyfront,2019,1,0,0,2,private,,,,,17.83577056918108,2.0,0.0,1.0,1.0,1.0
+43533,Skylight Frame,2023,1,0,0,0,private,,,,,,,,,,0.0
+43568,Smart Host,2015,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+43571,Smart Staffing Group,2019,0,0,0,0,private,,,,,,,,,,
+43576,Smartfrog Group,2016,1,0,0,0,private,,,,,,,,,,0.0
+43583,SmartGurlz ,2019,1,0,0,0,private,,,,,,,,,,0.0
+43621,SnapSuits,2018,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+43692,SonderMind,2019,0,1,2,2,private,,,,,,,,,,
+43698,Sonex Health,2020,1,0,0,2,private,,,,,14.625301560038157,,,,,1.0
+43733,Source,2019,1,0,0,0,private,,,,,,,,,,0.0
+43748,Sourcewater,2019,0,1,9,9,private,,,,,,,,,,
+43752,Sovrn,2021,1,0,0,0,private,,,,,,,,,,0.0
+43772,SpinLaunch,2022,1,0,0,0,private,,10000000.0,15000000.0,,,,,,,0.0
+43779,Spiro.AI,2019,1,0,0,0,private,,,,,,,,,,0.0
+43832,Springworks Farm,2023,1,0,0,0,private,,,,,,,,,,0.0
+43872,Standard Bariatrics,2022,1,0,0,3,acquired,2022.0,,,,17.325597981250016,,,,1.0,2.0
+43885,Starry,2019,0,1,4,4,public,2022.0,,22263000.0,29861000.0,,,,,,
+43891,Starship Technologies,2022,1,0,0,1,private,,,,,15.856448627495451,,,,4.0,0.0
+43920,StatMuse,2019,0,0,0,0,private,,,,,,,,,,
+43952,StemoniX,2017,1,0,0,1,acquired,2020.0,,,6618000.0,15.9634131368938,,,,1.0,0.0
+43964,Stillwater Brands,2019,0,0,0,0,defunct,2020.0,,,,,,,,,
+44012,Stream,2019,0,0,0,0,private,,,,,,,,,,
+44032,StreetShares Platform,2021,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+44073,Sudu,2019,0,0,0,0,private,,,,,,,,,,
+44087,SunBasket,2018,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+44104,Sunlight Financial,2015,1,0,0,0,public,2023.0,,,,,,,,,0.0
+44116,Super League Gaming,2015,1,0,0,2,acquired,,,,,18.40344025737059,,,,2.0,0.0
+44133,SuperPhone,2019,0,0,0,0,private,,,1380077.0,1954546.0,,,,,,
+44154,Surface Oncology,2019,1,0,0,3,acquired,,,,,20.3220556974129,0.0,3.0,0.0,4.0,4.0
+44158,Sustainable Energy & Agriculture Technology,2019,0,0,0,0,private,,,,,,,,,,
+44176,Swell Energy,2021,1,0,0,0,private,,,,,,,,,,0.0
+44206,Switcher Studio,2019,0,0,0,0,private,,,,,,,,,,
+44224,Symphony Communication Services,2019,0,1,4,4,private,,,,,,,,,,
+44266,Tailor Brands,2019,0,0,0,0,private,,,,,,,,,,
+44297,Tank Utility,2019,0,0,0,0,acquired,2021.0,,,,,,,,,
+44303,TAO Connect,2019,1,0,0,0,private,,,,,,,,,,0.0
+44341,Teal Drones,2019,0,0,0,0,acquired,2021.0,,,,,,,,,
+44397,Terminus,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+44407,TESTIM,2019,0,0,0,0,acquired,2022.0,,4000000.0,,,,,,,
+44412,Tetherex Pharmaceuticals,2015,1,0,0,0,private,,,,,,,,,,0.0
+44427,Textio,2019,0,1,2,2,private,,,,,,,,,,
+44445,The Credit Junction,2015,1,0,0,0,defunct,2016.0,,,10000000.0,,,,,,0.0
+44465,The Purple Carrot,2015,1,0,0,0,acquired,,,,,,,,,,0.0
+44515,THINKMD,2016,1,0,0,0,private,,,,,,,,,,0.0
+44525,Third Eye Health,2019,0,0,0,0,private,,,,,,,,,,
+44530,Third Pole,2021,1,0,0,5,private,,,,,16.029487942763122,1.0,4.0,1.0,,69.0
+44544,Threatcare,2019,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+44551,Threater,2019,0,0,0,0,private,,,,,,,,,,
+44573,Tibit Communications,2019,0,1,1,1,acquired,2022.0,,,,,,,,,
+44587,Tinkergarten,2019,0,0,0,0,acquired,2023.0,,,,,,,,,
+44604,Tock,2019,0,0,0,0,acquired,2024.0,23000000.0,,,,,,,,
+44608,Token,2023,1,0,0,0,private,,,,,,,,,,0.0
+44651,Tourmo,2022,1,0,0,0,private,,,6699999.8,,,,,,,0.0
+44670,Tractor Beverage Company,2020,1,0,0,0,private,,,,,,,,,,0.0
+44698,Treace Medical Concepts,2020,1,0,0,19,public,2021.0,64817001.00000001,,,15.870986779197937,0.0,19.0,0.0,1.0,32.0
+44706,Trefoil Therapeutics,2019,0,0,0,0,private,,,,,,,,,,
+44758,True Botanicals,2019,0,0,0,0,private,,,,50000000.0,,,,,,
+44765,Trueface,2019,0,0,0,0,acquired,2021.0,,,,,,,,,
+44775,Trumid,2019,0,0,0,0,private,,,,,,,,,,
+44816,Turnkey Lender,2022,1,0,0,0,private,,,,,,,,,,0.0
+44834,TVision,2019,1,0,0,2,private,,,6000000.0,,16.680392913815425,,,,3.0,0.0
+44863,tZERO,2019,1,0,0,8,defunct,2023.0,,,,20.264200652095187,,,,1.7142857142857142,2.0
+44889,UCM Digital Health,2022,1,0,0,0,private,,,,,,,,,,0.0
+44900,Unacast,2019,1,0,0,0,private,,2000000.0,,,,,,,,0.0
+44917,Unchained Labs,2019,1,0,0,3,acquired,2021.0,,75000000.0,,17.32692664958498,2.0,1.0,2.0,5.5,1.0
+44941,Universal Standard,2019,0,0,0,0,private,,,,,,,,,,
+44973,Uplift,2017,1,0,0,1,acquired,2023.0,,,,18.50076378591748,,,,1.0,0.0
+44999,UrbanStems,2016,1,0,0,0,private,,,12800000.0,12800000.0,,,,,,0.0
+45038,Vade Nutrition,2019,0,0,0,0,private,,,,,,,,,,
+45042,Valid8 Financial,2022,1,0,0,0,private,,,,,,,,,,0.0
+45052,Valtari Bio,2019,1,0,0,0,private,,,,,,,,,,0.0
+45056,Variantyx,2022,1,0,0,0,private,,,,,,,,,,0.0
+45100,Veem,2019,1,0,0,1,private,,,,,16.204737303150054,1.0,0.0,1.0,,1.0
+45148,Veritas Genetics,2018,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+45199,Victory Hemp Foods,2019,1,0,0,0,private,,,159578.99,,,,,,,0.0
+45213,VideoAmp,2021,1,0,0,2,private,,,113700000.0,,19.357162963079432,1.0,1.0,1.0,2.0,11.0
+45226,VidMob,2019,1,0,0,0,private,,,2599999.9,,,,,,,0.0
+45244,Viral Launch,2019,0,0,0,0,private,,,,,,,,,,
+45249,Virgin Hyperloop,2019,1,0,0,16,private,,,,,17.96152517572153,3.0,13.0,2.0,3.0,6.0
+45259,Virgin Voyages,2019,0,0,0,0,private,,,,,,,,,,
+45263,Virta Health,2019,0,0,0,0,private,,,,,,,,,,
+45299,Vivace Therapeutics,2019,0,1,2,2,private,,,,,,,,,,
+45358,Voxel8,2021,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+45390,Vytalize Health,2022,1,0,0,0,private,,1500000000.0,,3000000000.0,,,,,,0.0
+45406,Waggl,2017,1,0,0,0,acquired,2021.0,,4230000.0,,,,,,,0.0
+45429,Wash·LB,2019,0,0,0,0,private,,,,,,,,,,
+45496,Whatfix,2019,1,0,0,5,private,,9777746.2,9394635.2,,17.238781446814368,,,,3.2,1.0
+45538,Willo,2019,0,1,9,9,private,,,,,,,,,,
+45558,Wise Systems,2019,0,0,0,0,private,,,,,,,,,,
+45599,Workrise,2018,1,0,0,0,private,,,900000000.0,,,,,,,0.0
+45607,Wove,2022,1,0,0,0,acquired,2019.0,,,,,,,,,0.0
+45615,Wunder,2018,1,0,0,0,private,,,,,,,,,,0.0
+45626,Wynd Technologies,2019,1,0,0,0,private,,,,,,,,,,0.0
+45641,X4 Pharmaceuticals,2016,1,0,0,7,public,2017.0,,0.0,0.0,19.505257471133884,,,,3.7142857142857144,13.0
+45691,Yellowdig,2020,1,0,0,0,private,,,,,,,,,,0.0
+45727,Zan Compute,2021,1,0,0,0,private,,,,,,,,,,0.0
+45735,Zealot Networks,2015,1,0,0,0,defunct,,,,,,,,,,0.0
+45793,Zerigo Health,2019,0,1,3,3,private,,,,,,,,,,
+45813,Zest Tea,2015,1,0,0,0,private,,,,,,,,,,0.0
+45827,zGlue,2019,0,0,0,0,defunct,2020.0,,,,,,,,,
+45847,Zoox,2019,0,1,398,398,acquired,2020.0,,,,,,,,,
+45874,@hotel,2022,1,0,0,0,private,,,,,,,,,,0.0
+45894,2ULaundry,2020,1,0,0,0,private,,,,,,,,,,0.0
+45903,3AM Innovations,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+45936,7 Generation Games,2020,1,0,0,0,private,,,,,,,,,,0.0
+45981,AAVogen,2020,0,0,0,0,private,,,,,,,,,,
+45999,Ablacon,2019,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+46007,Abroad,2020,1,0,0,0,private,,,,1000000.0,,,,,,0.0
+46022,Access Vascular,2020,0,1,1,1,private,,,9000000.0,,,,,,,
+46050,ADAPDIX,2020,0,1,1,1,private,,,,,,,,,,
+46055,ADAY,2020,0,0,0,0,private,,,,,,,,,,
+46073,Admiral,2021,1,0,0,0,private,,1400000.0,2900000.1,3500000.0,,0.0,0.0,0.0,,0.0
+46078,Adranos Energetics,2019,1,0,0,0,acquired,2023.0,,,,,,,,,0.0
+46096,Aella,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+46108,Aerones,2022,1,0,0,0,private,,,,,,,,,,0.0
+46143,Agility Robotics,2020,0,1,2,2,private,,,,,,,,,,
+46180,Aker Technologies,2020,0,1,1,1,acquired,2023.0,,,,,,,,,
+46225,Aligned Energy,2019,1,0,0,0,private,,,,,,,,,,0.0
+46236,Allergy Amulet,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+46264,Alpaca,2020,0,1,1,1,private,,,,,,,,,,
+46315,Alto Pharmacy,2021,1,0,0,0,private,,189000000.0,,750000000.0,,,,,,0.0
+46326,ALX Oncology,2020,1,0,0,3,public,2020.0,,0.0,0.0,20.36861313358729,0.0,3.0,0.0,5.0,8.0
+46342,American Provenance,2019,1,0,0,0,private,,769270.0,723356.01,,,,,,,0.0
+46403,Antheia,2022,1,0,0,0,private,,,,,,,,,,0.0
+46412,Anyplace,2023,1,0,0,0,private,,,,,,,,,,0.0
+46430,Apollo.io,2020,0,0,0,0,private,,,,,,,,,,
+46453,AppViewX,2020,0,1,1,1,private,,,,,,,,,,
+46479,Arborsense,2020,0,0,0,0,private,,,,,,,,,,
+46484,Arcellx,2020,0,1,3,3,public,2022.0,0.0,0.0,47171001.0,,,,,,
+46516,ARIZ Precision Medicine,2020,1,0,0,1,private,,,,,16.88579132209355,,,,3.0,0.0
+46539,Arovia,2020,0,1,1,1,private,,,,,,,,,,
+46564,Art Brand Studios,2018,1,0,0,0,private,,,,,,,,,,0.0
+46583,Ascend Elements,2022,1,0,0,0,private,,,,,,,,,,0.0
+46616,Aspinity,2020,1,0,0,4,private,,,,,16.517689214825175,4.0,0.0,3.0,2.0,0.0
+46631,Astranis,2020,1,0,0,2,private,,3900000.1,10400000.0,20200001.0,17.863410117790764,,,,2.0,2.0
+46666,Attribytes,2020,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+46746,Ayar Labs,2019,1,0,0,41,private,,,,,19.366694815952233,37.0,4.0,3.0,1.75,8.0
+46758,b.well Connected Health,2018,1,0,0,0,private,,,,,,,,,,0.0
+46767,b8ta,2016,1,0,0,0,defunct,,,,,,,,,,0.0
+46777,Babyation,2020,0,0,0,0,private,,,,,,,,,,
+46800,BaishanCloud,2020,0,0,0,0,private,,,316279970.0,306501040.0,,,,,,
+46808,BallotReady,2020,0,0,0,0,private,,,,,,,,,,
+46835,BankVault Cybersecurity,2020,0,0,0,0,private,,,,,,,,,,
+46853,Banzai,2021,1,0,0,0,acquired,,,,,,0.0,0.0,0.0,,0.0
+46894,BayoTech,2020,1,0,0,5,private,,,,,13.318009868281568,5.0,0.0,3.0,5.0,2.0
+46904,Beachly Brands,2021,1,0,0,0,private,,,,,,,,,,0.0
+46964,Better Therapeutics,2021,1,0,0,0,public,2021.0,0.0,0.0,,,,,,,0.0
+47072,Black Buffalo,2020,0,0,0,0,private,,,,,,,,,,
+47077,Black Label,2019,1,0,0,0,private,,,,,,,,,,0.0
+47085,Blackthorn,2022,1,0,0,0,private,,,,,,,,,,0.0
+47095,Blendid,2020,1,0,0,0,private,,276270.0,1000000.0,,,,,,,0.0
+47141,Blue Vigil,2020,0,1,1,1,private,,,,,,,,,,
+47163,BLUEWAVE Technologies,2020,0,1,2,2,private,,,,,,,,,,
+47180,Bolt Biotherapeutics,2020,0,1,3,3,public,2021.0,,,,,,,,,
+47207,Booster,2015,1,0,0,1,private,,,,,22.989268806937982,,,,3.0,0.0
+47219,Boragen,2019,1,0,0,0,defunct,2021.0,,,,,,,,,0.0
+47223,Borrow,2017,1,0,0,0,private,,141694.99,184557.01,,,,,,,0.0
+47259,Bowery Farming,2022,1,0,0,0,private,,,,,,,,,,0.0
+47281,BrainCheck,2015,1,0,0,0,private,,,,,,,,,,0.0
+47293,BrainSpec,2020,1,0,0,0,private,,,,,,,,,,0.0
+47307,Branch,2021,1,0,0,0,defunct,,,,,,,,,,0.0
+47313,Branch International,2017,1,0,0,0,private,,,,,,,,,,0.0
+47394,Brilliant,2020,0,1,14,14,private,,,,,,,,,,
+47402,Broadlume,2020,1,0,0,0,private,,22000000.0,,,,,,,,0.0
+47426,Bulk MRO Industrial Supply,2020,1,0,0,0,private,,,,,,,,,,0.0
+47447,Burlywood,2022,1,0,0,0,private,,,,,,,,,,0.0
+47477,C4 Therapeutics,2020,1,0,0,10,public,2020.0,33805000.0,,20756001.0,17.7160452718735,,,,3.0,37.0
+47485,Cafe X Technologies,2020,1,0,0,0,private,,,,,,,,,,0.0
+47516,Cambridge Blockchain,2018,1,0,0,4,acquired,2020.0,,,,19.135275449577264,1.0,3.0,1.0,2.25,2.0
+47525,Camp Native,2015,1,0,0,0,private,,,,,,,,,,0.0
+47533,Campusknot ,2020,0,0,0,0,private,,,,,,,,,,
+47550,Canvs AI,2022,1,0,0,0,private,,,,4000000.0,,,,,,0.0
+47568,Captiv8,2020,0,0,0,0,private,,,,,,,,,,
+47637,CarServ,2020,0,0,0,0,private,,,,,,,,,,
+47646,CartHook,2020,1,0,0,0,private,,,,,,,,,,0.0
+47667,Castle Creek Biosciences,2020,1,0,0,0,private,,,,,,,,,,0.0
+47690,CB Therapeutics,2020,0,1,1,1,private,,,,,,,,,,
+47706,CEIPAL,2022,1,0,0,0,private,,,,,,,,,,0.0
+47760,Chime Solutions,2020,0,0,0,0,acquired,2023.0,,100000000.0,,,,,,,
+47792,CIBO Technologies,2020,0,1,2,2,private,,,,,,,,,,
+47822,Circuit Clinical,2019,1,0,0,0,private,,,,,,,,,,0.0
+47854,Civic Eagle,2018,1,0,0,7,private,,,,,18.684314554292712,,,,1.5714285714285714,3.0
+47898,CleanCapital,2022,1,0,0,0,private,,,,,,,,,,0.0
+47921,ClearGov,2020,1,0,0,0,private,,,,,,,,,,0.0
+47947,CLIO Snacks,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+47965,CloudLex,2020,0,0,0,0,private,,,,,,,,,,
+48082,Common Living,2020,0,0,0,0,acquired,2023.0,,,,,,,,,
+48090,CommSafe AI,2022,1,0,0,0,private,,,,,,,,,,0.0
+48117,Confident LIMS,2020,0,0,0,0,private,,1300000.0,,3000000.0,,,,,,
+48127,Connectbase,2019,1,0,0,0,private,,,,,,,,,,0.0
+48181,Convoy,2022,1,0,0,0,acquired,2025.0,,,,,,,,,0.0
+48218,Cora,2020,0,0,0,0,private,,,,,,,,,,
+48243,Counterpointe Sustainable Real Estate,2023,1,0,0,0,private,,,,,,,,,,0.0
+48249,CourseKey,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+48278,Craftable,2020,0,0,0,0,private,,,,,,,,,,
+48290,Crazybaby,2016,1,0,0,0,private,,,,,,,,,,0.0
+48304,Credit Key,2022,1,0,0,0,private,,,,,,,,,,0.0
+48362,Cuebiq,2021,1,0,0,0,private,,,,,,,,,,0.0
+48382,Curacity,2020,0,0,0,0,private,,,,,,,,,,
+48403,Current Health,2020,1,0,0,1,acquired,2021.0,,8011348.699999999,,16.931159455897724,,,,1.0,0.0
+48415,Curricula,2020,0,0,0,0,acquired,2022.0,,,,,,,,,
+48438,Cybrary,2020,0,0,0,0,private,,,,,,,,,,
+48485,DailyPay,2021,1,0,0,0,private,,,,,,,,,,0.0
+48513,Data.world,2020,0,1,20,20,private,,,,,,,,,,
+48528,Datarails,2020,0,0,0,0,private,,,,,,,,,,
+48584,Decibel Therapeutics,2020,0,1,1,1,acquired,,,,0.0,,,,,,
+48626,DemandJump,2019,1,0,0,0,private,,,773000.0,1397000.0,,,,,,0.0
+48639,Desktop Metal,2020,1,0,0,9,public,2020.0,,,206633000.0,19.376216797796122,0.0,9.0,0.0,1.7142857142857142,9.0
+48719,DNSFilter,2018,1,0,0,0,private,,,,870000.0,,,,,,0.0
+48743,Doky,2017,1,0,0,0,private,,,,,,,,,,0.0
+48747,Dominion Aesthetic Technologies,2020,0,1,1,1,private,,,,,,,,,,
+48756,Donut Media,2020,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+48769,Dor,2020,0,0,0,0,acquired,2021.0,,,,,,,,,
+48814,Drip Capital,2018,1,0,0,0,private,,,,,,,,,,0.0
+48836,DRIVIN,2016,1,0,0,0,acquired,2017.0,,,,,,,,,0.0
+48862,Duelit,2020,0,0,0,0,private,,,,,,,,,,
+48896,EchoNous,2021,1,0,0,1,private,,,,,18.8540017481194,0.0,1.0,0.0,,0.0
+48903,Ecolectro,2020,1,0,0,0,private,,,,,,,,,,0.0
+48925,Educative,2020,0,0,0,0,private,,,,,,,,,,
+48959,Elemental Machines,2020,0,1,2,2,private,,,,,,,,,,
+48970,Elevate K-12,2020,0,0,0,0,private,,,,,,,,,,
+48984,Ellipsis Education,2023,1,0,0,0,private,,3000000.0,,,,,,,,0.0
+49003,Elucidata,2020,1,0,0,0,private,,,,,,,,,,0.0
+49009,eLum Technologies,2019,1,0,0,2,private,,,,,18.779187895331034,,,,4.0,4.0
+49036,Embue,2023,1,0,0,0,private,,,,,,,,,,0.0
+49047,Emmersion,2020,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+49064,ENB Therapeutics,2020,0,1,1,1,private,,,,,,,,,,
+49070,EncepHeal Therapeutics,2021,1,0,0,0,private,,,,,,,,,,0.0
+49073,Encore Dermatology,2019,1,0,0,1,defunct,2021.0,,,,19.7312374304764,,,,,1.0
+49113,Entasis Therapeutics,2020,1,0,0,0,acquired,,,,,,0.0,0.0,0.0,,0.0
+49131,Envelope City,2020,1,0,0,0,private,,,,,,,,,,0.0
+49175,Epsilyte,2021,1,0,0,0,private,,,,,,,,,,0.0
+49182,EquipmentShare,2021,1,0,0,0,private,,1700000000.0,2300000000.0,,,,,,,0.0
+49226,Eta Compute,2020,1,0,0,1,private,,,,,16.647320435138226,0.0,1.0,0.0,,0.0
+49232,Ethic,2020,0,0,0,0,private,,,,,,,,,,
+49241,ETON Solutions,2018,1,0,0,0,private,,,,,,,,,,0.0
+49260,EventHub,2020,0,0,0,0,private,,,,,,,,,,
+49265,Evercast,2020,0,0,0,0,private,,,,,,,,,,
+49300,Everykey,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+49324,Excision BioTherapeutics,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+49356,Expeto,2020,0,0,0,0,private,,,,,,,,,,
+49383,Eyrus,2020,0,0,0,0,private,,1500000.0,,,,,,,,
+49395,Fabric Technologies,2020,0,0,0,0,acquired,2022.0,,,,,,,,,
+49400,Fabric8Labs,2020,1,0,0,18,private,,,,,19.254135985091988,7.0,11.0,3.0,5.705882352941177,103.0
+49440,FarmaceuticalRx,2021,1,0,0,0,private,,,,,,,,,,0.0
+49502,Fetcher,2022,1,0,0,0,private,,,,,,,,,,0.0
+49601,Flip CX,2019,1,0,0,0,private,,,,,,,,,,0.0
+49680,FoodMaven,2020,1,0,0,1,private,,,,,22.76767723426541,,,,1.0,1.0
+49706,Forest Devices,2020,0,1,3,3,private,,,,,,,,,,
+49735,Fortress Information Security,2020,0,0,0,0,private,,,,,,,,,,
+49745,ForwardLane,2020,0,0,0,0,private,,,,,,,,,,
+49813,Friday Health Plans,2021,1,0,0,0,private,,2000000000.0,,,,,,,,0.0
+49828,Front Range Biosciences,2020,1,0,0,1,private,,,,,20.64120605856931,,,,2.0,0.0
+49843,Fuigo,2015,1,0,0,0,private,,,,,,,,,,0.0
+49846,Full Harvest,2020,0,0,0,0,private,,,,,,,,,,
+49864,Function of Beauty,2020,0,0,0,0,private,,,,,,,,,,
+49874,Funding U,2018,1,0,0,0,private,,,,,,,,,,0.0
+49927,GAN Integrity,2020,0,0,0,0,acquired,2023.0,,,,,,,,,
+49931,Gas Pos,2020,0,0,0,0,private,,,,,,,,,,
+49949,Geenee,2023,1,0,0,0,private,,,,,,,,,,0.0
+49975,Geneoscopy,2020,0,1,1,1,private,,,,,,,,,,
+49993,Gennev,2020,0,0,0,0,acquired,2022.0,,,,,,,,,
+50067,Globality,2020,0,0,0,0,private,,,,,,,,,,
+50111,Goldfinch Biopharma,2020,0,0,0,0,private,,,,,,,,,,
+50138,Goodwell,2020,0,0,0,0,private,,,,,,,,,,
+50144,Gorgias,2020,0,0,0,0,private,,,,100000000.0,,,,,,
+50210,Grid Raster,2018,1,0,0,1,private,,,,768000.01,18.47423055135952,,,,1.0,0.0
+50233,Group14 Technologies,2020,0,1,32,32,private,,,,,,,,,,
+50259,Gryppers,2018,1,0,0,2,private,,,,,16.75839705352486,,,,,0.0
+50264,Guideline,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+50341,Haus,2019,1,0,0,0,private,,,,,,,,,,0.0
+50369,Hazel Technologies,2020,0,0,0,0,private,,,,,,,,,,
+50417,Healthy Roster,2020,0,0,0,0,private,,2000000.0,2200000.0,,,,,,,
+50492,Heyday,2019,1,0,0,0,private,,,,,,,,,,0.0
+50524,Hip eCommerce,2020,0,0,0,0,private,,,,,,,,,,
+50589,Homology Medicines,2020,0,1,3,3,acquired,,,,1156000.0,,,,,,
+50608,Houwzer,2022,1,0,0,0,private,,,,,,,,,,0.0
+50653,Huntress,2022,1,0,0,1,private,,100000000.0,,120000000.0,20.749772882683715,,,,2.0,1.0
+50692,Hyr,2020,0,0,0,0,private,,,,,,,,,,
+50750,Imagry,2020,0,0,0,0,private,,,,,,,,,,
+50763,IMGN Media,2020,0,0,0,0,acquired,2024.0,,,,,,,,,
+50809,Imperative Care,2021,1,0,0,4,private,,,,,16.99140716705922,0.0,4.0,0.0,,36.0
+50907,Inscripta,2020,1,0,0,59,private,,,,,18.090511479456943,7.0,52.0,2.0,5.964285714285714,562.0
+50924,InsightFinder,2021,1,0,0,0,private,,,,,,,,,,0.0
+50946,Instant Financial,2020,0,0,0,0,private,,,,,,,,,,
+50985,IntelinAir,2016,1,0,0,2,private,,,,,17.851427319531165,,,,1.5,0.0
+51051,ION Storage Systems,2020,0,0,0,0,private,,,,,,,,,,
+51056,IonQ,2020,0,1,32,32,public,2021.0,,,,,,,,,
+51066,iotaMotion,2019,1,0,0,5,private,,,,,18.14514626119208,,,,,4.0
+51103,Iris Automation,2020,1,0,0,1,private,,,,,21.136458608497573,0.0,1.0,0.0,4.0,0.0
+51185,Jobcase,2020,1,0,0,0,private,,,,,,,,,,0.0
+51227,Jumpstart,2017,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+51233,JUUL,2019,1,0,0,28,private,,,,,18.591286670393895,2.0,26.0,1.0,5.4375,96.0
+51259,Kallyope,2020,1,0,0,4,private,,,,,20.90482016865066,,,,1.75,1.0
+51298,Katerra,2020,1,0,0,0,defunct,2021.0,,,,,0.0,0.0,0.0,,0.0
+51340,Keyo,2019,1,0,0,0,private,,,,,,,,,,0.0
+51351,KIDBOX,2018,1,0,0,0,private,,,,,,,,,,0.0
+51405,Kneron,2020,0,0,0,0,private,,25000000.0,,,,,,,,
+51417,Knock,2022,1,0,0,0,private,,,,,,,,,,0.0
+51473,Krystal Biotech,2020,1,0,0,4,public,2017.0,,,0.0,19.697224125247438,0.0,4.0,0.0,3.5,24.0
+51534,Laird Superfood,2020,1,0,0,0,public,2020.0,,38247494.0,,,,,,,0.0
+51540,Landed,2020,0,0,0,0,private,,,,,,,,,,
+51550,Landsdowne,2020,0,0,0,0,private,,,,,,,,,,
+51568,Lazurite,2021,1,0,0,0,private,,,,,,,,,,0.0
+51580,LeadIQ,2020,0,1,1,1,private,,,,,,,,,,
+51596,LeagueSide,2020,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+51602,LeanFM Technologies,2020,0,0,0,0,private,,,,,,,,,,
+51607,LeanLaw,2022,1,0,0,0,private,,,,,,,,,,0.0
+51636,Leeward Renewable Energy,2022,1,0,0,0,acquired,2018.0,,,,,,,,,0.0
+51649,Lemonade,2020,1,0,0,0,public,2021.0,,,,,,,,,0.0
+51659,Lendbuzz,2018,1,0,0,3,private,,,,41021999.0,19.360960266582413,,,,1.0,0.0
+51689,LetsGetChecked,2023,1,0,0,0,private,,10724030.0,,,,,,,,0.0
+51711,LexCheck,2022,1,0,0,0,private,,,,,,,,,,0.0
+51716,Lia,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+51729,Lifelink Systems,2022,1,0,0,0,private,,,,,,,,,,0.0
+51790,Little Leaf Farms,2021,1,0,0,0,private,,,100000000.0,,,,,,,0.0
+51800,LiveBy,2018,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+51838,Locus Biosciences,2016,1,0,0,0,private,,,,8100000.4,,,,,,0.0
+51853,LogicGate,2020,1,0,0,0,private,,,,,,,,,,0.0
+51867,Lola's Fine Hot Sauce,2021,1,0,0,0,private,,,,,,,,,,0.0
+51903,Losant,2020,0,0,0,0,private,,,,,,,,,,
+51914,Lottery.com,2021,1,0,0,0,public,2021.0,6779057.0,7018818.9,6174693.1,,,,,,0.0
+51944,Luma Health,2020,0,0,0,0,private,,,,,,,,,,
+51953,Luminopia,2020,0,0,0,0,private,,,,,,,,,,
+52006,Macro,2017,1,0,0,0,private,,,,,,,,,,0.0
+52059,Map My Customers,2020,0,0,0,0,private,,,,,,,,,,
+52090,MarketMuse,2018,1,0,0,1,private,,5400000.1,,,17.029750956599297,,,,2.0,0.0
+52119,Massive Bio,2020,0,0,0,0,private,,,,,,,,,,
+52125,Mast Reforestation,2023,1,0,0,0,private,,,,,,,,,,0.0
+52162,Maxwell Financial Labs,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+52172,Mazen Animal Health,2021,1,0,0,0,private,,,,,,,,,,0.0
+52210,Medicom Technologies,2020,1,0,0,3,private,,,,,21.568878841462592,3.0,0.0,1.0,1.0,0.0
+52228,MedShift,2023,1,0,0,0,private,,,,,,,,,,0.0
+52246,membersy,2020,1,0,0,0,private,,,,,,,,,,0.0
+52293,Metacrine,2019,1,0,0,2,acquired,,0.0,,0.0,20.097332649770948,0.0,2.0,0.0,1.0,2.0
+52315,Mezmo,2020,0,1,4,4,private,,,,,,,,,,
+52323,MicroEra Power,2020,1,0,0,1,private,,,,,17.63010444400323,,,,9.0,0.0
+52373,Misen,2020,1,0,0,0,private,,7500000.0,,,,,,,,0.0
+52388,Mixtroz,2020,0,0,0,0,private,,,,,,,,,,
+52411,Mobile Price Card,2019,1,0,0,0,private,,,,,,,,,,0.0
+52423,Mobilion Systems,2020,1,0,0,4,private,,,,,18.80344267597969,,,,2.0,18.0
+52478,Monument,2016,1,0,0,2,private,,,,,18.91422551179135,,,,1.0,0.0
+52520,Motivo,2019,1,0,0,3,private,,,,,15.820524525275983,0.0,3.0,0.0,1.0,0.0
+52532,Mozaic,2020,0,0,0,0,private,,,,,,,,,,
+52544,MSUITE,2020,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+52568,Mutable,2020,0,0,0,0,private,,,,,,,,,,
+52584,Mycroft,2018,1,0,0,0,private,,,,,,,,,,0.0
+52632,Nanoview Biosciences,2022,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+52657,Natural Fiber Welding,2021,1,0,0,4,private,,,,,18.258388499984175,3.0,1.0,1.0,,6.0
+52674,Navan,2020,1,0,0,1,private,,68900002.0,300000000.0,,21.039109686989523,,,,3.0,0.0
+52724,NetObjex,2020,1,0,0,0,private,,467693.45,905349.97,,,,,,,0.0
+52737,Netradyne,2022,1,0,0,1,private,,,217122960.0,,16.868325769569044,,,,,0.0
+52762,NeuroVasc Technologies,2016,1,0,0,5,private,,,,,16.76225234701949,,,,1.0,0.0
+52771,Nevakar,2018,1,0,0,15,private,,,,,20.939286129119928,0.0,15.0,0.0,1.2727272727272727,10.0
+52777,New Wave Foods,2020,1,0,0,0,private,,,,,,,,,,0.0
+52811,NewStore,2020,0,0,0,0,private,,,,,,,,,,
+52818,Nexar,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+52901,Nomad Health,2021,1,0,0,0,private,,,,,,,,,,0.0
+52920,Notarize,2020,0,0,0,0,private,,,,,,,,,,
+52954,Novoloop,2019,1,0,0,2,private,,,,,18.899948734099418,,,,,2.0
+52981,Nowsta,2015,1,0,0,0,private,,,,,,,,,,0.0
+53001,nTopology,2020,0,0,0,0,private,,,,,,,,,,
+53041,Nurx,2019,1,0,0,0,acquired,2022.0,150000000.0,,,,,,,,0.0
+53049,NYMBUS,2021,1,0,0,1,private,,,,,17.756663648162256,,,,9.0,0.0
+53059,O2 RegenTech,2020,0,0,0,0,private,,,0.0,0.0,,,,,,
+53084,Obsidian Therapeutics,2020,0,1,2,2,private,,,,,,,,,,
+53086,ObvioHealth,2022,1,0,0,0,private,,,,,,,,,,0.0
+53093,OccamzRazor,2020,1,0,0,0,private,,,,,,,,,,0.0
+53100,OccasionGenius,2020,0,0,0,0,private,,,,,,,,,,
+53126,Offerpad,2019,1,0,0,0,public,2021.0,,,,,,,,,0.0
+53134,OhmniLabs,2020,0,0,0,0,private,,3556498.0,3219714.0,,,,,,,
+53140,OJO,2020,1,0,0,1,private,,,,,18.5093971503623,0.0,1.0,0.0,1.0,0.0
+53168,Once Upon a Farm,2020,1,0,0,0,private,,,,,,,,,,0.0
+53266,Opkey,2020,0,0,0,0,private,,,,,,,,,,
+53330,Orionis Biosciences,2017,1,0,0,8,private,,,,,19.58148385236477,,,,2.857142857142857,9.0
+53338,Orizon Aerostructures,2020,0,0,0,0,private,,,,,,,,,,
+53368,Ourly,2019,1,0,0,0,defunct,2020.0,,,,,,,,,0.0
+53374,Ouster,2019,1,0,0,18,public,2023.0,18903999.0,,,18.64140419463435,0.0,18.0,0.0,7.846153846153846,140.0
+53387,OutMatch,2020,0,0,0,0,acquired,2021.0,,,,,,,,,
+53397,Outsite,2020,0,0,0,0,private,,2660517.0,1786738.0,,,,,,,
+53450,Palvella Therapeutics,2020,0,1,1,1,private,,,0.0,,,,,,,
+53477,Paradromics,2022,1,0,0,0,private,,,,,,,,,,0.0
+53489,Paravel,2019,1,0,0,0,private,,,,,,,,,,0.0
+53512,Parknav,2020,1,0,0,0,private,,172360.0,500000.0,,,,,,,0.0
+53523,Parley Pro,2020,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+53527,Paro,2018,1,0,0,1,private,,,,,16.340873766745617,,,,4.0,0.0
+53582,Paubox,2020,0,1,4,4,private,,,,,,,,,,
+53592,PayJoy,2015,1,0,0,0,private,,,,,,,,,,0.0
+53680,PetPlate,2021,1,0,0,0,private,,,,,,,,,,0.0
+53711,Phlur,2016,1,0,0,0,private,,,,,,,,,,0.0
+53778,Pionyr Immunotherapeutics,2020,1,0,0,1,acquired,2023.0,,,,17.942718690191438,0.0,1.0,0.0,2.0,0.0
+53785,PivotCX.io,2023,1,0,0,0,private,,,,,,,,,,0.0
+53810,Platform Science,2020,1,0,0,20,private,,,,116600000.0,17.04895179229256,1.0,19.0,1.0,6.866666666666666,178.0
+53835,Plum Research,2020,0,0,0,0,private,,,,,,,,,,
+53837,Plume Design,2020,1,0,0,16,private,,,,,17.304076269328768,0.0,16.0,0.0,2.066666666666667,43.0
+53875,Polly,2020,0,0,0,0,private,,7100000.0,,,,,,,,
+53934,Prealize Health,2018,1,0,0,0,private,,,,,,,,,,0.0
+53958,Preteckt,2020,1,0,0,0,private,,,,,,,,,,0.0
+53975,Primary,2020,0,0,0,0,private,,,,,,,,,,
+54098,Puls,2020,0,0,0,0,private,,,,,,,,,,
+54120,PureCycle Technologies,2020,1,0,0,0,public,2022.0,0.0,,,,,,,,0.0
+54167,QL Gaming Group,2020,0,0,0,0,acquired,2020.0,,,,,,,,,
+54217,Quantum Metric,2020,1,0,0,13,private,,,,,17.579573225516615,2.0,11.0,1.0,2.0,30.0
+54272,QuVa Pharma,2018,1,0,0,3,private,,,,,16.592340738586856,,,,1.0,1.0
+54278,Qwil,2018,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+54323,Rapchat,2020,0,0,0,0,private,,,,,,,,,,
+54373,ReadySet Surgical,2020,1,0,0,0,private,,,,,,,,,,0.0
+54413,Recruiter.com,2022,1,0,0,0,public,2021.0,,,,,,,,,0.0
+54430,Reelgood,2022,1,0,0,0,private,,,,,,,,,,0.0
+54507,Republic Restoratives,2015,1,0,0,0,private,,,,,,,,,,0.0
+54527,Respirix,2019,1,0,0,0,private,,,,,,,,,,0.0
+54555,Reveal Mobile,2016,1,0,0,0,private,,,,,,,,,,0.0
+54580,Revolution Gelato,2020,1,0,0,0,defunct,2023.0,,,,,,,,,0.0
+54621,Ricult ,2020,0,0,0,0,private,,,,,,,,,,
+54668,RoadSync,2020,0,0,0,0,private,,,,,,,,,,
+54680,Roami,2023,1,0,0,0,private,,,,,,,,,,0.0
+54730,Root Insurance,2020,1,0,0,0,public,2020.0,259799990.0,,295500000.0,,,,,,0.0
+54748,Route 92 Medical,2021,1,0,0,7,private,,,,,18.158947469229666,0.0,7.0,0.0,,42.0
+54756,Roya.com,2017,1,0,0,0,private,,,,,,,,,,0.0
+54768,Ruby Love,2018,1,0,0,0,private,,10000000.0,,,,,,,,0.0
+54783,RYSE,2018,1,0,0,3,private,,1271111.5,,1129252.1,17.936122962307337,,,,,1.0
+54802,Safely You,2023,1,0,0,0,private,,,,,,,,,,0.0
+54835,Samsara,2020,1,0,0,0,public,2021.0,249905000.0,378527010.0,,,0.0,0.0,0.0,,0.0
+54842,Sana Health,2020,1,0,0,1,private,,150999.99,296000.0,,19.12924685045086,0.0,1.0,0.0,,0.0
+54885,Sayari Labs,2022,1,0,0,0,private,,,,,,,,,,0.0
+54892,SB Energy,2023,1,0,0,0,private,,,,,,,,,,0.0
+54957,Securrency,2018,1,0,0,6,acquired,2023.0,,,,18.613034681441395,,,,1.8,0.0
+54967,SegAna,2020,0,0,0,0,private,,,,,,,,,,
+54978,Self Financial,2020,0,1,4,4,private,,,,,,,,,,
+55013,Sensatek Propulsion Technology,2020,0,0,0,0,private,,,,,,,,,,
+55057,Sestra Systems,2020,0,1,2,2,private,,,,,,,,,,
+55096,Shield AI,2021,1,0,0,0,private,,,165000000.0,267000000.0,,,,,,0.0
+55118,Shippabo,2021,1,0,0,0,private,,,,,,,,,,0.0
+55149,Shoulder Innovations,2023,1,0,0,1,private,,31622999.0,37324001.0,,15.684520709859733,,,,,14.0
+55156,ShrubBucket,2020,0,0,0,0,private,,,,,,,,,,
+55170,Sia,2020,0,0,0,0,private,,,,,,,,,,
+55179,SiFive,2020,0,1,17,17,private,,42500000.0,,,,,,,,
+55185,Sift Media,2020,1,0,0,0,private,,,,,,,,,,0.0
+55206,Signallamp Health,2020,0,0,0,0,private,,,,,,,,,,
+55258,Simply NUC,2020,0,1,1,1,private,,,,,,,,,,
+55289,Sixup,2016,1,0,0,0,private,,,,,,,,,,0.0
+55323,SkySafe,2020,0,0,0,0,private,,,,,,,,,,
+55373,SmarterX,2020,1,0,0,0,private,,,,,,,,,,0.0
+55378,SmartLabs,2020,0,0,0,0,private,,,,,,,,,,
+55403,Snappy,2020,0,0,0,0,private,,,,30000000.0,,,,,,
+55469,Sonde Health,2019,1,0,0,2,private,,,,,20.225494615847033,,,,1.0,2.0
+55488,South 8 Technologies,2020,1,0,0,3,private,,,,,17.408855524405542,,,,,0.0
+55538,Spine BioPharma,2023,1,0,0,0,private,,,,,,,,,,0.0
+55558,Spinnaker Insurance Company,2023,1,0,0,0,acquired,2020.0,,,,,,,,,0.0
+55563,Splash Financial,2020,0,0,0,0,private,,,,,,,,,,
+55582,Spoonshot,2020,0,0,0,0,acquired,2023.0,,,,,,,,,
+55632,Squire,2020,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+55726,Stem Disintermedia,2023,1,0,0,0,private,,,,,,,,,,0.0
+55746,Stilt,2020,1,0,0,0,acquired,2022.0,,,,,,,,,0.0
+55787,StormSensor,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+55794,StoryFit,2020,0,0,0,0,private,,,,,,,,,,
+55898,Sunwealth Power,2018,1,0,0,0,private,,,,,,,,,,0.0
+55916,SupplyAI,2020,0,0,0,0,defunct,,,,,,,,,,
+55922,Sure,2020,0,1,1,1,private,,,,,,,,,,
+55954,SweetBio,2020,0,0,0,0,private,,,,,,,,,,
+55981,SwineTech,2018,1,0,0,1,private,,,,,17.146805307306078,,,,2.0,1.0
+56125,TearClear,2020,1,0,0,3,private,,,,,19.511092351328458,,,,5.0,3.0
+56131,Teckro,2020,1,0,0,0,private,,11391134.0,,,,,,,,0.0
+56135,Tecovas,2020,1,0,0,0,private,,100000000.0,,,,,,,,0.0
+56166,Tempus,2020,1,0,0,25,private,,,,,19.455565789453914,18.0,7.0,4.0,2.4,23.0
+56182,Tenfold,2021,1,0,0,0,acquired,2021.0,,,,,0.0,0.0,0.0,,0.0
+56202,Terecircuits,2020,0,0,0,0,private,,,,,,,,,,
+56217,Tettra,2018,1,0,0,0,private,,,,,,,,,,0.0
+56281,TheGuarantors,2023,1,0,0,0,private,,,,,,,,,,0.0
+56308,Thinnect,2020,0,1,1,1,private,,,,,,,,,,
+56344,Tidal Vision,2023,1,0,0,0,private,,,,,,,,,,0.0
+56409,Todyl,2020,0,0,0,0,private,,664200.0,,2800000.0,,,,,,
+56435,Torchlite,2020,1,0,0,0,private,,2800000.0,,,,,,,,0.0
+56462,Trace Genomics,2020,0,1,1,1,private,,1600000.0,,,,,,,,
+56474,TraceAir,2020,0,0,0,0,private,,2400000.0,,5000000.0,,,,,,
+56482,Trackstreet,2020,0,1,1,1,private,,,,,,,,,,
+56521,Trendy Butler,2016,1,0,0,0,private,,,,,,,,,,0.0
+56538,Triller,2020,0,0,0,0,private,,,,,,,,,,
+56575,Tru,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+56586,True Made Foods,2020,0,0,0,0,private,,2800000.0,,,,,,,,
+56612,Trust Stamp,2020,1,0,0,0,public,2022.0,,5955536.8,3022666.9,,,,,,0.0
+56658,Turnstone Biologics,2020,0,0,0,0,public,2023.0,101293000.0,,39973000.0,,,,,,
+56678,Twelve,2020,0,1,8,8,private,,,,10000000.0,,,,,,
+56686,TwelveStone Health Partners,2021,1,0,0,0,private,,,,,,,,,,0.0
+56745,Uncle John's Pride,2023,1,0,0,0,private,,,,,,,,,,0.0
+56758,Unite Genomics,2020,0,0,0,0,private,,,,,,,,,,
+56784,UPshow,2021,1,0,0,0,private,,,,,,,,,,0.0
+56829,Urotronic,2020,0,1,12,12,acquired,2023.0,,,,,,,,,
+56854,User Interviews,2020,1,0,0,0,private,,,45000000.0,,,,,,,0.0
+56889,Valisure,2019,1,0,0,0,private,,,,,,,,,,0.0
+56906,Varo Money,2017,1,0,0,0,private,,,,,,,,,,0.0
+56929,Velicept Therapeutics,2019,1,0,0,0,defunct,2022.0,,,,,0.0,0.0,0.0,,0.0
+56950,Vercel,2020,0,0,0,0,private,,,,100000000.0,,,,,,
+56966,Verily,2020,1,0,0,90,private,,,,,18.646956491917496,4.0,86.0,3.0,2.493333333333333,77.0
+56988,Verusen,2020,0,0,0,0,private,,,,,,,,,,
+57012,ViaBot,2020,0,0,0,0,private,,,,,,,,,,
+57033,VideoPeel,2020,1,0,0,0,private,,,,,,,,,,0.0
+57036,VIGEO GARDENS,2022,1,0,0,0,private,,,,,,,,,,0.0
+57039,Vigilant Aerospace Systems,2019,1,0,0,0,private,,,,,,,,,,0.0
+57068,Virtual Peaker,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+57101,Vitalinata Technologies,2020,0,0,0,0,private,,,,,,,,,,
+57107,Vitesy,2020,1,0,0,0,private,,929144.86,880814.02,1284015.5,,,,,,0.0
+57131,Vocate,2018,1,0,0,0,defunct,2019.0,,,,,,,,,0.0
+57179,Wade & Wendy,2016,1,0,0,0,acquired,2021.0,,,,,,,,,0.0
+57188,Wahed Invest,2020,0,0,0,0,private,,290883.0,,,,,,,,
+57202,Wasabi Technologies,2021,1,0,0,0,private,,,,,,0.0,0.0,0.0,,0.0
+57216,Washlava,2019,1,0,0,1,private,,,,,17.519852681713115,,,,4.0,2.0
+57230,WaterBridge Resources,2018,1,0,0,0,private,,,,,,,,,,0.0
+57255,WearWorks,2020,0,0,0,0,private,,,,,,,,,,
+57269,WEconnect Health Management,2020,0,0,0,0,private,,,,,,,,,,
+57360,Wilde Brands,2018,1,0,0,1,private,,,,,16.954147146156384,,,,,0.0
+57382,Winky Lux,2019,1,0,0,0,private,,,,,,,,,,0.0
+57426,WorkHound,2018,1,0,0,0,private,,,,,,,,,,0.0
+57432,Workit Health,2021,1,0,0,0,private,,,,,,,,,,0.0
+57438,Workiz,2020,0,0,0,0,private,,,,,,,,,,
+57459,WorkRamp,2020,0,0,0,0,private,,8900000.0,,,,,,,,
+57471,Workyard,2020,1,0,0,0,private,,,,,,,,,,0.0
+57518,Xeno Biosciences,2023,1,0,0,0,private,,,,,,,,,,0.0
+57560,Yesway,2020,0,0,0,0,private,,,,,,,,,,
+57566,Yieldstreet,2018,1,0,0,0,private,,,,,,,,,,0.0
+57585,Yosi Health,2020,1,0,0,0,private,,,,,,,,,,0.0
+57618,Zavante Therapeutics,2016,1,0,0,2,acquired,2018.0,,,,19.494903518453057,,,,,0.0
+57632,Zebit,2018,1,0,0,0,public,2020.0,100000000.0,87651001.0,,,,,,,0.0
+57639,ZenBusiness,2020,0,0,0,0,private,,,,,,,,,,
+57689,Zesty.ai,2022,1,0,0,0,private,,,,,,,,,,0.0
+57703,Zeus Living,2019,1,0,0,2,private,,,,,17.169671684606435,,,,2.0,0.0
+57720,ZincFive,2023,1,0,0,0,private,,,,,,,,,,0.0
+57779,Zumutor Biologics,2020,0,0,0,0,private,,,,,,,,,,
+57783,Zuum Transportation,2022,1,0,0,0,private,,,,,,,,,,0.0

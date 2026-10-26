@@ -1,0 +1,42 @@
+﻿section,metric,count,denominator,share
+Sample,Matched firms,2820,2820,1.0
+Sample,VD firms,1410,2820,0.5
+VD firms,Named at any candidate deal,779,1410,0.5524822695035461
+VD firms,Only anonymous candidate deals,631,1410,0.4475177304964539
+VD firms,Named at first source VD deal,715,1410,0.5070921985815603
+VD firms,Strict lender support at any debt deal,267,1410,0.18936170212765957
+VD firms,Strict lender support at first source VD deal,236,1410,0.1673758865248227
+VD firms,Strict lender + prior Series context at first deal,184,1410,0.13049645390070921
+Deal categories,No participant identity,917,1898,0.48314014752370915
+Firm categories (hierarchical),No participant identity,631,1410,0.4475177304964539
+First-deal categories,No participant identity,695,1410,0.4929078014184397
+Deal categories,Specialized venture-debt provider,167,1898,0.08798735511064278
+Firm categories (hierarchical),Specialized venture-debt provider,156,1410,0.11063829787234042
+First-deal categories,Specialized venture-debt provider,133,1410,0.09432624113475177
+Deal categories,Bank with venture/startup lending,134,1898,0.07060063224446786
+Firm categories (hierarchical),Bank with venture/startup lending,113,1410,0.08014184397163121
+First-deal categories,Bank with venture/startup lending,106,1410,0.075177304964539
+Deal categories,Other identifiable institutional lender,272,1898,0.14330874604847207
+Firm categories (hierarchical),Other identifiable institutional lender,189,1410,0.13404255319148936
+First-deal categories,Other identifiable institutional lender,163,1410,0.11560283687943262
+Deal categories,Ambiguous,408,1898,0.21496311907270813
+Firm categories (hierarchical),Ambiguous,321,1410,0.2276595744680851
+First-deal categories,Ambiguous,313,1410,0.22198581560283687
+Anonymous evidence,Anonymous deals,917,917,1.0
+Anonymous evidence,Prior Series round observed,410,917,0.44711014176663033
+Anonymous evidence,Seed/angel or same-day Series only,404,917,0.440567066521265
+Anonymous evidence,No prior equity observed,103,917,0.11232279171210469
+Anonymous evidence,Positive amount disclosed,854,917,0.9312977099236641
+Anonymous evidence,Date disclosed,917,917,1.0
+Anonymous evidence,Specialist/bank identified in another deal,41,917,0.04471101417666303
+Anonymous evidence,Anonymous-only firms with prior Series,275,631,0.4358161648177496
+Anonymous first deals,Prior Series round observed,283,695,0.4071942446043165
+Anonymous first deals,Seed/angel or same-day Series only,330,695,0.4748201438848921
+Anonymous first deals,No prior equity observed,82,695,0.11798561151079137
+Anonymous first deals,Positive amount disclosed,646,695,0.9294964028776979
+Anonymous first deals,Date disclosed,695,695,1.0
+Deal review flags,Funding-type conflict,2,1898,0.001053740779768177
+Deal review flags,Government/public-program review,53,1898,0.02792413066385669
+Deal review flags,First VD year mismatch,2,1898,0.001053740779768177
+Deal review flags,IPO on/before debt date,9,1898,0.004741833508956797
+Deal review flags,Possible duplicate record,0,1898,0.0

@@ -1,0 +1,36 @@
+{
+  "application_rows": 39249,
+  "grant_link_rows": 34890,
+  "grant_linked_applications": 34855,
+  "target_grant_patents": 34890,
+  "dated_valid_citation_links": 199187,
+  "application_year_grid_rows": 228445,
+  "cpc_covered_applications": 34855,
+  "panel_rows": 88547,
+  "panel_firms": 7273,
+  "citation_cutoff_year": 2024,
+  "citation_columns": [
+    "patent_id",
+    "citation_sequence",
+    "citation_patent_id",
+    "citation_date",
+    "record_name",
+    "wipo_kind",
+    "citation_category"
+  ],
+  "cpc_columns": [
+    "patent_id",
+    "cpc_sequence",
+    "cpc_section",
+    "cpc_class",
+    "cpc_subclass",
+    "cpc_group",
+    "cpc_type"
+  ],
+  "legacy_cumulative_comparable_applications": 34345,
+  "legacy_vs_rebuilt_total_correlation": 0.8977225397669956,
+  "legacy_total_citations": 242100.0,
+  "rebuilt_total_citations": 199079.0,
+  "zero_grid": "all grant-linked applications x filing_year..2024",
+  "cpc_definition": "primary/current CPC first 3 characters"
+}

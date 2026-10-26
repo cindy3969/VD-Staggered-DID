@@ -1,0 +1,108 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\outputs\historical_union_replication\make_Figure_
+> 1.do 
+
+. version 18
+
+. clear all
+
+. set more off
+
+. global OUT "C:/Users/user/Documents/VD/outputs/historical_union_replication"
+
+. graph set window fontface "Times New Roman"
+
+. graph set print fontface "Times New Roman"
+
+. 
+. import delimited using "$OUT/Figure_1a_historical_raw_trajectories.csv", clear
+(encoding automatically selected: UTF-8)
+(4 vars, 9 obs)
+
+. twoway ///
+>  (connected treated event_time, sort msymbol(O) lcolor(cranberry) mcolor(cranbe
+> rry)) ///
+>  (connected never_control event_time, sort msymbol(S) lcolor(navy) mcolor(navy)
+> ), ///
+>  xline(-.5, lpattern(dash) lcolor(gs8)) xlabel(-4(1)4) ///
+>  xtitle("Event time (t - G)") ytitle("Granted patent applications per firm-year
+> ") ///
+>  title("(a) Mean plots: never-treated comparison") ///
+>  legend(order(1 "VD-backed (treated)" 2 "Never VD (control)") rows(1)) ///
+>  graphregion(color(white)) name(F1A, replace)
+
+. graph save "$OUT/Figure_1a_historical.gph", replace
+(file
+    C:/Users/user/Documents/VD/outputs/historical_union_replication/Figure_1a_h
+    > istorical.gph not found)
+file C:/Users/user/Documents/VD/outputs/historical_union_replication/Figure_1a_hi
+> storical.gph saved
+
+. 
+. import delimited using "$OUT/Figure_1b_historical_dynamic_ATT.csv", clear
+(encoding automatically selected: UTF-8)
+(5 vars, 9 obs)
+
+. twoway ///
+>  (rcap conf_low conf_high event_time, lcolor(navy)) ///
+>  (connected att event_time, sort msymbol(O) lcolor(navy) mcolor(navy)), ///
+>  yline(0, lcolor(gs8)) xline(-.5, lpattern(dash) lcolor(gs8)) xlabel(-4(1)4) //
+> /
+>  xtitle("Event time (t - G)") ytitle("ATT on granted patent applications") ///
+>  title("(b) Callaway-Sant'Anna dynamic ATT") legend(off) ///
+>  graphregion(color(white)) name(F1B, replace)
+
+. graph save "$OUT/Figure_1b_historical.gph", replace
+(file
+    C:/Users/user/Documents/VD/outputs/historical_union_replication/Figure_1b_h
+    > istorical.gph not found)
+file C:/Users/user/Documents/VD/outputs/historical_union_replication/Figure_1b_hi
+> storical.gph saved
+
+. 
+. graph combine "$OUT/Figure_1a_historical.gph" "$OUT/Figure_1b_historical.gph", 
+> ///
+>  cols(2) title("Figure 1. Diagnostic analysis for the staggered DiD design") //
+> /
+>  graphregion(color(white))
+
+. graph export "$OUT/Figure_1_historical_union_replication.png", replace width(36
+> 00)
+(file
+    C:/Users/user/Documents/VD/outputs/historical_union_replication/Figure_1_hi
+    > storical_union_replication.png not found)
+file
+    C:/Users/user/Documents/VD/outputs/historical_union_replication/Figure_1_hi
+    > storical_union_replication.png saved as PNG format
+
+. graph save "$OUT/Figure_1_historical_union_replication.gph", replace
+(file
+    C:/Users/user/Documents/VD/outputs/historical_union_replication/Figure_1_hi
+    > storical_union_replication.gph not found)
+file C:/Users/user/Documents/VD/outputs/historical_union_replication/Figure_1_his
+> torical_union_replication.gph saved
+
+. 
+end of do-file

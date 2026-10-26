@@ -1,0 +1,37 @@
+{
+  "dta_firms": 2820,
+  "panel_matched_names": 2820,
+  "crosswalk_rows": 2820,
+  "unmatched_count": 0,
+  "unmatched": [],
+  "pre_series_fallback_count": 1,
+  "pre_series_fallback": [
+    "Autonomous Healthcare"
+  ],
+  "stage_distribution": {
+    "Series A": 768,
+    "Seed": 994,
+    "Series B": 520,
+    "Series C+": 538
+  },
+  "stage_by_vd": {
+    "VD=0": {
+      "Series A": 402,
+      "Series B": 300,
+      "Series C+": 293,
+      "Seed": 415
+    },
+    "VD=1": {
+      "Series A": 366,
+      "Seed": 579,
+      "Series B": 220,
+      "Series C+": 245
+    }
+  },
+  "inference_methods": {
+    "carried forward highest observed series": 2720,
+    "formal venture-round order fallback": 43,
+    "backcast one stage from first subsequent observed series": 56,
+    "pre-series fallback": 1
+  }
+}

@@ -1,0 +1,18 @@
+﻿name,key,weight,found_year,deal_date,deal_year,funding_type,first_vc,time_first_vc,debt,vd_backing,first_vd,time_first_vd,vd_year_col32,vd_year_deal,rounds_firstvd,funding_firstvd,vd_year_col44,amount,region,industry_group,industry_class
+123Compliance,123compliance,1,2012,2013-02-01,2013,Seed,1,1,,1,,,2015,0,,,,300000.0,California,"Biotechnology, Health Care, Information Technology, Other, Professional Services, Science and Engineering, Software",Biotechnology
+123Compliance,123compliance,1,2012,2015-04-10,2015,Debt Financing,,,1,1,1,3.0,2015,1,2.0,450000,,150000.0,California,"Biotechnology, Health Care, Information Technology, Other, Professional Services, Science and Engineering, Software",Biotechnology
+128 Technology,128technology,1,2014,2014-07-07,2014,Seed,1,0,,0,,,2019,0,,,,4000000.0,Massachusetts,"Information Technology, Internet Services, Privacy and Security, Software",Information Technology
+128 Technology,128technology,1,2014,2014-12-04,2014,Series A,,,,0,,,2019,0,,,,11999347.0,Massachusetts,"Information Technology, Internet Services, Privacy and Security, Software",Information Technology
+128 Technology,128technology,1,2014,2015-12-08,2015,Series B,,,,0,,,2019,0,,,,20000000.0,Massachusetts,"Information Technology, Internet Services, Privacy and Security, Software",Information Technology
+128 Technology,128technology,1,2014,2017-05-31,2017,Series C,,,,0,,,2019,1,4.0,57499347,,21500000.0,Massachusetts,"Information Technology, Internet Services, Privacy and Security, Software",Information Technology
+128 Technology,128technology,1,2014,2018-05-15,2018,Series C,,,,0,,,2019,0,,,,9204948.0,Massachusetts,"Information Technology, Internet Services, Privacy and Security, Software",Information Technology
+128 Technology,128technology,1,2014,2019-09-18,2019,Series D,,,,0,,,2019,0,,,,30000000.0,Massachusetts,"Information Technology, Internet Services, Privacy and Security, Software",Information Technology
+128 Technology,128technology,1,2014,2021-01-01,2021,Venture - Series Unknown,,,,0,,,2019,1,7.0,96704295,,,Massachusetts,"Information Technology, Internet Services, Privacy and Security, Software",Information Technology
+250ok,250ok,1,2012,2017-10-11,2017,Series A,1,5,,0,,,2017,1,1.0,2600000,,2600000.0,Indiana,"Data and Analytics, Information Technology, Internet Services, Messaging and Telecommunications, Sales and Marketing, Software",Data and Analytics
+2Morrow,2morrow,1,2012,2014-05-15,2014,Grant,,,,1,,,2015,0,,,,250000.0,Washington,"Administrative Services, Data and Analytics, Design, Health Care, Mobile",Administrative Services
+2Morrow,2morrow,1,2012,2015-03-01,2015,Seed,1,3,,1,,,2015,0,,,,,Washington,"Administrative Services, Data and Analytics, Design, Health Care, Mobile",Administrative Services
+2Morrow,2morrow,1,2012,2015-03-16,2015,Debt Financing,,,1,1,1,3.0,2015,1,3.0,300000,,50000.0,Washington,"Administrative Services, Data and Analytics, Design, Health Care, Mobile",Administrative Services
+2Morrow,2morrow,1,2012,2016-04-06,2016,Debt Financing,,,1,1,,,2015,0,,,,325000.0,Washington,"Administrative Services, Data and Analytics, Design, Health Care, Mobile",Administrative Services
+2Morrow,2morrow,1,2012,2017-05-01,2017,Grant,,,,1,,,2015,0,,,,,Washington,"Administrative Services, Data and Analytics, Design, Health Care, Mobile",Administrative Services
+2Morrow,2morrow,1,2012,2021-04-14,2021,Venture - Series Unknown,,,,1,,,2015,0,,,,1500000.0,Washington,"Administrative Services, Data and Analytics, Design, Health Care, Mobile",Administrative Services
+2Morrow,2morrow,1,2012,2023-01-01,2023,Grant,,,,1,,,2015,0,,,,1900000.0,Washington,"Administrative Services, Data and Analytics, Design, Health Care, Mobile",Administrative Services

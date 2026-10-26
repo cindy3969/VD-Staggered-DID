@@ -1,0 +1,152 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:/Users/user/Documents/VD/outputs/psm_final_2820_package/diagnose_tables567
+> .do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. set linesize 255
+
+. log using "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/diagnose_tables567.log", text replace
+(file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/diagnose_tables567.log not found)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/diagnose_tables567.log
+  log type:  text
+ opened on:  20 Oct 2026, 09:34:39
+
+. use "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original_2820_cross_section_v2.dta", clear
+
+. quietly reghdfe ln_moneyraised_win3 VD i.patentdummybyfiling i.earlystage ln_MoneyRaised_VD NumofFundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+
+. display "AUDIT T5 1 VD=" _b[VD] " N=" e(N) " R2=" e(r2) " constant=" _b[_cons]
+AUDIT T5 1 VD=-.00759086 N=1627 R2=.40984895 constant=10.098049
+
+. quietly reghdfe ln_moneyraised_win3 i.VD##i.patentdummybyfiling i.earlystage ln_MoneyRaised_VD NumofFundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+
+. display "AUDIT T5 2 VD=" _b[1.VD] " N=" e(N) " R2=" e(r2) " constant=" _b[_cons]
+AUDIT T5 2 VD=-.01590081 N=1627 R2=.40986713 constant=10.102253
+
+. quietly reghdfe ln_moneyraised_win3 i.patentdummybyfiling i.VD##i.earlystage ln_MoneyRaised_VD NumofFundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+
+. display "AUDIT T5 3 VD=" _b[1.VD] " N=" e(N) " R2=" e(r2) " constant=" _b[_cons]
+AUDIT T5 3 VD=.11363751 N=1627 R2=.41024232 constant=10.076128
+
+. quietly reghdfe ln_moneyraised_win3 i.VD##i.patentdummybyfiling i.VD##i.earlystage ln_MoneyRaised_VD NumofFundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+
+. display "AUDIT T5 4 VD=" _b[1.VD] " N=" e(N) " R2=" e(r2) " constant=" _b[_cons]
+AUDIT T5 4 VD=.11306184 N=1627 R2=.41024235 constant=10.076345
+
+. quietly reghdfe ln_moneyraised_y1 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+
+. display "AUDIT T6 1 VD=" _b[VD] " p=" 2*ttail(e(df_r),abs(_b[VD]/_se[VD])) " N=" e(N) " R2=" e(r2)
+AUDIT T6 1 VD=-.08514099 p=.36939547 N=1043 R2=.4321481
+
+. quietly reghdfe ln_moneyraised_y2 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+
+. display "AUDIT T6 2 VD=" _b[VD] " p=" 2*ttail(e(df_r),abs(_b[VD]/_se[VD])) " N=" e(N) " R2=" e(r2)
+AUDIT T6 2 VD=1.6207676 p=.00101959 N=1043 R2=.03016503
+
+. quietly reghdfe ln_moneyraised_y3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+
+. display "AUDIT T6 3 VD=" _b[VD] " p=" 2*ttail(e(df_r),abs(_b[VD]/_se[VD])) " N=" e(N) " R2=" e(r2)
+AUDIT T6 3 VD=.72693286 p=.06045695 N=1485 R2=.03167267
+
+. quietly stset VDage3, failure(acq3==1)
+
+. quietly stcox VD, nohr
+
+. display "AUDIT T7 acq3 VD VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 acq3 VD VD=.13213861 p=.05645618 N=2690 failures=846
+
+. quietly stset VDage3, failure(acq3==1)
+
+. quietly stcox VD Foundingyear ib4.Region2 ib3.Industry2, nohr
+
+. display "AUDIT T7 acq3 VD Foundingyear ib4.Region2 ib3.Industry2 VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 acq3 VD Foundingyear ib4.Region2 ib3.Industry2 VD=.14577069 p=.0356278 N=2690 failures=846
+
+. quietly stset VDage3, failure(acq3==1)
+
+. quietly stcox VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear ib4.Region2 ib3.Industry2, nohr
+
+. display "AUDIT T7 acq3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear ib4.Region2 ib3.Industry2 VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 acq3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear ib4.Region2 ib3.Industry2 VD=.18749397 p=.0076875 N=2690 failures=846
+
+. quietly stset VDage3, failure(public3==1)
+
+. quietly stcox VD, nohr
+
+. display "AUDIT T7 public3 VD VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 public3 VD VD=.36093645 p=.03426792 N=2690 failures=141
+
+. quietly stset VDage3, failure(public3==1)
+
+. quietly stcox VD Foundingyear ib4.Region2 ib3.Industry2, nohr
+
+. display "AUDIT T7 public3 VD Foundingyear ib4.Region2 ib3.Industry2 VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 public3 VD Foundingyear ib4.Region2 ib3.Industry2 VD=.33369184 p=.05073632 N=2690 failures=141
+
+. quietly stset VDage3, failure(public3==1)
+
+. quietly stcox VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear ib4.Region2 ib3.Industry2, nohr
+
+. display "AUDIT T7 public3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear ib4.Region2 ib3.Industry2 VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 public3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear ib4.Region2 ib3.Industry2 VD=.33984054 p=.05580745 N=2690 failures=141
+
+. quietly stset VDage3, failure(badexit3==1)
+
+. quietly stcox VD, nohr
+
+. display "AUDIT T7 badexit3 VD VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 badexit3 VD VD=.13675881 p=.26922596 N=2690 failures=266
+
+. quietly stset VDage3, failure(badexit3==1)
+
+. quietly stcox VD Foundingyear ib4.Region2 ib3.Industry2, nohr
+
+. display "AUDIT T7 badexit3 VD Foundingyear ib4.Region2 ib3.Industry2 VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 badexit3 VD Foundingyear ib4.Region2 ib3.Industry2 VD=.14676803 p=.23695746 N=2690 failures=266
+
+. quietly stset VDage3, failure(badexit3==1)
+
+. quietly stcox VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear ib4.Region2 ib3.Industry2, nohr
+
+. display "AUDIT T7 badexit3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear ib4.Region2 ib3.Industry2 VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 badexit3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear ib4.Region2 ib3.Industry2 VD=.12833688 p=.30671747 N=2690 failures=266
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/diagnose_tables567.log
+  log type:  text
+ closed on:  20 Oct 2026, 09:34:41
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+. exit, clear
+
+end of do-file

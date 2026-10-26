@@ -1,0 +1,18 @@
+﻿statistic,value
+Initial firms,7316.0
+Eligible firms (complete matching covariates),6541.0
+Eligible VD-backed firms,1410.0
+Eligible VC-only firms,5131.0
+Common-support lower bound,0.0676223184644225
+Common-support upper bound,0.6905163332177494
+VD-backed firms on support,1410.0
+VC-only firms on support,5085.0
+VD-backed firms off support,0.0
+VC-only firms off support,46.0
+Matched VD-backed firms,1410.0
+Matched VC-only firms,1410.0
+Maximum absolute SMD before,0.3482846938299737
+Maximum absolute SMD after,0.06249939755852574
+Rows with absolute SMD > 0.10 after,0.0
+Median absolute propensity-score distance,3.6685463141991614e-05
+Maximum absolute propensity-score distance,0.28483604488381004

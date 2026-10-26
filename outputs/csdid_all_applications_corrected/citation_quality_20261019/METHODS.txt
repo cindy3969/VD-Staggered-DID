@@ -1,0 +1,68 @@
+Annual firm-year patent-quality outcomes, added 2026-10-19
+
+Requested change
+The cross-sectional norm_cite_perpat_win3_v1-v4 definitions have been translated
+to annual filing cohorts. New columns norm_cite_perpat_v1-v4 are LEVELS, not logs,
+and do NOT repeat a three-year cross-sectional value across firm-years.
+
+Patent universe and timing
+39,249 unique firm-application observations filed 2010-2024, from the corrected
+union after 737 mismatch removals. Normalization uses 34,855 grant-linked
+applications, including zero-citation applications. The cohort population is
+the study sample, not all US patents. Citation cutoff is 2024-12-31.
+An incoming citation is dated using g_patent.patent_date of the CITING patent.
+g_us_patent_citation.citation_date describes the CITED patent grant month and
+must not be used for incoming-citation timing. The earlier annual DiD build
+used that field incorrectly. All four new outcomes use corrected timing.
+Unique application x citing-patent links are counted; 3 pre-grant links excluded.
+
+Definitions (p=application, f=filing year, c=citation year)
+v1_p = sum_c n_pc / mean(n_pc | f,c), with zero application-year cells included.
+v2_p = sum_c n_pc / mean(n_pc | f,c,primary CPC3).
+v3_p = rate_p,2024 / mean(rate_p,2024 | f), where rate is cumulative citations
+       divided by 2024 - first_grant_year + 1. Use the earliest linked grant,
+       including uncited grant numbers. Zero citations have zero rate.
+v4_p = cumulative_citations_p / mean(cumulative_citations_p | f,primary CPC3).
+Entirely zero normalization cells contribute zero.
+For firm i and panel year y, each DV is mean(vk_p) over ultimately granted
+applications filed by i in y. citation_quality_npat is this denominator.
+If no eligible applications exist, the DV is missing. This preserves v1-v4;
+the original zero-filled variants were named vv1-vv4 and were not requested.
+
+Panel and code
+The existing 88,547 rows, 7,273 firms and original 45 columns are preserved.
+The 4 DVs plus citation_quality_npat are added to the existing DTA and CSV.
+Original DTA and master do-file backups are in this directory.
+MASTER_csdid_all_applications.do now calls RUN_ONE_QUALITY.do for versions 1-4
+after its existing analysis. Each quality run reloads the full panel and applies
+DV-specific complete-case filtering, without inheriting grantedapp_norm's filter.
+
+Estimator and output
+csdid method(dripw), same G/prior/early definitions, lagged cumulative funding,
+lagged funding rounds, region and industry indicators as the existing master.
+Table 11: all, no prior patent, prior patent, early stage, late stage; never-treated.
+Table 12: all firms, never-treated and not-yet-treated controls; event window -4..4,
+simple aggregate, post-event aggregate, and group aggregate.
+Table 11 parentheses are p-values. Table 12 parentheses are standard errors.
+Counts refer to complete-case inputs, not necessarily every ATT(g,t) pair.
+Failed, omitted or zero-standard-error estimates are displayed as Not estimable.
+The exact Stata return codes are retained in the detailed results.
+
+Interpretation
+The annual DV measures eventual observed quality of applications FILED in y,
+using citations through 2024. It is not the flow of citations RECEIVED in y.
+It uses future citation information relative to the filing year by design.
+No-patent firm-years are excluded, so this conditions on patenting/grant selection
+that may itself respond to treatment; it is not an unconditional innovation effect.
+No-prior-patent treated firms may have no pre-treatment quality outcome, making
+their ATT unidentified. Do not interpret omitted zero estimates as zero effects.
+Normalization cannot fully recover future unobserved citations or pending grants.
+
+Reproduction
+1. scripts/build_table4_window3_corrected.py extracts corrected dated citation
+   links and the application-year grid (its cross-sectional outputs are not
+   used as the annual DiD outcomes).
+2. scripts/add_annual_citation_quality.py creates annual_quality_addon.dta.
+3. MERGE_ANNUAL_QUALITY.do adds those columns to the existing panel.
+4. RUN_ONE_QUALITY.do 1 (and 2,3,4) estimates the two tables for each DV.
+5. scripts/format_annual_quality_did.py produces the presentation tables.

@@ -1,0 +1,187 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:/Users/user/Documents/VD/scripts/audit_table12.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. set linesize 255
+
+. capture log close _all
+
+. log using "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Table12_audit.log", text replace
+(file C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Table12_audit.log not found)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Table12_audit.log
+  log type:  text
+ opened on:  19 Oct 2026, 15:51:20
+
+. which csdid
+C:\Users\user\ado\plus\c\csdid.ado
+*! v1.81  by pedro Sant'Anna. Compatibility checks
+*! v1.8  by FRA. Trim
+
+. use "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/firm_year_all_applications_and_truncation_specs.dta", clear
+
+. keep if year<=2024
+(0 observations deleted)
+
+. drop if missing(grantedapp_norm, ln1p_cum_funding_l1, cum_funding_rounds_l1, region_fe, industry_fe, full_firm_id, year, G)
+(7,273 observations deleted)
+
+. count
+  81,274
+
+. egen byte audit_tag=tag(full_firm_id)
+
+. count if audit_tag==1
+  7,273
+
+. drop audit_tag
+
+. display "AUDIT: RAW NORMALIZED DV, NEVER-TREATED"
+AUDIT: RAW NORMALIZED DV, NEVER-TREATED
+
+. quietly csdid grantedapp_norm ln1p_cum_funding_l1 cum_funding_rounds_l1 i.region_fe i.industry_fe, ivar(full_firm_id) time(year) gvar(G) method(dripw)
+Panel is not balanced
+Will use observations with Pair balanced (observed at t0 and t1)
+
+. csdid_estat simple
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |  -.1906043   .1105574    -1.72   0.085    -.4072927    .0260842
+------------------------------------------------------------------------------
+
+. csdid_estat event, window(-4 4)
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     Pre_avg |   .0304263   .0270683     1.12   0.261    -.0226266    .0834792
+    Post_avg |  -.1867862   .0761101    -2.45   0.014    -.3359593   -.0376131
+         Tm4 |  -.0447464   .0500548    -0.89   0.371    -.1428521    .0533593
+         Tm3 |    .102398   .0724569     1.41   0.158    -.0396149    .2444109
+         Tm2 |   .0458955   .0608894     0.75   0.451    -.0734456    .1652366
+         Tm1 |   .0181581   .0585226     0.31   0.756    -.0965441    .1328603
+         Tp0 |   .0039588   .0606192     0.07   0.948    -.1148526    .1227703
+         Tp1 |  -.1005589   .0586272    -1.72   0.086    -.2154661    .0143482
+         Tp2 |  -.2541276   .0845864    -3.00   0.003    -.4199139   -.0883413
+         Tp3 |  -.2796762   .1092986    -2.56   0.011    -.4938974    -.065455
+         Tp4 |  -.3035273   .1375603    -2.21   0.027    -.5731404   -.0339141
+------------------------------------------------------------------------------
+
+. csdid_estat group
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |  -.1801999   .0875564    -2.06   0.040    -.3518073   -.0085925
+       G2012 |   -.374002   .2652784    -1.41   0.159     -.893938    .1459341
+       G2013 |  -.3461464   .2032568    -1.70   0.089    -.7445224    .0522296
+       G2014 |  -.2468473    .175413    -1.41   0.159    -.5906505    .0969559
+       G2015 |   .0597425   .4458916     0.13   0.893    -.8141891     .933674
+       G2016 |  -.2088677   .2267838    -0.92   0.357    -.6533559    .2356205
+       G2017 |   -.351177   .1641966    -2.14   0.032    -.6729964   -.0293575
+       G2018 |  -.1242332   .0990972    -1.25   0.210    -.3184601    .0699937
+       G2019 |  -.1348163   .2151995    -0.63   0.531    -.5565996    .2869671
+       G2020 |  -.1219972    .145987    -0.84   0.403    -.4081264     .164132
+       G2021 |  -.3287878   .2719363    -1.21   0.227    -.8617732    .2041976
+       G2022 |  -.3056306   .2163738    -1.41   0.158    -.7297155    .1184543
+       G2023 |    .267581   .1302354     2.05   0.040     .0123242    .5228378
+------------------------------------------------------------------------------
+
+. display "AUDIT: RAW NORMALIZED DV, NOT-YET-TREATED"
+AUDIT: RAW NORMALIZED DV, NOT-YET-TREATED
+
+. quietly csdid grantedapp_norm ln1p_cum_funding_l1 cum_funding_rounds_l1 i.region_fe i.industry_fe, ivar(full_firm_id) time(year) gvar(G) method(dripw) notyet
+Panel is not balanced
+Will use observations with Pair balanced (observed at t0 and t1)
+
+. csdid_estat simple
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |  -.1933236   .1090748    -1.77   0.076    -.4071062     .020459
+------------------------------------------------------------------------------
+
+. csdid_estat event, window(-4 4)
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     Pre_avg |   .0270545   .0266637     1.01   0.310    -.0252053    .0793144
+    Post_avg |  -.1915564   .0756986    -2.53   0.011    -.3399229     -.04319
+         Tm4 |  -.0475909   .0503981    -0.94   0.345    -.1463692    .0511875
+         Tm3 |   .0994077   .0728746     1.36   0.173     -.043424    .2422394
+         Tm2 |   .0426433   .0611354     0.70   0.485      -.07718    .1624665
+         Tm1 |    .013758   .0584981     0.24   0.814    -.1008961    .1284121
+         Tp0 |  -.0013156    .060972    -0.02   0.983    -.1208185    .1181872
+         Tp1 |   -.107609   .0587748    -1.83   0.067    -.2228055    .0075875
+         Tp2 |   -.259058      .0854    -3.03   0.002    -.4264389   -.0916771
+         Tp3 |  -.2821843   .1085423    -2.60   0.009    -.4949233   -.0694453
+         Tp4 |  -.3076151   .1351186    -2.28   0.023    -.5724427   -.0427876
+------------------------------------------------------------------------------
+
+. csdid_estat group
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |  -.1825679   .0873259    -2.09   0.037    -.3537235   -.0114123
+       G2012 |  -.3817483   .2565272    -1.49   0.137    -.8845324    .1210358
+       G2013 |  -.3403347   .1981868    -1.72   0.086    -.7287738    .0481044
+       G2014 |  -.2485245   .1704007    -1.46   0.145    -.5825038    .0854549
+       G2015 |   .0546125   .4446057     0.12   0.902    -.8167986    .9260237
+       G2016 |  -.2132564   .2253011    -0.95   0.344    -.6548385    .2283257
+       G2017 |  -.3580947    .163101    -2.20   0.028    -.6777668   -.0384227
+       G2018 |  -.1261246   .0988937    -1.28   0.202    -.3199527    .0677036
+       G2019 |  -.1409685    .215092    -0.66   0.512     -.562541     .280604
+       G2020 |   -.122163   .1458733    -0.84   0.402    -.4080695    .1637435
+       G2021 |  -.3294365   .2719306    -1.21   0.226    -.8624107    .2035376
+       G2022 |  -.3055045   .2163584    -1.41   0.158    -.7295592    .1185501
+       G2023 |    .267581   .1302354     2.05   0.040     .0123242    .5228378
+------------------------------------------------------------------------------
+
+. display "AUDIT COMPLETE"
+AUDIT COMPLETE
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Table12_audit.log
+  log type:  text
+ closed on:  19 Oct 2026, 15:58:03
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+. exit, clear
+
+end of do-file

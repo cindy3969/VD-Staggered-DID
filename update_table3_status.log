@@ -1,0 +1,182 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\scripts\update_table3_status.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. 
+. local pkg "C:/Users/user/Documents/VD/outputs/psm_final_2820_package"
+
+. local target "`pkg'/table3_current_2820_cross_section_v2.dta"
+
+. local lookup "`pkg'/_crunchbase_status_lookup.dta"
+
+. local backup "`pkg'/backups/before_status_update_20261015/table3_current_2820_c
+> ross_section_v2.dta"
+
+. 
+. capture mkdir "`pkg'/backups/before_status_update_20261015"
+
+. copy "`target'" "`backup'", replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/backups/before_st
+    > atus_update_20261015/table3_current_2820_cross_section_v2.dta not found)
+
+. 
+. use "`target'", clear
+
+. isid firm_id
+
+. capture confirm variable status
+
+. if !_rc drop status
+
+. capture confirm variable m_a
+
+. if !_rc drop m_a
+
+. capture confirm variable ipo
+
+. if !_rc drop ipo
+
+. capture confirm variable defunct
+
+. if !_rc drop defunct
+
+. capture confirm variable status_year
+
+. if !_rc drop status_year
+
+. capture confirm variable status_date
+
+. if !_rc drop status_date
+
+. 
+. merge 1:1 firm_id using "`lookup'", assert(match) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                             2,820  
+    -----------------------------------------
+
+. assert inlist(status, "acquired", "merged", "public", "defunct", "private")
+
+. assert inlist(m_a, 0, 1) & inlist(ipo, 0, 1) & inlist(defunct, 0, 1)
+
+. assert m_a == inlist(status, "acquired", "merged")
+
+. assert ipo == (status == "public")
+
+. assert defunct == (status == "defunct")
+
+. assert m_a + ipo + defunct <= 1
+
+. 
+. label variable status "Post-VD/current firm status from Crunchbase"
+
+. label variable m_a "M&A outcome (acquired or merged)"
+
+. label variable ipo "IPO/public outcome"
+
+. label variable defunct "Defunct/closed outcome"
+
+. label variable status_year "Post-VD exit/event year from Crunchbase"
+
+. label variable status_date "Exact Crunchbase event date (YYYY-MM-DD), when avai
+> lable"
+
+. compress
+  variable VD was long now byte
+  variable VDyear was long now int
+  variable Foundingyear was long now int
+  variable Region2 was long now byte
+  variable Industry2 was long now byte
+  variable patentdummybyfiling was long now byte
+  variable NumofFundingRounds_VD was long now byte
+  variable patent_application_win3 was long now int
+  variable patentbyfiling_win3_2 was long now int
+  variable grantedpatentbyfiling_win3 was long now int
+  variable patent_application_VD was long now int
+  variable priorpatent_VD_2 was long now int
+  variable priorpatentdummy_VD was long now byte
+  variable innovation_granted_apps_win3 was long now int
+  variable description_apps_measured_win3 was long now int
+  variable m_a was long now byte
+  variable ipo was long now byte
+  variable defunct was long now byte
+  variable earlystage was double now byte
+  variable equityraised_t2 was double now long
+  variable status_year was double now int
+  (174,840 bytes saved)
+
+. save "`target'", replace
+file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_current_28
+    > 20_cross_section_v2.dta saved
+
+. 
+. tabulate status, missing
+
+Post-VD/cur |
+  rent firm |
+status from |
+ Crunchbase |      Freq.     Percent        Cum.
+------------+-----------------------------------
+   acquired |        593       21.03       21.03
+    defunct |        176        6.24       27.27
+    private |      1,931       68.48       95.74
+     public |        120        4.26      100.00
+------------+-----------------------------------
+      Total |      2,820      100.00
+
+. summarize m_a ipo defunct
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+         m_a |      2,820    .2102837    .4075823          0          1
+         ipo |      2,820    .0425532    .2018833          0          1
+     defunct |      2,820    .0624113    .2419441          0          1
+
+. describe status m_a ipo defunct status_year status_date
+
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+---------------------------------------------------------------------------------
+status          str8    %8s                   Post-VD/current firm status from
+                                                Crunchbase
+m_a             byte    %12.0g                M&A outcome (acquired or merged)
+ipo             byte    %12.0g                IPO/public outcome
+defunct         byte    %12.0g                Defunct/closed outcome
+status_year     int     %10.0g                Post-VD exit/event year from
+                                                Crunchbase
+status_date     str10   %10s                  Exact Crunchbase event date
+                                                (YYYY-MM-DD), when available
+
+. 
+end of do-file

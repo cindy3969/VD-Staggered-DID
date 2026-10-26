@@ -1,0 +1,400 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Figure3_validation.log
+  log type:  text
+ opened on:  19 Oct 2026, 16:56:38
+
+. use "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/firm_year_all_applications_and_truncation_specs.dta", clear
+
+. keep if year<=2024
+(0 observations deleted)
+
+. drop if missing(grantedapp_norm, ln1p_cum_funding_l1, cum_funding_rounds_l1, region_fe, industry_fe, full_firm_id, year, G)
+(7,273 observations deleted)
+
+. frame create figure_events
+
+. frame figure_events: set obs 9
+Number of observations (_N) was 0, now 9.
+
+. frame figure_events: generate int event_time=_n-5
+
+. graph set window fontface "Times New Roman"
+
+. graph set print fontface "Times New Roman"
+
+. ********************************************************************************
+. * Figure 3. Alternative estimators. Baseline = -1; original-firm clustered SE.
+. * Requires installed reghdfe and eventstudyinteract (already on this computer).
+. * Region/industry are time invariant and absorbed by firm fixed effects.
+. * Tail indicators prevent all periods outside -4..4 becoming the reference.
+. * The <=-5 and >=5 tail bins impose common within-bin effects.
+. ********************************************************************************
+. which reghdfe
+C:\Users\user\ado\plus\r\reghdfe.ado
+*! version 6.13.1 10Jan2026
+
+. which eventstudyinteract
+C:\Users\user\ado\plus\e\eventstudyinteract.ado
+*! version 0.1  24jan2022  Liyang Sun, lsun20@mit.edu
+
+. generate int figure_event_time = year-G if G>0
+(65,075 missing values generated)
+
+. generate byte figure_never = (G==0)
+
+. generate int figure_cohort = G if G>0
+(65,075 missing values generated)
+
+. generate byte event_before = (figure_event_time<=-5 & G>0)
+
+. generate byte event_after = (figure_event_time>=5 & figure_event_time<. & G>0)
+
+. generate byte event_m4 = (figure_event_time==-4 & G>0)
+
+. generate byte event_m3 = (figure_event_time==-3 & G>0)
+
+. generate byte event_m2 = (figure_event_time==-2 & G>0)
+
+. generate byte event_p0 = (figure_event_time==0 & G>0)
+
+. generate byte event_p1 = (figure_event_time==1 & G>0)
+
+. generate byte event_p2 = (figure_event_time==2 & G>0)
+
+. generate byte event_p3 = (figure_event_time==3 & G>0)
+
+. generate byte event_p4 = (figure_event_time==4 & G>0)
+
+. 
+. display as result "Figure 3: original TWFE"
+Figure 3: original TWFE
+
+. reghdfe grantedapp_norm event_m4 event_m3 event_m2 event_p0 event_p1 event_p2 event_p3 event_p4 ///
+>     event_before event_after ln1p_cum_funding_l1 cum_funding_rounds_l1, ///
+>     absorb(full_firm_id year) vce(cluster full_firm_id)
+(MWFE estimator converged in 6 iterations)
+
+HDFE Linear regression                            Number of obs   =     81,274
+Absorbing 2 HDFE groups                           F(  12,   7272) =       2.26
+Statistics robust to heteroskedasticity           Prob > F        =     0.0076
+                                                  R-squared       =     0.4990
+                                                  Adj R-squared   =     0.4496
+                                                  Within R-sq.    =     0.0023
+Number of clusters (full_firm_id) =      7,273    Root MSE        =     4.2342
+
+                                (Std. err. adjusted for 7,273 clusters in full_firm_id)
+---------------------------------------------------------------------------------------
+                      |               Robust
+      grantedapp_norm | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+----------------------+----------------------------------------------------------------
+             event_m4 |  -.0634489   .1001487    -0.63   0.526    -.2597695    .1328717
+             event_m3 |  -.0357966   .0813173    -0.44   0.660    -.1952022    .1236089
+             event_m2 |  -.0284221   .0575115    -0.49   0.621    -.1411613    .0843172
+             event_p0 |  -.0172825    .062779    -0.28   0.783    -.1403477    .1057826
+             event_p1 |  -.3205563   .1587659    -2.02   0.044    -.6317836    -.009329
+             event_p2 |   -.477764   .1931402    -2.47   0.013    -.8563748   -.0991531
+             event_p3 |   -.518416   .2204623    -2.35   0.019    -.9505861   -.0862459
+             event_p4 |  -.5710321   .2382542    -2.40   0.017    -1.038079   -.1039848
+         event_before |  -.1369002   .1260248    -1.09   0.277    -.3839455     .110145
+          event_after |  -.4297765   .2437598    -1.76   0.078    -.9076165    .0480635
+  ln1p_cum_funding_l1 |  -.0002743   .0086716    -0.03   0.975    -.0172733    .0167246
+cum_funding_rounds_l1 |   .1763109   .1001567     1.76   0.078    -.0200253     .372647
+                _cons |  -.0304879   .2156641    -0.14   0.888     -.453252    .3922763
+---------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+ full_firm_id |      7273        7273           0    *|
+         year |        14           1          13     |
+------------------------------------------------------+
+* = FE nested within cluster; treated as redundant for DoF computation
+
+. matrix figure_twfe_b = e(b)
+
+. matrix figure_twfe_V = e(V)
+
+. scalar figure_twfe_critical = invttail(e(df_r),.025)
+
+. test event_m4 event_m3 event_m2
+
+ ( 1)  event_m4 = 0
+ ( 2)  event_m3 = 0
+ ( 3)  event_m2 = 0
+
+       F(  3,  7272) =    0.14
+            Prob > F =    0.9349
+
+. scalar figure_twfe_pretrend_p = r(p)
+
+. display as text "TWFE joint pretrend p (-4,-3,-2; not tail bin): " as result figure_twfe_pretrend_p
+TWFE joint pretrend p (-4,-3,-2; not tail bin): .93486282
+
+. 
+. display as result "Figure 3: Sun-Abraham interaction-weighted estimator"
+Figure 3: Sun-Abraham interaction-weighted estimator
+
+. eventstudyinteract grantedapp_norm event_m4 event_m3 event_m2 event_p0 event_p1 event_p2 event_p3 event_p4 ///
+>     event_before event_after, ///
+>     cohort(figure_cohort) control_cohort(figure_never) ///
+>     covariates(ln1p_cum_funding_l1 cum_funding_rounds_l1) ///
+>     absorb(full_firm_id year) vce(cluster full_firm_id)
+(obs=16,199)
+
+IW estimates for dynamic effects                        Number of obs = 81,274
+Absorbing 2 HDFE groups                                 F(107, 7272)  =   1.16
+                                                        Prob > F      = 0.1197
+                                                        R-squared     = 0.4992
+                                                        Adj R-squared = 0.4491
+                                                        Root MSE      = 4.2363
+                       (Std. err. adjusted for 7,273 clusters in full_firm_id)
+------------------------------------------------------------------------------
+             |               Robust
+grantedapp~m | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    event_m4 |  -.0824123   .1250819    -0.66   0.510    -.3276092    .1627846
+    event_m3 |  -.0381564   .0965785    -0.40   0.693    -.2274784    .1511656
+    event_m2 |  -.0241373   .0645999    -0.37   0.709    -.1507719    .1024973
+    event_p0 |  -.0140194   .0629668    -0.22   0.824    -.1374527    .1094138
+    event_p1 |  -.3203988   .1612089    -1.99   0.047    -.6364151   -.0043826
+    event_p2 |  -.4873009   .1970225    -2.47   0.013    -.8735221   -.1010797
+    event_p3 |  -.5155385   .2289649    -2.25   0.024    -.9643762   -.0667008
+    event_p4 |  -.5333029   .2499952    -2.13   0.033    -1.023366   -.0432398
+event_before |   -.175734   .1725588    -1.02   0.309    -.5139994    .1625314
+ event_after |  -.4083969   .2723306    -1.50   0.134    -.9422439    .1254502
+------------------------------------------------------------------------------
+
+. matrix figure_sa_b = e(b_iw)
+
+. matrix figure_sa_V = e(V_iw)
+
+. scalar figure_sa_critical = invnormal(.975)
+
+. 
+. * Build cohort-specific stacks entirely in memory. Each stack contains only
+. * its treated cohort and never-treated firms in calendar years G-4..G+4.
+. * Unweighted conventional stacked regression: not the same C&S estimand.
+. * Cluster original firms across stacks, because controls recur across stacks.
+. frame put G if G>0, into(figure_cohorts)
+
+. frame change figure_cohorts
+
+. duplicates drop G, force
+
+Duplicates in terms of G
+
+(16,186 observations deleted)
+
+. sort G
+
+. rename G stack_G
+
+. generate int stack_index = _n
+
+. scalar figure_number_cohorts = _N
+
+. frame change default
+
+. frame put full_firm_id year G grantedapp_norm ln1p_cum_funding_l1 cum_funding_rounds_l1 ///
+>     event_m4 event_m3 event_m2 event_p0 event_p1 event_p2 event_p3 event_p4, into(figure_stack)
+
+. frame change figure_stack
+
+. expand figure_number_cohorts
+(975,288 observations created)
+
+. bysort full_firm_id year: generate int stack_index = _n
+
+. frlink m:1 stack_index, frame(figure_cohorts)
+(all observations in frame figure_stack matched)
+
+. frget stack_G, from(figure_cohorts)
+(1 variable copied from linked frame)
+
+. keep if (G==0 | G==stack_G) & inrange(year-stack_G,-4,4)
+(563,596 observations deleted)
+
+. * Drop firm-stack units lacking the baseline outcome; never fill absent years.
+. bysort stack_index full_firm_id: egen byte has_baseline = max(year==stack_G-1)
+
+. keep if has_baseline==1
+(73,720 observations deleted)
+
+. display as result "Figure 3: conventional unweighted stacked event study"
+Figure 3: conventional unweighted stacked event study
+
+. reghdfe grantedapp_norm event_m4 event_m3 event_m2 event_p0 event_p1 event_p2 event_p3 event_p4 ///
+>     i.stack_index#c.ln1p_cum_funding_l1 i.stack_index#c.cum_funding_rounds_l1, ///
+>     absorb(full_firm_id#stack_index year#stack_index) vce(cluster full_firm_id)
+(MWFE estimator converged in 6 iterations)
+
+HDFE Linear regression                            Number of obs   =    419,246
+Absorbing 2 HDFE groups                           F(  32,   7151) =       2.34
+Statistics robust to heteroskedasticity           Prob > F        =     0.0000
+                                                  R-squared       =     0.6729
+                                                  Adj R-squared   =     0.6238
+                                                  Within R-sq.    =     0.0037
+Number of clusters (full_firm_id) =      7,152    Root MSE        =     3.9426
+
+                                              (Std. err. adjusted for 7,152 clusters in full_firm_id)
+-----------------------------------------------------------------------------------------------------
+                                    |               Robust
+                    grantedapp_norm | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------------------+----------------------------------------------------------------
+                           event_m4 |  -.1367519   .0970688    -1.41   0.159    -.3270354    .0535317
+                           event_m3 |  -.0986959   .0802846    -1.23   0.219    -.2560774    .0586856
+                           event_m2 |  -.0277622   .0575016    -0.48   0.629    -.1404823    .0849578
+                           event_p0 |  -.0380016   .0671739    -0.57   0.572    -.1696822     .093679
+                           event_p1 |  -.3419609    .172093    -1.99   0.047    -.6793142   -.0046076
+                           event_p2 |  -.5118235   .2068216    -2.47   0.013    -.9172551   -.1063919
+                           event_p3 |  -.5674054   .2438293    -2.33   0.020    -1.045383    -.089428
+                           event_p4 |  -.6342758   .2760579    -2.30   0.022    -1.175431   -.0931206
+                                    |
+  stack_index#c.ln1p_cum_funding_l1 |
+                                 2  |   .0302298   .0243607     1.24   0.215    -.0175243    .0779839
+                                 3  |   .0078508   .0172621     0.45   0.649    -.0259879    .0416896
+                                 4  |    .000453   .0155583     0.03   0.977    -.0300459    .0309518
+                                 5  |  -.0109388    .016716    -0.65   0.513    -.0437071    .0218294
+                                 6  |  -.0122631   .0159974    -0.77   0.443    -.0436228    .0190967
+                                 7  |  -.0194612   .0169909    -1.15   0.252    -.0527684    .0138459
+                                 8  |  -.0177594    .014639    -1.21   0.225    -.0464561    .0109372
+                                 9  |  -.0139905   .0120553    -1.16   0.246    -.0376224    .0096414
+                                10  |  -.0029123   .0070046    -0.42   0.678    -.0166433    .0108187
+                                11  |   .0046924   .0056646     0.83   0.407     -.006412    .0157968
+                                12  |    .013892   .0060083     2.31   0.021     .0021139      .02567
+                                13  |   .0218978   .0078208     2.80   0.005     .0065666    .0372289
+                                    |
+stack_index#c.cum_funding_rounds_l1 |
+                                 2  |  -.0163078   .0754525    -0.22   0.829    -.1642169    .1316014
+                                 3  |   .2519697   .2123135     1.19   0.235    -.1642275    .6681668
+                                 4  |   .3560877   .2205745     1.61   0.106    -.0763035    .7884789
+                                 5  |   .4459918   .2578349     1.73   0.084    -.0594409    .9514245
+                                 6  |    .452978   .2489455     1.82   0.069    -.0350287    .9409847
+                                 7  |   .4036689   .1982559     2.04   0.042     .0150287    .7923091
+                                 8  |   .3075019   .1319563     2.33   0.020     .0488286    .5661752
+                                 9  |   .1971557   .0867041     2.27   0.023       .02719    .3671213
+                                10  |   .0573804   .0461115     1.24   0.213    -.0330117    .1477726
+                                11  |  -.0104557   .0357714    -0.29   0.770    -.0805784    .0596669
+                                12  |  -.0639146   .0362596    -1.76   0.078    -.1349943     .007165
+                                13  |  -.1165583   .0438812    -2.66   0.008    -.2025785   -.0305381
+                                    |
+                              _cons |   .1400242   .1791433     0.78   0.434    -.2111497    .4911982
+-----------------------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+--------------------------------------------------------------------+
+                Absorbed FE | Categories  - Redundant  = Num. Coefs |
+----------------------------+---------------------------------------|
+   full_firm_id#stack_index |     54605       54605           0    *|
+           year#stack_index |        96           1          95     |
+--------------------------------------------------------------------+
+* = FE nested within cluster; treated as redundant for DoF computation
+
+. matrix figure_stack_b = e(b)
+
+. matrix figure_stack_V = e(V)
+
+. scalar figure_stack_critical = invttail(e(df_r),.025)
+
+. frame change figure_events
+
+. generate str12 regression_term = cond(event_time<0,"event_m"+string(abs(event_time)),"event_p"+string(event_time))
+
+. 
+. generate double b_twfe = el(figure_twfe_b,1,colnumb(figure_twfe_b,regression_term)) if event_time!=-1
+(1 missing value generated)
+
+. generate double s_twfe = sqrt(el(figure_twfe_V,colnumb(figure_twfe_b,regression_term),colnumb(figure_twfe_b,regression_term))) if event_time!=-1
+(1 missing value generated)
+
+. assert !missing(b_twfe,s_twfe) if event_time!=-1
+
+. replace b_twfe = 0 if event_time==-1
+(1 real change made)
+
+. replace s_twfe = 0 if event_time==-1
+(1 real change made)
+
+. generate double lower_twfe = b_twfe-figure_twfe_critical*s_twfe
+
+. generate double upper_twfe = b_twfe+figure_twfe_critical*s_twfe
+
+. 
+. generate double b_sa = el(figure_sa_b,1,colnumb(figure_sa_b,regression_term)) if event_time!=-1
+(1 missing value generated)
+
+. generate double s_sa = sqrt(el(figure_sa_V,colnumb(figure_sa_b,regression_term),colnumb(figure_sa_b,regression_term))) if event_time!=-1
+(1 missing value generated)
+
+. assert !missing(b_sa,s_sa) if event_time!=-1
+
+. replace b_sa = 0 if event_time==-1
+(1 real change made)
+
+. replace s_sa = 0 if event_time==-1
+(1 real change made)
+
+. generate double lower_sa = b_sa-figure_sa_critical*s_sa
+
+. generate double upper_sa = b_sa+figure_sa_critical*s_sa
+
+. 
+. generate double b_stack = el(figure_stack_b,1,colnumb(figure_stack_b,regression_term)) if event_time!=-1
+(1 missing value generated)
+
+. generate double s_stack = sqrt(el(figure_stack_V,colnumb(figure_stack_b,regression_term),colnumb(figure_stack_b,regression_term))) if event_time!=-1
+(1 missing value generated)
+
+. assert !missing(b_stack,s_stack) if event_time!=-1
+
+. replace b_stack = 0 if event_time==-1
+(1 real change made)
+
+. replace s_stack = 0 if event_time==-1
+(1 real change made)
+
+. generate double lower_stack = b_stack-figure_stack_critical*s_stack
+
+. generate double upper_stack = b_stack+figure_stack_critical*s_stack
+
+. 
+. generate double event_twfe = event_time-.10
+
+. generate double event_sa = event_time
+
+. generate double event_stack = event_time+.10
+
+. twoway (rcap lower_twfe upper_twfe event_twfe, lcolor(navy)) ///
+>     (scatter b_twfe event_twfe, mcolor(navy) msymbol(Dh)) ///
+>     (rcap lower_sa upper_sa event_sa, lcolor(maroon)) ///
+>     (scatter b_sa event_sa, mcolor(maroon) msymbol(Oh)) ///
+>     (rcap lower_stack upper_stack event_stack, lcolor(forest_green)) ///
+>     (scatter b_stack event_stack, mcolor(forest_green) msymbol(Th)), ///
+>     xlabel(-4(1)4) xline(-.5,lpattern(dash) lcolor(gs8)) yline(0,lcolor(gs8)) ///
+>     xtitle("Years relative to first VD") ytitle("Effect on normalized granted applications") ///
+>     title("Figure 3. Event studies across alternative estimators", size(medium)) ///
+>     legend(order(2 "Original TWFE" 4 "Sun and Abraham (2021)" 6 "Stacked") rows(1) position(6) size(small)) ///
+>     note("Reference: -1. Pointwise 95% CI. Firm-clustered SE. Stacked: unweighted.", size(vsmall)) ///
+>     graphregion(color(white)) xsize(9) ysize(5.5) name(Figure3,replace)
+
+. graph export "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Figure3_grantedapp_norm.png", replace width(3000)
+file C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Figure3_grantedapp_norm.png saved as PNG format
+
+. graph save "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Figure3_grantedapp_norm.gph", replace
+file C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Figure3_grantedapp_norm.gph saved
+
+. frame change default
+
+. display as result "Figure 3 validation completed."
+Figure 3 validation completed.
+
+. * No save command: the existing panel DTA remains unchanged.
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Figure3_validation.log
+  log type:  text
+ closed on:  19 Oct 2026, 16:58:27
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

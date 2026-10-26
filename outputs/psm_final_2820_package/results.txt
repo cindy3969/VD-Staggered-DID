@@ -1,0 +1,38 @@
+	(1)	(2)	(3)	(4)
+VARIABLES	ln_norm_cite_perpat_win3_v4	ln_norm_cite_perpat_win3_v4	ln_norm_cite_perpat_win3_v4	ln_norm_cite_perpat_win3_v4
+				
+1.VD		-0.060	-0.042	-0.043
+		(0.246)	(0.298)	(0.421)
+1.priorpatentdummy_VD	0.053	0.059	0.054	0.053
+	(0.143)	(0.250)	(0.133)	(0.305)
+0b.VD#0b.priorpatentdummy_VD		0.000		0.000
+		(.)		(.)
+0b.VD#1o.priorpatentdummy_VD		0.000		0.000
+		(.)		(.)
+1o.VD#0b.priorpatentdummy_VD		0.000		0.000
+		(.)		(.)
+1.VD#1.priorpatentdummy_VD		-0.015		0.002
+		(0.829)		(0.975)
+1.latestage_VD	-0.039	-0.039	-0.002	-0.002
+	(0.365)	(0.367)	(0.973)	(0.976)
+ln_MoneyRaised_VD	0.005	0.005	0.005	0.005
+	(0.466)	(0.459)	(0.456)	(0.461)
+NumofFundingRounds_VD	-0.003	-0.003	-0.003	-0.003
+	(0.700)	(0.700)	(0.738)	(0.738)
+VD	-0.068**			
+	(0.042)			
+0b.VD#0b.latestage_VD			0.000	0.000
+			(.)	(.)
+0b.VD#1o.latestage_VD			0.000	0.000
+			(.)	(.)
+1o.VD#0b.latestage_VD			0.000	0.000
+			(.)	(.)
+1.VD#1.latestage_VD			-0.097	-0.097
+			(0.169)	(0.179)
+Constant	0.232**	0.227**	0.217**	0.218**
+	(0.019)	(0.029)	(0.028)	(0.035)
+				
+Observations	710	710	710	710
+R-squared	0.034	0.034	0.036	0.036
+Robust pval in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				

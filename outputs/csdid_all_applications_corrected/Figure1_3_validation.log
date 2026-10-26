@@ -1,0 +1,451 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/Figure1_3_validation.log
+  log type:  text
+ opened on:  19 Oct 2026, 16:47:02
+
+. 
+. * Table 11: Callaway-Sant'Anna DRIPW. DV: grantedapp_norm (NOT log).
+. * Existing subgroup definitions and covariates are retained.
+. * Read/filter once. Each model uses an if condition without deleting subgroups.
+. * Counts describe complete-case input; individual ATT(g,t) samples can differ.
+. * Figures 1-3 are displayed and saved as PNG/GPH. No datasets are saved.
+. 
+. use "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/firm_year_all_applications_and_truncation_specs.dta", clear
+
+. keep if year<=2024
+(0 observations deleted)
+
+. drop if missing(grantedapp_norm, ln1p_cum_funding_l1, cum_funding_rounds_l1, region_fe, industry_fe, full_firm_id, year, G)
+(7,273 observations deleted)
+
+. isid full_firm_id year
+
+. xtset full_firm_id year
+
+Panel variable: full_firm_id (unbalanced)
+ Time variable: year, 2011 to 2024
+         Delta: 1 unit
+
+. 
+. ********************************************************************************
+. * (1) All firms
+. ********************************************************************************
+. display as result "(1) All firms"
+(1) All firms
+
+. quietly count
+
+. scalar eligible_observations = r(N)
+
+. egen byte firm_tag = tag(full_firm_id)
+
+. quietly count if firm_tag==1
+
+. scalar eligible_firms = r(N)
+
+. drop firm_tag
+
+. 
+. quietly csdid grantedapp_norm ///
+>     ln1p_cum_funding_l1 cum_funding_rounds_l1 ///
+>     i.region_fe i.industry_fe, ///
+>     ivar(full_firm_id) time(year) gvar(G) method(dripw)
+Panel is not balanced
+Will use observations with Pair balanced (observed at t0 and t1)
+
+. 
+. csdid_estat simple
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |  -.1906043   .1105574    -1.72   0.085    -.4072927    .0260842
+------------------------------------------------------------------------------
+
+. 
+. * Event-study estimates followed immediately by their graph.
+. csdid_estat event, window(-4 4)
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     Pre_avg |   .0304263   .0270683     1.12   0.261    -.0226266    .0834792
+    Post_avg |  -.1867862   .0761101    -2.45   0.014    -.3359593   -.0376131
+         Tm4 |  -.0447464   .0500548    -0.89   0.371    -.1428521    .0533593
+         Tm3 |    .102398   .0724569     1.41   0.158    -.0396149    .2444109
+         Tm2 |   .0458955   .0608894     0.75   0.451    -.0734456    .1652366
+         Tm1 |   .0181581   .0585226     0.31   0.756    -.0965441    .1328603
+         Tp0 |   .0039588   .0606192     0.07   0.948    -.1148526    .1227703
+         Tp1 |  -.1005589   .0586272    -1.72   0.086    -.2154661    .0143482
+         Tp2 |  -.2541276   .0845864    -3.00   0.003    -.4199139   -.0883413
+         Tp3 |  -.2796762   .1092986    -2.56   0.011    -.4938974    -.065455
+         Tp4 |  -.3035273   .1375603    -2.21   0.027    -.5731404   -.0339141
+------------------------------------------------------------------------------
+
+. csdid_plot, yline(0, lcolor(gs8)) xline(0, lpattern(dash)) ///
+>     xtitle("Years relative to first VD") ///
+>     ytitle("ATT on normalized granted applications") ///
+>     title("(1) All firms") ///
+>     graphregion(color(white)) name(Event_All, replace)
+
+. 
+. * Keep the aggregated event estimates, not the underlying ATT(g,t) matrix.
+. matrix fig_all_b = r(b)
+
+. matrix fig_all_V = r(V)
+
+. 
+. csdid_estat group
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |  -.1801999   .0875564    -2.06   0.040    -.3518073   -.0085925
+       G2012 |   -.374002   .2652784    -1.41   0.159     -.893938    .1459341
+       G2013 |  -.3461464   .2032568    -1.70   0.089    -.7445224    .0522296
+       G2014 |  -.2468473    .175413    -1.41   0.159    -.5906505    .0969559
+       G2015 |   .0597425   .4458916     0.13   0.893    -.8141891     .933674
+       G2016 |  -.2088677   .2267838    -0.92   0.357    -.6533559    .2356205
+       G2017 |   -.351177   .1641966    -2.14   0.032    -.6729964   -.0293575
+       G2018 |  -.1242332   .0990972    -1.25   0.210    -.3184601    .0699937
+       G2019 |  -.1348163   .2151995    -0.63   0.531    -.5565996    .2869671
+       G2020 |  -.1219972    .145987    -0.84   0.403    -.4081264     .164132
+       G2021 |  -.3287878   .2719363    -1.21   0.227    -.8617732    .2041976
+       G2022 |  -.3056306   .2163738    -1.41   0.158    -.7297155    .1184543
+       G2023 |    .267581   .1302354     2.05   0.040     .0123242    .5228378
+------------------------------------------------------------------------------
+
+. display as text "Observations (complete-case input): " as result %12.0fc eligible_observations
+Observations (complete-case input):       81,274
+
+. display as text "Firms (complete-case input):        " as result %12.0fc eligible_firms
+Firms (complete-case input):               7,273
+
+. display as text "Control group: Never-treated"
+Control group: Never-treated
+
+. 
+. ********************************************************************************
+. * (2) No prior patent
+. ********************************************************************************
+. display as result "(2) No prior patent"
+(2) No prior patent
+
+. quietly count if (G==0 | prior==0)
+
+. scalar eligible_observations = r(N)
+
+. egen byte firm_tag = tag(full_firm_id) if (G==0 | prior==0)
+
+. quietly count if firm_tag==1
+
+. scalar eligible_firms = r(N)
+
+. drop firm_tag
+
+. 
+. quietly csdid grantedapp_norm ///
+>     ln1p_cum_funding_l1 cum_funding_rounds_l1 ///
+>     i.region_fe i.industry_fe if (G==0 | prior==0), ///
+>     ivar(full_firm_id) time(year) gvar(G) method(dripw)
+Panel is not balanced
+Will use observations with Pair balanced (observed at t0 and t1)
+
+. 
+. csdid_estat simple
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |   .0304892   .1169154     0.26   0.794    -.1986608    .2596391
+------------------------------------------------------------------------------
+
+. 
+. * Event-study estimates followed immediately by their graph.
+. csdid_estat event, window(-4 4)
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     Pre_avg |  -.0591005   .0095572    -6.18   0.000    -.0778323   -.0403687
+    Post_avg |  -.0002734   .0556992    -0.00   0.996    -.1094419    .1088951
+         Tm4 |  -.0636113   .0107261    -5.93   0.000    -.0846341   -.0425884
+         Tm3 |  -.0653266   .0106634    -6.13   0.000    -.0862265   -.0444266
+         Tm2 |  -.0560991   .0108821    -5.16   0.000    -.0774276   -.0347705
+         Tm1 |  -.0513652   .0120521    -4.26   0.000    -.0749868   -.0277435
+         Tp0 |   .0696313    .031053     2.24   0.025     .0087686    .1304941
+         Tp1 |  -.0033504   .0330485    -0.10   0.919    -.0681243    .0614236
+         Tp2 |   .0055828    .053232     0.10   0.916    -.0987499    .1099155
+         Tp3 |  -.0476469   .0816784    -0.58   0.560    -.2077336    .1124398
+         Tp4 |  -.0255838   .1087733    -0.24   0.814    -.2387756    .1876081
+------------------------------------------------------------------------------
+
+. csdid_plot, yline(0, lcolor(gs8)) xline(0, lpattern(dash)) ///
+>     xtitle("Years relative to first VD") ///
+>     ytitle("ATT on normalized granted applications") ///
+>     title("(2) No prior patent") ///
+>     graphregion(color(white)) name(Event_NoPrior, replace)
+
+. 
+. * Keep the aggregated event estimates, not the underlying ATT(g,t) matrix.
+. matrix fig_noprior_b = r(b)
+
+. matrix fig_noprior_V = r(V)
+
+. 
+. csdid_estat group
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |   .0743055   .0860342     0.86   0.388    -.0943185    .2429295
+       G2012 |  -.3311994   .2427282    -1.36   0.172     -.806938    .1445391
+       G2013 |  -.1417446   .1632225    -0.87   0.385    -.4616547    .1781656
+       G2014 |  -.1889408   .1578472    -1.20   0.231    -.4983157    .1204341
+       G2015 |     .44626   .5586593     0.80   0.424     -.648692    1.541212
+       G2016 |   -.101227   .1342912    -0.75   0.451     -.364433    .1619789
+       G2017 |  -.1187554   .1051501    -1.13   0.259    -.3248458    .0873349
+       G2018 |   .0879902   .0517461     1.70   0.089    -.0134303    .1894107
+       G2019 |   .1315921   .0630263     2.09   0.037     .0080628    .2551214
+       G2020 |   .2530196   .0472445     5.36   0.000     .1604222    .3456171
+       G2021 |   .1998781   .0319169     6.26   0.000     .1373222     .262434
+       G2022 |   .1890528   .0378042     5.00   0.000     .1149579    .2631477
+       G2023 |   .1593631    .040781     3.91   0.000     .0794338    .2392925
+------------------------------------------------------------------------------
+
+. display as text "Observations (complete-case input): " as result %12.0fc eligible_observations
+Observations (complete-case input):       76,865
+
+. display as text "Firms (complete-case input):        " as result %12.0fc eligible_firms
+Firms (complete-case input):               6,892
+
+. display as text "Control group: Never-treated"
+Control group: Never-treated
+
+. 
+. ********************************************************************************
+. * (3) Prior patent
+. ********************************************************************************
+. display as result "(3) Prior patent"
+(3) Prior patent
+
+. quietly count if (G==0 | prior==1)
+
+. scalar eligible_observations = r(N)
+
+. egen byte firm_tag = tag(full_firm_id) if (G==0 | prior==1)
+
+. quietly count if firm_tag==1
+
+. scalar eligible_firms = r(N)
+
+. drop firm_tag
+
+. 
+. quietly csdid grantedapp_norm ///
+>     ln1p_cum_funding_l1 cum_funding_rounds_l1 ///
+>     i.region_fe i.industry_fe if (G==0 | prior==1), ///
+>     ivar(full_firm_id) time(year) gvar(G) method(dripw)
+Panel is not balanced
+Will use observations with Pair balanced (observed at t0 and t1)
+
+. 
+. csdid_estat simple
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |  -.7880328   .1907102    -4.13   0.000    -1.161818   -.4142477
+------------------------------------------------------------------------------
+
+. 
+. * Event-study estimates followed immediately by their graph.
+. csdid_estat event, window(-4 4)
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     Pre_avg |   .1948159   .0755623     2.58   0.010     .0467165    .3429153
+    Post_avg |  -.6238559   .1984117    -3.14   0.002    -1.012736   -.2349761
+         Tm4 |  -.0172669   .1343197    -0.13   0.898    -.2805286    .2459948
+         Tm3 |   .3937756   .2022931     1.95   0.052    -.0027115    .7902627
+         Tm2 |    .235324   .1916998     1.23   0.220    -.1404008    .6110488
+         Tm1 |   .1674308   .1792834     0.93   0.350    -.1839581    .5188197
+         Tp0 |  -.1441321   .1921526    -0.75   0.453    -.5207442      .23248
+         Tp1 |  -.3150813   .1766754    -1.78   0.075    -.6613587     .031196
+         Tp2 |  -.8411938   .2432641    -3.46   0.001    -1.317983   -.3644048
+         Tp3 |  -.8159438   .2833317    -2.88   0.004    -1.371264    -.260624
+         Tp4 |  -1.002929    .348861    -2.87   0.004    -1.686684   -.3191736
+------------------------------------------------------------------------------
+
+. csdid_plot, yline(0, lcolor(gs8)) xline(0, lpattern(dash)) ///
+>     xtitle("Years relative to first VD") ///
+>     ytitle("ATT on normalized granted applications") ///
+>     title("(3) Prior patent") ///
+>     graphregion(color(white)) name(Event_Prior, replace)
+
+. 
+. * Keep the aggregated event estimates, not the underlying ATT(g,t) matrix.
+. matrix fig_prior_b = r(b)
+
+. matrix fig_prior_V = r(V)
+
+. 
+. csdid_estat group
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |  -.7376385   .1781815    -4.14   0.000    -1.086868   -.3884092
+       G2012 |  -.9162178   3.186782    -0.29   0.774    -7.162195     5.32976
+       G2013 |  -1.838659   1.035237    -1.78   0.076    -3.867686    .1903676
+       G2014 |  -.4360437   .5405449    -0.81   0.420    -1.495492    .6234048
+       G2015 |  -1.192312   .4073071    -2.93   0.003    -1.990619   -.3940051
+       G2016 |  -.5096594   .7339537    -0.69   0.487    -1.948182    .9288634
+       G2017 |  -1.043189   .4156636    -2.51   0.012    -1.857875   -.2285035
+       G2018 |  -.6380685   .2883433    -2.21   0.027    -1.203211    -.072926
+       G2019 |   -.620598   .6104193    -1.02   0.309    -1.816998    .5758018
+       G2020 |  -.6780961   .3667319    -1.85   0.064    -1.396878    .0406853
+       G2021 |  -.9042087   .5867517    -1.54   0.123    -2.054221    .2458035
+       G2022 |  -1.105886   .5995166    -1.84   0.065    -2.280917    .0691448
+       G2023 |   .4951765   .3380065     1.46   0.143    -.1673041    1.157657
+------------------------------------------------------------------------------
+
+. display as text "Observations (complete-case input): " as result %12.0fc eligible_observations
+Observations (complete-case input):       69,484
+
+. display as text "Firms (complete-case input):        " as result %12.0fc eligible_firms
+Firms (complete-case input):               6,255
+
+. display as text "Control group: Never-treated"
+Control group: Never-treated
+
+. 
+. ********************************************************************************
+. * (4) Early stage
+. ********************************************************************************
+. display as result "(4) Early stage"
+(4) Early stage
+
+. quietly count if (G==0 | early==1)
+
+. scalar eligible_observations = r(N)
+
+. egen byte firm_tag = tag(full_firm_id) if (G==0 | early==1)
+
+. quietly count if firm_tag==1
+
+. scalar eligible_firms = r(N)
+
+. drop firm_tag
+
+. 
+. quietly csdid grantedapp_norm ///
+>     ln1p_cum_funding_l1 cum_funding_rounds_l1 ///
+>     i.region_fe i.industry_fe if (G==0 | early==1), ///
+>     ivar(full_firm_id) time(year) gvar(G) method(dripw)
+Panel is not balanced
+Will use observations with Pair balanced (observed at t0 and t1)
+
+. 
+. csdid_estat simple
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |  -.1171575   .1228902    -0.95   0.340    -.3580178    .1237028
+------------------------------------------------------------------------------
+
+. 
+. * Event-study estimates followed immediately by their graph.
+. csdid_estat event, window(-4 4)
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     Pre_avg |   .0087603   .0328186     0.27   0.790    -.0555628    .0730835
+    Post_avg |  -.1079019   .0801484    -1.35   0.178      -.26499    .0491861
+         Tm4 |  -.0274636   .0531308    -0.52   0.605     -.131598    .0766708
+         Tm3 |  -.0109845   .0759419    -0.14   0.885    -.1598279    .1378589
+         Tm2 |   .0200489   .0558393     0.36   0.720    -.0893941     .129492
+         Tm1 |   .0534406   .0754737     0.71   0.479    -.0944851    .2013663
+         Tp0 |  -.0105837   .0612774    -0.17   0.863    -.1306852    .1095178
+         Tp1 |  -.0726389   .0626304    -1.16   0.246    -.1953922    .0501144
+         Tp2 |  -.1754119   .0966699    -1.81   0.070    -.3648814    .0140577
+         Tp3 |  -.1442364   .1069047    -1.35   0.177    -.3537657     .065293
+         Tp4 |  -.1366388   .1473656    -0.93   0.354      -.42547    .1521924
+------------------------------------------------------------------------------
+
+. csdid_plot, yline(0, lcolor(gs8)) xline(0, lpattern(dash)) ///
+>     xtitle("Years relative to first VD") ///
+>     ytitle("ATT on normalized granted applications") ///
+>     title("(4) Early stage") ///
+>     graphregion(color(white)) name(Event_Early, replace)
+
+. 
+. * Keep the aggregated event estimates, not the underlying ATT(g,t) matrix.
+. matrix fig_early_b = r(b)
+
+. matrix fig_early_V = r(V)
+
+. 
+. csdid_estat group
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |  -.1118429   .1007061    -1.11   0.267    -.3092231    .0855374
+       G2012 |  -.3856488    .282903    -1.36   0.173    -.9401285    .1688309
+       G2013 |  -.3310498    .218196    -1.52   0.129    -.7587062    .0966066
+       G2014 |   -.163511   .1772439    -0.92   0.356    -.5109028    .1838807
+       G2015 |   .1953892   .5251324     0.37   0.710    -.8338513     1.22463
+       G2016 |  -.1360615   .2560875    -0.53   0.595    -.6379839    .3658608
+       G2017 |  -.2747741   .1168633    -2.35   0.019     -.503822   -.0457262
+       G2018 |  -.0995772    .118173    -0.84   0.399     -.331192    .1320377
+       G2019 |  -.1697716   .3150638    -0.54   0.590    -.7872853     .447742
+       G2020 |   .2496162   .1190579     2.10   0.036     .0162671    .4829653
+       G2021 |  -.2156344   .2641654    -0.82   0.414    -.7333891    .3021203
+       G2022 |  -.3734447   .3267995    -1.14   0.253     -1.01396    .2670706
+       G2023 |   .1433865   .0937205     1.53   0.126    -.0403023    .3270752
+------------------------------------------------------------------------------
+
+. display as text "Observations (complete-case input): " as result %12.0fc eligible_observations
+Observations (complete-case input):       76,394
+
+. display as text "Firms (complete-case input):        " as result %12.0fc eligible_firms
+Firms (complete-case input):               6,860
+
+. display as text "Control group: Never-treated"
+Control group: Never-treated
+
+. 
+. ********************************************************************************
+. * (5) Late stage
+. ********************************************************************************
+. display as result "(5) Late stage"
+(5) Late stage
+
+. quietly count if (G==0 | early==0)
+
+. scalar eligible_observations = r(N)
+
+. egen byte firm_tag = tag(full_firm_id) if (G==0 | early==0)
+
+. quietly count if firm_tag==1
+
+. scalar eligible_firms = r(N)
+
+. drop firm_tag
+
+. 
+. quietly csdid grantedapp_norm ///
+>     ln1p_cum_funding_l1 cum_funding_rounds_l1 ///
+>     i.region_fe i.industry_fe if (G==0 | early==0), ///
+>     ivar(full_firm_id) time(year) gvar(G) method(dripw)
+Panel is not balanced
+Will use observations with Pair balanced (observed at t0 and t1)

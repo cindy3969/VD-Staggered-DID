@@ -1,0 +1,156 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/refresh_did_20261023/grantedapp_norm_notyet.log
+  log type:  text
+ opened on:  23 Oct 2026, 03:44:37
+
+. capture program drop construct_late
+
+. program define construct_late
+  1.     confirm variable full_firm_id year G stage_preyear_text
+  2.     capture drop late
+  3.     capture drop late_at_G
+  4.     capture drop stage_at_G
+  5.     gen str244 stage_at_G = lower(strtrim(stage_preyear_text)) if G>0 & year==G
+  6.     gen byte late_at_G = .
+  7.     replace late_at_G = 1 if G>0 & year==G & regexm(stage_at_G,"^series [c-z][0-9]*$")
+  8.     replace late_at_G = 0 if G>0 & year==G & ///
+>         (regexm(stage_at_G,"^series [ab][0-9]*$") | inlist(stage_at_G,"seed","pre-seed","angel"))
+  9.     bysort full_firm_id: egen byte late = max(late_at_G)
+ 10.     label variable late "Series C+ through G-1 (1); Seed through B (0); unknown missing"
+ 11.     label define late_stage_label 0 "Seed through Series B" 1 "Series C+", replace
+ 12.     label values late late_stage_label
+ 13.     drop late_at_G stage_at_G
+ 14. end
+
+. 
+. 
+. global P "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected"
+
+. global Q "C:/Users/user/Documents/VD/outputs/refresh_did_20261023"
+
+. use "$P/firm_year_all_applications_and_truncation_specs.dta", clear
+
+. construct_late
+(87,148 missing values generated)
+(88,547 missing values generated)
+(128 real changes made)
+(824 real changes made)
+(76,624 missing values generated)
+
+. local dv grantedapp_norm
+
+. keep if year<=2024
+(0 observations deleted)
+
+. drop if missing(`dv',ln1p_cum_funding_l1,cum_funding_rounds_l1,region_fe,industry_fe,full_firm_id,year,G)
+(7,273 observations deleted)
+
+. tempname H
+
+. postfile `H' str12 sample str12 control str12 aggregation str40 effect double att se p N firms int rc using "$Q/grantedapp_norm_notyet_results.dta", replace
+(file C:/Users/user/Documents/VD/outputs/refresh_did_20261023/grantedapp_norm_notyet_results.dta not found)
+
+. foreach sample in notyet {
+  2.     local condition "1"
+  3.     local opt ""
+  4.     local ctrl "never"
+  5.     if "`sample'"=="noprior" local condition "G==0 | prior==0"
+  6.     if "`sample'"=="prior" local condition "G==0 | prior==1"
+  7.     if "`sample'"=="nonlate" local condition "G==0 | late==0"
+  8.     if "`sample'"=="late" local condition "G==0 | late==1"
+  9.     if "`sample'"=="notyet" {
+ 10.         local opt "notyet"
+ 11.         local ctrl "notyet"
+ 12.     }
+ 13.     quietly count if `condition'
+ 14.     local N=r(N)
+ 15.     egen byte tag=tag(full_firm_id) if `condition'
+ 16.     quietly count if tag==1
+ 17.     local firms=r(N)
+ 18.     drop tag
+ 19.     display "BEGIN_SPEC v4 `sample' N=`N' firms=`firms'"
+ 20.     capture quietly csdid `dv' ln1p_cum_funding_l1 cum_funding_rounds_l1 i.region_fe i.industry_fe if `condition', ivar(full_firm_id) time(year) gvar(G) method(dripw) `opt'
+ 21.     local rc=_rc
+ 22.     if `rc' {
+ 23.         post `H' ("`sample'") ("`ctrl'") ("failed") ("csdid") (.) (.) (.) (`N') (`firms') (`rc')
+ 24.         continue
+ 25.     }
+ 26.     foreach agg in simple event group {
+ 27.         local window ""
+ 28.         if "`agg'"=="event" local window ", window(-4 4)"
+ 29.         capture noisily csdid_estat `agg' `window'
+ 30.         local rc=_rc
+ 31.         if `rc' {
+ 32.             post `H' ("`sample'") ("`ctrl'") ("`agg'") ("failed") (.) (.) (.) (`N') (`firms') (`rc')
+ 33.             continue
+ 34.         }
+ 35.         matrix T=r(table)
+ 36.         local names: colnames T
+ 37.         local j=0
+ 38.         foreach term of local names {
+ 39.             local ++j
+ 40.             post `H' ("`sample'") ("`ctrl'") ("`agg'") ("`term'") (T[1,`j']) (T[2,`j']) (T[4,`j']) (`N') (`firms') (0)
+ 41.         }
+ 42.     }
+ 43.     display "END_SPEC v4 `sample'"
+ 44. }
+BEGIN_SPEC v4 notyet N=81274 firms=7273
+Average Treatment Effect on Treated
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         ATT |  -.1933236   .1090748    -1.77   0.076    -.4071062     .020459
+------------------------------------------------------------------------------
+ATT by Periods Before and After treatment
+Event Study:Dynamic effects
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+     Pre_avg |   .0270545   .0266637     1.01   0.310    -.0252053    .0793144
+    Post_avg |  -.1915564   .0756986    -2.53   0.011    -.3399229     -.04319
+         Tm4 |  -.0475909   .0503981    -0.94   0.345    -.1463692    .0511875
+         Tm3 |   .0994077   .0728746     1.36   0.173     -.043424    .2422394
+         Tm2 |   .0426433   .0611354     0.70   0.485      -.07718    .1624665
+         Tm1 |    .013758   .0584981     0.24   0.814    -.1008961    .1284121
+         Tp0 |  -.0013156    .060972    -0.02   0.983    -.1208185    .1181872
+         Tp1 |   -.107609   .0587748    -1.83   0.067    -.2228055    .0075875
+         Tp2 |   -.259058      .0854    -3.03   0.002    -.4264389   -.0916771
+         Tp3 |  -.2821843   .1085423    -2.60   0.009    -.4949233   -.0694453
+         Tp4 |  -.3076151   .1351186    -2.28   0.023    -.5724427   -.0427876
+------------------------------------------------------------------------------
+ATT by group
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+    GAverage |  -.1825679   .0873259    -2.09   0.037    -.3537235   -.0114123
+       G2012 |  -.3817483   .2565272    -1.49   0.137    -.8845324    .1210358
+       G2013 |  -.3403347   .1981868    -1.72   0.086    -.7287738    .0481044
+       G2014 |  -.2485245   .1704007    -1.46   0.145    -.5825038    .0854549
+       G2015 |   .0546125   .4446057     0.12   0.902    -.8167986    .9260237
+       G2016 |  -.2132564   .2253011    -0.95   0.344    -.6548385    .2283257
+       G2017 |  -.3580947    .163101    -2.20   0.028    -.6777668   -.0384227
+       G2018 |  -.1261246   .0988937    -1.28   0.202    -.3199527    .0677036
+       G2019 |  -.1409685    .215092    -0.66   0.512     -.562541     .280604
+       G2020 |   -.122163   .1458733    -0.84   0.402    -.4080695    .1637435
+       G2021 |  -.3294365   .2719306    -1.21   0.226    -.8624107    .2035376
+       G2022 |  -.3055045   .2163584    -1.41   0.158    -.7295592    .1185501
+       G2023 |    .267581   .1302354     2.05   0.040     .0123242    .5228378
+------------------------------------------------------------------------------
+END_SPEC v4 notyet
+
+. postclose `H'
+
+. use "$Q/grantedapp_norm_notyet_results.dta", clear
+
+. assert rc==0
+
+. display "REQUESTED_DID_COMPLETE"
+REQUESTED_DID_COMPLETE
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/refresh_did_20261023/grantedapp_norm_notyet.log
+  log type:  text
+ closed on:  23 Oct 2026, 03:54:24
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

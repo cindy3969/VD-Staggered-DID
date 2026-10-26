@@ -1,0 +1,33 @@
+{
+  "matched": 2820,
+  "treated": 1410,
+  "first_named": 714,
+  "first_missing": 696,
+  "any_named": 778,
+  "first_categories": {
+    "0": 696,
+    "1": 134,
+    "2": 106,
+    "3": 163,
+    "4": 311
+  },
+  "anonymous_first": {
+    "debt_type": 696,
+    "prior_series": 283,
+    "seed_or_same_day_only": 331,
+    "no_prior_series_seed_or_same_day": 82,
+    "positive_amount": 646,
+    "date_reported": 696
+  },
+  "deals": 1898,
+  "deal_categories": {
+    "0": 918,
+    "1": 168,
+    "2": 134,
+    "3": 272,
+    "4": 406
+  },
+  "source": "C:\\Users\\user\\iCloudDrive\\5\ud559\uae30\\\uc5f0\uad6c\ubbf8\ud305\\20240108-2010 to 2015 firms\\2010 2015 Crunchbase deals merged_v4.xlsx",
+  "sample": "C:\\Users\\user\\Documents\\VD\\outputs\\psm_table3_7_rematch\\rematched_2820_cross_section.dta",
+  "source_sha256": "4a300271eb437414cb4cbc1c636ead1d1a34a88239ef17e254611884b03ba25e"
+}

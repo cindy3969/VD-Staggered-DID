@@ -1,0 +1,31 @@
+﻿variable,source,label,nonmissing
+nocite_win3,no_citation_share_win3,No-future-citation share; granted apps filed t+1..t+3; cutoff 2024,649
+breakthrough_win3,breakthrough_patent_share_win3,Top-5% citation share within filing year x CPC3; cutoff 2024,649
+desc_words_win3,description_words_mean_win3,Mean description word count; granted applications filed t+1..t+3,649
+fog_win3,gunning_fog_mean_win3,Mean Gunning Fog years; granted apps t+1..t+3; higher=less readable,649
+ari_win3,ari_mean_win3,Mean automated readability grade; t+1..t+3; higher=less readable,649
+neg_flesch_win3,neg_flesch_mean_win3,Mean minus Flesch reading ease; t+1..t+3; higher=less readable,649
+figures_win3,figures_mean_win3,Mean figures per granted application filed t+1..t+3,649
+sheets_win3,sheets_mean_win3,Mean drawing sheets per granted application filed t+1..t+3,649
+claims_win3,claims_mean_win3,Mean claims per granted application filed t+1..t+3,649
+ind_claims_win3,indep_claims_mean_win3,Mean independent claims per granted application filed t+1..t+3,649
+dep_claims_win3,dep_claims_mean_win3,Mean dependent claims per granted application filed t+1..t+3,649
+originality_win3,patent_originality_win3,"Mean originality, own CPC3 excluded per PY p916; t+1..t+3",526
+cite_breadth_win3,bc_technological_breadth_win3,Mean distinct backward-cited primary CPC3 classes; t+1..t+3,526
+selfcite_win3,self_citations_win3,Mean self-citation count per granted patent; t+1..t+3,649
+partner_search_win3,search_in_partners_domains_win3,ln(1+sum partner-weighted backward citations); fixed VC/CVC/VD set,206
+partner_dist_win3,technological_distance_win3,Mean RMS Mahalanobis distance to investor portfolios; t+1..t+3,195
+generality_win3,patent_generality_win3,Mean forward-citing CPC3 diversity; t+1..t+3; citation cutoff 2024,412
+cite_diversity_win3,originality_all_classes_win3,Mean 1-HHI of all backward-cited CPC3 shares; t+1..t+3,526
+win3_observed,own primary CPC3 baseline,1 if reference year+3 <= 2024 snapshot; not equal grant follow-up age,2820
+grant_rate_win3,existing measure,Granted / all applications filed t+1..t+3; observed cutoff 2024,694
+base_patents,own primary CPC3 baseline,Matched own patents granted before reference year; all observed history,2820
+base_cpc,own primary CPC3 baseline,Distinct primary CPC3 in own pre-reference granted portfolio,2820
+base_cpc_cov,own primary CPC3 baseline,Share of pre-reference granted patents with primary CPC3 mapped,564
+newpat_win3,own primary CPC3 baseline,Count post patents in CPC3 absent from own pre-reference portfolio,500
+oldpat_win3,own primary CPC3 baseline,Count post patents in CPC3 present in own pre-reference portfolio,500
+newshare_win3,own primary CPC3 baseline,New-domain / all classified post patents; baseline required; t+1..t+3,258
+newcpc_win3,own primary CPC3 baseline,Distinct new primary CPC3 entered in t+1..t+3; baseline required,500
+own_dist_win3,own primary CPC3 baseline,"Mean 1-cosine(primary CPC3, own pre-reference distribution); t+1..t+3",258
+selfshare_win3,own primary CPC3 baseline,Self / all backward citations pooled over t+1..t+3 patents,603
+post_cpc_cov,own primary CPC3 baseline,Share of t+1..t+3 granted patents with primary CPC3 mapped,649

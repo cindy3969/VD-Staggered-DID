@@ -1,0 +1,1072 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\outputs\psm_table3_7_rematch\run_tables_3_7_reghd
+> fe.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. global OUT "C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch"
+
+. capture log close
+
+. log using "$OUT/tables_3_7_reghdfe.log", text replace
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/tables_3_7_r
+> eghdfe.log
+  log type:  text
+ opened on:  13 Oct 2026, 14:37:28
+
+. use "$OUT/rematched_2820_cross_section.dta", clear
+
+. 
+. local controls "patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRo
+> unds_VD Foundingyear"
+
+. local absorb_fe "Region2 Industry2"
+
+. 
+. * Table 3. Patent quantity
+. eststo clear
+
+. eststo m1: reghdfe ln_patentbyfiling_win3 VD patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, ///
+>     absorb(Region2 Industry2) vce(robust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   6,   2806) =       2.19
+                                                  Prob > F        =     0.0414
+                                                  R-squared       =     0.0082
+                                                  Adj R-squared   =     0.0036
+                                                  Within R-sq.    =     0.0045
+                                                  Root MSE        =     0.7239
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0707593   .0305278    -2.32   0.021    -.1306185      -.0109
+patentdummyb~g |  -.0244389   .0346307    -0.71   0.480    -.0923432    .0434653
+    earlystage |   .0370737   .0336821     1.10   0.271    -.0289705    .1031178
+ln_MoneyRais~D |  -.0035949    .008118    -0.44   0.658    -.0195126    .0123229
+NumofFunding~D |   .0027497   .0068808     0.40   0.689    -.0107423    .0162417
+  Foundingyear |   .0013794   .0078304     0.18   0.860    -.0139746    .0167334
+         _cons |  -2.406022   15.73601    -0.15   0.878    -33.26134    28.44929
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. eststo m2: reghdfe ln_patentbyfiling_win3 c.VD##c.patentdummybyfiling earlystag
+> e ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, absorb(`absorb_fe') v
+> ce(robust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   7,   2805) =       2.38
+                                                  Prob > F        =     0.0198
+                                                  R-squared       =     0.0090
+                                                  Adj R-squared   =     0.0041
+                                                  Within R-sq.    =     0.0054
+                                                  Root MSE        =     0.7237
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0456865   .0343435    -1.33   0.184    -.1130276    .0216547
+patentdummyb~g |   .0261141   .0513639     0.51   0.611    -.0746008     .126829
+               |
+          c.VD#|
+            c. |
+patentdummyb~g |   -.100208   .0635169    -1.58   0.115    -.2247525    .0243366
+               |
+    earlystage |   .0391264   .0336617     1.16   0.245    -.0268778    .1051305
+ln_MoneyRais~D |  -.0032101   .0081194    -0.40   0.693    -.0191307    .0127104
+NumofFunding~D |   .0031849   .0068938     0.46   0.644    -.0103325    .0167023
+  Foundingyear |   .0012638   .0078356     0.16   0.872    -.0141003    .0166279
+         _cons |  -2.194087    15.7456    -0.14   0.889    -33.06822    28.68005
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. eststo m3: reghdfe ln_patentbyfiling_win3 patentdummybyfiling c.VD##c.earlystag
+> e ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, absorb(`absorb_fe') v
+> ce(robust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   7,   2805) =       1.88
+                                                  Prob > F        =     0.0693
+                                                  R-squared       =     0.0082
+                                                  Adj R-squared   =     0.0033
+                                                  Within R-sq.    =     0.0045
+                                                  Root MSE        =     0.7240
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+patentdummyb~g |  -.0244878   .0346387    -0.71   0.480    -.0924077    .0434321
+            VD |  -.0662251   .0355596    -1.86   0.063    -.1359507    .0035005
+    earlystage |    .042528   .0408182     1.04   0.298    -.0375086    .1225647
+               |
+          c.VD#|
+  c.earlystage |  -.0194188    .068473    -0.28   0.777    -.1536812    .1148437
+               |
+ln_MoneyRais~D |  -.0036316   .0081245    -0.45   0.655    -.0195622     .012299
+NumofFunding~D |   .0027316   .0068866     0.40   0.692    -.0107717    .0162349
+  Foundingyear |   .0013716   .0078283     0.18   0.861    -.0139781    .0167214
+         _cons |  -2.392585   15.73256    -0.15   0.879    -33.24116    28.45599
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. eststo m4: reghdfe ln_patentbyfiling_win3 c.VD##c.patentdummybyfiling c.VD##c.e
+> arlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, absorb(`absorb_fe') v
+> ce(robust)
+(MWFE estimator converged in 4 iterations)
+note: VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   8,   2804) =       2.09
+                                                  Prob > F        =     0.0334
+                                                  R-squared       =     0.0091
+                                                  Adj R-squared   =     0.0038
+                                                  Within R-sq.    =     0.0054
+                                                  Root MSE        =     0.7238
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0385964   .0395603    -0.98   0.329    -.1161666    .0389738
+patentdummyb~g |   .0270011   .0514411     0.52   0.600    -.0738652    .1278673
+               |
+          c.VD#|
+            c. |
+patentdummyb~g |  -.1021075   .0637584    -1.60   0.109    -.2271257    .0229106
+               |
+            VD |          0  (omitted)
+    earlystage |   .0471225   .0408623     1.15   0.249    -.0330008    .1272458
+               |
+          c.VD#|
+  c.earlystage |  -.0283295   .0687418    -0.41   0.680    -.1631192    .1064601
+               |
+ln_MoneyRais~D |  -.0032564    .008125    -0.40   0.689     -.019188    .0126752
+NumofFunding~D |   .0031668    .006898     0.46   0.646    -.0103588    .0166923
+  Foundingyear |   .0012502   .0078327     0.16   0.873    -.0141083    .0166087
+         _cons |  -2.170467   15.74083    -0.14   0.890    -33.03524    28.69431
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. foreach m in m1 m2 m3 m4 {
+  2.     estadd local RegionFE "Yes" : `m'
+  3.     estadd local IndustryFE "Yes" : `m'
+  4.     estadd local YearFE "Yes" : `m'
+  5. }
+
+. esttab m1 m2 m3 m4 using "$OUT/Table3.csv", replace csv b(3) p(3) star(* 0.10 *
+> * 0.05 *** 0.01) ///
+>     noomitted nobaselevels drop(Foundingyear) order(VD c.VD#c.patentdummybyfili
+> ng c.VD#c.earlystage patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD _cons) ///
+>     stats(RegionFE IndustryFE YearFE N r2, labels("Region FE" "Industry FE" "Fo
+> unding year control" "Observations" "R-squared") fmt(%s %s %s 0 3))
+(output written to C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/Table3
+> .csv)
+
+. esttab m1 m2 m3 m4 using "$OUT/Table3.rtf", replace rtf b(3) p(3) star(* 0.10 *
+> * 0.05 *** 0.01) ///
+>     noomitted nobaselevels drop(Foundingyear) order(VD c.VD#c.patentdummybyfili
+> ng c.VD#c.earlystage patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD _cons) ///
+>     stats(RegionFE IndustryFE YearFE N r2, labels("Region FE" "Industry FE" "Fo
+> unding year control" "Observations" "R-squared") fmt(%s %s %s 0 3)) title("Tabl
+> e 3  Patent quantity")
+(output written to C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/Table3
+> .rtf)
+
+. 
+. * Table 4. Patent quality
+. eststo clear
+
+. eststo m1: reghdfe ln_fwd_norm_cohort_win3 VD `controls', absorb(`absorb_fe') v
+> ce(robust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   6,   2806) =       3.32
+                                                  Prob > F        =     0.0030
+                                                  R-squared       =     0.0450
+                                                  Adj R-squared   =     0.0406
+                                                  Within R-sq.    =     0.0161
+                                                  Root MSE        =     0.2965
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_fwd_norm_~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0238491   .0145971    -1.63   0.102    -.0524712     .004773
+patentdummyb~g |   .0625771   .0171568     3.65   0.000     .0289359    .0962182
+    earlystage |  -.0066993   .0148125    -0.45   0.651    -.0357438    .0223452
+ln_MoneyRais~D |   .0110079   .0037278     2.95   0.003     .0036983    .0183175
+NumofFunding~D |  -.0075884   .0029016    -2.62   0.009    -.0132778    -.001899
+  Foundingyear |  -.0052615   .0035034    -1.50   0.133     -.012131     .001608
+         _cons |   10.48571   7.031041     1.49   0.136    -3.300825    24.27224
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. eststo m2: reghdfe ln_fwd_norm_cohort_win3 c.VD##c.patentdummybyfiling earlysta
+> ge ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, absorb(`absorb_fe') v
+> ce(robust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   7,   2805) =       2.99
+                                                  Prob > F        =     0.0040
+                                                  R-squared       =     0.0461
+                                                  Adj R-squared   =     0.0413
+                                                  Within R-sq.    =     0.0172
+                                                  Root MSE        =     0.2963
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_fwd_norm_~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   -.012045   .0115517    -1.04   0.297    -.0346957    .0106056
+patentdummyb~g |    .086377   .0295621     2.92   0.004     .0284113    .1443426
+               |
+          c.VD#|
+            c. |
+patentdummyb~g |   -.047177   .0399417    -1.18   0.238    -.1254951    .0311411
+               |
+    earlystage |   -.005733   .0147044    -0.39   0.697    -.0345655    .0230996
+ln_MoneyRais~D |    .011189   .0037912     2.95   0.003     .0037552    .0186228
+NumofFunding~D |  -.0073835   .0028584    -2.58   0.010    -.0129883   -.0017788
+  Foundingyear |   -.005316   .0035046    -1.52   0.129    -.0121878    .0015559
+         _cons |   10.58549   7.033262     1.51   0.132    -3.205405    24.37638
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. eststo m3: reghdfe ln_fwd_norm_cohort_win3 patentdummybyfiling c.VD##c.earlysta
+> ge ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, absorb(`absorb_fe') v
+> ce(robust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   7,   2805) =       3.30
+                                                  Prob > F        =     0.0017
+                                                  R-squared       =     0.0464
+                                                  Adj R-squared   =     0.0417
+                                                  Within R-sq.    =     0.0176
+                                                  Root MSE        =     0.2963
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_fwd_norm_~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+patentdummyb~g |    .062732     .01716     3.66   0.000     .0290845    .0963794
+            VD |  -.0382153   .0172044    -2.22   0.026    -.0719498   -.0044807
+    earlystage |  -.0239812   .0178137    -1.35   0.178    -.0589105    .0109482
+               |
+          c.VD#|
+  c.earlystage |   .0615272   .0329916     1.86   0.062    -.0031631    .1262175
+               |
+ln_MoneyRais~D |   .0111243   .0037341     2.98   0.003     .0038025    .0184461
+NumofFunding~D |  -.0075311   .0029004    -2.60   0.009    -.0132183   -.0018439
+  Foundingyear |  -.0052367   .0035039    -1.49   0.135    -.0121072    .0016338
+         _cons |   10.44313   7.031421     1.49   0.138    -3.344148    24.23042
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. eststo m4: reghdfe ln_fwd_norm_cohort_win3 c.VD##c.patentdummybyfiling c.VD##c.
+> earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, absorb(`absorb_fe') v
+> ce(robust)
+(MWFE estimator converged in 4 iterations)
+note: VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   8,   2804) =       3.51
+                                                  Prob > F        =     0.0005
+                                                  R-squared       =     0.0474
+                                                  Adj R-squared   =     0.0423
+                                                  Within R-sq.    =     0.0185
+                                                  Root MSE        =     0.2962
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_fwd_norm_~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0264976   .0123603    -2.14   0.032    -.0507339   -.0022613
+patentdummyb~g |   .0845689   .0293258     2.88   0.004     .0270666    .1420713
+               |
+          c.VD#|
+            c. |
+patentdummyb~g |  -.0433049   .0392614    -1.10   0.270    -.1202891    .0336793
+               |
+            VD |          0  (omitted)
+    earlystage |  -.0220326   .0173334    -1.27   0.204    -.0560201    .0119549
+               |
+          c.VD#|
+  c.earlystage |    .057748   .0317603     1.82   0.069    -.0045278    .1200239
+               |
+ln_MoneyRais~D |   .0112834   .0037953     2.97   0.003     .0038416    .0187253
+NumofFunding~D |  -.0073465   .0028593    -2.57   0.010    -.0129531     -.00174
+  Foundingyear |  -.0052882   .0035055    -1.51   0.132    -.0121619    .0015855
+         _cons |   10.53734   7.034473     1.50   0.134     -3.25593     24.3306
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. foreach m in m1 m2 m3 m4 {
+  2.     estadd local RegionFE "Yes" : `m'
+  3.     estadd local IndustryFE "Yes" : `m'
+  4.     estadd local YearFE "Yes" : `m'
+  5. }
+
+. esttab m1 m2 m3 m4 using "$OUT/Table4.csv", replace csv b(3) p(3) star(* 0.10 *
+> * 0.05 *** 0.01) ///
+>     noomitted nobaselevels drop(Foundingyear) order(VD c.VD#c.patentdummybyfili
+> ng c.VD#c.earlystage patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD _cons) ///
+>     stats(RegionFE IndustryFE YearFE N r2, labels("Region FE" "Industry FE" "Fo
+> unding year control" "Observations" "R-squared") fmt(%s %s %s 0 3))
+(output written to C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/Table4
+> .csv)
+
+. esttab m1 m2 m3 m4 using "$OUT/Table4.rtf", replace rtf b(3) p(3) star(* 0.10 *
+> * 0.05 *** 0.01) ///
+>     noomitted nobaselevels drop(Foundingyear) order(VD c.VD#c.patentdummybyfili
+> ng c.VD#c.earlystage patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD _cons) ///
+>     stats(RegionFE IndustryFE YearFE N r2, labels("Region FE" "Industry FE" "Fo
+> unding year control" "Observations" "R-squared") fmt(%s %s %s 0 3)) title("Tabl
+> e 4  Patent quality")
+(output written to C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/Table4
+> .rtf)
+
+. 
+. * Table 5. Cumulative follow-on equity through t+3
+. eststo clear
+
+. eststo m1: reghdfe ln_moneyraised_win3 VD `controls', absorb(`absorb_fe') vce(r
+> obust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,777
+Absorbing 2 HDFE groups                           F(   6,   2763) =      17.77
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0472
+                                                  Adj R-squared   =     0.0427
+                                                  Within R-sq.    =     0.0354
+                                                  Root MSE        =     8.0831
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~n3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.9786058   .3475104    -2.82   0.005    -1.660012   -.2971994
+patentdummyb~g |   .2813024   .3867862     0.73   0.467     -.477117    1.039722
+    earlystage |   1.191924   .3679191     3.24   0.001     .4704999    1.913348
+ln_MoneyRais~D |   .6810831   .0888946     7.66   0.000     .5067766    .8553897
+NumofFunding~D |  -.3154688   .0801444    -3.94   0.000    -.4726177   -.1583199
+  Foundingyear |   .2457731   .0903779     2.72   0.007     .0685581    .4229882
+         _cons |   -494.496   181.7872    -2.72   0.007    -850.9484   -138.0435
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. eststo m2: reghdfe ln_moneyraised_win3 c.VD##c.patentdummybyfiling earlystage /
+> //
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, absorb(`absorb_fe') v
+> ce(robust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,777
+Absorbing 2 HDFE groups                           F(   7,   2762) =      16.01
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0491
+                                                  Adj R-squared   =     0.0443
+                                                  Within R-sq.    =     0.0374
+                                                  Root MSE        =     8.0764
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~n3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.5524005   .3884629    -1.42   0.155    -1.314108    .2093065
+patentdummyb~g |   1.129388   .5122007     2.20   0.028     .1250526    2.133723
+               |
+          c.VD#|
+            c. |
+patentdummyb~g |  -1.693913   .7274065    -2.33   0.020    -3.120228    -.267597
+               |
+    earlystage |     1.2245   .3677005     3.33   0.001     .5035043    1.945496
+ln_MoneyRais~D |   .6865196   .0890773     7.71   0.000     .5118549    .8611844
+NumofFunding~D |  -.3080444   .0800628    -3.85   0.000    -.4650334   -.1510555
+  Foundingyear |    .243334    .090318     2.69   0.007     .0662365    .4204316
+         _cons |  -489.9191   181.6625    -2.70   0.007    -846.1271    -133.711
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. eststo m3: reghdfe ln_moneyraised_win3 patentdummybyfiling c.VD##c.earlystage /
+> //
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, absorb(`absorb_fe') v
+> ce(robust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,777
+Absorbing 2 HDFE groups                           F(   7,   2762) =      15.92
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0490
+                                                  Adj R-squared   =     0.0442
+                                                  Within R-sq.    =     0.0373
+                                                  Root MSE        =     8.0769
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~n3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+patentdummyb~g |   .2864035   .3863485     0.74   0.459    -.4711575    1.043965
+            VD |   -1.41846   .3998718    -3.55   0.000    -2.202538   -.6343823
+    earlystage |    .670811   .4307696     1.56   0.120     -.173852    1.515474
+               |
+          c.VD#|
+  c.earlystage |   1.867392   .7973946     2.34   0.019     .3038419    3.430942
+               |
+ln_MoneyRais~D |   .6859654   .0886605     7.74   0.000     .5121179    .8598129
+NumofFunding~D |  -.3130918   .0800444    -3.91   0.000    -.4700447   -.1561389
+  Foundingyear |   .2462793    .090291     2.73   0.006     .0692346    .4233239
+         _cons |  -495.3169   181.6089    -2.73   0.006    -851.4199   -139.2139
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. eststo m4: reghdfe ln_moneyraised_win3 c.VD##c.patentdummybyfiling c.VD##c.earl
+> ystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, absorb(`absorb_fe') v
+> ce(robust)
+(MWFE estimator converged in 4 iterations)
+note: VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =      2,777
+Absorbing 2 HDFE groups                           F(   8,   2761) =      14.55
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0506
+                                                  Adj R-squared   =     0.0455
+                                                  Within R-sq.    =     0.0389
+                                                  Root MSE        =     8.0713
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~n3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.9890721    .443644    -2.23   0.026     -1.85898   -.1191645
+patentdummyb~g |   1.074131   .5120596     2.10   0.036     .0700719    2.078189
+               |
+          c.VD#|
+            c. |
+patentdummyb~g |  -1.574129   .7295408    -2.16   0.031     -3.00463    -.143628
+               |
+            VD |          0  (omitted)
+    earlystage |   .7405609   .4315742     1.72   0.086      -.10568    1.586802
+               |
+          c.VD#|
+  c.earlystage |   1.725925   .7999542     2.16   0.031     .1573559    3.294494
+               |
+ln_MoneyRais~D |   .6906476   .0888376     7.77   0.000     .5164527    .8648424
+NumofFunding~D |  -.3063725   .0799734    -3.83   0.000    -.4631861   -.1495588
+  Foundingyear |   .2439743   .0902487     2.70   0.007     .0670126     .420936
+         _cons |  -491.0014   181.5197    -2.70   0.007    -846.9296   -135.0732
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. foreach m in m1 m2 m3 m4 {
+  2.     estadd local RegionFE "Yes" : `m'
+  3.     estadd local IndustryFE "Yes" : `m'
+  4.     estadd local YearFE "Yes" : `m'
+  5. }
+
+. esttab m1 m2 m3 m4 using "$OUT/Table5.csv", replace csv b(3) p(3) star(* 0.10 *
+> * 0.05 *** 0.01) ///
+>     noomitted nobaselevels drop(Foundingyear) order(VD c.VD#c.patentdummybyfili
+> ng c.VD#c.earlystage patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD _cons) ///
+>     stats(RegionFE IndustryFE YearFE N r2, labels("Region FE" "Industry FE" "Fo
+> unding year control" "Observations" "R-squared") fmt(%s %s %s 0 3))
+(output written to C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/Table5
+> .csv)
+
+. esttab m1 m2 m3 m4 using "$OUT/Table5.rtf", replace rtf b(3) p(3) star(* 0.10 *
+> * 0.05 *** 0.01) ///
+>     noomitted nobaselevels drop(Foundingyear) order(VD c.VD#c.patentdummybyfili
+> ng c.VD#c.earlystage patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD _cons) ///
+>     stats(RegionFE IndustryFE YearFE N r2, labels("Region FE" "Industry FE" "Fo
+> unding year control" "Observations" "R-squared") fmt(%s %s %s 0 3)) title("Tabl
+> e 5  Follow-on equity raised")
+(output written to C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/Table5
+> .rtf)
+
+. 
+. * Table 6. Annual follow-on equity at t+1, t+2, and t+3
+. eststo clear
+
+. eststo m1: reghdfe ln_moneyraised_y1 VD `controls', absorb(`absorb_fe') vce(rob
+> ust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,777
+Absorbing 2 HDFE groups                           F(   6,   2763) =       5.39
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0208
+                                                  Adj R-squared   =     0.0161
+                                                  Within R-sq.    =     0.0116
+                                                  Root MSE        =     7.7673
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y1 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |    .329052   .3341697     0.98   0.325    -.3261957    .9842996
+patentdummyb~g |   .0226034   .3744905     0.06   0.952    -.7117063     .756913
+    earlystage |   .9302495   .3591532     2.59   0.010     .2260137    1.634485
+ln_MoneyRais~D |   .3750861   .0836884     4.48   0.000      .210988    .5391843
+NumofFunding~D |   -.075428   .0760194    -0.99   0.321    -.2244886    .0736326
+  Foundingyear |   .2082119   .0868516     2.40   0.017     .0379113    .3785125
+         _cons |  -419.1378   174.7194    -2.40   0.017    -761.7316   -76.54394
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. eststo m2: reghdfe ln_moneyraised_y2 VD `controls', absorb(`absorb_fe') vce(rob
+> ust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,712
+Absorbing 2 HDFE groups                           F(   6,   2698) =       6.14
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0218
+                                                  Adj R-squared   =     0.0171
+                                                  Within R-sq.    =     0.0125
+                                                  Root MSE        =     7.3926
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |    .250899   .3213751     0.78   0.435    -.3792672    .8810653
+patentdummyb~g |   .4115028   .3697152     1.11   0.266    -.3134509    1.136456
+    earlystage |   .6180223    .344329     1.79   0.073     -.057153    1.293198
+ln_MoneyRais~D |   .4190758    .077878     5.38   0.000     .2663692    .5717824
+NumofFunding~D |  -.1392183   .0744893    -1.87   0.062    -.2852802    .0068435
+  Foundingyear |   .1087694   .0831644     1.31   0.191     -.054303    .2718418
+         _cons |  -220.6178   167.3147    -1.32   0.187    -548.6958    107.4601
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. eststo m3: reghdfe ln_moneyraised_y3 VD `controls', absorb(`absorb_fe') vce(rob
+> ust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,587
+Absorbing 2 HDFE groups                           F(   6,   2573) =       5.40
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0208
+                                                  Adj R-squared   =     0.0159
+                                                  Within R-sq.    =     0.0123
+                                                  Root MSE        =     6.8694
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |    .007542   .3091888     0.02   0.981    -.5987421    .6138261
+patentdummyb~g |  -.0198446   .3491424    -0.06   0.955    -.7044733     .664784
+    earlystage |   .7009644   .3323472     2.11   0.035     .0492694    1.352659
+ln_MoneyRais~D |   .3861783   .0791709     4.88   0.000     .2309331    .5414234
+NumofFunding~D |  -.2073644   .0680073    -3.05   0.002     -.340719   -.0740099
+  Foundingyear |  -.0865821   .0780867    -1.11   0.268    -.2397013     .066537
+         _cons |   172.4205   157.1178     1.10   0.273    -135.6696    480.5107
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. foreach m in m1 m2 m3 {
+  2.     estadd local RegionFE "Yes" : `m'
+  3.     estadd local IndustryFE "Yes" : `m'
+  4.     estadd local YearFE "Yes" : `m'
+  5. }
+
+. esttab m1 m2 m3 using "$OUT/Table6.csv", replace csv b(3) p(3) star(* 0.10 ** 0
+> .05 *** 0.01) ///
+>     drop(Foundingyear) order(VD patentdummybyfiling earlystage ln_MoneyRaised_V
+> D NumofFundingRounds_VD _cons) ///
+>     stats(RegionFE IndustryFE YearFE N r2, labels("Region FE" "Industry FE" "Fo
+> unding year control" "Observations" "R-squared") fmt(%s %s %s 0 3))
+(output written to C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/Table6
+> .csv)
+
+. esttab m1 m2 m3 using "$OUT/Table6.rtf", replace rtf b(3) p(3) star(* 0.10 ** 0
+> .05 *** 0.01) ///
+>     drop(Foundingyear) order(VD patentdummybyfiling earlystage ln_MoneyRaised_V
+> D NumofFundingRounds_VD _cons) ///
+>     stats(RegionFE IndustryFE YearFE N r2, labels("Region FE" "Industry FE" "Fo
+> unding year control" "Observations" "R-squared") fmt(%s %s %s 0 3)) title("Tabl
+> e 6  Annual follow-on equity raised")
+(output written to C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/Table6
+> .rtf)
+
+. 
+. * Table 7. Cox models. stcox cannot use absorb(), so FE indicators enter explic
+> itly.
+. preserve
+
+. keep if exit_history_available==1 & !missing(VDage3)
+(893 observations deleted)
+
+. eststo clear
+
+. foreach event in acq3 public3 badexit3 {
+  2.     stset VDage3, failure(`event'==1)
+  3.     eststo `event'_1: stcox VD, vce(robust) nohr
+  4.     eststo `event'_2: stcox VD patentdummybyfiling earlystage ln_MoneyRaised
+> _VD ///
+>         NumofFundingRounds_VD Foundingyear i.Region2 i.Industry2, vce(robust) n
+> ohr
+  5. }
+
+Survival-time data settings
+
+         Failure event: acq3==1
+Observed time interval: (0, VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      1,927  total observations
+         99  observations end on or before enter()
+--------------------------------------------------------------------------
+      1,828  observations remaining, representing
+        590  failures in single-record/single-failure data
+     10,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+        Failure _d: acq3==1
+  Analysis time _t: VDage3
+
+Iteration 0:  Log pseudolikelihood = -4144.8253
+Iteration 1:  Log pseudolikelihood = -4144.5952
+Iteration 2:  Log pseudolikelihood = -4144.5952
+Refining estimates:
+Iteration 0:  Log pseudolikelihood = -4144.5952
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  1,828                                Number of obs =  1,828
+No. of failures =    590
+Time at risk    = 10,262
+                                                        Wald chi2(1)  =   0.50
+Log pseudolikelihood = -4144.5952                       Prob > chi2   = 0.4800
+
+------------------------------------------------------------------------------
+             |               Robust
+          _t | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          VD |   .0622287   .0881143     0.71   0.480    -.1104722    .2349296
+------------------------------------------------------------------------------
+
+        Failure _d: acq3==1
+  Analysis time _t: VDage3
+
+Iteration 0:  Log pseudolikelihood = -4144.8253
+Iteration 1:  Log pseudolikelihood = -4129.3218
+Iteration 2:  Log pseudolikelihood = -4129.2922
+Iteration 3:  Log pseudolikelihood = -4129.2922
+Refining estimates:
+Iteration 0:  Log pseudolikelihood = -4129.2922
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  1,828                                Number of obs =  1,828
+No. of failures =    590
+Time at risk    = 10,262
+                                                        Wald chi2(13) =  34.73
+Log pseudolikelihood = -4129.2922                       Prob > chi2   = 0.0009
+
+--------------------------------------------------------------------------------
+               |               Robust
+            _t | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .1831515   .1022788     1.79   0.073    -.0173112    .3836142
+patentdummyb~g |  -.0323293   .1039514    -0.31   0.756    -.2360702    .1714117
+    earlystage |   .0726517   .1076748     0.67   0.500    -.1383871    .2836905
+ln_MoneyRais~D |   .0470604    .021787     2.16   0.031     .0043586    .0897622
+NumofFunding~D |   .0292794   .0198181     1.48   0.140    -.0095633    .0681222
+  Foundingyear |  -.0855849   .0249367    -3.43   0.001      -.13446   -.0367098
+               |
+       Region2 |
+            2  |   .1309988   .1514689     0.86   0.387    -.1658748    .4278723
+            3  |     .13513   .1292548     1.05   0.296    -.1182048    .3884649
+            4  |   .0803111   .1004433     0.80   0.424    -.1165541    .2771763
+               |
+     Industry2 |
+            2  |  -.2871923   .5800971    -0.50   0.621    -1.424162    .8497772
+            3  |  -.3344481   .5831219    -0.57   0.566    -1.477346    .8084498
+            4  |   .0168279   .5749138     0.03   0.977    -1.109982    1.143638
+            5  |  -.0283564   .5728883    -0.05   0.961    -1.151197    1.094484
+--------------------------------------------------------------------------------
+
+Survival-time data settings
+
+         Failure event: public3==1
+Observed time interval: (0, VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      1,927  total observations
+         99  observations end on or before enter()
+--------------------------------------------------------------------------
+      1,828  observations remaining, representing
+        106  failures in single-record/single-failure data
+     10,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+        Failure _d: public3==1
+  Analysis time _t: VDage3
+
+Iteration 0:  Log pseudolikelihood = -756.18335
+Iteration 1:  Log pseudolikelihood = -755.84855
+Iteration 2:  Log pseudolikelihood = -755.84807
+Refining estimates:
+Iteration 0:  Log pseudolikelihood = -755.84807
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  1,828                                Number of obs =  1,828
+No. of failures =    106
+Time at risk    = 10,262
+                                                        Wald chi2(1)  =   0.65
+Log pseudolikelihood = -755.84807                       Prob > chi2   = 0.4185
+
+------------------------------------------------------------------------------
+             |               Robust
+          _t | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          VD |   .1805485   .2231653     0.81   0.418    -.2568475    .6179445
+------------------------------------------------------------------------------
+
+        Failure _d: public3==1
+  Analysis time _t: VDage3
+
+Iteration 0:  Log pseudolikelihood = -756.18335
+Iteration 1:  Log pseudolikelihood = -655.13884
+Iteration 2:  Log pseudolikelihood = -651.43199
+Iteration 3:  Log pseudolikelihood = -651.41784
+Iteration 4:  Log pseudolikelihood = -651.41784
+Refining estimates:
+Iteration 0:  Log pseudolikelihood = -651.41784
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  1,828                                Number of obs =  1,828
+No. of failures =    106
+Time at risk    = 10,262
+                                                        Wald chi2(13) = 189.78
+Log pseudolikelihood = -651.41784                       Prob > chi2   = 0.0000
+
+--------------------------------------------------------------------------------
+               |               Robust
+            _t | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0724106   .2348305    -0.31   0.758    -.5326699    .3878486
+patentdummyb~g |   .2400695   .2183639     1.10   0.272    -.1879159     .668055
+    earlystage |  -.9873667   .4421789    -2.23   0.026    -1.854021    -.120712
+ln_MoneyRais~D |   .5987478   .0636495     9.41   0.000      .473997    .7234986
+NumofFunding~D |   .0008688   .0444424     0.02   0.984    -.0862366    .0879743
+  Foundingyear |  -.0557887   .0546364    -1.02   0.307     -.162874    .0512966
+               |
+       Region2 |
+            2  |   .0750419   .3038066     0.25   0.805     -.520408    .6704918
+            3  |  -.6133482   .3679762    -1.67   0.096    -1.334568     .107872
+            4  |  -.4385155    .245223    -1.79   0.074    -.9191438    .0421129
+               |
+     Industry2 |
+            2  |   .6678579   1.163417     0.57   0.566    -1.612397    2.948112
+            3  |  -.7387928   1.206398    -0.61   0.540     -3.10329    1.625704
+            4  |  -.9600914   1.177956    -0.82   0.415    -3.268843     1.34866
+            5  |  -.1571197   1.156277    -0.14   0.892     -2.42338    2.109141
+--------------------------------------------------------------------------------
+
+Survival-time data settings
+
+         Failure event: badexit3==1
+Observed time interval: (0, VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      1,927  total observations
+         99  observations end on or before enter()
+--------------------------------------------------------------------------
+      1,828  observations remaining, representing
+        188  failures in single-record/single-failure data
+     10,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+        Failure _d: badexit3==1
+  Analysis time _t: VDage3
+
+Iteration 0:  Log pseudolikelihood = -1305.3027
+Iteration 1:  Log pseudolikelihood = -1305.2094
+Iteration 2:  Log pseudolikelihood = -1305.2094
+Refining estimates:
+Iteration 0:  Log pseudolikelihood = -1305.2094
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  1,828                                Number of obs =  1,828
+No. of failures =    188
+Time at risk    = 10,262
+                                                        Wald chi2(1)  =   0.19
+Log pseudolikelihood = -1305.2094                       Prob > chi2   = 0.6643
+
+------------------------------------------------------------------------------
+             |               Robust
+          _t | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          VD |   .0704166   .1622814     0.43   0.664     -.247649    .3884822
+------------------------------------------------------------------------------
+
+        Failure _d: badexit3==1
+  Analysis time _t: VDage3
+
+Iteration 0:  Log pseudolikelihood = -1305.3027
+Iteration 1:  Log pseudolikelihood = -1297.6621
+Iteration 2:  Log pseudolikelihood =  -1297.396
+Iteration 3:  Log pseudolikelihood = -1297.3019
+Iteration 4:  Log pseudolikelihood = -1297.2672
+Iteration 5:  Log pseudolikelihood = -1297.2545
+Iteration 6:  Log pseudolikelihood = -1297.2498
+Iteration 7:  Log pseudolikelihood = -1297.2481
+Iteration 8:  Log pseudolikelihood = -1297.2475
+Iteration 9:  Log pseudolikelihood = -1297.2473
+Iteration 10: Log pseudolikelihood = -1297.2472
+Iteration 11: Log pseudolikelihood = -1297.2471
+Iteration 12: Log pseudolikelihood = -1297.2471
+Iteration 13: Log pseudolikelihood = -1297.2471
+Iteration 14: Log pseudolikelihood = -1297.2471
+Iteration 15: Log pseudolikelihood = -1297.2471
+Iteration 16: Log pseudolikelihood = -1297.2471
+Iteration 17: Log pseudolikelihood = -1297.2471
+Iteration 18: Log pseudolikelihood = -1297.2471
+Refining estimates:
+Iteration 0:  Log pseudolikelihood = -1297.2471
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  1,828                               Number of obs =   1,828
+No. of failures =    188
+Time at risk    = 10,262
+                                                       Wald chi2(12) = 8725.81
+Log pseudolikelihood = -1297.2471                      Prob > chi2   =  0.0000
+
+--------------------------------------------------------------------------------
+               |               Robust
+            _t | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   -.022905    .187934    -0.12   0.903    -.3912489    .3454388
+patentdummyb~g |  -.2595753   .1969441    -1.32   0.187    -.6455786     .126428
+    earlystage |  -.1736077   .1948072    -0.89   0.373    -.5554228    .2082074
+ln_MoneyRais~D |  -.1053235   .0472115    -2.23   0.026    -.1978564   -.0127907
+NumofFunding~D |   .0133077   .0417682     0.32   0.750    -.0685564    .0951718
+  Foundingyear |  -.0193013   .0457012    -0.42   0.673    -.1088739    .0702714
+               |
+       Region2 |
+            2  |  -.1365769   .3021055    -0.45   0.651    -.7286928     .455539
+            3  |  -.0019711   .2455952    -0.01   0.994    -.4833289    .4793868
+            4  |   .0468628   .1764329     0.27   0.791    -.2989393    .3926649
+               |
+     Industry2 |
+            2  |   18.07963   .2423474    74.60   0.000     17.60464    18.55462
+            3  |   18.10192          .        .       .            .           .
+            4  |   17.98398   .2281358    78.83   0.000     17.53684    18.43112
+            5  |   17.78581   .2204767    80.67   0.000     17.35368    18.21794
+--------------------------------------------------------------------------------
+
+. foreach m in acq3_1 acq3_2 public3_1 public3_2 badexit3_1 badexit3_2 {
+  2.     estadd local RegionFE "Yes" : `m'
+  3.     estadd local IndustryFE "Yes" : `m'
+  4.     estadd local YearFE "Yes" : `m'
+  5. }
+
+. esttab acq3_1 acq3_2 public3_1 public3_2 badexit3_1 badexit3_2 using "$OUT/Tabl
+> e7.csv", ///
+>     replace csv b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) order(VD patentdummybyf
+> iling earlystage ln_MoneyRaised_VD ///
+>     NumofFundingRounds_VD Foundingyear) stats(RegionFE IndustryFE YearFE N_fail
+>  N, labels("Region FE" "Industry FE" "Founding year control" "# of failures" "O
+> bservations") fmt(%s %s %s 0 0))
+(output written to C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/Table7
+> .csv)
+
+. esttab acq3_1 acq3_2 public3_1 public3_2 badexit3_1 badexit3_2 using "$OUT/Tabl
+> e7.rtf", ///
+>     replace rtf b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) order(VD patentdummybyf
+> iling earlystage ln_MoneyRaised_VD ///
+>     NumofFundingRounds_VD Foundingyear) stats(RegionFE IndustryFE YearFE N_fail
+>  N, labels("Region FE" "Industry FE" "Founding year control" "# of failures" "O
+> bservations") fmt(%s %s %s 0 0)) ///
+>     mtitles("M&A (1)" "M&A (2)" "IPO (3)" "IPO (4)" "Defunct (5)" "Defunct (6)"
+> ) ///
+>     title("Table 7  Exit outcomes")
+(output written to C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/Table7
+> .rtf)
+
+. restore
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/tables_3_7_r
+> eghdfe.log
+  log type:  text
+ closed on:  13 Oct 2026, 14:37:32
+---------------------------------------------------------------------------------
+
+. exit, clear
+
+end of do-file

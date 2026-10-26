@@ -1,0 +1,140 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\outputs\psm_final_2820_package\SCAN_ALL_DTA_FOR_P
+> SM.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. global OLD "C:/Users/user/iCloudDrive/5학기/연구미팅/20240108-2010 to 2015 firm
+> s"
+
+. global OUT "C:/Users/user/Documents/VD/outputs/psm_final_2820_package"
+
+. capture log close
+
+. log using "$OUT/SCAN_ALL_DTA_FOR_PSM.log", text replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/SCAN_ALL_DTA_FOR_
+    > PSM.log not found)
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/SCAN_ALL_D
+> TA_FOR_PSM.log
+  log type:  text
+ opened on:  12 Oct 2026, 14:29:06
+
+. 
+. local files : dir "$OLD" files "*.dta"
+
+. foreach f of local files {
+  2.     quietly use "$OLD/`f'", clear
+  3.     local hit=0
+  4.     foreach v in _pscore _weight _id _n1 _nn _pdif pscore pscore2 {
+  5.         capture confirm variable `v'
+  6.         if !_rc local hit=1
+  7.     }
+  8.     if `hit' {
+  9.         display as text _newline "FILE: `f' | N=" _N
+ 10.         foreach v in _pscore _weight _id _n1 _nn _pdif pscore pscore2 {
+ 11.             capture confirm variable `v'
+ 12.             if !_rc {
+ 13.                 quietly count if !missing(`v')
+ 14.                 local nonmiss=r(N)
+ 15.                 quietly summarize `v', meanonly
+ 16.                 display as result "  `v': nonmissing=" `nonmiss' ///
+>                     " min=" r(min) " max=" r(max)
+ 17.             }
+ 18.         }
+ 19.         capture confirm variable VD_Backing
+ 20.         if !_rc {
+ 21.             quietly count if VD_Backing==1
+ 22.             display as result "  VD_Backing=1: " r(N)
+ 23.             capture confirm variable _weight
+ 24.             if !_rc {
+ 25.                 quietly count if VD_Backing==1 & _weight==1
+ 26.                 display as result "  treated with weight 1: " r(N)
+ 27.                 quietly count if VD_Backing==0 & _weight==1
+ 28.                 display as result "  controls with weight 1: " r(N)
+ 29.             }
+ 30.         }
+ 31.         capture confirm variable VD
+ 32.         if !_rc {
+ 33.             quietly count if VD==1
+ 34.             display as result "  VD=1: " r(N)
+ 35.         }
+ 36.     }
+ 37. }
+
+FILE: 240626 2.dta | N=7314
+  _pscore: nonmissing=5886 min=770.03984 max=16020.043
+  _weight: nonmissing=270 min=1 max=1
+  _id: nonmissing=7314 min=1 max=7314
+  _n1: nonmissing=135 min=3 max=4979
+  _nn: nonmissing=5886 min=0 max=1
+  _pdif: nonmissing=135 min=.00002002 max=.13159069
+  pscore: nonmissing=5886 min=.00754835 max=.76208634
+  pscore2: nonmissing=5886 min=770.03984 max=16020.043
+  VD_Backing=1: 1442
+  treated with weight 1: 137
+  controls with weight 1: 133
+
+FILE: 240626.dta | N=7314
+  _pscore: nonmissing=5886 min=770.03984 max=16020.043
+  _weight: nonmissing=270 min=1 max=1
+  _id: nonmissing=7314 min=1 max=7314
+  _n1: nonmissing=135 min=3 max=4979
+  _nn: nonmissing=5886 min=0 max=1
+  _pdif: nonmissing=135 min=.00002002 max=.13159069
+  pscore: nonmissing=5886 min=.00754835 max=.76208634
+  pscore2: nonmissing=5886 min=770.03984 max=16020.043
+  VD_Backing=1: 1442
+  treated with weight 1: 137
+  controls with weight 1: 133
+
+FILE: all_with_pscore 2.dta | N=270
+  _weight: nonmissing=270 min=1 max=1
+  pscore: nonmissing=226 min=.45285925 max=.71456823
+  VD_Backing=1: 137
+  treated with weight 1: 137
+  controls with weight 1: 133
+
+FILE: all_with_pscore.dta | N=270
+  pscore: nonmissing=226 min=.45285925 max=.71456823
+  VD_Backing=1: 137
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/SCAN_ALL_D
+> TA_FOR_PSM.log
+  log type:  text
+ closed on:  12 Oct 2026, 14:29:10
+---------------------------------------------------------------------------------
+
+. exit, clear
+
+end of do-file

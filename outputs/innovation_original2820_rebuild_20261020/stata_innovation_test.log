@@ -1,0 +1,2044 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/innovation_original2820_rebuild_2
+> 0261020/stata_innovation_test.log
+  log type:  text
+ opened on:  20 Oct 2026, 10:32:02
+
+. use "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original_
+> 2820_cross_section_v2.dta", clear
+
+. replace priorpatentdummy_VD = 1 - patentdummybyfiling
+(2,820 real changes made)
+
+. replace Earlystage_VD = earlystage
+(0 real changes made)
+
+. global OUT "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_or
+> iginal2820_full_results"
+
+. capture mkdir "$OUT"
+
+. ***Other innovation measures
+. * All variables below are reaggregated using ORIGINAL company and VDyear.
+. * Complete calendar window required; no-patent means/diversity are not zero.
+. * Status codes are labeled in the DTA. No blanket missing-to-zero replacement.
+. * breakthrough_win3 is a share, so fractional logit is used (not binary logit).
+. * cite_breadth_win3 is 0 for a patent with a verified empty reference list.
+. * New/old-domain counts require an observed, classified pre-reference portfolio
+> .
+. tabstat nocite_win3 breakthrough_win3 desc_words_win3 fog_win3 ari_win3 ///
+>     neg_flesch_win3 figures_win3 sheets_win3 claims_win3 newpat_win3 oldpat_win
+> 3 ///
+>     newcpc_win3 cite_breadth_win3 self_citations_total_win3, ///
+>     statistics(N mean sd min max) columns(statistics)
+
+    Variable |         N      Mean        SD       Min       Max
+-------------+--------------------------------------------------
+ nocite_win3 |       695  .5953623  .3876196         0         1
+break~h_win3 |       695  .0931987  .2132758         0         1
+desc_words~3 |       695  18083.63  19158.86      1468    201594
+    fog_win3 |       695  18.40284  2.143027  10.45278  30.14778
+    ari_win3 |       695  14.61478  2.528183  4.465425  28.04142
+neg_f~h_win3 |       695 -32.52757  9.151208 -63.71526  18.81102
+figures_win3 |       652  23.35591  28.79336         1       338
+ sheets_win3 |       652  17.53957   18.1443         1  201.3333
+ claims_win3 |       695  19.17375  6.726788         1  88.66667
+ newpat_win3 |       402  1.721393  11.15732         0       213
+ oldpat_win3 |       402  5.875622  22.05829         0       370
+ newcpc_win3 |       402  .5447761  1.317155         0        12
+cite_bread~3 |       494  2.361813  2.221862         0        17
+self_~l_win3 |      1122  13.58467  96.18226         0      2149
+----------------------------------------------------------------
+
+. 
+. *sum nocite_win3 breakthrough_win3 desc_words_win3 fog_win3 ari_win3 neg_flesch
+> _win3 figures_win3 sheets_win3 claims_win3
+. 
+. capture drop ln_desc_words_win3
+
+. gen ln_desc_words_win3 = log(desc_words_win3+1)
+(2,125 missing values generated)
+
+. capture drop ln_figures_win3
+
+. gen ln_figures_win3 = log(figures_win3+1)
+(2,168 missing values generated)
+
+. capture drop ln_sheets_win3
+
+. gen ln_sheets_win3 = log(sheets_win3+1)
+(2,168 missing values generated)
+
+. capture drop ln_claims_win3
+
+. gen ln_claims_win3 = log(claims_win3+1)
+(2,125 missing values generated)
+
+. 
+. fracreg logit breakthrough_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD ///
+>     i.Region2 i.Industry2 i.Foundingyear, vce(robust)
+
+Iteration 0:  Log pseudolikelihood = -508.02114  
+Iteration 1:  Log pseudolikelihood = -211.64795  
+Iteration 2:  Log pseudolikelihood = -209.69653  
+Iteration 3:  Log pseudolikelihood = -209.67128  
+Iteration 4:  Log pseudolikelihood = -209.67127  
+
+Fractional logistic regression                          Number of obs =    695
+                                                        Wald chi2(16) =  30.17
+                                                        Prob > chi2   = 0.0172
+Log pseudolikelihood = -209.67127                       Pseudo R2     = 0.0264
+
+--------------------------------------------------------------------------------
+               |               Robust
+breakth~h_win3 | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0444761   .1918707    -0.23   0.817    -.4205359    .3315836
+1.priorpaten~D |  -.6173632   .2171348    -2.84   0.004     -1.04294   -.1917868
+1.Earlystage~D |  -.1225866   .2344675    -0.52   0.601    -.5821345    .3369612
+ln_MoneyRais~D |  -.0826124    .043373    -1.90   0.057     -.167622    .0023971
+NumofFunding~D |   .0081569   .0452704     0.18   0.857    -.0805714    .0968852
+               |
+       Region2 |
+Massachusetts  |  -.2227334   .3180602    -0.70   0.484    -.8461199    .4006531
+     New York  |  -.3529872   .4152217    -0.85   0.395    -1.166807    .4608323
+        Other  |  -.4999176   .2321701    -2.15   0.031    -.9549625   -.0448726
+               |
+     Industry2 |
+Hardware/Ma~h  |   .2752697   .2589978     1.06   0.288    -.2323567     .782896
+        Other  |  -.1010035   .3287874    -0.31   0.759    -.7454151     .543408
+Software/IT..  |   .4375284   .2404277     1.82   0.069    -.0337012     .908758
+               |
+  Foundingyear |
+         2011  |   .3542391   .3045235     1.16   0.245    -.2426159    .9510941
+         2012  |   .4636564   .2931594     1.58   0.114    -.1109256    1.038238
+         2013  |     .06013   .3727319     0.16   0.872    -.6704112    .7906712
+         2014  |   .2183345   .3506206     0.62   0.533    -.4688694    .9055383
+         2015  |    .142453   .3373682     0.42   0.673    -.5187765    .8036824
+               |
+         _cons |   -.762204   .8036523    -0.95   0.343    -2.337334    .8129256
+--------------------------------------------------------------------------------
+
+. estimates store INNO_1
+
+. fracreg logit breakthrough_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD ///
+>     i.Region2 i.Industry2 i.Foundingyear, vce(robust)
+
+Iteration 0:  Log pseudolikelihood = -508.01727  
+Iteration 1:  Log pseudolikelihood = -211.62874  
+Iteration 2:  Log pseudolikelihood = -209.64724  
+Iteration 3:  Log pseudolikelihood = -209.62002  
+Iteration 4:  Log pseudolikelihood = -209.62001  
+
+Fractional logistic regression                          Number of obs =    695
+                                                        Wald chi2(17) =  29.92
+                                                        Prob > chi2   = 0.0269
+Log pseudolikelihood = -209.62001                       Pseudo R2     = 0.0267
+
+--------------------------------------------------------------------------------
+               |               Robust
+breakth~h_win3 | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |   .0182613   .2293128     0.08   0.937    -.4311835     .467706
+1.priorpaten~D |  -.5460831   .2772898    -1.97   0.049    -1.089561   -.0026051
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   -.182156   .4429243    -0.41   0.681    -1.050272    .6859597
+               |
+1.Earlystage~D |  -.1205011   .2338625    -0.52   0.606    -.5788632    .3378609
+ln_MoneyRais~D |  -.0838508   .0435354    -1.93   0.054    -.1691787     .001477
+NumofFunding~D |   .0078488   .0454612     0.17   0.863    -.0812535    .0969512
+               |
+       Region2 |
+Massachusetts  |  -.2232779   .3170518    -0.70   0.481    -.8446879    .3981321
+     New York  |  -.3563336   .4176558    -0.85   0.394    -1.174924    .4622567
+        Other  |  -.5064408    .237598    -2.13   0.033    -.9721243   -.0407572
+               |
+     Industry2 |
+Hardware/Ma~h  |   .2782934   .2592042     1.07   0.283    -.2297375    .7863244
+        Other  |  -.0955333   .3294483    -0.29   0.772    -.7412401    .5501736
+Software/IT..  |   .4493177   .2413122     1.86   0.063    -.0236455    .9222809
+               |
+  Foundingyear |
+         2011  |   .3507333     .30542     1.15   0.251    -.2478788    .9493455
+         2012  |    .454076   .2947124     1.54   0.123    -.1235496    1.031702
+         2013  |   .0560886   .3743086     0.15   0.881    -.6775428      .78972
+         2014  |    .220013   .3507634     0.63   0.531    -.4674707    .9074967
+         2015  |   .1388041   .3361178     0.41   0.680    -.5199746    .7975829
+               |
+         _cons |  -.7668846   .8014013    -0.96   0.339    -2.337602    .8038332
+--------------------------------------------------------------------------------
+
+. estimates store INNO_2
+
+. fracreg logit breakthrough_win3 i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD ///
+>     i.Region2 i.Industry2 i.Foundingyear, vce(robust)
+
+Iteration 0:  Log pseudolikelihood = -507.90448  
+Iteration 1:  Log pseudolikelihood = -211.11448  
+Iteration 2:  Log pseudolikelihood = -208.82527  
+Iteration 3:  Log pseudolikelihood = -208.78912  
+Iteration 4:  Log pseudolikelihood =  -208.7891  
+
+Fractional logistic regression                          Number of obs =    695
+                                                        Wald chi2(17) =  33.12
+                                                        Prob > chi2   = 0.0109
+Log pseudolikelihood = -208.7891                        Pseudo R2     = 0.0305
+
+--------------------------------------------------------------------------------
+               |               Robust
+breakth~h_win3 | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+1.priorpaten~D |  -.6274427   .2174915    -2.88   0.004    -1.053718   -.2011672
+          1.VD |  -.4684838   .3175782    -1.48   0.140    -1.090926     .153958
+1.Earlystage~D |  -.4223766   .2883389    -1.46   0.143    -.9875105    .1427573
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |   .7449022   .4149076     1.80   0.073    -.0683017    1.558106
+               |
+ln_MoneyRais~D |  -.0854809   .0442871    -1.93   0.054    -.1722821    .0013202
+NumofFunding~D |   .0123475    .045255     0.27   0.785    -.0763507    .1010457
+               |
+       Region2 |
+Massachusetts  |  -.2578111   .3148794    -0.82   0.413    -.8749634    .3593412
+     New York  |  -.3693935   .4140769    -0.89   0.372    -1.180969    .4421823
+        Other  |  -.5017007    .233345    -2.15   0.032    -.9590484   -.0443529
+               |
+     Industry2 |
+Hardware/Ma~h  |   .2814651   .2581387     1.09   0.276    -.2244775    .7874076
+        Other  |  -.1234171   .3284157    -0.38   0.707    -.7671001    .5202658
+Software/IT..  |    .421889   .2418037     1.74   0.081    -.0520374    .8958155
+               |
+  Foundingyear |
+         2011  |   .3421052   .3021111     1.13   0.257    -.2500217     .934232
+         2012  |   .4807245   .2912294     1.65   0.099    -.0900747    1.051524
+         2013  |   .0610819   .3737396     0.16   0.870    -.6714343    .7935981
+         2014  |   .2139575   .3509613     0.61   0.542     -.473914     .901829
+         2015  |    .140699   .3387929     0.42   0.678     -.523323     .804721
+               |
+         _cons |  -.5866546   .8244515    -0.71   0.477     -2.20255    1.029241
+--------------------------------------------------------------------------------
+
+. estimates store INNO_3
+
+. fracreg logit breakthrough_win3 i.VD##i.priorpatentdummy_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD ///
+>     i.Region2 i.Industry2 i.Foundingyear, vce(robust)
+
+Iteration 0:  Log pseudolikelihood = -508.02446  
+Iteration 1:  Log pseudolikelihood = -211.66245  
+Iteration 2:  Log pseudolikelihood = -209.71125  
+Iteration 3:  Log pseudolikelihood = -209.68519  
+Iteration 4:  Log pseudolikelihood = -209.68518  
+
+Fractional logistic regression                          Number of obs =    695
+                                                        Wald chi2(16) =  26.84
+                                                        Prob > chi2   = 0.0433
+Log pseudolikelihood = -209.68518                       Pseudo R2     = 0.0264
+
+--------------------------------------------------------------------------------
+               |               Robust
+breakth~h_win3 | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |   .0040171   .2308811     0.02   0.986    -.4485015    .4565357
+1.priorpaten~D |  -.5513965   .2769877    -1.99   0.047    -1.094282   -.0085107
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   -.185755   .4425138    -0.42   0.675    -1.053066    .6815562
+               |
+ln_MoneyRais~D |  -.0701767   .0422389    -1.66   0.097    -.1529635      .01261
+NumofFunding~D |   .0089977    .044913     0.20   0.841    -.0790301    .0970254
+               |
+       Region2 |
+Massachusetts  |  -.2223031   .3173427    -0.70   0.484    -.8442834    .3996773
+     New York  |    -.36715   .4138991    -0.89   0.375    -1.178377    .4440774
+        Other  |  -.5143818   .2339408    -2.20   0.028    -.9728974   -.0558663
+               |
+     Industry2 |
+Hardware/Ma~h  |   .2767425    .259291     1.07   0.286    -.2314585    .7849436
+        Other  |   -.092341   .3299481    -0.28   0.780    -.7390275    .5543455
+Software/IT..  |   .4534153   .2413093     1.88   0.060    -.0195424    .9263729
+               |
+  Foundingyear |
+         2011  |   .3342256   .3077585     1.09   0.277    -.2689701    .9374212
+         2012  |   .4290763   .3005679     1.43   0.153     -.160026    1.018179
+         2013  |   .0340524   .3758211     0.09   0.928    -.7025433    .7706482
+         2014  |   .1959372   .3538332     0.55   0.580    -.4975631    .8894375
+         2015  |   .1035927   .3423543     0.30   0.762    -.5674095    .7745948
+               |
+         _cons |  -1.034194   .7281744    -1.42   0.156     -2.46139    .3930014
+--------------------------------------------------------------------------------
+
+. estimates store INNO_4
+
+. esttab INNO_1 INNO_2 INNO_3 INNO_4 using "$OUT/Other_innovation_measures.rtf", 
+> replace ///
+>     b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     mtitles("(1)" "(2)" "(3)" "(4)") ///
+>     stats(N r2, labels("Observations" "R-squared")) ///
+>     title("DV: breakthrough_win3") ///
+>     addnotes("Original 2820-firm cohort; original controls and fixed effects." 
+> ///
+>     "Undefined or unobserved measurements remain missing; available N differs b
+> y DV." ///
+>     "p-values in parentheses. Breakthrough share uses fractional logit.")
+(file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original28
+    > 20_full_results/Other_innovation_measures.rtf not found)
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_original2820_full_results/Other_innovation_measures.rtf)
+
+. 
+. *7-1
+. reghdfe ln_claims_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   5,    678) =       3.00
+                                                  Prob > F        =     0.0110
+                                                  R-squared       =     0.0347
+                                                  Adj R-squared   =     0.0120
+                                                  Within R-sq.    =     0.0219
+                                                  Root MSE        =     0.3426
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_claims_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .0175021   .0270974     0.65   0.519    -.0357028    .0707071
+1.priorpaten~D |  -.0709452   .0286093    -2.48   0.013    -.1271187   -.0147717
+1.Earlystage~D |   -.062427   .0374513    -1.67   0.096    -.1359615    .0111076
+ln_MoneyRais~D |  -.0012634   .0111797    -0.11   0.910    -.0232143    .0206875
+NumofFunding~D |   .0035555   .0062293     0.57   0.568    -.0086757    .0157866
+         _cons |   3.016906   .1874451    16.09   0.000     2.648863    3.384949
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_5
+
+. reghdfe ln_claims_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   6,    677) =       3.02
+                                                  Prob > F        =     0.0064
+                                                  R-squared       =     0.0386
+                                                  Adj R-squared   =     0.0144
+                                                  Within R-sq.    =     0.0258
+                                                  Root MSE        =     0.3422
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_claims_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |  -.0224098   .0337618    -0.66   0.507    -.0887003    .0438806
+1.priorpaten~D |  -.1072026   .0363635    -2.95   0.003    -.1786015   -.0358037
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   .0874644    .053921     1.62   0.105    -.0184081    .1933369
+               |
+1.Earlystage~D |  -.0629129   .0372707    -1.69   0.092    -.1360929    .0102671
+ln_MoneyRais~D |  -.0008046   .0110446    -0.07   0.942    -.0224904    .0208813
+NumofFunding~D |    .003601   .0062179     0.58   0.563    -.0086078    .0158097
+         _cons |   3.026767   .1855512    16.31   0.000     2.662442    3.391092
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_6
+
+. reghdfe ln_claims_win3 i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   6,    677) =       3.60
+                                                  Prob > F        =     0.0016
+                                                  R-squared       =     0.0440
+                                                  Adj R-squared   =     0.0200
+                                                  Within R-sq.    =     0.0313
+                                                  Root MSE        =     0.3413
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_claims_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+1.priorpaten~D |  -.0713318   .0284809    -2.50   0.012    -.1272532   -.0154103
+          1.VD |   -.063473   .0374079    -1.70   0.090    -.1369225    .0099764
+1.Earlystage~D |  -.1176076   .0446165    -2.64   0.009    -.2052109   -.0300043
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |   .1386412   .0532532     2.60   0.009     .0340798    .2432025
+               |
+ln_MoneyRais~D |  -.0011277    .011038    -0.10   0.919    -.0228005    .0205452
+NumofFunding~D |   .0045693    .006271     0.73   0.466    -.0077435    .0168822
+         _cons |   3.037451   .1859805    16.33   0.000     2.672283    3.402619
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_7
+
+. reghdfe ln_claims_win3 i.VD##i.priorpatentdummy_VD ///
+>     i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   7,    676) =       3.26
+                                                  Prob > F        =     0.0021
+                                                  R-squared       =     0.0457
+                                                  Adj R-squared   =     0.0203
+                                                  Within R-sq.    =     0.0330
+                                                  Root MSE        =     0.3412
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_claims_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |  -.0828479   .0411222    -2.01   0.044    -.1635906   -.0021052
+1.priorpaten~D |  -.0961926   .0363461    -2.65   0.008    -.1675574   -.0248277
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   .0600647   .0543323     1.11   0.269    -.0466157    .1667451
+               |
+1.Earlystage~D |  -.1124666   .0447694    -2.51   0.012    -.2003704   -.0245627
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |   .1248859   .0538728     2.32   0.021     .0191079    .2306639
+               |
+ln_MoneyRais~D |  -.0008261   .0109681    -0.08   0.940    -.0223616    .0207095
+NumofFunding~D |      .0045   .0062648     0.72   0.473    -.0078009    .0168009
+         _cons |   3.042185   .1849422    16.45   0.000     2.679055    3.405315
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_8
+
+. esttab INNO_5 INNO_6 INNO_7 INNO_8 using "$OUT/Other_innovation_measures.rtf", 
+> append ///
+>     b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     mtitles("(1)" "(2)" "(3)" "(4)") ///
+>     stats(N r2, labels("Observations" "R-squared")) ///
+>     title("DV: ln_claims_win3") ///
+>     addnotes("Original 2820-firm cohort; original controls and fixed effects." 
+> ///
+>     "Undefined or unobserved measurements remain missing; available N differs b
+> y DV." ///
+>     "p-values in parentheses. Breakthrough share uses fractional logit.")
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_original2820_full_results/Other_innovation_measures.rtf)
+
+. 
+. * Table A7: patent readability
+. *7-1
+. reghdfe gunning_fog_mean_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   5,    678) =       1.17
+                                                  Prob > F        =     0.3198
+                                                  R-squared       =     0.0397
+                                                  Adj R-squared   =     0.0170
+                                                  Within R-sq.    =     0.0075
+                                                  Root MSE        =     2.1247
+
+--------------------------------------------------------------------------------
+               |               Robust
+gunning_fog_~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.3231162   .1661817    -1.94   0.052    -.6494088    .0031764
+1.priorpaten~D |  -.0269014   .1799223    -0.15   0.881    -.3801733    .3263705
+1.Earlystage~D |   .0359356   .2086052     0.17   0.863    -.3736542    .4455254
+ln_MoneyRais~D |   .0442413   .0505871     0.87   0.382     -.055085    .1435676
+NumofFunding~D |   .0020365   .0379061     0.05   0.957     -.072391    .0764641
+         _cons |   17.78835   .8953391    19.87   0.000     16.03038    19.54632
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_9
+
+. reghdfe gunning_fog_mean_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   6,    677) =       1.23
+                                                  Prob > F        =     0.2874
+                                                  R-squared       =     0.0405
+                                                  Adj R-squared   =     0.0164
+                                                  Within R-sq.    =     0.0084
+                                                  Root MSE        =     2.1254
+
+--------------------------------------------------------------------------------
+               |               Robust
+gunning_fog_~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |  -.4366573   .2054265    -2.13   0.034    -.8400069   -.0333076
+1.priorpaten~D |  -.1300461   .2328657    -0.56   0.577    -.5872718    .3271797
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   .2488178   .3309701     0.75   0.452    -.4010336    .8986691
+               |
+1.Earlystage~D |   .0345533   .2087243     0.17   0.869    -.3752714     .444378
+ln_MoneyRais~D |   .0455464   .0510064     0.89   0.372    -.0546034    .1456963
+NumofFunding~D |   .0021659   .0379396     0.06   0.954    -.0723274    .0766593
+         _cons |   17.81641   .9049464    19.69   0.000     16.03957    19.59325
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_10
+
+. reghdfe gunning_fog_mean_win3 i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   6,    677) =       1.03
+                                                  Prob > F        =     0.4057
+                                                  R-squared       =     0.0397
+                                                  Adj R-squared   =     0.0156
+                                                  Within R-sq.    =     0.0076
+                                                  Root MSE        =     2.1263
+
+--------------------------------------------------------------------------------
+               |               Robust
+gunning_fog_~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+1.priorpaten~D |   -.026981   .1799335    -0.15   0.881    -.3802757    .3263137
+          1.VD |  -.3397867   .2200102    -1.54   0.123    -.7717711    .0921977
+1.Earlystage~D |   .0245755   .2637683     0.09   0.926    -.4933268    .5424777
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |   .0285424   .3294702     0.09   0.931    -.6183639    .6754486
+               |
+ln_MoneyRais~D |   .0442692   .0506427     0.87   0.382    -.0551664    .1437048
+NumofFunding~D |   .0022453   .0379289     0.06   0.953    -.0722271    .0767176
+         _cons |   17.79258   .8974063    19.83   0.000     16.03055    19.55462
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_11
+
+. reghdfe gunning_fog_mean_win3 i.VD##i.priorpatentdummy_VD ///
+>     i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   7,    676) =       1.06
+                                                  Prob > F        =     0.3884
+                                                  R-squared       =     0.0405
+                                                  Adj R-squared   =     0.0150
+                                                  Within R-sq.    =     0.0084
+                                                  Root MSE        =     2.1269
+
+--------------------------------------------------------------------------------
+               |               Robust
+gunning_fog_~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |  -.4221663   .2453031    -1.72   0.086    -.9038139    .0594813
+1.priorpaten~D |  -.1326859   .2365052    -0.56   0.575    -.5970589    .3316871
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   .2553873   .3328095     0.77   0.443    -.3980773    .9088519
+               |
+1.Earlystage~D |   .0464345   .2662509     0.17   0.862    -.4763437    .5692128
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |  -.0299433   .3312344    -0.09   0.928    -.6803153    .6204287
+               |
+ln_MoneyRais~D |   .0455516   .0510354     0.89   0.372    -.0546554    .1457585
+NumofFunding~D |   .0019504   .0379741     0.05   0.959    -.0726111    .0765118
+         _cons |   17.81271   .9061465    19.66   0.000     16.03351    19.59191
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_12
+
+. esttab INNO_9 INNO_10 INNO_11 INNO_12 using "$OUT/Other_innovation_measures.rtf
+> ", append ///
+>     b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     mtitles("(1)" "(2)" "(3)" "(4)") ///
+>     stats(N r2, labels("Observations" "R-squared")) ///
+>     title("DV: gunning_fog_mean_win3") ///
+>     addnotes("Original 2820-firm cohort; original controls and fixed effects." 
+> ///
+>     "Undefined or unobserved measurements remain missing; available N differs b
+> y DV." ///
+>     "p-values in parentheses. Breakthrough share uses fractional logit.")
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_original2820_full_results/Other_innovation_measures.rtf)
+
+. 
+. *7-2
+. reghdfe ari_mean_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   5,    678) =       1.45
+                                                  Prob > F        =     0.2053
+                                                  R-squared       =     0.0431
+                                                  Adj R-squared   =     0.0205
+                                                  Within R-sq.    =     0.0091
+                                                  Root MSE        =     2.5022
+
+--------------------------------------------------------------------------------
+               |               Robust
+ ari_mean_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.4833169    .192843    -2.51   0.012    -.8619582   -.1046756
+1.priorpaten~D |  -.0217441   .2171649    -0.10   0.920    -.4481408    .4046525
+1.Earlystage~D |   .1576629   .2302076     0.68   0.494    -.2943426    .6096684
+ln_MoneyRais~D |   .0305088   .0558377     0.55   0.585    -.0791268    .1401444
+NumofFunding~D |  -.0052766   .0435695    -0.12   0.904    -.0908239    .0802706
+         _cons |   14.25855   1.022269    13.95   0.000     12.25136    16.26575
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_13
+
+. reghdfe ari_mean_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   6,    677) =       1.74
+                                                  Prob > F        =     0.1099
+                                                  R-squared       =     0.0446
+                                                  Adj R-squared   =     0.0206
+                                                  Within R-sq.    =     0.0106
+                                                  Root MSE        =     2.5020
+
+--------------------------------------------------------------------------------
+               |               Robust
+ ari_mean_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |  -.6666116   .2348076    -2.84   0.005     -1.12765   -.2055729
+1.priorpaten~D |  -.1882554   .2903801    -0.65   0.517    -.7584092    .3818984
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   .4016782   .3873069     1.04   0.300    -.3587889    1.162145
+               |
+1.Earlystage~D |   .1554313   .2303143     0.67   0.500    -.2967849    .6076475
+ln_MoneyRais~D |   .0326158   .0560222     0.58   0.561    -.0773824     .142614
+NumofFunding~D |  -.0050677   .0436271    -0.12   0.908    -.0907284    .0805929
+         _cons |   14.30384     1.0343    13.83   0.000     12.27302    16.33466
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_14
+
+. reghdfe ari_mean_win3 i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   6,    677) =       1.28
+                                                  Prob > F        =     0.2620
+                                                  R-squared       =     0.0431
+                                                  Adj R-squared   =     0.0190
+                                                  Within R-sq.    =     0.0091
+                                                  Root MSE        =     2.5040
+
+--------------------------------------------------------------------------------
+               |               Robust
+ ari_mean_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+1.priorpaten~D |  -.0217102   .2171426    -0.10   0.920    -.4480641    .4046436
+          1.VD |  -.4762126    .251725    -1.89   0.059    -.9704681    .0180429
+1.Earlystage~D |   .1625042    .299954     0.54   0.588    -.4264479    .7514562
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |  -.0121637   .3847126    -0.03   0.975     -.767537    .7432097
+               |
+ln_MoneyRais~D |   .0304969   .0559086     0.55   0.586    -.0792783    .1402721
+NumofFunding~D |  -.0053656   .0435438    -0.12   0.902    -.0908627    .0801316
+         _cons |   14.25675   1.019357    13.99   0.000     12.25527    16.25823
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_15
+
+. reghdfe ari_mean_win3 i.VD##i.priorpatentdummy_VD ///
+>     i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   7,    676) =       1.49
+                                                  Prob > F        =     0.1680
+                                                  R-squared       =     0.0447
+                                                  Adj R-squared   =     0.0192
+                                                  Within R-sq.    =     0.0107
+                                                  Root MSE        =     2.5038
+
+--------------------------------------------------------------------------------
+               |               Robust
+ ari_mean_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |  -.6135416   .2774251    -2.21   0.027     -1.15826    -.068823
+1.priorpaten~D |  -.1979232   .2971057    -0.67   0.506    -.7812841    .3854377
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   .4257376   .3919088     1.09   0.278    -.3437672    1.195242
+               |
+1.Earlystage~D |   .1989438   .3033293     0.66   0.512    -.3966371    .7945248
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |  -.1096609   .3892831    -0.28   0.778    -.8740103    .6546885
+               |
+ln_MoneyRais~D |   .0326347   .0560489     0.58   0.561    -.0774162    .1426855
+NumofFunding~D |  -.0058572    .043647    -0.13   0.893     -.091557    .0798427
+         _cons |    14.2903   1.030331    13.87   0.000     12.26727    16.31334
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_16
+
+. esttab INNO_13 INNO_14 INNO_15 INNO_16 using "$OUT/Other_innovation_measures.rt
+> f", append ///
+>     b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     mtitles("(1)" "(2)" "(3)" "(4)") ///
+>     stats(N r2, labels("Observations" "R-squared")) ///
+>     title("DV: ari_mean_win3") ///
+>     addnotes("Original 2820-firm cohort; original controls and fixed effects." 
+> ///
+>     "Undefined or unobserved measurements remain missing; available N differs b
+> y DV." ///
+>     "p-values in parentheses. Breakthrough share uses fractional logit.")
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_original2820_full_results/Other_innovation_measures.rtf)
+
+. 
+. *7-3
+. reghdfe neg_flesch_mean_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   5,    678) =       1.16
+                                                  Prob > F        =     0.3286
+                                                  R-squared       =     0.0539
+                                                  Adj R-squared   =     0.0316
+                                                  Within R-sq.    =     0.0076
+                                                  Root MSE        =     9.0055
+
+--------------------------------------------------------------------------------
+               |               Robust
+neg_flesch_m~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   -1.41007     .70225    -2.01   0.045    -2.788916   -.0312236
+1.priorpaten~D |   .0672207    .756319     0.09   0.929    -1.417788     1.55223
+1.Earlystage~D |   .4312697   .8832026     0.49   0.625    -1.302871    2.165411
+ln_MoneyRais~D |   .2363353   .2313921     1.02   0.307     -.217996    .6906666
+NumofFunding~D |   -.053927    .157994    -0.34   0.733    -.3641432    .2562893
+         _cons |  -35.89337   4.144047    -8.66   0.000    -44.03007   -27.75666
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_17
+
+. reghdfe neg_flesch_mean_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   6,    677) =       1.28
+                                                  Prob > F        =     0.2663
+                                                  R-squared       =     0.0549
+                                                  Adj R-squared   =     0.0312
+                                                  Within R-sq.    =     0.0086
+                                                  Root MSE        =     9.0075
+
+--------------------------------------------------------------------------------
+               |               Robust
+neg_flesch_m~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |  -1.943335   .8583884    -2.26   0.024    -3.628759   -.2579116
+1.priorpaten~D |  -.4172163   .9881201    -0.42   0.673    -2.357365    1.522932
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   1.168616   1.402339     0.83   0.405     -1.58484    3.922073
+               |
+1.Earlystage~D |   .4247773   .8849971     0.48   0.631    -1.312892    2.162446
+ln_MoneyRais~D |   .2424652     .23342     1.04   0.299    -.2158488    .7007793
+NumofFunding~D |  -.0533192   .1579577    -0.34   0.736    -.3634651    .2568267
+         _cons |  -35.76161   4.199742    -8.52   0.000    -44.00769   -27.51552
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_18
+
+. reghdfe neg_flesch_mean_win3 i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   6,    677) =       0.98
+                                                  Prob > F        =     0.4407
+                                                  R-squared       =     0.0540
+                                                  Adj R-squared   =     0.0302
+                                                  Within R-sq.    =     0.0077
+                                                  Root MSE        =     9.0117
+
+--------------------------------------------------------------------------------
+               |               Robust
+neg_flesch_m~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+1.priorpaten~D |   .0682177   .7566809     0.09   0.928    -1.417506    1.553941
+          1.VD |  -1.201232   .9083791    -1.32   0.186    -2.984811    .5823467
+1.Earlystage~D |   .5735822   1.109546     0.52   0.605    -1.604983    2.752147
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |  -.3575598   1.388414    -0.26   0.797    -3.083675    2.368556
+               |
+ln_MoneyRais~D |   .2359853   .2312776     1.02   0.308    -.2181224     .690093
+NumofFunding~D |  -.0565418   .1579905    -0.36   0.721    -.3667521    .2536685
+         _cons |  -35.94635   4.139215    -8.68   0.000    -44.07359   -27.81911
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_19
+
+. reghdfe neg_flesch_mean_win3 i.VD##i.priorpatentdummy_VD ///
+>     i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        695
+Absorbing 3 HDFE groups                           F(   7,    676) =       1.09
+                                                  Prob > F        =     0.3654
+                                                  R-squared       =     0.0552
+                                                  Adj R-squared   =     0.0300
+                                                  Within R-sq.    =     0.0089
+                                                  Root MSE        =     9.0128
+
+--------------------------------------------------------------------------------
+               |               Robust
+neg_flesch_m~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |  -1.624775   1.003163    -1.62   0.106    -3.594465    .3449158
+1.priorpaten~D |  -.4752487   1.000569    -0.47   0.635    -2.439844    1.489347
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   1.313036   1.419226     0.93   0.355    -1.473586    4.099658
+               |
+1.Earlystage~D |   .6859674   1.112694     0.62   0.538    -1.498784    2.870719
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |  -.6582552   1.404784    -0.47   0.640    -3.416521     2.10001
+               |
+ln_MoneyRais~D |   .2425785   .2332465     1.04   0.299    -.2153963    .7005532
+NumofFunding~D |  -.0580579   .1580827    -0.37   0.714      -.36845    .2523341
+         _cons |  -35.84287   4.191351    -8.55   0.000     -44.0725   -27.61324
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_20
+
+. esttab INNO_17 INNO_18 INNO_19 INNO_20 using "$OUT/Other_innovation_measures.rt
+> f", append ///
+>     b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     mtitles("(1)" "(2)" "(3)" "(4)") ///
+>     stats(N r2, labels("Observations" "R-squared")) ///
+>     title("DV: neg_flesch_mean_win3") ///
+>     addnotes("Original 2820-firm cohort; original controls and fixed effects." 
+> ///
+>     "Undefined or unobserved measurements remain missing; available N differs b
+> y DV." ///
+>     "p-values in parentheses. Breakthrough share uses fractional logit.")
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_original2820_full_results/Other_innovation_measures.rtf)
+
+. 
+. ****
+. *9-1
+. reghdfe ln_newpat_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   5,    385) =       6.48
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.1369
+                                                  Adj R-squared   =     0.1010
+                                                  Within R-sq.    =     0.0942
+                                                  Root MSE        =     0.7132
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_newpat_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0757116   .0720167    -1.05   0.294     -.217307    .0658837
+1.priorpaten~D |  -.3599044   .0783573    -4.59   0.000    -.5139662   -.2058427
+1.Earlystage~D |    .138469    .084059     1.65   0.100    -.0268032    .3037412
+ln_MoneyRais~D |   .0438158   .0249818     1.75   0.080    -.0053021    .0929336
+NumofFunding~D |   .0349271   .0357208     0.98   0.329    -.0353053    .1051595
+         _cons |  -.3572161   .4943492    -0.72   0.470    -1.329178     .614746
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_21
+
+. *9-1
+. reghdfe ln_newpat_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   6,    384) =       5.71
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.1369
+                                                  Adj R-squared   =     0.0987
+                                                  Within R-sq.    =     0.0942
+                                                  Root MSE        =     0.7142
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_newpat_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |  -.0700564   .1228396    -0.57   0.569    -.3115787     .171466
+1.priorpaten~D |   -.354772   .1067261    -3.32   0.001    -.5646126   -.1449314
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |  -.0112627   .1372371    -0.08   0.935    -.2810928    .2585674
+               |
+1.Earlystage~D |   .1382265   .0840866     1.64   0.101    -.0271014    .3035543
+ln_MoneyRais~D |   .0437565   .0250506     1.75   0.081    -.0054969      .09301
+NumofFunding~D |   .0349578   .0357482     0.98   0.329    -.0353288    .1052444
+         _cons |  -.3588194   .4962454    -0.72   0.470    -1.334518    .6168789
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_22
+
+. *9-1
+. reghdfe ln_newpat_win3 priorpatentdummy_VD VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+note: 0b.VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   6,    384) =       5.42
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.1386
+                                                  Adj R-squared   =     0.1005
+                                                  Within R-sq.    =     0.0960
+                                                  Root MSE        =     0.7135
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_newpat_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+priorpatentd~D |   -.359001   .0783891    -4.58   0.000    -.5131266   -.2048754
+            VD |  -.1346591   .1004897    -1.34   0.181    -.3322379    .0629197
+          1.VD |          0  (omitted)
+1.Earlystage~D |    .078024   .1091166     0.72   0.475    -.1365168    .2925647
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |   .1280838   .1443806     0.89   0.376    -.1557918    .4119593
+               |
+ln_MoneyRais~D |   .0418933   .0250413     1.67   0.095     -.007342    .0911285
+NumofFunding~D |   .0353294     .03564     0.99   0.322    -.0347447    .1054034
+         _cons |  -.2974703   .4964025    -0.60   0.549    -1.273477    .6785368
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_23
+
+. *9-1
+. reghdfe ln_newpat_win3 VD i.VD##i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+note: 0b.VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   7,    383) =       4.91
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.1388
+                                                  Adj R-squared   =     0.0983
+                                                  Within R-sq.    =     0.0962
+                                                  Root MSE        =     0.7143
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_newpat_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.1175274   .1302693    -0.90   0.368      -.37366    .1386052
+          1.VD |          0  (omitted)
+1.priorpaten~D |  -.3391247   .1075579    -3.15   0.002    -.5506026   -.1276467
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |  -.0434592   .1431389    -0.30   0.762    -.3248957    .2379774
+               |
+1.Earlystage~D |   .0722789   .1108886     0.65   0.515    -.1457477    .2903055
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |   .1382747   .1505027     0.92   0.359    -.1576403    .4341897
+               |
+ln_MoneyRais~D |   .0415118   .0251939     1.65   0.100    -.0080239    .0910475
+NumofFunding~D |   .0354797   .0356996     0.99   0.321    -.0347121    .1056715
+         _cons |  -.2989035   .4987449    -0.60   0.549    -1.279524    .6817174
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_24
+
+. esttab INNO_21 INNO_22 INNO_23 INNO_24 using "$OUT/Other_innovation_measures.rt
+> f", append ///
+>     b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     mtitles("(1)" "(2)" "(3)" "(4)") ///
+>     stats(N r2, labels("Observations" "R-squared")) ///
+>     title("DV: ln_newpat_win3") ///
+>     addnotes("Original 2820-firm cohort; original controls and fixed effects." 
+> ///
+>     "Undefined or unobserved measurements remain missing; available N differs b
+> y DV." ///
+>     "p-values in parentheses. Breakthrough share uses fractional logit.")
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_original2820_full_results/Other_innovation_measures.rtf)
+
+. 
+. ****
+. *9-2
+. reghdfe ln_oldpat_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   5,    385) =      30.15
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.3753
+                                                  Adj R-squared   =     0.3493
+                                                  Within R-sq.    =     0.3025
+                                                  Root MSE        =     0.9375
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_oldpat_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.2080089   .0957922    -2.17   0.031    -.3963503   -.0196676
+1.priorpaten~D |  -1.002557   .0974001   -10.29   0.000     -1.19406   -.8110543
+1.Earlystage~D |   .0359321   .1303262     0.28   0.783    -.2203082    .2921723
+ln_MoneyRais~D |    .117808    .044797     2.63   0.009     .0297306    .2058854
+NumofFunding~D |   .0211823   .0224977     0.94   0.347    -.0230515    .0654161
+         _cons |  -.5653793   .7822944    -0.72   0.470    -2.103483    .9727247
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_25
+
+. *9-1
+. reghdfe ln_oldpat_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   6,    384) =      25.65
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.3753
+                                                  Adj R-squared   =     0.3476
+                                                  Within R-sq.    =     0.3025
+                                                  Root MSE        =     0.9388
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_oldpat_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |  -.2108937   .1618905    -1.30   0.193    -.5291965    .1074091
+1.priorpaten~D |  -1.005175   .1352799    -7.43   0.000    -1.271157   -.7391929
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   .0057452    .189261     0.03   0.976    -.3663724    .3778628
+               |
+1.Earlystage~D |   .0360558   .1305345     0.28   0.783     -.220596    .2927076
+ln_MoneyRais~D |   .1178382   .0449097     2.62   0.009     .0295385    .2061379
+NumofFunding~D |   .0211666   .0225049     0.94   0.348    -.0230816    .0654148
+         _cons |  -.5645615   .7827262    -0.72   0.471    -2.103527    .9744043
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_26
+
+. *9-1
+. reghdfe ln_oldpat_win3 priorpatentdummy_VD VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+note: 0b.VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   6,    384) =      25.31
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.3820
+                                                  Adj R-squared   =     0.3546
+                                                  Within R-sq.    =     0.3099
+                                                  Root MSE        =     0.9337
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_oldpat_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+priorpatentd~D |  -.9998095   .0969715   -10.31   0.000    -1.190471   -.8091479
+            VD |  -.3872711   .1409039    -2.75   0.006    -.6643109   -.1102312
+          1.VD |          0  (omitted)
+1.Earlystage~D |  -.1478842    .164114    -0.90   0.368    -.4705587    .1747904
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |    .389509   .1873874     2.08   0.038     .0210753    .7579427
+               |
+ln_MoneyRais~D |   .1119617   .0450216     2.49   0.013     .0234419    .2004815
+NumofFunding~D |   .0224056   .0223178     1.00   0.316    -.0214748    .0662859
+         _cons |  -.3836897   .7926153    -0.48   0.629    -1.942099     1.17472
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_27
+
+. *9-1
+. reghdfe ln_oldpat_win3 VD i.VD##i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+note: 0b.VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   7,    383) =      22.35
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.3823
+                                                  Adj R-squared   =     0.3533
+                                                  Within R-sq.    =     0.3103
+                                                  Root MSE        =     0.9347
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_oldpat_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.3518497   .1787512    -1.97   0.050    -.7033062   -.0003932
+          1.VD |          0  (omitted)
+1.priorpaten~D |  -.9587133   .1349458    -7.10   0.000    -1.224041   -.6933859
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |  -.0898559   .1921725    -0.47   0.640     -.467701    .2879891
+               |
+1.Earlystage~D |  -.1597626   .1664718    -0.96   0.338    -.4870757    .1675504
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |   .4105797   .1910752     2.15   0.032     .0348921    .7862674
+               |
+ln_MoneyRais~D |    .111173   .0455041     2.44   0.015     .0217038    .2006422
+NumofFunding~D |   .0227164   .0223756     1.02   0.311     -.021278    .0667108
+         _cons |  -.3866529   .7981715    -0.48   0.628    -1.955999    1.182694
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_28
+
+. esttab INNO_25 INNO_26 INNO_27 INNO_28 using "$OUT/Other_innovation_measures.rt
+> f", append ///
+>     b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     mtitles("(1)" "(2)" "(3)" "(4)") ///
+>     stats(N r2, labels("Observations" "R-squared")) ///
+>     title("DV: ln_oldpat_win3") ///
+>     addnotes("Original 2820-firm cohort; original controls and fixed effects." 
+> ///
+>     "Undefined or unobserved measurements remain missing; available N differs b
+> y DV." ///
+>     "p-values in parentheses. Breakthrough share uses fractional logit.")
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_original2820_full_results/Other_innovation_measures.rtf)
+
+. 
+. ****
+. *9-2
+. reghdfe newcpc_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   5,    385) =       4.86
+                                                  Prob > F        =     0.0003
+                                                  R-squared       =     0.1133
+                                                  Adj R-squared   =     0.0764
+                                                  Within R-sq.    =     0.0843
+                                                  Root MSE        =     1.2658
+
+--------------------------------------------------------------------------------
+               |               Robust
+   newcpc_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   -.188975   .1247829    -1.51   0.131    -.4343162    .0563662
+1.priorpaten~D |  -.5404974    .125778    -4.30   0.000    -.7877951   -.2931997
+1.Earlystage~D |   .2268699   .1370408     1.66   0.099    -.0425721    .4963119
+ln_MoneyRais~D |   .0708094   .0477028     1.48   0.139    -.0229813       .1646
+NumofFunding~D |   .0768695   .0809344     0.95   0.343    -.0822593    .2359982
+         _cons |  -.7574652   .9434685    -0.80   0.423    -2.612461     1.09753
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_29
+
+. *9-1
+. reghdfe newcpc_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   6,    384) =       4.59
+                                                  Prob > F        =     0.0002
+                                                  R-squared       =     0.1139
+                                                  Adj R-squared   =     0.0746
+                                                  Within R-sq.    =     0.0849
+                                                  Root MSE        =     1.2670
+
+--------------------------------------------------------------------------------
+               |               Robust
+   newcpc_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |  -.2559321   .2246696    -1.14   0.255    -.6976688    .1858046
+1.priorpaten~D |  -.6012644    .193786    -3.10   0.002    -.9822789   -.2202499
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   .1333482   .2368278     0.56   0.574    -.3322935    .5989898
+               |
+1.Earlystage~D |   .2297412   .1375548     1.67   0.096    -.0407137    .5001961
+ln_MoneyRais~D |   .0715105   .0477059     1.50   0.135    -.0222871     .165308
+NumofFunding~D |   .0765063   .0807553     0.95   0.344    -.0822716    .2352843
+         _cons |  -.7384818   .9351396    -0.79   0.430    -2.577117    1.100153
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_30
+
+. *9-1
+. reghdfe newcpc_win3 priorpatentdummy_VD VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+note: 0b.VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   6,    384) =       4.13
+                                                  Prob > F        =     0.0005
+                                                  R-squared       =     0.1146
+                                                  Adj R-squared   =     0.0754
+                                                  Within R-sq.    =     0.0856
+                                                  Root MSE        =     1.2665
+
+--------------------------------------------------------------------------------
+               |               Robust
+   newcpc_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+priorpatentd~D |    -.53912   .1258586    -4.28   0.000    -.7865783   -.2916618
+            VD |  -.2788419   .1978595    -1.41   0.160    -.6678654    .1101817
+          1.VD |          0  (omitted)
+1.Earlystage~D |     .13472   .1819073     0.74   0.459     -.222939    .4923789
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |   .1952669    .253143     0.77   0.441    -.3024531    .6929869
+               |
+ln_MoneyRais~D |   .0678785    .046768     1.45   0.147    -.0240748    .1598318
+NumofFunding~D |   .0774827   .0809125     0.96   0.339    -.0816043    .2365697
+         _cons |  -.6663813   .9174577    -0.73   0.468    -2.470251    1.137488
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_31
+
+. *9-1
+. reghdfe newcpc_win3 VD i.VD##i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+note: 0b.VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =        402
+Absorbing 3 HDFE groups                           F(   7,    383) =       3.95
+                                                  Prob > F        =     0.0004
+                                                  R-squared       =     0.1148
+                                                  Adj R-squared   =     0.0732
+                                                  Within R-sq.    =     0.0859
+                                                  Root MSE        =     1.2680
+
+--------------------------------------------------------------------------------
+               |               Robust
+   newcpc_win3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.3154857   .2561659    -1.23   0.219    -.8191532    .1881818
+          1.VD |          0  (omitted)
+1.priorpaten~D |  -.5816345   .1920359    -3.03   0.003    -.9592111   -.2040578
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |   .0929569   .2349824     0.40   0.693    -.3690601    .5549739
+               |
+1.Earlystage~D |   .1470084   .1843914     0.80   0.426    -.2155378    .5095546
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |    .173469    .252226     0.69   0.492    -.3224521      .66939
+               |
+ln_MoneyRais~D |   .0686944   .0468865     1.47   0.144    -.0234927    .1608816
+NumofFunding~D |   .0771611   .0808252     0.95   0.340    -.0817556    .2360779
+         _cons |  -.6633159   .9146122    -0.73   0.469    -2.461606    1.134974
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_32
+
+. esttab INNO_29 INNO_30 INNO_31 INNO_32 using "$OUT/Other_innovation_measures.rt
+> f", append ///
+>     b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     mtitles("(1)" "(2)" "(3)" "(4)") ///
+>     stats(N r2, labels("Observations" "R-squared")) ///
+>     title("DV: newcpc_win3") ///
+>     addnotes("Original 2820-firm cohort; original controls and fixed effects." 
+> ///
+>     "Undefined or unobserved measurements remain missing; available N differs b
+> y DV." ///
+>     "p-values in parentheses. Breakthrough share uses fractional logit.")
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_original2820_full_results/Other_innovation_measures.rtf)
+
+.         
+. ****
+. capture drop ln_selfcitations_win3hare_win3
+
+. gen ln_selfcitations_win3hare_win3 = log(self_citations_total_win3+1)
+(1,698 missing values generated)
+
+. sum originality_win3 cite_diversity_win3 cite_breadth_win3 selfcite_win3 self_c
+> itations_total_win3 selfshare_win3 generality_win3 
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+origi~y_win3 |        464    .8015609    .2469193          0          1
+cite_diver~3 |        464     .298011    .2326936          0   .8642659
+cite_bread~3 |        494    2.361813    2.221862          0         17
+selfcite_w~3 |        695    1.434961    3.449121          0   46.57895
+self_~l_win3 |      1,122    13.58467    96.18226          0       2149
+-------------+---------------------------------------------------------
+selfshare_~3 |        665    .0868373    .1622346          0          1
+generality~3 |        442    .1388233    .1841443          0   .8148148
+
+. ***
+. *10-1
+. reghdfe cite_breadth_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        494
+Absorbing 3 HDFE groups                           F(   5,    477) =       1.06
+                                                  Prob > F        =     0.3837
+                                                  R-squared       =     0.0435
+                                                  Adj R-squared   =     0.0114
+                                                  Within R-sq.    =     0.0145
+                                                  Root MSE        =     2.2091
+
+--------------------------------------------------------------------------------
+               |               Robust
+cite_breadth~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .3645819   .2286816     1.59   0.112     -.084766    .8139297
+1.priorpaten~D |  -.3769295   .2014916    -1.87   0.062    -.7728505    .0189914
+1.Earlystage~D |   .0534725   .2599165     0.21   0.837    -.4572504    .5641953
+ln_MoneyRais~D |  -.0292357    .056114    -0.52   0.603    -.1394968    .0810254
+NumofFunding~D |   .0373246   .0532909     0.70   0.484    -.0673893    .1420385
+         _cons |   2.701643   .9893038     2.73   0.007     .7577111    4.645576
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_33
+
+. *10-1
+. reghdfe cite_breadth_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        494
+Absorbing 3 HDFE groups                           F(   6,    476) =       1.40
+                                                  Prob > F        =     0.2112
+                                                  R-squared       =     0.0546
+                                                  Adj R-squared   =     0.0209
+                                                  Within R-sq.    =     0.0260
+                                                  Root MSE        =     2.1986
+
+--------------------------------------------------------------------------------
+               |               Robust
+cite_breadth~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |   .8579919   .3450381     2.49   0.013     .1800057    1.535978
+1.priorpaten~D |   .0183285   .2162055     0.08   0.932    -.4065067    .4431637
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |  -.9710174    .418386    -2.32   0.021    -1.793129   -.1489055
+               |
+1.Earlystage~D |   .0670043    .259626     0.26   0.796    -.4431504     .577159
+ln_MoneyRais~D |  -.0286968   .0581967    -0.49   0.622     -.143051    .0856573
+NumofFunding~D |   .0346282   .0530486     0.65   0.514    -.0696101    .1388665
+         _cons |   2.492652   1.021447     2.44   0.015     .4855491    4.499755
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_34
+
+. *10-1
+. reghdfe cite_breadth_win3 priorpatentdummy_VD VD i.VD##i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+note: 0b.VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =        494
+Absorbing 3 HDFE groups                           F(   6,    476) =       0.90
+                                                  Prob > F        =     0.4922
+                                                  R-squared       =     0.0439
+                                                  Adj R-squared   =     0.0097
+                                                  Within R-sq.    =     0.0149
+                                                  Root MSE        =     2.2110
+
+--------------------------------------------------------------------------------
+               |               Robust
+cite_breadth~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+priorpatentd~D |   -.376814   .2018526    -1.87   0.063    -.7734462    .0198183
+            VD |   .4685968   .3735429     1.25   0.210    -.2654002    1.202594
+          1.VD |          0  (omitted)
+1.Earlystage~D |   .1228367    .257235     0.48   0.633    -.3826198    .6282932
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |  -.1803088   .4596818    -0.39   0.695    -1.083565    .7229477
+               |
+ln_MoneyRais~D |   -.029107   .0563416    -0.52   0.606     -.139816     .081602
+NumofFunding~D |    .035636   .0537045     0.66   0.507    -.0698913    .1411633
+         _cons |   2.673799   .9870287     2.71   0.007     .7343263    4.613271
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_35
+
+. *10-1
+. reghdfe cite_breadth_win3 VD i.VD##i.priorpatentdummy_VD i.VD##i.Earlystage_VD 
+> ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+note: 0b.VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =        494
+Absorbing 3 HDFE groups                           F(   7,    475) =       1.20
+                                                  Prob > F        =     0.3006
+                                                  R-squared       =     0.0546
+                                                  Adj R-squared   =     0.0188
+                                                  Within R-sq.    =     0.0260
+                                                  Root MSE        =     2.2009
+
+--------------------------------------------------------------------------------
+               |               Robust
+cite_breadth~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .8425436   .4278283     1.97   0.049     .0018734    1.683214
+          1.VD |          0  (omitted)
+1.priorpaten~D |   .0210856   .2180165     0.10   0.923    -.4073105    .4494817
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |  -.9778424   .4224132    -2.31   0.021    -1.807872   -.1478128
+               |
+1.Earlystage~D |   .0544847   .2582848     0.21   0.833    -.4530375    .5620069
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |   .0327912    .463047     0.07   0.944    -.8770826     .942665
+               |
+ln_MoneyRais~D |  -.0287165   .0582196    -0.49   0.622    -.1431163    .0856834
+NumofFunding~D |   .0349163   .0535331     0.65   0.515    -.0702746    .1401072
+         _cons |   2.496247   1.017937     2.45   0.015     .4960312    4.496463
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_36
+
+. esttab INNO_33 INNO_34 INNO_35 INNO_36 using "$OUT/Other_innovation_measures.rt
+> f", append ///
+>     b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     mtitles("(1)" "(2)" "(3)" "(4)") ///
+>     stats(N r2, labels("Observations" "R-squared")) ///
+>     title("DV: cite_breadth_win3") ///
+>     addnotes("Original 2820-firm cohort; original controls and fixed effects." 
+> ///
+>     "Undefined or unobserved measurements remain missing; available N differs b
+> y DV." ///
+>     "p-values in parentheses. Breakthrough share uses fractional logit.")
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_original2820_full_results/Other_innovation_measures.rtf)
+
+.         
+. *10-1
+. reghdfe ln_selfcitations_win3hare_win3 VD i.priorpatentdummy_VD i.Earlystage_VD
+>  ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,122
+Absorbing 3 HDFE groups                           F(   5,   1105) =      40.25
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.2694
+                                                  Adj R-squared   =     0.2588
+                                                  Within R-sq.    =     0.1931
+                                                  Root MSE        =     1.1568
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_selfcitat~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0234341   .0679586    -0.34   0.730    -.1567766    .1099083
+1.priorpaten~D |  -1.016931   .0798215   -12.74   0.000     -1.17355   -.8603124
+1.Earlystage~D |  -.0266706   .0887005    -0.30   0.764    -.2007111    .1473699
+ln_MoneyRais~D |    .083531   .0214996     3.89   0.000     .0413463    .1257157
+NumofFunding~D |  -.0009036   .0204396    -0.04   0.965    -.0410083    .0392012
+         _cons |   .0265819    .390155     0.07   0.946    -.7389464    .7921103
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_37
+
+. *10-1
+. reghdfe ln_selfcitations_win3hare_win3 i.VD##i.priorpatentdummy_VD i.Earlystage
+> _VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,122
+Absorbing 3 HDFE groups                           F(   6,   1104) =      35.00
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.2700
+                                                  Adj R-squared   =     0.2588
+                                                  Within R-sq.    =     0.1938
+                                                  Root MSE        =     1.1568
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_selfcitat~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          1.VD |    .056656   .1466638     0.39   0.699    -.2311152    .3444272
+1.priorpaten~D |  -.9573661   .1104196    -8.67   0.000    -1.174022   -.7407102
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |  -.1339279   .1578252    -0.85   0.396    -.4435992    .1757433
+               |
+1.Earlystage~D |  -.0298695   .0885555    -0.34   0.736    -.2036256    .1438865
+ln_MoneyRais~D |   .0826864   .0215355     3.84   0.000     .0404312    .1249415
+NumofFunding~D |  -.0005144   .0204638    -0.03   0.980    -.0406667     .039638
+         _cons |   .0050768   .3918111     0.01   0.990    -.7637017    .7738554
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_38
+
+. *10-1
+. reghdfe ln_selfcitations_win3hare_win3 priorpatentdummy_VD VD i.VD##i.Earlystag
+> e_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+note: 0b.VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =      1,122
+Absorbing 3 HDFE groups                           F(   6,   1104) =      34.14
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.2694
+                                                  Adj R-squared   =     0.2582
+                                                  Within R-sq.    =     0.1931
+                                                  Root MSE        =     1.1573
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_selfcitat~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+priorpatentd~D |  -1.017279   .0797296   -12.76   0.000    -1.173717   -.8608401
+            VD |  -.0078115   .1297495    -0.06   0.952     -.262395     .246772
+          1.VD |          0  (omitted)
+1.Earlystage~D |  -.0157826   .1077117    -0.15   0.884    -.2271254    .1955602
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |  -.0258648   .1488118    -0.17   0.862    -.3178506     .266121
+               |
+ln_MoneyRais~D |   .0835388   .0214693     3.89   0.000     .0414135    .1256641
+NumofFunding~D |  -.0010179   .0204721    -0.05   0.960    -.0411866    .0391509
+         _cons |   .0214136   .3898453     0.05   0.956    -.7435077     .786335
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_39
+
+. *10-1
+. reghdfe ln_selfcitations_win3hare_win3 VD i.VD##i.priorpatentdummy_VD i.VD##i.E
+> arlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+note: 0b.VD omitted because of collinearity
+
+HDFE Linear regression                            Number of obs   =      1,122
+Absorbing 3 HDFE groups                           F(   7,   1103) =      30.25
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.2700
+                                                  Adj R-squared   =     0.2581
+                                                  Within R-sq.    =     0.1938
+                                                  Root MSE        =     1.1574
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_selfcitat~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .0564278   .1759762     0.32   0.749    -.2888581    .4017137
+          1.VD |          0  (omitted)
+1.priorpaten~D |  -.9573203   .1091687    -8.77   0.000    -1.171522   -.7431185
+               |
+            VD#|
+priorpatentd~D |
+          1 1  |  -.1340169   .1557843    -0.86   0.390     -.439684    .1716501
+               |
+1.Earlystage~D |  -.0300678   .1062397    -0.28   0.777    -.2385224    .1783869
+               |
+            VD#|
+ Earlystage_VD |
+          1 1  |    .000466   .1458203     0.00   0.997    -.2856505    .2865825
+               |
+ln_MoneyRais~D |   .0826857   .0215272     3.84   0.000     .0404469    .1249245
+NumofFunding~D |   -.000512   .0204819    -0.02   0.980    -.0406999    .0396758
+         _cons |   .0051556    .392005     0.01   0.990    -.7640041    .7743153
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. estimates store INNO_40
+
+. esttab INNO_37 INNO_38 INNO_39 INNO_40 using "$OUT/Other_innovation_measures.rt
+> f", append ///
+>     b(3) p(3) star(* 0.10 ** 0.05 *** 0.01) ///
+>     mtitles("(1)" "(2)" "(3)" "(4)") ///
+>     stats(N r2, labels("Observations" "R-squared")) ///
+>     title("DV: ln_selfcitations_win3hare_win3") ///
+>     addnotes("Original 2820-firm cohort; original controls and fixed effects." 
+> ///
+>     "Undefined or unobserved measurements remain missing; available N differs b
+> y DV." ///
+>     "p-values in parentheses. Breakthrough share uses fractional logit.")
+(output written to C:/Users/user/Documents/VD/outputs/psm_final_2820_package/tabl
+> e3_original2820_full_results/Other_innovation_measures.rtf)
+
+.         
+. ********
+. *sum nocite_win3 breakthrough_win3 desc_words_win3 fog_win3 ari_win3 neg_flesch
+> _win3 figures_win3 sheets_win3 claims_win3
+. 
+. *gen ln_desc_words_win3 = log(desc_words_win3+1)
+. *gen ln_figures_win3 = log(figures_win3+1)
+. *gen ln_sheets_win3 = log(sheets_win3+1)
+. *gen ln_claims_win3 = log(claims_win3+1)
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. display "INNOVATION_TEST_FINISHED"
+INNOVATION_TEST_FINISHED
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/innovation_original2820_rebuild_2
+> 0261020/stata_innovation_test.log
+  log type:  text
+ closed on:  20 Oct 2026, 10:32:17
+---------------------------------------------------------------------------------

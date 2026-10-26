@@ -1,0 +1,13 @@
+{
+  "all_checks_passed": true,
+  "sample_unchanged": true,
+  "sample_rows": 2820,
+  "candidate_deals": 1898,
+  "first_deals": 1410,
+  "provider_names": 710,
+  "public_deal_checks": 8,
+  "review_queue_firms": 66,
+  "xlsx_reopened_and_checked": true,
+  "excel_error_cells": 0,
+  "excel_dates_typed": true
+}

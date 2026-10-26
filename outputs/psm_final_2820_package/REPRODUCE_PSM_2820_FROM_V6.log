@@ -1,0 +1,1153 @@
+-------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/REPRODUCE_PSM_2820_FROM_V6.log
+  log type:  text
+ opened on:  19 Oct 2026, 16:36:35
+
+. 
+. 
+. ********************************************************************************
+. * 1. PRE-MATCH FIRM-LEVEL SAMPLE: 7,316 FIRMS
+. ********************************************************************************
+. import excel using "$PREMATCH", firstrow clear
+(33 vars, 7,316 obs)
+
+. 
+. * Stata may import the headers with slightly different legal names.
+. capture confirm variable OrganizationName
+
+. if _rc rename OrganizationNameURL organization_url
+
+. capture confirm variable OrganizationName
+
+. 
+. capture confirm numeric variable VD_Backing
+
+. if _rc destring VD_Backing, replace
+
+. 
+. * Historical treatment definition used for the archived 2,820 sample.
+. replace VD_Backing = 1 if inlist(OrganizationName,"Dermira","Eargo")
+(2 real changes made)
+
+. replace VD_Backing = 0 if inlist(OrganizationName,"Cortex","Nomi1")
+(2 real changes made)
+
+. 
+. * The funding amount is missing for 30 of the 1,440 VD-backed firms.
+. * Those 30 cannot enter a logit containing Log(Total Funding Amount_VD),
+. * leaving 1,410 eligible treated firms.
+. capture drop ln_Total_Funding_Amount_FirstVD
+
+. gen double ln_Total_Funding_Amount_FirstVD = ln(Total_Funding_Amount_FirstVD + 1)
+(775 missing values generated)
+
+. 
+. capture confirm numeric variable Founding_Year
+
+. if _rc destring Founding_Year, replace
+
+. * All controls use the hypothetical reference year Founding Year + 5.
+. replace VDYear = Founding_Year + 5 if VD_Backing==0
+(2 real changes made)
+
+. capture confirm numeric variable TimeToFirst_VC
+
+. if _rc destring TimeToFirst_VC, replace
+
+. capture confirm numeric variable Grant_VD
+
+. if _rc destring Grant_VD, replace
+
+. capture confirm numeric variable NumberOfFunding_Rounds_FirstVD
+
+. if _rc destring NumberOfFunding_Rounds_FirstVD, replace
+
+. 
+. capture confirm numeric variable Region2
+
+. if _rc {
+.     encode Region2, gen(Region2_n)
+.     drop Region2
+.     rename Region2_n Region2
+. }
+
+. capture confirm numeric variable Industry2
+
+. if _rc {
+.     encode Industry2, gen(Industry2_n)
+.     drop Industry2
+.     rename Industry2_n Industry2
+. }
+
+. 
+. count
+  7,316
+
+. assert r(N)==7316
+
+. count if VD_Backing==1
+  1,440
+
+. assert r(N)==1440
+
+. count if VD_Backing==0
+  5,876
+
+. assert r(N)==5876
+
+. 
+. ********************************************************************************
+. * 2. BUILD PRE-REFERENCE AND WINDOW-3 APPLICATION COUNTS BEFORE MATCHING
+. ********************************************************************************
+. tempfile firm_reference application_counts
+
+. preserve
+
+.     gen str244 name_key=ustrlower(OrganizationName)
+
+.     replace name_key=ustrregexra(name_key,"[^a-z0-9]","")
+(2,916 real changes made)
+
+.     gen double reference_year=VDYear
+
+.     gen double founding_year=Founding_Year
+
+.     keep name_key reference_year founding_year
+
+.     bysort name_key: egen reference_min=min(reference_year)
+
+.     bysort name_key: egen reference_max=max(reference_year)
+
+.     bysort name_key: egen founding_min=min(founding_year)
+
+.     bysort name_key: egen founding_max=max(founding_year)
+
+.     assert reference_min==reference_max
+
+.     assert founding_min==founding_max
+
+.     bysort name_key: keep if _n==1
+(1 observation deleted)
+
+.     drop reference_min reference_max founding_min founding_max
+
+.     save `firm_reference', replace
+(file C:\Users\user\AppData\Local\Temp\ST_6600_000001.tmp not found)
+file C:\Users\user\AppData\Local\Temp\ST_6600_000001.tmp saved as .dta format
+
+. 
+.     import delimited using "$APPUNION", clear varnames(1) encoding(utf8)
+(38 vars, 39,721 obs)
+
+.     keep if inrange(filing_year,2010,2024)
+(472 observations deleted)
+
+.     duplicates drop full_firm_id application_id, force
+
+Duplicates in terms of full_firm_id application_id
+
+(0 observations are duplicates)
+
+.     count
+  39,249
+
+.     assert r(N)==39249
+
+.     gen str244 name_key=ustrlower(organization_name)
+
+.     replace name_key=ustrregexra(name_key,"[^a-z0-9]","")
+(19,956 real changes made)
+
+.     merge m:1 name_key using `firm_reference', keep(match) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                            39,249  
+    -----------------------------------------
+
+.     * Exclude applications filed before the firm's founding year.  The PSM
+.     * patent-history covariate is the count from founding through VD year.
+.     gen byte app_at_vd=inrange(filing_year,founding_year,reference_year)
+
+.     gen byte app_win3=inrange(filing_year-reference_year,0,3)
+
+.     collapse (sum) priorpatent_VD_2=app_at_vd ///
+>                    patent_application_win3=app_win3, by(name_key)
+
+.     save `application_counts', replace
+(file C:\Users\user\AppData\Local\Temp\ST_6600_000002.tmp not found)
+file C:\Users\user\AppData\Local\Temp\ST_6600_000002.tmp saved as .dta format
+
+. restore
+
+. 
+. capture drop patent_application_VD priorpatent_VD_2 priorpatentdummy_VD patent_application_win3 name_key
+
+. gen str244 name_key=ustrlower(OrganizationName)
+
+. replace name_key=ustrregexra(name_key,"[^a-z0-9]","")
+(2,916 real changes made)
+
+. merge m:1 name_key using `application_counts', keep(master match) gen(_merge_appcounts)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         5,011
+        from master                     5,011  (_merge_appcounts==1)
+        from using                          0  (_merge_appcounts==2)
+
+    Matched                             2,305  (_merge_appcounts==3)
+    -----------------------------------------
+
+. replace priorpatent_VD_2=0 if missing(priorpatent_VD_2)
+(5,011 real changes made)
+
+. replace patent_application_win3=0 if missing(patent_application_win3)
+(5,011 real changes made)
+
+. gen double patent_application_VD=priorpatent_VD_2
+
+. gen byte priorpatentdummy_VD=(priorpatent_VD_2>0)
+
+. label var priorpatent_VD_2 "Applications filed from founding through actual or hypothetical VD year"
+
+. label var patent_application_VD "Alias of priorpatent_VD_2 for backward compatibility"
+
+. label var priorpatentdummy_VD "Any application filed from founding through reference year"
+
+. label var patent_application_win3 "Applications filed in years t=0 to t+3"
+
+. 
+. assert priorpatent_VD_2==9 if OrganizationName=="Affirmed Networks"
+
+. assert patent_application_VD==38 & patent_application_win3==16 if OrganizationName=="AliveCor"
+
+. assert patent_application_VD==9 & patent_application_win3==0 if OrganizationName=="Health Outcomes Sciences"
+
+. 
+. ********************************************************************************
+. * 3. 1:1 NEAREST-NEIGHBOR PSM, COMMON SUPPORT, WITHOUT REPLACEMENT
+. *
+. * Matching variables stated in the manuscript:
+. * - Log(Total Funding Amount_VD)
+. * - Number of Funding Rounds_VD
+. * - Patent applications filed through the reference year
+. * - Founding Year
+. * - Region
+. * - Industry
+. * - Time to First VC
+. ********************************************************************************
+. capture which psmatch2
+
+. if _rc ssc install psmatch2
+
+. 
+. set seed 20250901
+
+. psmatch2 VD_Backing ///
+>     i.Founding_Year ///
+>     i.Region2 ///
+>     i.Industry2 ///
+>     ln_Total_Funding_Amount_FirstVD ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     priorpatent_VD_2 ///
+>     TimeToFirst_VC, ///
+>     logit neighbor(1) noreplacement common
+
+Logistic regression                                     Number of obs =  6,541
+                                                        LR chi2(16)   = 337.44
+                                                        Prob > chi2   = 0.0000
+Log likelihood = -3240.6793                             Pseudo R2     = 0.0495
+
+--------------------------------------------------------------------------------------------------
+                      VD_Backing | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------------------------+----------------------------------------------------------------
+                   Founding_Year |
+                           2011  |  -.1652314   .1068291    -1.55   0.122    -.3746125    .0441497
+                           2012  |  -.2443222   .1109559    -2.20   0.028    -.4617918   -.0268527
+                           2013  |  -.6038683    .110077    -5.49   0.000    -.8196153   -.3881214
+                           2014  |  -.7378251   .1076223    -6.86   0.000    -.9487609   -.5268894
+                           2015  |  -.9191184   .1081732    -8.50   0.000    -1.131134   -.7071029
+                                 |
+                         Region2 |
+                  Massachusetts  |   .2662822   .1216571     2.19   0.029     .0278386    .5047257
+                       New York  |   .4459148   .0979225     4.55   0.000     .2539902    .6378394
+                          Other  |   .6040642   .0739013     8.17   0.000     .4592203    .7489081
+                                 |
+                       Industry2 |
+                 Bio/Healthcare  |    .301377   .3210837     0.94   0.348    -.3279355    .9306895
+Hardware/Manufacturing/DeepTech  |   .3025444   .3244704     0.93   0.351     -.333406    .9384947
+                          Other  |   .2548773    .319021     0.80   0.424    -.3703923     .880147
+           Software/IT services  |   .0721752   .3166527     0.23   0.820    -.5484527    .6928031
+                                 |
+ ln_Total_Funding_Amount_FirstVD |    .041612   .0179467     2.32   0.020     .0064372    .0767869
+  NumberOfFunding_Rounds_FirstVD |   .1647659   .0170547     9.66   0.000     .1313393    .1981924
+                priorpatent_VD_2 |   .0012543   .0023068     0.54   0.587    -.0032671    .0057756
+                  TimeToFirst_VC |  -.0573229   .0194921    -2.94   0.003    -.0955268    -.019119
+                           _cons |  -2.532276   .4353784    -5.82   0.000    -3.385602    -1.67895
+--------------------------------------------------------------------------------------------------
+
+. 
+. gen byte matched_2820 = (_weight==1) if !missing(_weight)
+(4,496 missing values generated)
+
+. replace matched_2820 = 0 if missing(matched_2820)
+(4,496 real changes made)
+
+. 
+. tab VD_Backing matched_2820, missing
+
+           |     matched_2820
+VD_Backing |         0          1 |     Total
+-----------+----------------------+----------
+         0 |     4,466      1,410 |     5,876 
+         1 |        30      1,410 |     1,440 
+-----------+----------------------+----------
+     Total |     4,496      2,820 |     7,316 
+
+. count if matched_2820==1
+  2,820
+
+. display as result "Matched observations = " r(N)
+Matched observations = 2820
+
+. count if matched_2820==1 & VD_Backing==1
+  1,410
+
+. display as result "Matched VD-backed firms = " r(N)
+Matched VD-backed firms = 1410
+
+. count if matched_2820==1 & VD_Backing==0
+  1,410
+
+. display as result "Matched controls = " r(N)
+Matched controls = 1410
+
+. 
+. count if matched_2820==1
+  2,820
+
+. assert r(N)==2820
+
+. count if matched_2820==1 & VD_Backing==1
+  1,410
+
+. assert r(N)==1410
+
+. count if matched_2820==1 & VD_Backing==0
+  1,410
+
+. assert r(N)==1410
+
+. 
+. ********************************************************************************
+. * 4. SAVE MATCHED SAMPLE AND APPLICATION-COUNT AUDIT
+. ********************************************************************************
+. * Firm-level audit against the legacy granted-patent variable.  Grant_3years
+. * and patent_application_win3 measure different events, so disagreement is
+. * expected; this file is intended to make implausible firm mappings visible.
+. preserve
+
+.     keep no OrganizationName VD_Backing Founding_Year VDYear Grant_VD ///
+>          Grant_3years priorpatent_VD_2 priorpatentdummy_VD ///
+>          patent_application_VD patent_application_win3 ///
+>          _merge_appcounts
+
+.     sort OrganizationName
+
+.     export delimited using "$DIAG/patent_application_count_audit.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/replicated_appendix/patent_application_count_audit.csv saved
+
+. restore
+
+. 
+. drop _merge_appcounts
+
+. 
+. save "$PSM_ROOT/psm_stata_full7316_with_scores.dta", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/psm_stata_full7316_with_scores.dta saved
+
+. preserve
+
+.     keep if matched_2820==1
+(4,496 observations deleted)
+
+.     save "$PSM_ROOT/psm_stata_matched_2820.dta", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/psm_stata_matched_2820.dta saved
+
+.     export delimited using "$PSM_ROOT/psm_stata_matched_2820.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/psm_stata_matched_2820.csv saved
+
+. restore
+
+. 
+. ****Variables construction
+. ***variables
+. rename Founding_Year Foundingyear
+
+. rename VDYear VDyear
+
+. *********************APPENDIX********************
+. * Table A6: 매칭 전후 balance
+. pstest Foundingyear VDyear TimeToFirst_VC ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     ln_Total_Funding_Amount_FirstVD priorpatent_VD_2 ///
+>     Region2 Industry2, both
+
+-------------------------------------------------------------------------------------------------
+                         Unmatched |       Mean               %reduct |     t-test    |  V(T)/
+Variable                   Matched | Treated Control    %bias  |bias| |    t    p>|t| |  V(C)
+-----------------------------------+----------------------------------+---------------+----------
+Foundingyear                    U  | 2012.4   2012.9    -28.5         |  -9.51  0.000 |  1.02
+                                M  | 2012.4   2012.5     -2.8    90.2 |  -0.74  0.460 |  1.02
+                                   |                                  |               |
+VDyear                          U  | 2017.4   2017.9    -20.3         |  -8.23  0.000 |  3.75*
+                                M  | 2017.4   2017.5     -3.5    82.9 |  -0.92  0.357 |  3.75*
+                                   |                                  |               |
+TimeToFirst_VC                  U  |  1.595   1.8928    -16.0         |  -5.44  0.000 |  1.14*
+                                M  |  1.595   1.5326      3.4    79.0 |   0.93  0.354 |  1.35*
+                                   |                                  |               |
+NumberOfFunding_Rounds_FirstVD  U  | 4.1525   3.4432     34.8         |  12.13  0.000 |  1.36*
+                                M  | 4.1525   4.1333      0.9    97.3 |   0.23  0.815 |  1.03
+                                   |                                  |               |
+ln_Total_Funding_Amount_FirstVD U  | 16.015   15.704     15.3         |   5.26  0.000 |  1.26*
+                                M  | 16.015   16.013      0.1    99.2 |   0.03  0.973 |  1.31*
+                                   |                                  |               |
+priorpatent_VD_2                U  | 2.8057   2.2093      5.0         |   1.54  0.125 |  0.51*
+                                M  | 2.8057   3.1695     -3.1    39.0 |  -0.61  0.541 |  0.23*
+                                   |                                  |               |
+Region2                         U  | 2.7837   2.5057     21.0         |   6.91  0.000 |  0.94
+                                M  | 2.7837   2.7723      0.9    95.9 |   0.23  0.818 |  0.97
+                                   |                                  |               |
+Industry2                       U  | 3.8532   3.9415     -7.5         |  -2.51  0.012 |  1.00
+                                M  | 3.8532   3.8489      0.4    95.2 |   0.10  0.923 |  1.01
+                                   |                                  |               |
+-------------------------------------------------------------------------------------------------
+* if variance ratio outside [0.90; 1.11] for U and [0.90; 1.11] for M
+
+-----------------------------------------------------------------------------------
+ Sample    | Ps R2   LR chi2   p>chi2   MeanBias   MedBias      B      R     %Var
+-----------+-----------------------------------------------------------------------
+ Unmatched | 0.053    359.25    0.000     18.6      18.1      58.3*   0.97     62
+ Matched   | 0.001      4.27    0.832      1.9       1.9       7.8    0.96     50
+-----------------------------------------------------------------------------------
+* if B>25%, R outside [0.5; 2]
+
+. 
+. * Figure A1: PROPENSITY-SCORE OVERLAP BEFORE AND AFTER MATCHING
+. twoway ///
+>  (kdensity _pscore if VD_Backing==1 & psm_esample, lcolor(maroon) lwidth(medthick)) ///
+>  (kdensity _pscore if VD_Backing==0 & psm_esample, lcolor(navy) lpattern(dash) lwidth(medthick)), ///
+>  title("Panel A. Before matching") xtitle("Estimated propensity score") ytitle("Density") ///
+>  legend(order(1 "VD-backed" 2 "VC-only")) graphregion(color(white)) name(PS_PRE, replace)
+psm_esample not found
+r(111);
+
+end of do-file
+
+r(111);
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_000001.tmp"
+
+. twoway ///
+>  (kdensity _pscore if VD_Backing==1 & psm_esample, lcolor(maroon) lwidth(medthick)) ///
+>  (kdensity _pscore if VD_Backing==0 & psm_esample, lcolor(navy) lpattern(dash) lwidth(medthick)), ///
+>  title("Panel A. Before matching") xtitle("Estimated propensity score") ytitle("Density") ///
+>  legend(order(1 "VD-backed" 2 "VC-only")) graphregion(color(white)) name(PS_PRE, replace)
+psm_esample not found
+r(111);
+
+end of do-file
+
+r(111);
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_000002.tmp"
+
+. * Figure A1: PROPENSITY-SCORE OVERLAP BEFORE AND AFTER MATCHING
+. capture drop psm_esample
+
+. gen byte psm_esample = !missing(_pscore, VD_Backing)
+
+. 
+. twoway ///
+>  (kdensity _pscore if VD_Backing==1 & psm_esample, ///
+>     lcolor(maroon) lwidth(medthick)) ///
+>  (kdensity _pscore if VD_Backing==0 & psm_esample, ///
+>     lcolor(navy) lpattern(dash) lwidth(medthick)), ///
+>  title("Panel A. Before matching") ///
+>  xtitle("Estimated propensity score") ytitle("Density") ///
+>  legend(order(1 "VD-backed" 2 "VC-only")) ///
+>  graphregion(color(white)) name(PS_PRE, replace)
+
+.  
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_000003.tmp"
+
+. 
+. twoway ///
+>  (kdensity _pscore if VD_Backing==1 & matched_2820, lcolor(maroon) lwidth(medthick)) ///
+>  (kdensity _pscore if VD_Backing==0 & matched_2820, lcolor(navy) lpattern(dash) lwidth(medthick)), ///
+>  title("Panel B. After 1:1 matching") xtitle("Estimated propensity score") ytitle("Density") ///
+>  legend(order(1 "VD-backed" 2 "Matched VC-only")) graphregion(color(white)) name(PS_POST, replace)
+
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_000004.tmp"
+
+. 
+. twoway ///
+>  (kdensity _pscore if VD_Backing==1 & matched_2820, lcolor(maroon) lwidth(medthick)) ///
+>  (kdensity _pscore if VD_Backing==0 & matched_2820, lcolor(navy) lpattern(dash) lwidth(medthick)), ///
+>  title("Panel B. After 1:1 matching") xtitle("Estimated propensity score") ytitle("Density") ///
+>  legend(order(1 "VD-backed" 2 "Matched VC-only")) graphregion(color(white)) name(PS_POST, replace)
+
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_000005.tmp"
+
+. * Figure A2. PSM loveplot
+. pstest Foundingyear VDyear TimeToFirst_VC ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     ln_Total_Funding_Amount_FirstVD priorpatent_VD_2 ///
+>     Region2 Industry2, both graph
+
+-------------------------------------------------------------------------------------------------
+                         Unmatched |       Mean               %reduct |     t-test    |  V(T)/
+Variable                   Matched | Treated Control    %bias  |bias| |    t    p>|t| |  V(C)
+-----------------------------------+----------------------------------+---------------+----------
+Foundingyear                    U  | 2012.4   2012.9    -28.5         |  -9.51  0.000 |  1.02
+                                M  | 2012.4   2012.5     -2.8    90.2 |  -0.74  0.460 |  1.02
+                                   |                                  |               |
+VDyear                          U  | 2017.4   2017.9    -20.3         |  -8.23  0.000 |  3.75*
+                                M  | 2017.4   2017.5     -3.5    82.9 |  -0.92  0.357 |  3.75*
+                                   |                                  |               |
+TimeToFirst_VC                  U  |  1.595   1.8928    -16.0         |  -5.44  0.000 |  1.14*
+                                M  |  1.595   1.5326      3.4    79.0 |   0.93  0.354 |  1.35*
+                                   |                                  |               |
+NumberOfFunding_Rounds_FirstVD  U  | 4.1525   3.4432     34.8         |  12.13  0.000 |  1.36*
+                                M  | 4.1525   4.1333      0.9    97.3 |   0.23  0.815 |  1.03
+                                   |                                  |               |
+ln_Total_Funding_Amount_FirstVD U  | 16.015   15.704     15.3         |   5.26  0.000 |  1.26*
+                                M  | 16.015   16.013      0.1    99.2 |   0.03  0.973 |  1.31*
+                                   |                                  |               |
+priorpatent_VD_2                U  | 2.8057   2.2093      5.0         |   1.54  0.125 |  0.51*
+                                M  | 2.8057   3.1695     -3.1    39.0 |  -0.61  0.541 |  0.23*
+                                   |                                  |               |
+Region2                         U  | 2.7837   2.5057     21.0         |   6.91  0.000 |  0.94
+                                M  | 2.7837   2.7723      0.9    95.9 |   0.23  0.818 |  0.97
+                                   |                                  |               |
+Industry2                       U  | 3.8532   3.9415     -7.5         |  -2.51  0.012 |  1.00
+                                M  | 3.8532   3.8489      0.4    95.2 |   0.10  0.923 |  1.01
+                                   |                                  |               |
+-------------------------------------------------------------------------------------------------
+* if variance ratio outside [0.90; 1.11] for U and [0.90; 1.11] for M
+
+-----------------------------------------------------------------------------------
+ Sample    | Ps R2   LR chi2   p>chi2   MeanBias   MedBias      B      R     %Var
+-----------+-----------------------------------------------------------------------
+ Unmatched | 0.053    359.25    0.000     18.6      18.1      58.3*   0.97     62
+ Matched   | 0.001      4.27    0.832      1.9       1.9       7.8    0.96     50
+-----------------------------------------------------------------------------------
+* if B>25%, R outside [0.5; 2]
+
+. 
+. graph export "$DIAG/Figure_A2_Love_plot.png", replace width(3000)
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/replicated_appendix/Figure_A2_Love_plot.png saved as PNG
+    format
+
+. graph save "$DIAG/Figure_A2_Love_plot.gph", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/replicated_appendix/Figure_A2_Love_plot.gph saved
+
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_000006.tmp"
+
+. 
+. preserve
+
+. tempname B
+
+. matrix `B' = J(8,3,.)
+
+. local i = 0
+
+. 
+. foreach v in Foundingyear VDyear TimeToFirst_VC ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     ln_Total_Funding_Amount_FirstVD priorpatent_VD_2 ///
+>     Region2 Industry2 {
+  2. 
+.     local ++i
+  3.     quietly summarize `v' if _treated==1
+  4.     local mt = r(mean)
+  5.     local vt = r(Var)
+  6.     quietly summarize `v' if _treated==0
+  7.     local sd = sqrt((`vt'+r(Var))/2)
+  8.     matrix `B'[`i',1] = 100*(`mt'-r(mean))/`sd'
+  9. 
+.     quietly summarize `v' [iw=_weight] if _treated==1 & _support==1
+ 10.     local mt = r(mean)
+ 11.     quietly summarize `v' [iw=_weight] if _treated==0 & _support==1
+ 12.     matrix `B'[`i',2] = 100*(`mt'-r(mean))/`sd'
+ 13.     matrix `B'[`i',3] = `i'
+ 14. }
+
+. 
+. clear
+
+. matrix colnames `B' = Before After Order
+
+. svmat double `B', names(col)
+number of observations will be reset to 8
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 8.
+
+. 
+. twoway ///
+>  (scatter Order Before, msymbol(O) mcolor(black)) ///
+>  (scatter Order After, msymbol(X) mcolor(black)), ///
+>  ylabel(1 "Founding Year" ///
+>         2 "VD Year" ///
+>         3 "Time To First VC" ///
+>         4 "Num Of Funding Rounds VD" ///
+>         5 "Log(Total Funding Amt VD)" ///
+>         6 "Pre-VD Granted Patent Applications" ///
+>         7 "Region" ///
+>         8 "Industry", angle(0) labsize(small)) ///
+>  yscale(reverse) ytitle("") ///
+>  xline(0, lpattern(dash) lcolor(gs10)) ///
+>  xtitle("Standardized % bias across covariates") ///
+>  legend(order(1 "Unmatched" 2 "Matched") rows(1) position(6)) ///
+>  graphregion(color(white)) name(LOVE_A2, replace)
+
+. 
+. restore
+
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_000007.tmp"
+
+. * Table A7. COMMON-SUPPORT INFORMATION
+. quietly summarize _pscore if VD_Backing == 1 ///
+>     & _weight > 0 & _weight < ., meanonly
+
+. scalar treated_min = r(min)
+
+. scalar treated_max = r(min)
+
+. 
+. quietly summarize _pscore if VD_Backing == 0 ///
+>     & _weight > 0 & _weight < ., meanonly
+
+. scalar control_min = r(min)
+
+. scalar control_max = r(min)
+
+. 
+. 
+. capture drop psm_esample
+
+. gen byte psm_esample = !missing(_pscore, VD_Backing)
+
+. 
+. capture drop empirical_support
+
+. gen byte empirical_support = ///
+>     inrange(_pscore, support_lower, support_upper) if psm_esample
+support_upper not found
+r(111);
+
+end of do-file
+
+r(111);
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_000008.tmp"
+
+. capture drop psm_esample empirical_support
+
+. gen byte psm_esample = !missing(_pscore, VD_Backing)
+variable psm_esample already defined
+r(110);
+
+end of do-file
+
+r(110);
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_000009.tmp"
+
+. gen byte psm_esample = !missing(_pscore, VD_Backing)
+variable psm_esample already defined
+r(110);
+
+end of do-file
+
+r(110);
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_00000a.tmp"
+
+. 
+. quietly summarize _pscore if VD_Backing==1 & psm_esample, meanonly
+
+. scalar treated_min = r(min)
+
+. scalar treated_max = r(max)
+
+. 
+. quietly summarize _pscore if VD_Backing==0 & psm_esample, meanonly
+
+. scalar control_min = r(min)
+
+. scalar control_max = r(max)
+
+. 
+. scalar support_lower = max(treated_min, control_min)
+
+. scalar support_upper = min(treated_max, control_max)
+
+. 
+. gen byte empirical_support = ///
+>     inrange(_pscore, scalar(support_lower), scalar(support_upper)) ///
+>     if psm_esample
+(775 missing values generated)
+
+. 
+. tab VD_Backing empirical_support, missing
+
+           |        empirical_support
+VD_Backing |         0          1          . |     Total
+-----------+---------------------------------+----------
+         0 |        45      5,086        745 |     5,876 
+         1 |         0      1,410         30 |     1,440 
+-----------+---------------------------------+----------
+     Total |        45      6,496        775 |     7,316 
+
+. 
+. quietly summarize _pscore if VD_Backing == 1 ///
+>     & _weight > 0 & _weight < ., meanonly
+
+. scalar treated_min = r(min)
+
+. scalar treated_max = r(min)
+
+. 
+. quietly summarize _pscore if VD_Backing == 0 ///
+>     & _weight > 0 & _weight < ., meanonly
+
+. scalar control_min = r(min)
+
+. scalar control_max = r(min)
+
+. 
+. 
+. capture drop psm_esample
+
+. gen byte psm_esample = !missing(_pscore, VD_Backing)
+
+. 
+. capture drop empirical_support
+
+. gen byte empirical_support = ///
+>     inrange(_pscore, support_lower, support_upper) if psm_esample
+(775 missing values generated)
+
+. 
+. tempname SUP
+
+. postfile `SUP' str60 statistic double value using "$DIAG/Table_A6_common_support.dta", replace
+
+. post `SUP' ("Treated propensity-score minimum") (treated_min)
+
+. post `SUP' ("Treated propensity-score maximum") (treated_max)
+
+. post `SUP' ("Control propensity-score minimum") (control_min)
+
+. post `SUP' ("Control propensity-score maximum") (control_max)
+
+. post `SUP' ("Empirical common-support lower bound") (support_lower)
+
+. post `SUP' ("Empirical common-support upper bound") (support_upper)
+
+. foreach g in 0 1 {
+  2.     quietly count if VD_Backing==`g' & psm_esample
+  3.     post `SUP' ("Group `g': propensity-score estimation N") (r(N))
+  4.     quietly count if VD_Backing==`g' & psm_esample & empirical_support==1
+  5.     post `SUP' ("Group `g': within empirical support N") (r(N))
+  6.     quietly count if VD_Backing==`g' & psm_esample & empirical_support==0
+  7.     post `SUP' ("Group `g': outside empirical support N") (r(N))
+  8.     quietly count if VD_Backing==`g' & matched_2820
+  9.     post `SUP' ("Group `g': final matched N") (r(N))
+ 10. }
+
+. postclose `SUP'
+
+. 
+. preserve
+
+. use "$DIAG/Table_A6_common_support.dta", clear
+
+. format value %12.4f
+
+. list statistic value, noobs clean
+
+                                 statistic       value  
+          Treated propensity-score minimum      0.0677  
+          Treated propensity-score maximum      0.0677  
+          Control propensity-score minimum      0.0678  
+          Control propensity-score maximum      0.0678  
+      Empirical common-support lower bound      0.0677  
+      Empirical common-support upper bound      0.6923  
+    Group 0: propensity-score estimation N   5131.0000  
+       Group 0: within empirical support N   5086.0000  
+      Group 0: outside empirical support N     45.0000  
+                  Group 0: final matched N   1410.0000  
+    Group 1: propensity-score estimation N   1410.0000  
+       Group 1: within empirical support N   1410.0000  
+      Group 1: outside empirical support N      0.0000  
+                  Group 1: final matched N   1410.0000  
+
+. restore
+
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_00000b.tmp"
+
+. * Figure A2. PSM loveplot
+. pstest Foundingyear VDyear TimeToFirst_VC ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     ln_Total_Funding_Amount_FirstVD priorpatent_VD_2 ///
+>     Region2 Industry2, both graph
+
+-------------------------------------------------------------------------------------------------
+                         Unmatched |       Mean               %reduct |     t-test    |  V(T)/
+Variable                   Matched | Treated Control    %bias  |bias| |    t    p>|t| |  V(C)
+-----------------------------------+----------------------------------+---------------+----------
+Foundingyear                    U  | 2012.4   2012.9    -28.5         |  -9.51  0.000 |  1.02
+                                M  | 2012.4   2012.5     -2.8    90.2 |  -0.74  0.460 |  1.02
+                                   |                                  |               |
+VDyear                          U  | 2017.4   2017.9    -20.3         |  -8.23  0.000 |  3.75*
+                                M  | 2017.4   2017.5     -3.5    82.9 |  -0.92  0.357 |  3.75*
+                                   |                                  |               |
+TimeToFirst_VC                  U  |  1.595   1.8928    -16.0         |  -5.44  0.000 |  1.14*
+                                M  |  1.595   1.5326      3.4    79.0 |   0.93  0.354 |  1.35*
+                                   |                                  |               |
+NumberOfFunding_Rounds_FirstVD  U  | 4.1525   3.4432     34.8         |  12.13  0.000 |  1.36*
+                                M  | 4.1525   4.1333      0.9    97.3 |   0.23  0.815 |  1.03
+                                   |                                  |               |
+ln_Total_Funding_Amount_FirstVD U  | 16.015   15.704     15.3         |   5.26  0.000 |  1.26*
+                                M  | 16.015   16.013      0.1    99.2 |   0.03  0.973 |  1.31*
+                                   |                                  |               |
+priorpatent_VD_2                U  | 2.8057   2.2093      5.0         |   1.54  0.125 |  0.51*
+                                M  | 2.8057   3.1695     -3.1    39.0 |  -0.61  0.541 |  0.23*
+                                   |                                  |               |
+Region2                         U  | 2.7837   2.5057     21.0         |   6.91  0.000 |  0.94
+                                M  | 2.7837   2.7723      0.9    95.9 |   0.23  0.818 |  0.97
+                                   |                                  |               |
+Industry2                       U  | 3.8532   3.9415     -7.5         |  -2.51  0.012 |  1.00
+                                M  | 3.8532   3.8489      0.4    95.2 |   0.10  0.923 |  1.01
+                                   |                                  |               |
+-------------------------------------------------------------------------------------------------
+* if variance ratio outside [0.90; 1.11] for U and [0.90; 1.11] for M
+
+-----------------------------------------------------------------------------------
+ Sample    | Ps R2   LR chi2   p>chi2   MeanBias   MedBias      B      R     %Var
+-----------+-----------------------------------------------------------------------
+ Unmatched | 0.053    359.25    0.000     18.6      18.1      58.3*   0.97     62
+ Matched   | 0.001      4.27    0.832      1.9       1.9       7.8    0.96     50
+-----------------------------------------------------------------------------------
+* if B>25%, R outside [0.5; 2]
+
+. 
+. preserve
+
+. tempname B
+
+. matrix `B' = J(8,3,.)
+
+. local i = 0
+
+. 
+. foreach v in Foundingyear VDyear TimeToFirst_VC ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     ln_Total_Funding_Amount_FirstVD priorpatent_VD_2 ///
+>     Region2 Industry2 {
+  2. 
+.     local ++i
+  3.     quietly summarize `v' if _treated==1
+  4.     local mt = r(mean)
+  5.     local vt = r(Var)
+  6.     quietly summarize `v' if _treated==0
+  7.     local sd = sqrt((`vt'+r(Var))/2)
+  8.     matrix `B'[`i',1] = 100*(`mt'-r(mean))/`sd'
+  9. 
+.     quietly summarize `v' [iw=_weight] if _treated==1 & _support==1
+ 10.     local mt = r(mean)
+ 11.     quietly summarize `v' [iw=_weight] if _treated==0 & _support==1
+ 12.     matrix `B'[`i',2] = 100*(`mt'-r(mean))/`sd'
+ 13.     matrix `B'[`i',3] = `i'
+ 14. }
+
+. 
+. clear
+
+. matrix colnames `B' = Before After Order
+
+. svmat double `B', names(col)
+number of observations will be reset to 8
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 8.
+
+. 
+. twoway ///
+>  (scatter Order Before, msymbol(O) mcolor(black)) ///
+>  (scatter Order After, msymbol(X) mcolor(black)), ///
+>  ylabel(1 "Founding Year" ///
+>         2 "VD Year" ///
+>         3 "Time To First VC" ///
+>         4 "Num Of Funding Rounds VD" ///
+>         5 "Log(Total Funding Amt VD)" ///
+>         6 "Pre-VD Granted Patent Applications" ///
+>         7 "Region" ///
+>         8 "Industry", angle(0) labsize(small)) ///
+>  yscale(reverse) ytitle("") ///
+>  xline(0, lpattern(dash) lcolor(gs10)) ///
+>  xtitle("Standardized % bias across covariates") ///
+>  legend(order(1 "Unmatched" 2 "Matched") rows(1) position(6)) ///
+>  graphregion(color(white)) name(LOVE_A2, replace)
+
+. 
+. restore
+
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_00000c.tmp"
+
+. * Figure A2. PSM loveplot
+. pstest Foundingyear VDyear TimeToFirst_VC ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     ln_Total_Funding_Amount_FirstVD priorpatent_VD_2 ///
+>     Region2 Industry2, both graph
+
+-------------------------------------------------------------------------------------------------
+                         Unmatched |       Mean               %reduct |     t-test    |  V(T)/
+Variable                   Matched | Treated Control    %bias  |bias| |    t    p>|t| |  V(C)
+-----------------------------------+----------------------------------+---------------+----------
+Foundingyear                    U  | 2012.4   2012.9    -28.5         |  -9.51  0.000 |  1.02
+                                M  | 2012.4   2012.5     -2.8    90.2 |  -0.74  0.460 |  1.02
+                                   |                                  |               |
+VDyear                          U  | 2017.4   2017.9    -20.3         |  -8.23  0.000 |  3.75*
+                                M  | 2017.4   2017.5     -3.5    82.9 |  -0.92  0.357 |  3.75*
+                                   |                                  |               |
+TimeToFirst_VC                  U  |  1.595   1.8928    -16.0         |  -5.44  0.000 |  1.14*
+                                M  |  1.595   1.5326      3.4    79.0 |   0.93  0.354 |  1.35*
+                                   |                                  |               |
+NumberOfFunding_Rounds_FirstVD  U  | 4.1525   3.4432     34.8         |  12.13  0.000 |  1.36*
+                                M  | 4.1525   4.1333      0.9    97.3 |   0.23  0.815 |  1.03
+                                   |                                  |               |
+ln_Total_Funding_Amount_FirstVD U  | 16.015   15.704     15.3         |   5.26  0.000 |  1.26*
+                                M  | 16.015   16.013      0.1    99.2 |   0.03  0.973 |  1.31*
+                                   |                                  |               |
+priorpatent_VD_2                U  | 2.8057   2.2093      5.0         |   1.54  0.125 |  0.51*
+                                M  | 2.8057   3.1695     -3.1    39.0 |  -0.61  0.541 |  0.23*
+                                   |                                  |               |
+Region2                         U  | 2.7837   2.5057     21.0         |   6.91  0.000 |  0.94
+                                M  | 2.7837   2.7723      0.9    95.9 |   0.23  0.818 |  0.97
+                                   |                                  |               |
+Industry2                       U  | 3.8532   3.9415     -7.5         |  -2.51  0.012 |  1.00
+                                M  | 3.8532   3.8489      0.4    95.2 |   0.10  0.923 |  1.01
+                                   |                                  |               |
+-------------------------------------------------------------------------------------------------
+* if variance ratio outside [0.90; 1.11] for U and [0.90; 1.11] for M
+
+-----------------------------------------------------------------------------------
+ Sample    | Ps R2   LR chi2   p>chi2   MeanBias   MedBias      B      R     %Var
+-----------+-----------------------------------------------------------------------
+ Unmatched | 0.053    359.25    0.000     18.6      18.1      58.3*   0.97     62
+ Matched   | 0.001      4.27    0.832      1.9       1.9       7.8    0.96     50
+-----------------------------------------------------------------------------------
+* if B>25%, R outside [0.5; 2]
+
+. 
+. preserve
+
+. tempname B
+
+. matrix `B' = J(8,3,.)
+
+. local i = 0
+
+. 
+. foreach v in Foundingyear VDyear TimeToFirst_VC ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     ln_Total_Funding_Amount_FirstVD priorpatent_VD_2 ///
+>     Region2 Industry2 {
+  2. 
+.     local ++i
+  3.     quietly summarize `v' if _treated==1
+  4.     local mt = r(mean)
+  5.     local vt = r(Var)
+  6.     quietly summarize `v' if _treated==0
+  7.     local sd = sqrt((`vt'+r(Var))/2)
+  8.     matrix `B'[`i',1] = 100*(`mt'-r(mean))/`sd'
+  9. 
+.     quietly summarize `v' [iw=_weight] if _treated==1 & _support==1
+ 10.     local mt = r(mean)
+ 11.     quietly summarize `v' [iw=_weight] if _treated==0 & _support==1
+ 12.     matrix `B'[`i',2] = 100*(`mt'-r(mean))/`sd'
+ 13.     matrix `B'[`i',3] = `i'
+ 14. }
+
+. 
+. clear
+
+. matrix colnames `B' = Before After Order
+
+. svmat double `B', names(col)
+number of observations will be reset to 8
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 8.
+
+. 
+. twoway ///
+>  (scatter Order Before, msymbol(O) mcolor(black)) ///
+>  (scatter Order After, msymbol(X) mcolor(black)), ///
+>  ylabel(1 "Founding Year" ///
+>         2 "VD Year" ///
+>         3 "Time To First VC" ///
+>         4 "Num Of Funding Rounds VD" ///
+>         5 "Log(Total Funding Amt VD)" ///
+>         6 "Pre-VD Granted Patent Applications" ///
+>         7 "Region" ///
+>         8 "Industry", angle(0) labsize(small)) ///
+>  yscale(reverse) ytitle("") ///
+>  xline(0, lpattern(dash) lcolor(gs10)) ///
+>  xtitle("Standardized % bias across covariates") ///
+>  legend(order(1 "Unmatched" 2 "Matched") rows(1) position(6)) ///
+>  graphregion(color(white)) name(LOVE_A2, replace)
+
+. 
+. restore
+
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD6600_00000d.tmp"
+
+. pstest Foundingyear VDyear TimeToFirst_VC ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     ln_Total_Funding_Amount_FirstVD priorpatent_VD_2 ///
+>     Region2 Industry2, both graph
+
+-------------------------------------------------------------------------------------------------
+                         Unmatched |       Mean               %reduct |     t-test    |  V(T)/
+Variable                   Matched | Treated Control    %bias  |bias| |    t    p>|t| |  V(C)
+-----------------------------------+----------------------------------+---------------+----------
+Foundingyear                    U  | 2012.4   2012.9    -28.5         |  -9.51  0.000 |  1.02
+                                M  | 2012.4   2012.5     -2.8    90.2 |  -0.74  0.460 |  1.02
+                                   |                                  |               |
+VDyear                          U  | 2017.4   2017.9    -20.3         |  -8.23  0.000 |  3.75*
+                                M  | 2017.4   2017.5     -3.5    82.9 |  -0.92  0.357 |  3.75*
+                                   |                                  |               |
+TimeToFirst_VC                  U  |  1.595   1.8928    -16.0         |  -5.44  0.000 |  1.14*
+                                M  |  1.595   1.5326      3.4    79.0 |   0.93  0.354 |  1.35*
+                                   |                                  |               |
+NumberOfFunding_Rounds_FirstVD  U  | 4.1525   3.4432     34.8         |  12.13  0.000 |  1.36*
+                                M  | 4.1525   4.1333      0.9    97.3 |   0.23  0.815 |  1.03
+                                   |                                  |               |
+ln_Total_Funding_Amount_FirstVD U  | 16.015   15.704     15.3         |   5.26  0.000 |  1.26*
+                                M  | 16.015   16.013      0.1    99.2 |   0.03  0.973 |  1.31*
+                                   |                                  |               |
+priorpatent_VD_2                U  | 2.8057   2.2093      5.0         |   1.54  0.125 |  0.51*
+                                M  | 2.8057   3.1695     -3.1    39.0 |  -0.61  0.541 |  0.23*
+                                   |                                  |               |
+Region2                         U  | 2.7837   2.5057     21.0         |   6.91  0.000 |  0.94
+                                M  | 2.7837   2.7723      0.9    95.9 |   0.23  0.818 |  0.97
+                                   |                                  |               |
+Industry2                       U  | 3.8532   3.9415     -7.5         |  -2.51  0.012 |  1.00
+                                M  | 3.8532   3.8489      0.4    95.2 |   0.10  0.923 |  1.01
+                                   |                                  |               |
+-------------------------------------------------------------------------------------------------
+* if variance ratio outside [0.90; 1.11] for U and [0.90; 1.11] for M
+
+-----------------------------------------------------------------------------------
+ Sample    | Ps R2   LR chi2   p>chi2   MeanBias   MedBias      B      R     %Var
+-----------+-----------------------------------------------------------------------
+ Unmatched | 0.053    359.25    0.000     18.6      18.1      58.3*   0.97     62
+ Matched   | 0.001      4.27    0.832      1.9       1.9       7.8    0.96     50
+-----------------------------------------------------------------------------------
+* if B>25%, R outside [0.5; 2]
+
+. 
+. preserve
+
+. tempname B
+
+. matrix `B' = J(8,3,.)
+
+. local i = 0
+
+. 
+. foreach v in Foundingyear VDyear TimeToFirst_VC ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     ln_Total_Funding_Amount_FirstVD priorpatent_VD_2 ///
+>     Region2 Industry2 {
+  2. 
+.     local ++i
+  3.     quietly summarize `v' if _treated==1
+  4.     local mt = r(mean)
+  5.     local vt = r(Var)
+  6.     quietly summarize `v' if _treated==0
+  7.     local sd = sqrt((`vt'+r(Var))/2)
+  8.     matrix `B'[`i',1] = 100*(`mt'-r(mean))/`sd'
+  9. 
+.     quietly summarize `v' [iw=_weight] if _treated==1 & _support==1
+ 10.     local mt = r(mean)
+ 11.     quietly summarize `v' [iw=_weight] if _treated==0 & _support==1
+ 12.     matrix `B'[`i',2] = 100*(`mt'-r(mean))/`sd'
+ 13.     matrix `B'[`i',3] = `i'
+ 14. }
+
+. 
+. clear
+
+. matrix colnames `B' = Before After Order
+
+. svmat double `B', names(col)
+number of observations will be reset to 8
+Press any key to continue, or Break to abort
+Number of observations (_N) was 0, now 8.
+
+. 
+. twoway ///
+>  (scatter Order Before, msymbol(O) mcolor(black)) ///
+>  (scatter Order After, msymbol(X) mcolor(black)), ///
+>  ylabel(1 "Founding Year" ///
+>         2 "VD Year" ///
+>         3 "Time To First VC" ///
+>         4 "Funding Rounds at VD" ///
+>         5 "Log(Total Funding at VD)" ///
+>         6 "Pre-Granted Patent Applications at VD" ///
+>         7 "Region" ///
+>         8 "Industry", angle(0) labsize(small)) ///
+>  yscale(reverse) ytitle("") ///
+>  xline(0, lpattern(dash) lcolor(gs10)) ///
+>  xtitle("Standardized % bias across covariates") ///
+>  legend(order(1 "Unmatched" 2 "Matched") rows(1) position(6)) ///
+>  graphregion(color(white)) name(LOVE_A2, replace)
+
+. 
+. restore
+
+. 
+end of do-file
+
+. exit, clear

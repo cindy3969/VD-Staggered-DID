@@ -1,0 +1,132 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/check_la
+> te_temp.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. log using "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/
+> late_validation.log", text replace
+(file
+    C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/late_va
+    > lidation.log not found)
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/
+> late_validation.log
+  log type:  text
+ opened on:  23 Oct 2026, 03:24:09
+
+. * Fixed PRE-treatment stage: latest observed equity stage through G-1.
+. * late=1: explicit Series C or above; late=0: Seed/Angel/Series A/B.
+. * Unknown/non-Series categories remain missing, NOT zero.
+. capture program drop construct_late
+
+. program define construct_late
+  1.     confirm variable full_firm_id year G stage_preyear_text
+  2.     capture drop late late_stage_Gminus1 late_at_G stage_at_G
+  3.     gen str244 stage_at_G = lower(strtrim(stage_preyear_text)) if G>0 & year
+> ==G
+  4.     gen byte late_at_G = .
+  5.     replace late_at_G = 1 if G>0 & year==G & regexm(stage_at_G,"^series [c-z
+> ][0-9]*$")
+  6.     replace late_at_G = 0 if G>0 & year==G & ///
+>         (regexm(stage_at_G,"^series [ab][0-9]*$") | inlist(stage_at_G,"seed","p
+> re-seed","angel"))
+  7.     bysort full_firm_id: egen byte late = max(late_at_G)
+  8.     label variable late "Series C+ through G-1 (1); Seed through B (0); unkn
+> own missing"
+  9.     label define late_stage_label 0 "Seed through Series B" 1 "Series C+", r
+> eplace
+ 10.     label values late late_stage_label
+ 11.     drop late_at_G stage_at_G
+ 12. end
+
+. 
+. use "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/firm_y
+> ear_all_applications_and_truncation_specs.dta", clear
+
+. construct_late
+(87,148 missing values generated)
+(88,547 missing values generated)
+(128 real changes made)
+(824 real changes made)
+(76,624 missing values generated)
+
+. isid full_firm_id year
+
+. egen byte firm_tag=tag(full_firm_id)
+
+. tab late if firm_tag==1 & G>0, missing
+
+Series C+ through G-1 |
+  (1); Seed through B |
+ (0); unknown missing |      Freq.     Percent        Cum.
+----------------------+-----------------------------------
+Seed through Series B |        824       58.90       58.90
+            Series C+ |        128        9.15       68.05
+                    . |        447       31.95      100.00
+----------------------+-----------------------------------
+                Total |      1,399      100.00
+
+. tab late if firm_tag==1 & G==0, missing
+
+Series C+ through G-1 |
+  (1); Seed through B |
+ (0); unknown missing |      Freq.     Percent        Cum.
+----------------------+-----------------------------------
+                    . |      5,874      100.00      100.00
+----------------------+-----------------------------------
+                Total |      5,874      100.00
+
+. bysort full_firm_id (year): assert late==late[1]
+
+. assert missing(late) if G==0
+
+. drop firm_tag
+
+. save "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/firm_
+> year_all_applications_and_truncation_specs.dta", replace
+file
+    C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/firm_ye
+    > ar_all_applications_and_truncation_specs.dta saved
+
+. display "LATE_CHECK_COMPLETE"
+LATE_CHECK_COMPLETE
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/
+> late_validation.log
+  log type:  text
+ closed on:  23 Oct 2026, 03:24:10
+---------------------------------------------------------------------------------
+
+. 
+. 
+end of do-file

@@ -1,0 +1,599 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_d
+> iagnostics/Appendix_PSM_diagnostics.log
+  log type:  text
+ opened on:  11 Oct 2026, 22:17:11
+
+. 
+. *******************************************************************************
+> *
+. * 0. LOAD THE CORRECTED FULL-SAMPLE PROPENSITY SCORES
+. *******************************************************************************
+> *
+. capture confirm file "$BASE/psm_full7316_with_scores.dta"
+
+. if _rc {
+.     display as error "Required input is missing: $BASE/psm_full7316_with_scores
+> .dta"
+.     display as error "Run REBUILT_PSM_1410_and_diagnostics.do first."
+.     exit 601
+. }
+
+. 
+. use "$BASE/psm_full7316_with_scores.dta", clear
+
+. assert _N==7316
+
+. count if vd_backed==1 & psm_matched==1
+  1,410
+
+. assert r(N)==1410
+
+. count if vd_backed==0 & psm_matched==1
+  1,410
+
+. assert r(N)==1410
+
+. 
+. * Calendar/reference-year diagnostic was not included in the historical score.
+. gen double reference_year = cond(vd_backed==1,first_vd_year,founding_year+5)
+
+. label var reference_year "Actual or pseudo reference year"
+
+. label var prior_patent "Prior patent indicator"
+
+. 
+. *******************************************************************************
+> *
+. * 1. TABLE A6: BALANCE BEFORE AND AFTER MATCHING
+. * Continuous SMD uses pooled pre-match SD as the common denominator.
+. * Variance ratios are reported for continuous variables only.
+. *******************************************************************************
+> *
+. tab industry2, gen(indcat_)
+
+  industry2 |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |      1,310       17.92       17.92
+          2 |        931       12.73       30.65
+          3 |      1,882       25.74       56.39
+          4 |      3,189       43.61      100.00
+------------+-----------------------------------
+      Total |      7,312      100.00
+
+. tab region2, gen(regcat_)
+
+    region2 |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |      2,744       37.53       37.53
+          2 |        576        7.88       45.40
+          3 |      1,035       14.15       59.56
+          4 |      2,957       40.44      100.00
+------------+-----------------------------------
+      Total |      7,312      100.00
+
+. 
+. tempname T
+
+. postfile `T' str60 covariate str18 variable_type str3 matched_on ///
+>  double treated_before control_before smd_before variance_ratio_before ///
+>  treated_after control_after smd_after variance_ratio_after ///
+>  using "$OUT/Table_A6_balance.dta", replace
+
+. 
+. local continuous founding_year reference_year time_first_vc funding_rounds_ref 
+> ln_funding_ref
+
+. foreach v of local continuous {
+  2.     local vlabel "`v'"
+  3.     if "`v'"=="founding_year"      local vlabel "Founding year"
+  4.     if "`v'"=="reference_year"     local vlabel "Actual or pseudo reference 
+> year"
+  5.     if "`v'"=="time_first_vc"      local vlabel "Years from founding to firs
+> t VC"
+  6.     if "`v'"=="funding_rounds_ref" local vlabel "Number of funding rounds at
+>  reference year"
+  7.     if "`v'"=="ln_funding_ref"     local vlabel "Log cumulative funding at r
+> eference year"
+  8.     quietly summarize `v' if vd_backed==1 & psm_esample
+  9.     local mt0=r(mean)
+ 10.     local vt0=r(Var)
+ 11.     quietly summarize `v' if vd_backed==0 & psm_esample
+ 12.     local mc0=r(mean)
+ 13.     local vc0=r(Var)
+ 14.     local pool=sqrt((`vt0'+`vc0')/2)
+ 15.     quietly summarize `v' if vd_backed==1 & psm_matched
+ 16.     local mt1=r(mean)
+ 17.     local vt1=r(Var)
+ 18.     quietly summarize `v' if vd_backed==0 & psm_matched
+ 19.     local mc1=r(mean)
+ 20.     local vc1=r(Var)
+ 21.     local used="Yes"
+ 22.     if "`v'"=="reference_year" local used="No"
+ 23.     post `T' ("`vlabel'") ("Continuous") ("`used'") ///
+>         (`mt0') (`mc0') ((`mt0'-`mc0')/`pool') (`vt0'/`vc0') ///
+>         (`mt1') (`mc1') ((`mt1'-`mc1')/`pool') (`vt1'/`vc1')
+ 24. }
+
+. 
+. * Prior patent is a substantively important diagnostic, but was not in the scor
+> e.
+. foreach v in prior_patent {
+  2.     quietly summarize `v' if vd_backed==1 & psm_esample
+  3.     local mt0=r(mean)
+  4.     quietly summarize `v' if vd_backed==0 & psm_esample
+  5.     local mc0=r(mean)
+  6.     local pool=sqrt((`mt0'*(1-`mt0')+`mc0'*(1-`mc0'))/2)
+  7.     quietly summarize `v' if vd_backed==1 & psm_matched
+  8.     local mt1=r(mean)
+  9.     quietly summarize `v' if vd_backed==0 & psm_matched
+ 10.     local mc1=r(mean)
+ 11.     post `T' ("`: variable label `v''") ("Binary") ("No") ///
+>         (`mt0') (`mc0') ((`mt0'-`mc0')/`pool') (.) ///
+>         (`mt1') (`mc1') ((`mt1'-`mc1')/`pool') (.)
+ 12. }
+
+. 
+. * Report categorical balance by level; do not compare arbitrary numeric codes.
+. foreach stub in indcat regcat {
+  2.     unab levels : `stub'_*
+  3.     foreach v of local levels {
+  4.         quietly summarize `v' if vd_backed==1 & psm_esample
+  5.         local mt0=r(mean)
+  6.         quietly summarize `v' if vd_backed==0 & psm_esample
+  7.         local mc0=r(mean)
+  8.         local pool=sqrt((`mt0'*(1-`mt0')+`mc0'*(1-`mc0'))/2)
+  9.         quietly summarize `v' if vd_backed==1 & psm_matched
+ 10.         local mt1=r(mean)
+ 11.         quietly summarize `v' if vd_backed==0 & psm_matched
+ 12.         local mc1=r(mean)
+ 13.         local levelnum = subinstr("`v'","`stub'_","",1)
+ 14.         if "`stub'"=="indcat" local lab "Industry category `levelnum'"
+ 15.         if "`stub'"=="regcat" local lab "Region category `levelnum'"
+ 16.         post `T' ("`lab'") ("Categorical level") ("Yes") ///
+>             (`mt0') (`mc0') (cond(`pool'>0,(`mt0'-`mc0')/`pool',0)) (.) ///
+>             (`mt1') (`mc1') (cond(`pool'>0,(`mt1'-`mc1')/`pool',0)) (.)
+ 17.     }
+ 18. }
+
+. postclose `T'
+
+. 
+. use "$OUT/Table_A6_balance.dta", clear
+
+. replace covariate="Founding year" if covariate==""
+(0 real changes made)
+
+. replace covariate="Actual or pseudo reference year" if covariate=="reference_ye
+> ar"
+(0 real changes made)
+
+. gen abs_smd_before=abs(smd_before)
+
+. gen abs_smd_after=abs(smd_after)
+
+. gen byte exceeds_010_after=abs_smd_after>.10 if !missing(abs_smd_after)
+
+. format treated_before control_before treated_after control_after %9.3f
+
+. format smd_before smd_after variance_ratio_before variance_ratio_after %9.3f
+
+. export delimited using "$OUT/Table_A6_balance.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnosti
+> cs/Table_A6_balance.csv saved
+
+. 
+. display as text _newline "TABLE A6. COVARIATE BALANCE BEFORE AND AFTER MATCHING
+> "
+
+TABLE A6. COVARIATE BALANCE BEFORE AND AFTER MATCHING
+
+. list covariate matched_on treated_before control_before smd_before ///
+>  variance_ratio_before treated_after control_after smd_after ///
+>  variance_ratio_after, noobs clean abbreviate(34)
+
+                                     covariate   matched_on   treated_before   co
+> ntrol_before   smd_before   variance_ratio_before   treated_after   control_aft
+> er   smd_after   variance_ratio_after  
+                                 Founding year          Yes         2012.422     
+>     2012.902       -0.281                   1.018        2012.422        2012.4
+> 06       0.010                  1.018  
+               Actual or pseudo reference year           No         2017.377     
+>     2017.902       -0.201                   3.741        2017.377        2017.4
+> 06      -0.011                  3.740  
+               Years from founding to first VC          Yes            1.594     
+>        1.892       -0.160                   1.142           1.594           1.5
+> 57       0.020                  1.440  
+    Number of funding rounds at reference year          Yes            4.152     
+>        3.444        0.348                   1.365           4.152           4.0
+> 28       0.061                  1.052  
+      Log cumulative funding at reference year          Yes           16.008     
+>       15.705        0.149                   1.268          16.008          15.9
+> 49       0.029                  1.311  
+                        Prior patent indicator           No            0.252     
+>        0.229        0.053                       .           0.252           0.2
+> 47       0.012                      .  
+                           Industry category 1          Yes            0.193     
+>        0.176        0.045                       .           0.193           0.1
+> 87       0.016                      .  
+                           Industry category 2          Yes            0.135     
+>        0.124        0.033                       .           0.135           0.1
+> 40      -0.015                      .  
+                           Industry category 3          Yes            0.267     
+>        0.249        0.042                       .           0.267           0.2
+> 79      -0.026                      .  
+                           Industry category 4          Yes            0.404     
+>        0.451       -0.095                       .           0.404           0.3
+> 94       0.020                      .  
+                             Region category 1          Yes            0.299     
+>        0.399       -0.212                       .           0.299           0.2
+> 82       0.036                      .  
+                             Region category 2          Yes            0.084     
+>        0.080        0.012                       .           0.084           0.0
+> 93      -0.034                      .  
+                             Region category 3          Yes            0.151     
+>        0.137        0.039                       .           0.151           0.1
+> 63      -0.034                      .  
+                             Region category 4          Yes            0.467     
+>        0.383        0.169                       .           0.467           0.4
+> 62       0.009                      .  
+
+. 
+. quietly summarize abs_smd_after, meanonly
+
+. display as result "Maximum absolute SMD after matching = " %6.3f r(max)
+Maximum absolute SMD after matching =  0.061
+
+. count if exceeds_010_after==1
+  0
+
+. display as result "Rows with |SMD| > .10 after matching = " r(N)
+Rows with |SMD| > .10 after matching = 0
+
+. 
+. *******************************************************************************
+> *
+. * 2. FIGURE A2: LOVE PLOT
+. *******************************************************************************
+> *
+. gsort -abs_smd_before
+
+. gen plot_order=_n
+
+. gen str60 plot_label=covariate
+
+. forvalues i=1/`=_N' {
+  2.     local lab=plot_label[`i']
+  3.     label define balorder `i' "`lab'", add
+  4. }
+
+. label values plot_order balorder
+
+. 
+. twoway ///
+>  (scatter plot_order abs_smd_before, msymbol(O) mcolor(maroon)) ///
+>  (scatter plot_order abs_smd_after, msymbol(D) mcolor(navy)), ///
+>  xline(.10, lpattern(dash) lcolor(gs7)) ///
+>  ylabel(1(1)`=_N', valuelabel angle(horizontal) labsize(vsmall)) ///
+>  xlabel(0(.1).5, format(%3.1f)) ///
+>  xtitle("Absolute standardized mean difference") ytitle("") ///
+>  title("Covariate balance before and after matching") ///
+>  legend(order(1 "Before matching" 2 "After matching") rows(1) position(6)) ///
+>  graphregion(color(white)) plotregion(color(white)) name(LOVE_APPENDIX, replace
+> )
+
+. graph export "$OUT/Figure_A2_Love_plot.png", replace width(3000)
+file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnost
+    > ics/Figure_A2_Love_plot.png saved as PNG format
+
+. graph save "$OUT/Figure_A2_Love_plot.gph", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnosti
+> cs/Figure_A2_Love_plot.gph saved
+
+. 
+. *******************************************************************************
+> *
+. * 3. FIGURE A1: PROPENSITY-SCORE OVERLAP
+. * Density overlap is descriptive and is not evidence of balance on unobservable
+> s.
+. *******************************************************************************
+> *
+. use "$BASE/psm_full7316_with_scores.dta", clear
+
+. twoway ///
+>  (kdensity _pscore if vd_backed==1 & psm_esample, lcolor(maroon) lwidth(medthic
+> k)) ///
+>  (kdensity _pscore if vd_backed==0 & psm_esample, lcolor(navy) lpattern(dash) l
+> width(medthick)), ///
+>  title("Panel A. Before matching") xtitle("Estimated propensity score") ytitle(
+> "Density") ///
+>  legend(order(1 "VD-backed" 2 "VC-only")) graphregion(color(white)) name(OVERLA
+> P_PRE, replace)
+
+. 
+. twoway ///
+>  (kdensity _pscore if vd_backed==1 & psm_matched, lcolor(maroon) lwidth(medthic
+> k)) ///
+>  (kdensity _pscore if vd_backed==0 & psm_matched, lcolor(navy) lpattern(dash) l
+> width(medthick)), ///
+>  title("Panel B. After 1:1 matching") xtitle("Estimated propensity score") ytit
+> le("Density") ///
+>  legend(order(1 "VD-backed" 2 "Matched VC-only")) graphregion(color(white)) nam
+> e(OVERLAP_POST, replace)
+
+. 
+. graph combine OVERLAP_PRE OVERLAP_POST, cols(2) ///
+>  title("Propensity-score distributions before and after matching") ///
+>  graphregion(color(white)) name(FIG_A1, replace)
+
+. graph export "$OUT/Figure_A1_propensity_score_overlap.png", replace width(3600)
+file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnost
+    > ics/Figure_A1_propensity_score_overlap.png saved as PNG format
+
+. graph save "$OUT/Figure_A1_propensity_score_overlap.gph", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnosti
+> cs/Figure_A1_propensity_score_overlap.gph saved
+
+. 
+. *******************************************************************************
+> *
+. * 4. COMMON-SUPPORT TABLE
+. *******************************************************************************
+> *
+. quietly summarize _pscore if vd_backed==1 & psm_esample, meanonly
+
+. scalar tmin=r(min)
+
+. scalar tmax=r(max)
+
+. quietly summarize _pscore if vd_backed==0 & psm_esample, meanonly
+
+. scalar cmin=r(min)
+
+. scalar cmax=r(max)
+
+. scalar lower=max(tmin,cmin)
+
+. scalar upper=min(tmax,cmax)
+
+. gen byte empirical_overlap=inrange(_pscore,lower,upper) if psm_esample
+(778 missing values generated)
+
+. 
+. tempname S
+
+. postfile `S' str56 statistic double value using "$OUT/Table_A6_common_support.d
+> ta", replace
+
+. post `S' ("Treated propensity-score minimum") (tmin)
+
+. post `S' ("Treated propensity-score maximum") (tmax)
+
+. post `S' ("Control propensity-score minimum") (cmin)
+
+. post `S' ("Control propensity-score maximum") (cmax)
+
+. post `S' ("Empirical common-support lower bound") (lower)
+
+. post `S' ("Empirical common-support upper bound") (upper)
+
+. foreach g in 0 1 {
+  2.     quietly count if vd_backed==`g' & psm_esample
+  3.     post `S' ("Group `g': propensity-score estimation N") (r(N))
+  4.     quietly count if vd_backed==`g' & psm_esample & empirical_overlap==1
+  5.     post `S' ("Group `g': within empirical overlap N") (r(N))
+  6.     quietly count if vd_backed==`g' & psm_esample & empirical_overlap==0
+  7.     post `S' ("Group `g': outside empirical overlap N") (r(N))
+  8.     quietly count if vd_backed==`g' & psm_matched
+  9.     post `S' ("Group `g': final matched N") (r(N))
+ 10. }
+
+. postclose `S'
+
+. 
+. use "$OUT/Table_A6_common_support.dta", clear
+
+. export delimited using "$OUT/Table_A6_common_support.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnosti
+> cs/Table_A6_common_support.csv saved
+
+. display as text _newline "COMMON-SUPPORT INFORMATION"
+
+COMMON-SUPPORT INFORMATION
+
+. list, noobs clean
+
+                                 statistic       value  
+          Treated propensity-score minimum   .06791336  
+          Treated propensity-score maximum   .69121849  
+          Control propensity-score minimum   .04561795  
+          Control propensity-score maximum   .74416302  
+      Empirical common-support lower bound   .06791336  
+      Empirical common-support upper bound   .69121849  
+    Group 0: propensity-score estimation N        5128  
+       Group 0: within empirical overlap N        5081  
+      Group 0: outside empirical overlap N          47  
+                  Group 0: final matched N        1410  
+    Group 1: propensity-score estimation N        1410  
+       Group 1: within empirical overlap N        1410  
+      Group 1: outside empirical overlap N           0  
+                  Group 1: final matched N        1410  
+
+. 
+. *******************************************************************************
+> *
+. * 5. LEGACY TABLE A6 LAYOUT (MEANS, DIFFERENCES, AND T-TEST P-VALUES)
+. * This reproduces the layout in the existing Appendix.  The strengthened
+. * Table A6 above should remain the principal balance evidence.
+. *******************************************************************************
+> *
+. use "$BASE/psm_full7316_with_scores.dta", clear
+
+. gen double reference_year = cond(vd_backed==1,first_vd_year,founding_year+5)
+
+. 
+. tempname A6
+
+. postfile `A6' str52 covariate ///
+>  double treated_before control_before difference_before p_before ///
+>  treated_after control_after difference_after p_after ///
+>  using "$OUT/Table_A6_legacy_replication.dta", replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnost
+    > ics/Table_A6_legacy_replication.dta not found)
+
+. 
+. local legacyvars founding_year reference_year time_first_vc funding_rounds_ref 
+> ///
+>     ln_funding_ref prior_patent region2 industry2
+
+. foreach v of local legacyvars {
+  2.     local vlabel "`v'"
+  3.     if "`v'"=="founding_year"      local vlabel "Founding Year"
+  4.     if "`v'"=="reference_year"     local vlabel "VD/Pseudo-VD Year"
+  5.     if "`v'"=="time_first_vc"      local vlabel "Time To First VC"
+  6.     if "`v'"=="funding_rounds_ref" local vlabel "Num Of Funding Rounds VD"
+  7.     if "`v'"=="ln_funding_ref"     local vlabel "Log(Total Funding Amt VD)"
+  8.     if "`v'"=="prior_patent"       local vlabel "Pre-VD Patent Indicator"
+  9.     if "`v'"=="region2"            local vlabel "Startup Hub (legacy coded m
+> ean)"
+ 10.     if "`v'"=="industry2"          local vlabel "Tech Intensive Industry (le
+> gacy coded mean)"
+ 11. 
+.     quietly summarize `v' if vd_backed==1 & psm_esample, meanonly
+ 12.     local tb=r(mean)
+ 13.     quietly summarize `v' if vd_backed==0 & psm_esample, meanonly
+ 14.     local cb=r(mean)
+ 15.     quietly ttest `v' if psm_esample, by(vd_backed)
+ 16.     local pb=r(p)
+ 17. 
+.     quietly summarize `v' if vd_backed==1 & psm_matched, meanonly
+ 18.     local ta=r(mean)
+ 19.     quietly summarize `v' if vd_backed==0 & psm_matched, meanonly
+ 20.     local ca=r(mean)
+ 21.     quietly ttest `v' if psm_matched, by(vd_backed)
+ 22.     local pa=r(p)
+ 23. 
+.     post `A6' ("`vlabel'") (`tb') (`cb') (`tb'-`cb') (`pb') ///
+>         (`ta') (`ca') (`ta'-`ca') (`pa')
+ 24. }
+
+. postclose `A6'
+
+. use "$OUT/Table_A6_legacy_replication.dta", clear
+
+. format treated* control* difference* %9.3f
+
+. format p_* %9.3f
+
+. export delimited using "$OUT/Table_A6_legacy_replication.csv", replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnost
+    > ics/Table_A6_legacy_replication.csv not found)
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnosti
+> cs/Table_A6_legacy_replication.csv saved
+
+. display as text _newline "TABLE A6: LEGACY LAYOUT REPLICATION"
+
+TABLE A6: LEGACY LAYOUT REPLICATION
+
+. list, noobs clean abbreviate(34)
+
+                                      covariate   treated_before   control_before
+>    difference_before   p_before   treated_after   control_after   difference_af
+> ter   p_after  
+                                  Founding Year         2012.422         2012.902
+>               -0.480      0.000        2012.422        2012.406              0.
+> 016     0.800  
+                              VD/Pseudo-VD Year         2017.377         2017.902
+>               -0.526      0.000        2017.377        2017.406             -0.
+> 029     0.768  
+                               Time To First VC            1.594            1.892
+>               -0.298      0.000           1.594           1.557              0.
+> 038     0.572  
+                       Num Of Funding Rounds VD            4.152            3.444
+>                0.708      0.000           4.152           4.028              0.
+> 123     0.130  
+                      Log(Total Funding Amt VD)           16.008           15.705
+>                0.303      0.000          16.008          15.949              0.
+> 060     0.435  
+                        Pre-VD Patent Indicator            0.252            0.229
+>                0.022      0.078           0.252           0.247              0.
+> 005     0.761  
+                Startup Hub (legacy coded mean)            2.786            2.505
+>                0.281      0.000           2.786           2.806             -0.
+> 021     0.673  
+    Tech Intensive Industry (legacy coded mean)            2.883            2.976
+>               -0.093      0.006           2.883           2.881              0.
+> 002     0.960  
+
+. 
+. *******************************************************************************
+> *
+. * 6. TABLE A7: FUNDING TIMELINES IN THE FULL 7,316-FIRM COHORT
+. *******************************************************************************
+> *
+. use "$BASE/psm_full7316_with_scores.dta", clear
+
+. gen double time_first_vd = first_vd_year-founding_year if vd_backed==1
+(5,876 missing values generated)
+
+. gen double time_between_vc_vd = first_vd_year-first_vc_year if vd_backed==1
+(5,876 missing values generated)
+
+. 
+. tempname A7
+
+. postfile `A7' byte vd_backing long firms ///
+>  double time_to_first_vd time_to_first_vc time_between_vc_vd ///
+>  using "$OUT/Table_A7_funding_timeline.dta", replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnost
+    > ics/Table_A7_funding_timeline.dta not found)
+
+. foreach g in 1 0 {
+  2.     quietly count if vd_backed==`g'
+  3.     local n=r(N)
+  4.     quietly summarize time_first_vd if vd_backed==`g', meanonly
+  5.     local mvd=r(mean)
+  6.     quietly summarize time_first_vc if vd_backed==`g', meanonly
+  7.     local mvc=r(mean)
+  8.     quietly summarize time_between_vc_vd if vd_backed==`g', meanonly
+  9.     local mgap=r(mean)
+ 10.     post `A7' (`g') (`n') (`mvd') (`mvc') (`mgap')
+ 11. }
+
+. postclose `A7'
+
+. use "$OUT/Table_A7_funding_timeline.dta", clear
+
+. format time_* %9.3f
+
+. export delimited using "$OUT/Table_A7_funding_timeline.csv", replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnost
+    > ics/Table_A7_funding_timeline.csv not found)
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_diagnosti
+> cs/Table_A7_funding_timeline.csv saved
+
+. display as text _newline "TABLE A7: FULL-COHORT FUNDING TIMELINE"
+
+TABLE A7: FULL-COHORT FUNDING TIMELINE
+
+. list, noobs clean
+
+    vd_bac~g   firms   time_t~d   time_t~c   time_b~d  
+           1    1440      4.991      1.662      3.329  
+           0    5876          .      2.104          .  
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/appendix_d
+> iagnostics/Appendix_PSM_diagnostics.log
+  log type:  text
+ closed on:  11 Oct 2026, 22:17:23
+---------------------------------------------------------------------------------

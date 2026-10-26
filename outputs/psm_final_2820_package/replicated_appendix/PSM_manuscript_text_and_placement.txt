@@ -1,0 +1,12 @@
+PSM SECTION TEXT
+
+Table A6 reports treated and control means, standardized mean differences before and after matching, and variance ratios for continuous covariates. The Love plot provides a visual summary using an absolute-SMD benchmark of 0.10. These diagnostics assess balance on observed covariates and do not establish balance on unobserved determinants of venture-debt receipt.
+
+Figure A1 displays the estimated propensity-score distributions before and after matching. Panel B shows improved overlap, although the distributions are not identical and perfect density overlap is not required. The figure documents overlap in estimated scores; it does not establish conditional independence, eliminate endogeneity, or prove that matching fully resolves comparability.
+
+PLACEMENT CHECKLIST
+1. Cite and discuss Table A6 in the PSM subsection.
+2. Cite Figure A1 immediately after the common-support discussion.
+3. Cite the Love plot when discussing standardized balance.
+4. State explicitly that all diagnostics concern observed covariates only.
+5. Check that every retained main-text and Appendix table or figure is referenced and serves a stated empirical purpose.

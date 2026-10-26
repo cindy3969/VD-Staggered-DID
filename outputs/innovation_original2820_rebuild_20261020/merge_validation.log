@@ -1,0 +1,75 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/innovation_original2820_rebuild_2
+> 0261020/merge_validation.log
+  log type:  text
+ opened on:  20 Oct 2026, 10:31:42
+
+. use "C:/Users/user/Documents/VD/outputs/innovation_original2820_rebuild_2026102
+> 0/innovation_update.dta", clear
+
+. isid firm_id
+
+. assert _N==2820
+
+. ds firm_id, not
+innov_wind~e  base_cpc_cov  technologi~3  ari_win3      selfcite_w~s
+innov_link~d  post_cpc_cov  self_~l_win3  ari_win3_s~s  partn~h_win3
+innovati~red  gunning_fo~3  partn~w_win3  neg_f~h_win3  partner_se~s
+innovation~3  ari_mean_w~3  search_in_~3  neg_flesch~s  partner_di~3
+readabilit~d  neg_f~n_win3  grant_rate~3  figures_win3  partner_di~s
+readabilit~g  descr~n_win3  newpat_win3   figures_wi~s  generality~3
+innovati~ted  ln_descrip~3  oldpat_win3   sheets_win3   generality~s
+app~led_win3  figures_me~3  newcpc_win3   sheets_win~s  cite_diver~3
+app~ted_win3  sheets_mea~3  newshare_w~3  claims_win3   cite_diver~s
+py_granted~3  claims_mea~3  own_dist_w~3  claims_win~s  novelty_st~s
+descr~d_win3  indep_clai~3  selfshare_~3  ind_claims~3  selftotal_~s
+py_origina~3  dep_c~n_win3  nocite_win3   ind_claims~s  ln_newpat_~3
+py_general~3  no_citatio~3  nocite_win~s  dep_c~s_win3  ln_oldpat_~3
+py_distanc~3  break~e_win3  break~h_win3  dep_claims~s  ln_selfcit~3
+partners_t~e  patent_ori~3  breakthrou~s  origi~y_win3  ln_desc_wo~3
+partners_u~e  bc_technol~3  desc_words~3  originalit~s  ln_figures~3
+win3_obser~d  self_~s_win3  desc_words~s  cite_bread~3  ln_sheets_~3
+base_patents  patent_gen~3  fog_win3      cite_bread~s  ln_claims_~3
+base_cpc      origi~s_win3  fog_win3_s~s  selfcite_w~3
+
+. local update_variables `r(varlist)'
+
+. use "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original_
+> 2820_cross_section_v2.dta", clear
+
+. foreach variable of local update_variables {
+  2.     capture drop `variable'
+  3. }
+
+. merge 1:1 firm_id using "C:/Users/user/Documents/VD/outputs/innovation_original
+> 2820_rebuild_20261020/innovation_update.dta", assert(3) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                             2,820  
+    -----------------------------------------
+
+. isid firm_id
+
+. assert _N==2820
+
+. sort firm_id
+
+. save "C:/Users/user/Documents/VD/outputs/innovation_original2820_rebuild_202610
+> 20/validated_candidate.dta", replace
+(file
+    C:/Users/user/Documents/VD/outputs/innovation_original2820_rebuild_20261020
+    > /validated_candidate.dta not found)
+file
+    C:/Users/user/Documents/VD/outputs/innovation_original2820_rebuild_20261020
+    > /validated_candidate.dta saved
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/innovation_original2820_rebuild_2
+> 0261020/merge_validation.log
+  log type:  text
+ closed on:  20 Oct 2026, 10:31:43
+---------------------------------------------------------------------------------

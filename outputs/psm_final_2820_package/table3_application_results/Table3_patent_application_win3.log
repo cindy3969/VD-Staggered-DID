@@ -1,0 +1,269 @@
+-------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_application_r
+> esults/Table3_patent_application_win3.log
+  log type:  text
+ opened on:  20 Oct 2026, 10:17:57
+
+. use "$ROOT/table3_current_2820_cross_section_v2.dta", clear
+
+. 
+. * DV = ln(1 + number of patent applications filed in VD+1 through VD+3).
+. rename patentdummybyfiling Priorpatent_VD
+
+. rename earlystage Earlystage_VD
+
+. gen ln_patentbyfiling_win3_2 = log(patentbyfiling_win3_2+1)
+
+. gen ln_priorpatent_VD_2 = log(priorpatent_VD_2+1)
+
+. 
+. gen nopriorpatentdummy_VD = 1 - priorpatentdummy_VD
+
+. gen ln_grantedbyfiling_win3 = log(grantedpatentbyfiling_win3+1)
+
+. gen ln_grantedbyfiling_norm_win3 = log(grantedpatentbyfiling_norm_win3+1)
+
+. 
+. gen ln_norm_cite_perpat_win3_v1 = log(norm_cite_perpat_win3_v1+1)
+(2,171 missing values generated)
+
+. gen ln_norm_cite_perpat_win3_v2 = log(norm_cite_perpat_win3_v2+1)
+(2,171 missing values generated)
+
+. gen ln_norm_cite_perpat_win3_v3 = log(norm_cite_perpat_win3_v3+1)
+(2,171 missing values generated)
+
+. gen ln_norm_cite_perpat_win3_v4 = log(norm_cite_perpat_win3_v4+1)
+(2,171 missing values generated)
+
+. gen ln_norm_cite_perpat_win3_vv1 = log(norm_cite_perpat_win3_vv1+1)
+
+. gen ln_norm_cite_perpat_win3_vv2 = log(norm_cite_perpat_win3_vv2+1)
+
+. gen ln_norm_cite_perpat_win3_vv3 = log(norm_cite_perpat_win3_vv3+1)
+
+. gen ln_norm_cite_perpat_win3_vv4 = log(norm_cite_perpat_win3_vv4+1)
+
+. 
+. gen ln_moneyraised_win3 = log(moneyraised_win3+1)
+(1,544 missing values generated)
+
+. gen ln_moneyraised_t1 = log(moneyraised_t1+1)
+(1,845 missing values generated)
+
+. gen ln_moneyraised_t2 = log(moneyraised_t2+1)
+(2,060 missing values generated)
+
+. gen ln_moneyraised_t3 = log(moneyraised_t3+1)
+(2,311 missing values generated)
+
+. 
+. tab Industry2, gen(ind_)
+
+                      Industry2 |      Freq.     Percent        Cum.
+--------------------------------+-----------------------------------
+                 Bio/Healthcare |        538       19.08       19.08
+Hardware/Manufacturing/DeepTech |        396       14.04       33.12
+                          Other |        751       26.63       59.75
+           Software/IT services |      1,135       40.25      100.00
+--------------------------------+-----------------------------------
+                          Total |      2,820      100.00
+
+. tab Region2,   gen(reg_)
+
+      Region2 |      Freq.     Percent        Cum.
+--------------+-----------------------------------
+   California |        864       30.64       30.64
+Massachusetts |        219        7.77       38.40
+     New York |        416       14.75       53.16
+        Other |      1,321       46.84      100.00
+--------------+-----------------------------------
+        Total |      2,820      100.00
+
+. 
+. rename Follow_on_Equity_Raised_win3 equityraised_win3
+
+. gen ln_equityraised_win3 = log(equityraised_win3+1)
+(1,583 missing values generated)
+
+. 
+. * Industry: ind_1=Bio, ind_2=Hardware, ind_3=Other, ind_4=Software
+. label var ind_1 "Bio/Healthcare"
+
+. label var ind_2 "Hardware/Manufacturing/Deep Tech"
+
+. label var ind_4 "Software/IT services"
+
+. 
+. * Region: reg_1=California, reg_2=Massachusetts, reg_3=New York, reg_4=Other
+. label var reg_1 "California"
+
+. label var reg_2 "Massachusetts"
+
+. label var reg_3 "New York"
+
+. 
+. forvalues t = 1/3 {
+  2.     gen ln_equityraised_t`t' = ln(1 + equityraised_t`t')
+  3. }
+(1,960 missing values generated)
+(2,138 missing values generated)
+(2,377 missing values generated)
+
+. 
+. rename m_a ma
+
+. 
+. gen ln_revenue_t1 = log(revenue_t1+1)
+(2,590 missing values generated)
+
+. gen ln_revenue_t2 = log(revenue_t2+1)
+(2,578 missing values generated)
+
+. gen ln_revenue_t3 = log(revenue_t3+1)
+(2,604 missing values generated)
+
+. 
+. rename grantedpatentbyfiling_norm_win3  grantedbyfiling_norm_win3 
+
+. 
+. gen double ln_vdsupply = ln(1 + vdsupply)
+
+. gen double ln_numberofvddeals = ln(1 + numberofvddeals)
+
+. 
+. gen ln_newpat_win3 = log(newpat_win3+1)
+(2,320 missing values generated)
+
+. gen ln_oldpat_win3 = log(oldpat_win3+1)
+(2,320 missing values generated)
+
+. 
+end of do-file
+
+. do "C:\Users\user\AppData\Local\Temp\STD3708_00001k.tmp"
+
+. reghdfe ln_revenue_t1 VD i.nopriorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 6 iterations)
+
+HDFE Linear regression                            Number of obs   =        230
+Absorbing 3 HDFE groups                           F(   5,    213) =       8.15
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.3231
+                                                  Adj R-squared   =     0.2723
+                                                  Within R-sq.    =     0.0930
+                                                  Root MSE        =     4.2295
+
+-----------------------------------------------------------------------------------------
+                        |               Robust
+          ln_revenue_t1 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------+----------------------------------------------------------------
+                     VD |   .7819586   .6287924     1.24   0.215    -.4574943    2.021412
+1.nopriorpatentdummy_VD |   .7163602   .6872545     1.04   0.298    -.6383311    2.071052
+        1.Earlystage_VD |   .8700909   .5563812     1.56   0.119    -.2266276    1.966809
+      ln_MoneyRaised_VD |   .6292926   .1774526     3.55   0.000     .2795043    .9790808
+  NumofFundingRounds_VD |   .1289708   .1136394     1.13   0.258    -.0950311    .3529728
+                  _cons |    2.49204   2.799161     0.89   0.374    -3.025566    8.009645
+-----------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. outreg2 using results.xls, replace dec(3) pvalue excel
+results.xls
+dir : seeout
+
+. 
+. reghdfe ln_revenue_t2 VD i.nopriorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 6 iterations)
+
+HDFE Linear regression                            Number of obs   =        242
+Absorbing 3 HDFE groups                           F(   5,    225) =      17.72
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4137
+                                                  Adj R-squared   =     0.3720
+                                                  Within R-sq.    =     0.2188
+                                                  Root MSE        =     3.2170
+
+-----------------------------------------------------------------------------------------
+                        |               Robust
+          ln_revenue_t2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------+----------------------------------------------------------------
+                     VD |  -.0453893   .4675571    -0.10   0.923    -.9667403    .8759616
+1.nopriorpatentdummy_VD |   .8701409   .4389375     1.98   0.049     .0051868    1.735095
+        1.Earlystage_VD |   .6000896   .3925205     1.53   0.128    -.1733969    1.373576
+      ln_MoneyRaised_VD |   .7970876   .1075418     7.41   0.000     .5851697    1.009006
+  NumofFundingRounds_VD |   .0548553   .1007955     0.54   0.587    -.1437687    .2534793
+                  _cons |   1.304883    1.73066     0.75   0.452    -2.105493     4.71526
+-----------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. outreg2 using results.xls, replace dec(3) pvalue excel
+results.xls
+dir : seeout
+
+. 
+. reghdfe ln_revenue_t2 VD i.nopriorpatentdummy_VD i.Earlystage_VD ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 6 iterations)
+
+HDFE Linear regression                            Number of obs   =        242
+Absorbing 3 HDFE groups                           F(   5,    225) =      17.72
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4137
+                                                  Adj R-squared   =     0.3720
+                                                  Within R-sq.    =     0.2188
+                                                  Root MSE        =     3.2170
+
+-----------------------------------------------------------------------------------------
+                        |               Robust
+          ln_revenue_t2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+------------------------+----------------------------------------------------------------
+                     VD |  -.0453893   .4675571    -0.10   0.923    -.9667403    .8759616
+1.nopriorpatentdummy_VD |   .8701409   .4389375     1.98   0.049     .0051868    1.735095
+        1.Earlystage_VD |   .6000896   .3925205     1.53   0.128    -.1733969    1.373576
+      ln_MoneyRaised_VD |   .7970876   .1075418     7.41   0.000     .5851697    1.009006
+  NumofFundingRounds_VD |   .0548553   .1007955     0.54   0.587    -.1437687    .2534793
+                  _cons |   1.304883    1.73066     0.75   0.452    -2.105493     4.71526
+-----------------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. outreg2 using results.xls, replace dec(3) pvalue excel
+results.xls
+dir : seeout
+
+. 
+end of do-file
+
+. exit, clear

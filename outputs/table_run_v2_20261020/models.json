@@ -1,0 +1,584 @@
+[
+  {
+    "model": 1,
+    "line": 128,
+    "section": "Table 3: Patent quantity",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 2,
+    "line": 133,
+    "section": "Table 3: Patent quantity",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 3,
+    "line": 138,
+    "section": "Table 3: Patent quantity",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 4,
+    "line": 143,
+    "section": "Table 3: Patent quantity",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 5,
+    "line": 177,
+    "section": "Panel B: stage-specific VD effects, using the current Table 3 outcome and FE.",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 i.VD##ib1.fundstage ///\n    i.priorpatentdummy_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 6,
+    "line": 183,
+    "section": "Panel B: stage-specific VD effects, using the current Table 3 outcome and FE.",
+    "command": "margins fundstage, dydx(1.VD) predict(xb) post"
+  },
+  {
+    "model": 7,
+    "line": 186,
+    "section": "Panel B: stage-specific VD effects, using the current Table 3 outcome and FE.",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 i.VD##ib1.fundstage ///\n    i.VD##i.priorpatentdummy_VD  ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 8,
+    "line": 191,
+    "section": "Panel B: stage-specific VD effects, using the current Table 3 outcome and FE.",
+    "command": "margins fundstage, dydx(1.VD) predict(xb) post"
+  },
+  {
+    "model": 9,
+    "line": 194,
+    "section": "Panel B: stage-specific VD effects, using the current Table 3 outcome and FE.",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 i.VD##ib1.fundstage ///\n   i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 10,
+    "line": 199,
+    "section": "Panel B: stage-specific VD effects, using the current Table 3 outcome and FE.",
+    "command": "margins fundstage, dydx(1.VD) predict(xb) post"
+  },
+  {
+    "model": 11,
+    "line": 203,
+    "section": "Panel B: stage-specific VD effects, using the current Table 3 outcome and FE.",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 i.VD##ib1.fundstage ///\n    i.VD##i.priorpatentdummy_VD  i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 12,
+    "line": 208,
+    "section": "Panel B: stage-specific VD effects, using the current Table 3 outcome and FE.",
+    "command": "margins fundstage, dydx(1.VD) predict(xb) post"
+  },
+  {
+    "model": 13,
+    "line": 213,
+    "section": "Table 4: Patent quality",
+    "command": "reghdfe ln_norm_cite_perpat_win3_v4 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 14,
+    "line": 218,
+    "section": "Table 4: Patent quality",
+    "command": "reghdfe ln_norm_cite_perpat_win3_v4 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 15,
+    "line": 223,
+    "section": "Table 4: Patent quality",
+    "command": "reghdfe ln_norm_cite_perpat_win3_v4 i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 16,
+    "line": 228,
+    "section": "Table 4: Patent quality",
+    "command": "reghdfe ln_norm_cite_perpat_win3_v4 i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 17,
+    "line": 234,
+    "section": "Table 5: follow on equity raised",
+    "command": "reghdfe ln_moneyraised_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 18,
+    "line": 239,
+    "section": "Table 5: follow on equity raised",
+    "command": "reghdfe ln_moneyraised_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 19,
+    "line": 244,
+    "section": "Table 5: follow on equity raised",
+    "command": "reghdfe ln_moneyraised_win3 i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 20,
+    "line": 249,
+    "section": "Table 5: follow on equity raised",
+    "command": "reghdfe ln_moneyraised_win3 i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 21,
+    "line": 256,
+    "section": "Table 6: annual follow on equity raised",
+    "command": "reghdfe ln_moneyraised_t1 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 22,
+    "line": 261,
+    "section": "Table 6: annual follow on equity raised",
+    "command": "reghdfe ln_moneyraised_t2 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 23,
+    "line": 266,
+    "section": "Table 6: annual follow on equity raised",
+    "command": "reghdfe ln_equityraised_t3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 24,
+    "line": 341,
+    "section": "Table 7:cox proportional hazard",
+    "command": "stcox VD Region2 Industry2 Foundingyear, nohr ///\n    cformat(%9.3f) pformat(%5.3f)"
+  },
+  {
+    "model": 25,
+    "line": 346,
+    "section": "Table 7:cox proportional hazard",
+    "command": "stcox VD priorpatentdummy_VD Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear, nohr ///\n    cformat(%9.3f) pformat(%5.3f)"
+  },
+  {
+    "model": 26,
+    "line": 354,
+    "section": "Table 7:cox proportional hazard",
+    "command": "stcox VD Region2 Industry2 Foundingyear, nohr ///\n    cformat(%9.3f) pformat(%5.3f)"
+  },
+  {
+    "model": 27,
+    "line": 360,
+    "section": "Table 7:cox proportional hazard",
+    "command": "stcox VD priorpatentdummy_VD Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear, nohr ///\n    cformat(%9.3f) pformat(%5.3f)"
+  },
+  {
+    "model": 28,
+    "line": 369,
+    "section": "Table 7:cox proportional hazard",
+    "command": "stcox VD Region2 Industry2 Foundingyear, nohr ///\n    cformat(%9.3f) pformat(%5.3f)"
+  },
+  {
+    "model": 29,
+    "line": 374,
+    "section": "Table 7:cox proportional hazard",
+    "command": "stcox VD priorpatentdummy_VD Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear, nohr ///\n    cformat(%9.3f) pformat(%5.3f)"
+  },
+  {
+    "model": 30,
+    "line": 387,
+    "section": "Table 7.v2",
+    "command": "stcox VD priorpatentdummy_VD Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear, nohr"
+  },
+  {
+    "model": 31,
+    "line": 406,
+    "section": "Table 7.v2",
+    "command": "stcox VD if ma_sample, nohr"
+  },
+  {
+    "model": 32,
+    "line": 408,
+    "section": "Table 7.v2",
+    "command": "stcox VD i.Region2 i.Industry2 i.Foundingyear ///\n    if ma_sample, nohr"
+  },
+  {
+    "model": 33,
+    "line": 411,
+    "section": "Table 7.v2",
+    "command": "stcox VD priorpatentdummy_VD Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if ma_sample, nohr"
+  },
+  {
+    "model": 34,
+    "line": 431,
+    "section": "Table 7.v2",
+    "command": "stcox VD if ipo_sample, nohr"
+  },
+  {
+    "model": 35,
+    "line": 433,
+    "section": "Table 7.v2",
+    "command": "stcox VD i.Region2 i.Industry2 i.Foundingyear ///\n    if ipo_sample, nohr"
+  },
+  {
+    "model": 36,
+    "line": 436,
+    "section": "Table 7.v2",
+    "command": "stcox VD priorpatentdummy_VD Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if ipo_sample, nohr"
+  },
+  {
+    "model": 37,
+    "line": 447,
+    "section": "Table 7.v2",
+    "command": "stcox VD priorpatentdummy_VD Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear, nohr"
+  },
+  {
+    "model": 38,
+    "line": 465,
+    "section": "Table 7.v2",
+    "command": "stcox VD if defunct_sample, nohr"
+  },
+  {
+    "model": 39,
+    "line": 467,
+    "section": "Table 7.v2",
+    "command": "stcox VD i.Region2 i.Industry2 i.Foundingyear ///\n    if defunct_sample, nohr"
+  },
+  {
+    "model": 40,
+    "line": 470,
+    "section": "Table 7.v2",
+    "command": "stcox VD priorpatentdummy_VD Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if defunct_sample, nohr"
+  },
+  {
+    "model": 41,
+    "line": 512,
+    "section": "Table A1: IV 2SLS",
+    "command": "ivreghdfe ln_grantedbyfiling_norm_win3 ///\n    priorpatentdummy_VD Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    (VD = ln_vdsupply), ///\n    absorb(Region2 Industry2 Foundingyear) robust first"
+  },
+  {
+    "model": 42,
+    "line": 525,
+    "section": "Table A1: IV 2SLS",
+    "command": "reghdfe VD ln_vdsupply ///\n    priorpatentdummy_VD Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    if iv_sample == 1, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 43,
+    "line": 537,
+    "section": "Table A2: patenting firms only",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    if grantedbyfiling_norm_win3 > 0 & !missing(grantedbyfiling_norm_win3), ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 44,
+    "line": 543,
+    "section": "Table A2: patenting firms only",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    if grantedbyfiling_norm_win3 > 0 & !missing(grantedbyfiling_norm_win3), ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 45,
+    "line": 549,
+    "section": "Table A2: patenting firms only",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    if grantedbyfiling_norm_win3 > 0 & !missing(grantedbyfiling_norm_win3), ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 46,
+    "line": 555,
+    "section": "Table A2: patenting firms only",
+    "command": "reghdfe ln_grantedbyfiling_norm_win3 i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    if grantedbyfiling_norm_win3 > 0 & !missing(grantedbyfiling_norm_win3), ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 47,
+    "line": 617,
+    "section": "Table A3: Table 7 M&A with moderating effect",
+    "command": "stcox i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear, nohr"
+  },
+  {
+    "model": 48,
+    "line": 627,
+    "section": "Table A3: Table 7 M&A with moderating effect",
+    "command": "stcox i.VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if ma_sample == 1, nohr"
+  },
+  {
+    "model": 49,
+    "line": 641,
+    "section": "Table A3: Table 7 M&A with moderating effect",
+    "command": "stcox i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if ma_sample == 1, nohr"
+  },
+  {
+    "model": 50,
+    "line": 656,
+    "section": "Table A3: Table 7 M&A with moderating effect",
+    "command": "stcox i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if ma_sample == 1, nohr"
+  },
+  {
+    "model": 51,
+    "line": 671,
+    "section": "Table A3: Table 7 M&A with moderating effect",
+    "command": "stcox i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if ma_sample == 1, nohr"
+  },
+  {
+    "model": 52,
+    "line": 692,
+    "section": "Table A4: Table 7 IPO with moderating effect",
+    "command": "stcox i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear, nohr"
+  },
+  {
+    "model": 53,
+    "line": 702,
+    "section": "Table A4: Table 7 IPO with moderating effect",
+    "command": "stcox i.VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if ipo_sample == 1, nohr"
+  },
+  {
+    "model": 54,
+    "line": 716,
+    "section": "Table A4: Table 7 IPO with moderating effect",
+    "command": "stcox i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if ipo_sample == 1, nohr"
+  },
+  {
+    "model": 55,
+    "line": 731,
+    "section": "Table A4: Table 7 IPO with moderating effect",
+    "command": "stcox i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if ipo_sample == 1, nohr"
+  },
+  {
+    "model": 56,
+    "line": 746,
+    "section": "Table A4: Table 7 IPO with moderating effect",
+    "command": "stcox i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if ipo_sample == 1, nohr"
+  },
+  {
+    "model": 57,
+    "line": 767,
+    "section": "Table A5: Table 7 Defunct with moderating effect",
+    "command": "stcox i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear, nohr"
+  },
+  {
+    "model": 58,
+    "line": 777,
+    "section": "Table A5: Table 7 Defunct with moderating effect",
+    "command": "stcox i.VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if defunct_sample == 1, nohr"
+  },
+  {
+    "model": 59,
+    "line": 791,
+    "section": "Table A5: Table 7 Defunct with moderating effect",
+    "command": "stcox i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if defunct_sample == 1, nohr"
+  },
+  {
+    "model": 60,
+    "line": 806,
+    "section": "Table A5: Table 7 Defunct with moderating effect",
+    "command": "stcox i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if defunct_sample == 1, nohr"
+  },
+  {
+    "model": 61,
+    "line": 821,
+    "section": "Table A5: Table 7 Defunct with moderating effect",
+    "command": "stcox i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear ///\n    if defunct_sample == 1, nohr"
+  },
+  {
+    "model": 62,
+    "line": 852,
+    "section": "Other innovation measures",
+    "command": "fracreg logit nocite_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear, vce(robust)"
+  },
+  {
+    "model": 63,
+    "line": 855,
+    "section": "Other innovation measures",
+    "command": "fracreg logit nocite_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear, vce(robust)"
+  },
+  {
+    "model": 64,
+    "line": 858,
+    "section": "Other innovation measures",
+    "command": "fracreg logit nocite_win3 i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear, vce(robust)"
+  },
+  {
+    "model": 65,
+    "line": 861,
+    "section": "Other innovation measures",
+    "command": "fracreg logit nocite_win3 i.VD##i.priorpatentdummy_VD  i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD ///\n    i.Region2 i.Industry2 i.Foundingyear, vce(robust)"
+  },
+  {
+    "model": 66,
+    "line": 867,
+    "section": "Other innovation measures",
+    "command": "reghdfe breakthrough_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 67,
+    "line": 870,
+    "section": "Other innovation measures",
+    "command": "reghdfe breakthrough_win3  i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 68,
+    "line": 873,
+    "section": "Other innovation measures",
+    "command": "reghdfe breakthrough_win3  i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 69,
+    "line": 876,
+    "section": "Other innovation measures",
+    "command": "reghdfe breakthrough_win3  i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 70,
+    "line": 881,
+    "section": "Other innovation measures",
+    "command": "reghdfe ln_claims_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 71,
+    "line": 884,
+    "section": "Other innovation measures",
+    "command": "reghdfe ln_claims_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 72,
+    "line": 887,
+    "section": "Other innovation measures",
+    "command": "reghdfe ln_claims_win3 i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 73,
+    "line": 890,
+    "section": "Other innovation measures",
+    "command": "reghdfe ln_claims_win3 i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 74,
+    "line": 896,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe fog_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 75,
+    "line": 899,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe fog_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 76,
+    "line": 902,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe fog_win3 i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 77,
+    "line": 905,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe fog_win3 i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 78,
+    "line": 911,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe ari_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 79,
+    "line": 914,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe ari_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 80,
+    "line": 917,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe ari_win3 i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 81,
+    "line": 920,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe ari_win3 i.VD##i.priorpatentdummy_VD ///\n    i.VD##i.Earlystage_VD ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 82,
+    "line": 960,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe ln_oldpat_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 83,
+    "line": 963,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe ln_oldpat_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 84,
+    "line": 966,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe ln_oldpat_win3 priorpatentdummy_VD VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 85,
+    "line": 969,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe ln_oldpat_win3 VD i.VD##i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 86,
+    "line": 975,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe newcpc_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 87,
+    "line": 978,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe newcpc_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 88,
+    "line": 981,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe newcpc_win3 priorpatentdummy_VD VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 89,
+    "line": 984,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe newcpc_win3 VD i.VD##i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 90,
+    "line": 992,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe cite_breadth_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 91,
+    "line": 995,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe cite_breadth_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 92,
+    "line": 998,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe cite_breadth_win3 priorpatentdummy_VD VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 93,
+    "line": 1001,
+    "section": "Table A8: patent readability",
+    "command": "reghdfe cite_breadth_win3 VD i.VD##i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 94,
+    "line": 1006,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe selfcite_win3 VD i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 95,
+    "line": 1009,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe selfcite_win3 i.VD##i.priorpatentdummy_VD i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 96,
+    "line": 1012,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe selfcite_win3 priorpatentdummy_VD VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  },
+  {
+    "model": 97,
+    "line": 1015,
+    "section": "Table A8: patent readability",
+    "command": "ppmlhdfe selfcite_win3 VD i.VD##i.priorpatentdummy_VD i.VD##i.Earlystage_VD ///\n    ln_MoneyRaised_VD NumofFundingRounds_VD, ///\n    absorb(Region2 Industry2 Foundingyear) vce(robust)"
+  }
+]

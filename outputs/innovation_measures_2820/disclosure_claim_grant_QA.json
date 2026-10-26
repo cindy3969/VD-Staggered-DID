@@ -1,0 +1,27 @@
+{
+  "patent_rows": 14574,
+  "patent_metric_coverage": {
+    "gunning_fog": 6054,
+    "automated_readability_index": 6054,
+    "neg_flesch_reading": 6054,
+    "number_figures": 6054,
+    "number_sheets": 6054,
+    "number_claims": 6054,
+    "independent_claims": 6054,
+    "dependent_claims": 6054
+  },
+  "metric_status": {
+    "ok": 6054,
+    "http_404": 1
+  },
+  "cross_section_rows": 2820,
+  "firms_with_granted_patent_metrics_win3": 649,
+  "firms_with_filed_applications_win3": 694,
+  "formulas": {
+    "text_counts": "single-pass English word/sentence/character counts; syllables from vowel-group heuristic",
+    "gunning_fog": "0.4*((words/sentences)+100*(words with >=3 syllables/words))",
+    "automated_readability_index": "4.71*(characters/words)+0.5*(words/sentences)-21.43",
+    "flesch_reading_ease": "206.835-1.015*(words/sentences)-84.6*(syllables/words); multiplied by -1",
+    "grant_rate": "eventually granted applications / all applications filed in t+1..t+3"
+  }
+}

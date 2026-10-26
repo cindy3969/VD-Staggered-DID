@@ -1,0 +1,49 @@
+{
+  "firms": 2820,
+  "patents": 14574,
+  "window_patents": 5667,
+  "window": "filing years reference+1..+3",
+  "baseline": "All matched own patents granted before reference year; fixed primary CPC3. Empty/incomplete baseline => missing.",
+  "zero_rule": "Counts zero for baseline-eligible firms with no post patents; composition/distance remain missing.",
+  "limitations": [
+    "Static assignee linkage, not historical ownership reconstruction.",
+    "Primary CPC3 only; not all classifications or recombination.",
+    "Citation cutoff remains 2024; no 2025 refresh.",
+    "Granted-patent selection and post-patenting selection limit causal interpretation."
+  ],
+  "vd_year_range": [
+    2010,
+    2023
+  ],
+  "nonmissing": {
+    "nocite_win3": 649,
+    "breakthrough_win3": 649,
+    "desc_words_win3": 649,
+    "fog_win3": 649,
+    "ari_win3": 649,
+    "neg_flesch_win3": 649,
+    "figures_win3": 649,
+    "sheets_win3": 649,
+    "claims_win3": 649,
+    "ind_claims_win3": 649,
+    "dep_claims_win3": 649,
+    "originality_win3": 526,
+    "cite_breadth_win3": 526,
+    "selfcite_win3": 649,
+    "partner_search_win3": 206,
+    "partner_dist_win3": 195,
+    "generality_win3": 412,
+    "cite_diversity_win3": 526,
+    "win3_observed": 2820,
+    "base_patents": 2820,
+    "base_cpc": 2820,
+    "base_cpc_cov": 564,
+    "newpat_win3": 500,
+    "oldpat_win3": 500,
+    "newshare_win3": 258,
+    "newcpc_win3": 500,
+    "own_dist_win3": 258,
+    "selfshare_win3": 603,
+    "post_cpc_cov": 649
+  }
+}

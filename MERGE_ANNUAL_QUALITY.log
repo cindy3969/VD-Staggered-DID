@@ -1,0 +1,72 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\outputs\csdid_all_applications_corrected\citation
+> _quality_20261019\MERGE_ANNUAL_QUALITY.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. global P "C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected"
+
+. capture confirm file "$P/citation_quality_20261019/original_panel_backup.dta"
+
+. if _rc copy "$P/firm_year_all_applications_and_truncation_specs.dta" "$P/citati
+> on_quality_20261019/original_panel_backup.dta"
+
+. use "$P/firm_year_all_applications_and_truncation_specs.dta", clear
+
+. foreach newvar in citation_quality_npat norm_cite_perpat_v1 norm_cite_perpat_v2
+>  norm_cite_perpat_v3 norm_cite_perpat_v4 {
+  2.     capture drop `newvar'
+  3. }
+
+. merge 1:1 full_firm_id year using "$P/citation_quality_20261019/annual_quality_
+> addon.dta", assert(match) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                            88,547  
+    -----------------------------------------
+
+. isid full_firm_id year
+
+. assert _N==88547
+
+. save "$P/firm_year_all_applications_and_truncation_specs.dta", replace
+file
+    C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/firm_ye
+    > ar_all_applications_and_truncation_specs.dta saved
+
+. export delimited using "$P/firm_year_all_applications_and_truncation_specs.csv"
+> , replace
+file C:/Users/user/Documents/VD/outputs/csdid_all_applications_corrected/firm_yea
+> r_all_applications_and_truncation_specs.csv saved
+
+. exit, clear
+
+end of do-file

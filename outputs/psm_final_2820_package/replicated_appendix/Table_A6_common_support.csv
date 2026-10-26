@@ -1,0 +1,15 @@
+statistic,value
+Treated propensity-score minimum,.0677027857814942
+Treated propensity-score maximum,.6922973327453785
+Control propensity-score minimum,.045409085312214
+Control propensity-score maximum,.744566968233901
+Empirical common-support lower bound,.0677027857814942
+Empirical common-support upper bound,.6922973327453785
+Group 0: propensity-score estimation N,5131
+Group 0: within empirical support N,5086
+Group 0: outside empirical support N,45
+Group 0: final matched N,1410
+Group 1: propensity-score estimation N,1410
+Group 1: within empirical support N,1410
+Group 1: outside empirical support N,0
+Group 1: final matched N,1410

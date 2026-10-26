@@ -1,0 +1,78 @@
+PROPOSED TEXT FOR THE PSM SECTION
+
+We assess covariate balance using standardized mean differences (SMDs), rather
+than relying on null-hypothesis significance tests. Table A6 reports treated
+and control means, SMDs before and after matching, and variance ratios for
+continuous covariates. Across the covariates and categorical levels used in
+the propensity-score model, matching reduces the maximum absolute SMD from
+0.35 before matching to 0.06 after matching; no matched-on row exceeds the
+conventional absolute-SMD threshold of 0.10 after matching. Figure A2 provides
+the corresponding Love plot. These results indicate substantial improvement
+in balance on observed characteristics, but they do not establish balance on
+unobserved determinants of venture-debt receipt.
+
+Figure A1 displays the estimated propensity-score distributions before and
+after matching. All 1,410 treated firms lie within the empirical overlap
+interval [0.068, 0.691]. Of the 5,128 eligible controls, 5,081 lie within this
+interval and 47 lie outside it; the final matched sample contains 1,410 treated
+firms and 1,410 controls. The post-matching distributions show improved common
+support, although perfect density overlap is neither required nor observed.
+Accordingly, Figure A1 is evidence about overlap in estimated propensity
+scores, not proof that matching eliminates endogeneity or unobserved selection.
+
+The actual/pseudo reference-year row and prior-patent row in Table A6 are
+reported as additional diagnostics. They were not included in the rebuilt
+historical propensity-score specification and therefore are labeled
+"Matched on = No." Their post-match mean SMDs are small (0.011 and 0.012 in
+absolute value), but the variance ratio for reference year remains 3.74. This
+indicates that the matched groups have similar average reference years but
+different dispersion in timing. It should be disclosed rather than described
+as complete calendar-time balance, and it motivates specifications with year
+fixed effects and the separate staggered-DiD analysis.
+
+
+REVISED NOTE FOR TABLE A6
+
+Table A6 reports covariate balance before and after 1:1 nearest-neighbor
+propensity-score matching. Balance is evaluated primarily using standardized
+mean differences (SMDs); absolute SMDs below 0.10 are used as a diagnostic
+benchmark, not as a formal hypothesis test. Variance ratios are reported for
+continuous variables. Categorical covariates are evaluated separately for
+each level rather than by comparing arbitrary numeric category codes. The
+reference-year and prior-patent rows are supplementary diagnostics and were
+not included in the historical propensity-score model. The post-matching
+sample includes 1,410 VD-backed firms and 1,410 matched controls. These
+statistics assess balance on observed covariates only and do not resolve
+selection on unobservables.
+
+
+REVISED NOTE FOR FIGURE A1
+
+Figure A1 plots the estimated propensity-score distributions for VD-backed
+and control firms before and after matching. The post-matching panel shows
+improved overlap and the final matched sample lies within the treated group's
+empirical propensity-score range. The plot does not require identical kernel
+densities and does not establish conditional independence or eliminate
+unobserved selection.
+
+
+NOTE FOR FIGURE A2 (LOVE PLOT)
+
+Figure A2 plots the absolute standardized mean difference for each continuous
+covariate and categorical level before and after matching. The vertical line
+at 0.10 is a conventional diagnostic benchmark. All covariates and levels
+used in the propensity-score model have post-matching absolute SMDs below
+0.10. Reference year and prior patent are shown as supplementary diagnostics
+and are identified as not having been included in the score model.
+
+
+PLACEMENT CHECKLIST
+
+1. Reference Table A6 in the PSM/matching subsection and discuss the reduction
+   in maximum absolute SMD, not merely insignificant t-tests.
+2. Reference Figure A1 immediately after the common-support discussion and
+   state explicitly what the density plot does not establish.
+3. Reference Figure A2 in the balance-diagnostics paragraph.
+4. Mention the reference-year variance-ratio limitation in the identification
+   discussion and connect it to year fixed effects and staggered DiD.
+5. Remove or revise any sentence claiming that matching "solves" endogeneity.

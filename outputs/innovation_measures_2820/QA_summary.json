@@ -1,0 +1,12 @@
+{
+  "citation_cutoff_year": 2024,
+  "breakthrough_benchmark": "full PatentsView granted-patent universe, filing year x primary CPC3",
+  "breakthrough_rule": "exact ceil(5%) per filing-year x CPC3 cell; citations descending; boundary ties by ascending patent_id",
+  "application_rows_event_minus4_plus4": 14574,
+  "application_rows_win3": 5667,
+  "description_applications_measured": 14574,
+  "description_coverage": 1.0,
+  "cross_section_rows": 2820,
+  "cross_section_treated": 1410,
+  "missing_cpc_breakthrough": 7
+}

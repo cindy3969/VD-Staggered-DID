@@ -1,0 +1,9 @@
+Effect,All firms,No prior patent,Prior patent,Early stage,Late stage
+Simple ATT,0.199 (0.874),Not estimable,0.199 (0.874),-0.400 (0.860),0.569 (0.770)
+Aggregated event study ATT,0.297 (0.823),Not estimable,0.297 (0.823),-0.198 (0.911),-0.239 (0.925)
+Controls,Yes,Yes,Yes,Yes,Yes
+Region FE,Yes,Yes,Yes,Yes,Yes
+Industry FE,Yes,Yes,Yes,Yes,Yes
+Observations,8263,6566,7854,7417,7003
+Firms,2111,1738,1960,1923,1775
+Control,Never-treated,Never-treated,Never-treated,Never-treated,Never-treated

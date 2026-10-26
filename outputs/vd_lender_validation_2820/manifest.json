@@ -1,0 +1,10 @@
+{
+  "source": "C:\\Users\\user\\iCloudDrive\\5학기\\연구미팅\\20240108-2010 to 2015 firms\\2010 2015 Crunchbase deals merged_v4.xlsx",
+  "sample": "C:\\Users\\user\\Documents\\VD\\outputs\\psm_final_2820_package\\table3_current_2820_cross_section_v2.dta",
+  "source_sha256": "4a300271eb437414cb4cbc1c636ead1d1a34a88239ef17e254611884b03ba25e",
+  "sample_sha256": "47fdb271f1f484326300beeb96646cf7b137cb2ff7464646d9aa9dea82a96f44",
+  "matched_firms": 2820,
+  "matching": "exact OrganizationName = Organization Name; one sample record to many transactions",
+  "run_date": "2026-10-15",
+  "raw_files_modified": false
+}

@@ -1,0 +1,72 @@
+"""Manually verified observations from public web searches on 2026-10-15."""
+import pandas as pd
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+rows=[]
+def add(name,metric,year,value,url,basis='reported',date='',note=''):
+    rows.append(dict(OrganizationName=name,metric=metric,observed_year=year,value=value,unit='persons' if metric=='employees' else 'USD',source_url=url,basis=basis,observed_date=date,note=note,retrieved_date='2026-10-15'))
+add('15Five','employees',2018,34,'https://www.prweb.com/releases/15five_raises_8_2_million_in_series_a_funding_to_unleash_the_potential_of_the_global_workforce/prweb15964824.htm',date='2018-01',note='Start-of-year actual headcount; future hiring target excluded. Published 2018-12-04.')
+add('2nd Watch','employees',2017,130,'https://www.spokanejournal.com/articles/4119-2nd-watch-expects-to-add-100-jobs-this-year','lower_bound','2017-03-02','More than 130 workers; not an exact point estimate.')
+u='https://s201.q4cdn.com/978897484/files/doc_financials/2020/q4/2020-10k-4Q.pdf'
+add('908 Devices','employees',2020,101,u,date='2020-12-31',note='Full-time employees. IPO occurred 2020-12-18; not private at measurement date.')
+add('908 Devices','revenue',2019,17972000,u,date='2019-12-31',note='Annual consolidated revenue, financial statement units USD thousands.')
+add('908 Devices','revenue',2020,26894000,u,date='2020-12-31',note='Annual consolidated revenue. IPO during year; private-only eligibility needs screening.')
+add('1World Online','revenue',2017,1270000,'https://kingscrowd.com/1world-online-on-republic/',note='Secondary report of official financial filings; rounded to USD 0.01m.')
+add('1World Online','revenue',2018,1820000,'https://kingscrowd.com/1world-online-on-republic/',note='Secondary report of official financial filings; rounded to USD 0.01m.')
+add('1World Online','revenue',2019,2400000,'https://kingscrowd.com/1world-online-on-republic/','management_claim',note='Management claim; article says 2019 official filings were not provided.')
+add('9Lenses','employees',2018,39,'https://getlatka.com/companies/9lenses','third_party_estimate','2018-12','Historical profile headcount; methodology not independently verified.')
+u='https://www.sec.gov/Archives/edgar/data/1561550/000119312519240411/d745413ds1a.htm'
+add('Datadog','revenue',2017,100761000,u,date='2017-12-31',note='Audited consolidated annual revenue, USD thousands.')
+add('Datadog','revenue',2018,198077000,u,date='2018-12-31',note='Audited consolidated annual revenue, USD thousands.')
+add('CloudBees','employees',2019,508,'https://getlatka.com/companies/cloudbees','third_party_estimate','2019-12')
+add('CloudBees','employees',2020,463,'https://getlatka.com/companies/cloudbees','third_party_estimate','2020-12',note='Latest dated profile reading within year; other intra-year readings differ.')
+add('CloudBees','employees',2021,469,'https://getlatka.com/companies/cloudbees','third_party_estimate','2021-08')
+add('CloudBees','employees',2021,500,'https://www.cloudbees.com/newsroom/cloudbees-raises-245-million-dollar-new-financing','lower_bound',note='Company release states more than 500; excludes exact point estimate.')
+add('Absci','employees',2021,212,'https://www.sec.gov/Archives/edgar/data/1672688/000162828022006925/absi-20211231.htm',date='2021-12-31',note='212 total, 211 full-time. Public-company observation.')
+add('AdAdapted','employees',2019,16,'https://michigancelebrates.org/wp-content/uploads/2020/07/MCSB-2019-Magazine.pdf','reported_fte',note='2019 Michigan 50 profile; full-time equivalents rather than total headcount.')
+add('AdaptHealth','employees',2020,4700,'https://www.sec.gov/Archives/edgar/data/1725255/000155837021003089/ahco-20201231x10k.htm','approximate','2020-12-31','Approximately 4700 employees. Public-company observation.')
+add('6sense','arr',2024,200000000,'https://6sense.com/newsroom/6sense-surpasses-200m-arr-driven-by-sales-intelligence-innovation-and-market-share-expansion/','lower_bound','2024-01-31','ARR exceeds USD 200m. Excluded from revenue because ARR is not realized annual revenue.')
+add('Duo Security','arr',2016,73000000,'https://www.prnewswire.com/news-releases/duo-security-delivers-135-annual-recurring-revenue-growth-and-brings-aboard-top-security-leaders-from-facebook-etsy-451-research-workday-and-more-300404138.html',note='ARR only; excluded from revenue.')
+add('Duo Security','employees',2016,400,'https://www.prnewswire.com/news-releases/duo-security-delivers-135-annual-recurring-revenue-growth-and-brings-aboard-top-security-leaders-from-facebook-etsy-451-research-workday-and-more-300404138.html','upper_approximate',note='Nearly 400 staff; kept as bound, not exact headcount.')
+add('Comprehend Systems','employees',2018,69,'https://getlatka.com/companies/comprehend-systems','third_party_estimate','2018-12')
+add('EverTrue','employees',2018,94,'https://getlatka.com/companies/evertrue','third_party_estimate','2018-12')
+add('DealCloud','employees',2018,100,'https://legaltechnology.com/legaltech-acquisition-intapp-acquires-financial-services-crm-dealcloud/','approximate','2018-08-14','Around 100; acquisition announcement.')
+add('Domo','employees',2018,796,'https://www.sec.gov/Archives/edgar/data/1505952/000162828018007944/domoincs-1a.htm',date='2018-04-30',note='Total employees before IPO; 698 US employees not substituted for total.')
+add('Domo','revenue',2017,74500000,'https://www.sec.gov/Archives/edgar/data/1505952/000162828018007944/domoincs-1a.htm',date='2017-01-31',note='Rounded annual revenue; fiscal year ends January 31.')
+add('Domo','revenue',2018,108500000,'https://www.sec.gov/Archives/edgar/data/1505952/000162828018007944/domoincs-1a.htm',date='2018-01-31',note='Rounded annual revenue; fiscal year ends January 31.')
+add('Eargo','revenue',2017,6620000,'https://www.sec.gov/Archives/edgar/data/1719395/000119312520272044/d808052d424b4.htm',date='2017-12-31',note='Annual revenue net, USD thousands in prospectus.')
+add('Eargo','revenue',2018,23163000,'https://www.sec.gov/Archives/edgar/data/1719395/000119312520272044/d808052d424b4.htm',date='2018-12-31',note='Annual revenue net, USD thousands in prospectus.')
+add('Contently','employees',2014,30,'https://contently.com/2015/03/10/what-is-ladies-contently-and-why-should-you-be-a-part-of-it/','approximate','2014-03','Barely 30 employees; retrospective company statement.')
+add('Absci','employees',2022,193,'https://investors.absci.com/static-files/69574815-4c57-4c97-89b9-2c1501e8a8ce',date='2022-12-31',note='Public-company observation.')
+add('Absci','revenue',2021,4782000,'https://www.sec.gov/Archives/edgar/data/1672688/000162828023009908/absi-20221231.htm',date='2021-12-31',note='Annual total revenue, USD thousands; IPO in 2021.')
+add('Absci','revenue',2022,5747000,'https://www.sec.gov/Archives/edgar/data/1672688/000162828023009908/absi-20221231.htm',date='2022-12-31',note='Annual total revenue, USD thousands; public-company observation.')
+add('AdaptHealth','employees',2019,2590,'https://www.sec.gov/Archives/edgar/data/1725255/000155837020002146/ahco-20191231x10k.htm','approximate','2019-12-31','Public-company observation.')
+add('AdaptHealth','employees',2021,10700,'https://www.sec.gov/Archives/edgar/data/1725255/000155837022002603/ahco-20211231x10k.htm','approximate','2021-12-31','Public-company observation.')
+add('AdaptHealth','revenue',2019,529644247,'https://www.sec.gov/Archives/edgar/data/1725255/000155837020002146/ahco-20191231x10k.htm',date='2019-12-31',note='Annual net revenue; public during year.')
+add('Duo Security','employees',2018,600,'https://www.dailydetroit.com/episodes/michigans-unicorn-tech-company-duo-security-expands-downtown-detroit/',date='2018-04-04',note='Global employees, not Michigan-only count.')
+add('Tipalti','employees',2020,240,'https://tipalti.com/press/momentum-h22019-pr/',date='2020-01-01',note='Actual employees as of January 1, 2020; beginning-of-year snapshot.')
+add('Tipalti','employees',2020,400,'https://www.businesswire.com/news/home/20210224005261/en/Tipalti-Grows-Revenue-by-More-Than-85-Increases-Annualized-Transactions-to-More-Than-%2418-Billion','lower_bound',note='Over 400 globally at end of 2020; future 350 hires excluded.')
+add('HomeLight','employees',2020,350,'https://techcrunch.com/2021/09/02/homelight-closes-on-100m-series-d-at-a-1-6b-valuation-as-revenue-surges/','approximate','2020-12-31',note='Retrospective year-end headcount.')
+add('HomeLight','employees',2021,500,'https://techcrunch.com/2021/09/02/homelight-closes-on-100m-series-d-at-a-1-6b-valuation-as-revenue-surges/','lower_bound','2021-09-02')
+add('SingleStore','employees',2021,275,'https://venturebeat.com/business/database-startup-singlestore-raises-75m',note='Actual employees at 2021 funding announcement; 300 year-end target excluded.')
+add('Rover','employees',2021,372,'https://www.sec.gov/Archives/edgar/data/1826018/000182601822000034/rovr-20211231.htm',date='2021-12-31',note='Worldwide corporate employees, not platform pet sitters. Public-company observation.')
+for year,value in [(2019,95052000),(2020,48800000),(2021,109837000)]:
+    add('Rover','revenue',year,value,'https://www.sec.gov/Archives/edgar/data/1826018/000182601822000034/rovr-20211231.htm',date=f'{year}-12-31',note='Annual consolidated revenue. Became public in 2021.')
+add('Cloudability','employees',2019,125,'https://www.geekwire.com/2019/apptio-buys-portlands-cloudability-adding-cloud-financial-analysis-tools-belt/','approximate','2019-05-16','Around 125 employees, acquisition announcement.')
+add('Payveris','employees',2021,57,'https://getlatka.com/companies/payveris/customers','third_party_estimate','2021-04')
+add('Optimizely','employees',2020,339,'https://getlatka.com/companies/optimizely','third_party_estimate','2020-12','Latest dated headcount in year; acquired by Episerver.')
+for year,value,date in [(2022,43,'2022-10'),(2023,47,'2023-10'),(2024,41,'2024-12')]:
+    add('Lighter Capital','employees',year,value,'https://getlatka.com/companies/lighter-capital/customers','third_party_estimate',date)
+add('GreyOrange','employees',2022,800,'https://economictimes.indiatimes.com/jobs/greyorange-looks-to-hire-300-in-india/articleshow/90776745.cms?from=mdr','approximate','2022-04-11','About 800 global employees; future 300 hires and India-only 600 excluded.')
+add('GreyOrange','employees',2023,923,'https://getlatka.com/companies/greyorange.com','third_party_estimate','2023-12')
+add('Saviynt','employees',2024,1000,'https://saviynt.com/es/press-release/identity-authority-saviynt-continues-momentum-with-record-q3-and-year-to-date-results-for-2024','lower_bound',note='Company release states more than 1000 globally.')
+add('Fundrise','employees',2022,306,'https://fundrise.com/investor-update/929/view',date='2022-12-31')
+add('Fundrise','revenue',2022,57800000,'https://fundrise.com/investor-update/929/view','management_claim','2022-12-31','Footnote 2: preliminary unaudited 2022 GAAP revenue estimate; may be superseded by audited filings.')
+add('Tipalti','employees',2022,1000,'https://tipalti.com/press/tipalti-momentum-continues-to-surge/','lower_bound','2022-09-15','More than 1000 worldwide.')
+add('Fundrise','employees',2024,232,'https://www.sec.gov/Archives/edgar/data/1640967/000162828025019856/risecompaniescorp-form10.htm',date='2024-12-31',note='Rise Companies Corp. consolidated business operating Fundrise; 231 full-time.')
+for year,value in [(2023,64119000),(2024,57350000)]:
+    add('Fundrise','revenue',year,value,'https://www.sec.gov/Archives/edgar/data/1640967/000162828025019856/risecompaniescorp-form10.htm',date=f'{year}-12-31',note='Rise Companies Corp. consolidated Fundrise business. Revenue in USD thousands.')
+if __name__=='__main__':
+    out=ROOT/'outputs/psm_final_2820_package/postvd_size_research/web_observations.csv'
+    pd.DataFrame(rows).to_csv(out,index=False)
+    print(len(rows),'evidence rows')

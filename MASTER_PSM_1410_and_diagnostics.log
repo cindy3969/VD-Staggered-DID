@@ -1,0 +1,461 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\outputs\psm_rematch_rebuilt\MASTER_PSM_1410_and_d
+> iagnostics.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. set seed 20261011
+
+. 
+. global ROOT "C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt"
+
+. global DATA "C:/Users/user/Documents/VD/outputs/csdid_ultimately_granted_primar
+> y/csdid_ultimately_granted_full7316_controls.dta"
+
+. 
+. capture log close
+
+. log using "$ROOT/PSM_1410_and_diagnostics.log", text replace
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/PSM_1410_and_
+> diagnostics.log
+  log type:  text
+ opened on:  11 Oct 2026, 21:22:21
+
+. use "$DATA", clear
+
+. assert _N==7316
+
+. count if vd_backed==1
+  1,440
+
+. assert r(N)==1440
+
+. 
+. capture which psmatch2
+
+. if _rc {
+.     display as error "psmatch2 is not installed"
+.     exit 199
+. }
+
+. 
+. *******************************************************************************
+> *
+. * Historical reference-year PSM: 1 nearest neighbor, no replacement.
+. * The 30 VD firms with missing reference-year funding are excluded by e(sample)
+> ,
+. * leaving 1,410 treated firms available for matching.
+. *******************************************************************************
+> *
+. psmatch2 vd_backed i.founding_year ib4.industry2 funding_rounds_ref ///
+>     ln_funding_ref ib4.region2 time_first_vc, neighbor(1) logit noreplacement
+
+Logistic regression                                     Number of obs =  6,538
+                                                        LR chi2(14)   = 334.35
+                                                        Prob > chi2   = 0.0000
+Log likelihood = -3241.4928                             Pseudo R2     = 0.0490
+
+--------------------------------------------------------------------------------
+     vd_backed | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+ founding_year |
+         2011  |  -.1552752   .1069063    -1.45   0.146    -.3648077    .0542574
+         2012  |  -.2275653    .110954    -2.05   0.040    -.4450312   -.0100994
+         2013  |  -.5924828   .1101484    -5.38   0.000    -.8083696   -.3765959
+         2014  |  -.7257371   .1077004    -6.74   0.000    -.9368261   -.5146481
+         2015  |  -.9016752   .1081747    -8.34   0.000    -1.113694   -.6896567
+               |
+     industry2 |
+            1  |   .2265105   .0870171     2.60   0.009     .0559602    .3970608
+            2  |   .2263166   .0981363     2.31   0.021     .0339729    .4186603
+            3  |   .1975488   .0776641     2.54   0.011       .04533    .3497677
+               |
+funding_roun~f |   .1652972   .0170482     9.70   0.000     .1318834     .198711
+ln_funding_ref |   .0409173   .0176905     2.31   0.021     .0062445    .0755902
+               |
+       region2 |
+            1  |  -.6042732   .0738036    -8.19   0.000    -.7489256   -.4596207
+            2  |    -.33295   .1185166    -2.81   0.005    -.5652383   -.1006617
+            3  |  -.1631343   .0937394    -1.74   0.082    -.3468601    .0205915
+               |
+ time_first_vc |  -.0575177   .0194911    -2.95   0.003    -.0957196   -.0193158
+         _cons |  -1.859264   .2856251    -6.51   0.000    -2.419079   -1.299449
+--------------------------------------------------------------------------------
+
+. 
+. gen byte psm_esample=!missing(_pscore)
+
+. gen byte psm_matched=(_weight>0 & !missing(_weight))
+
+. replace psm_matched=1 if vd_backed==1 & psm_esample==1
+(0 real changes made)
+
+. 
+. count if vd_backed==1 & psm_esample
+  1,410
+
+. assert r(N)==1410
+
+. count if vd_backed==1 & psm_matched
+  1,410
+
+. assert r(N)==1410
+
+. count if vd_backed==0 & psm_matched
+  1,410
+
+. assert r(N)==1410
+
+. 
+. save "$ROOT/psm_full7316_with_scores.dta", replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_full7316_with_sc
+    > ores.dta not found)
+file
+    C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_full7316_with_sc
+    > ores.dta saved
+
+. export delimited using "$ROOT/psm_full7316_with_scores.csv", replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_full7316_with_sc
+    > ores.csv not found)
+file C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_full7316_with_sco
+> res.csv saved
+
+. preserve
+
+.     keep if psm_matched
+(4,496 observations deleted)
+
+.     save "$ROOT/psm_matched_2820.dta", replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_matched_2820.dta
+    not found)
+file
+    C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_matched_2820.dta
+    saved
+
+.     export delimited using "$ROOT/psm_matched_2820.csv", replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_matched_2820.csv
+    not found)
+file C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_matched_2820.csv 
+> saved
+
+. restore
+
+. 
+. *******************************************************************************
+> *
+. * Common support and overlap.
+. *******************************************************************************
+> *
+. quietly summarize _pscore if vd_backed==1 & psm_esample, meanonly
+
+. scalar tmin=r(min)
+
+. scalar tmax=r(max)
+
+. quietly summarize _pscore if vd_backed==0 & psm_esample, meanonly
+
+. scalar cmin=r(min)
+
+. scalar cmax=r(max)
+
+. scalar lower=max(tmin,cmin)
+
+. scalar upper=min(tmax,cmax)
+
+. gen byte overlap=inrange(_pscore,lower,upper) if psm_esample
+(778 missing values generated)
+
+. 
+. tempname C
+
+. postfile `C' str52 metric double value using "$ROOT/common_support.dta", replac
+> e
+(file C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/common_support.dta
+    not found)
+
+. post `C' ("Treated propensity-score minimum") (tmin)
+
+. post `C' ("Treated propensity-score maximum") (tmax)
+
+. post `C' ("Control propensity-score minimum") (cmin)
+
+. post `C' ("Control propensity-score maximum") (cmax)
+
+. post `C' ("Common-support lower bound") (lower)
+
+. post `C' ("Common-support upper bound") (upper)
+
+. foreach g in 0 1 {
+  2.     quietly count if vd_backed==`g' & psm_esample
+  3.     post `C' ("Group `g': estimation N") (r(N))
+  4.     quietly count if vd_backed==`g' & psm_esample & overlap==1
+  5.     post `C' ("Group `g': in empirical overlap N") (r(N))
+  6.     quietly count if vd_backed==`g' & psm_esample & overlap==0
+  7.     post `C' ("Group `g': outside empirical overlap N") (r(N))
+  8.     quietly count if vd_backed==`g' & psm_matched
+  9.     post `C' ("Group `g': matched N") (r(N))
+ 10. }
+
+. postclose `C'
+
+. 
+. twoway ///
+>  (kdensity _pscore if vd_backed==1 & psm_esample, lcolor(maroon)) ///
+>  (kdensity _pscore if vd_backed==0 & psm_esample, lcolor(navy) lpattern(dash)),
+>  ///
+>  title("Before matching") xtitle("Estimated propensity score") ytitle("Density"
+> ) ///
+>  legend(order(1 "VD-backed" 2 "VC-only")) graphregion(color(white)) name(PRE, r
+> eplace)
+
+. twoway ///
+>  (kdensity _pscore if vd_backed==1 & psm_matched, lcolor(maroon)) ///
+>  (kdensity _pscore if vd_backed==0 & psm_matched, lcolor(navy) lpattern(dash)),
+>  ///
+>  title("After 1:1 matching") xtitle("Estimated propensity score") ytitle("Densi
+> ty") ///
+>  legend(order(1 "VD-backed" 2 "Matched VC-only")) graphregion(color(white)) nam
+> e(POST, replace)
+
+. graph combine PRE POST, cols(2) title("Propensity-score overlap") graphregion(c
+> olor(white))
+
+. graph export "$ROOT/Figure_PScore_overlap.png", replace width(3600)
+(file
+    C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/Figure_PScore_overla
+    > p.png not found)
+file
+    C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/Figure_PScore_overla
+    > p.png saved as PNG format
+
+. 
+. *******************************************************************************
+> *
+. * Standardized mean differences and variance ratios.
+. *******************************************************************************
+> *
+. tab industry2, gen(ind_)
+
+  industry2 |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |      1,310       17.92       17.92
+          2 |        931       12.73       30.65
+          3 |      1,882       25.74       56.39
+          4 |      3,189       43.61      100.00
+------------+-----------------------------------
+      Total |      7,312      100.00
+
+. tab region2, gen(reg_)
+
+    region2 |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |      2,744       37.53       37.53
+          2 |        576        7.88       45.40
+          3 |      1,035       14.15       59.56
+          4 |      2,957       40.44      100.00
+------------+-----------------------------------
+      Total |      7,312      100.00
+
+. tempname B
+
+. postfile `B' str60 covariate str18 type double mean_t_before mean_c_before ///
+>  smd_before vr_before mean_t_after mean_c_after smd_after vr_after ///
+>  using "$ROOT/psm_balance.dta", replace
+(file C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_balance.dta
+    not found)
+
+. 
+. foreach v in founding_year funding_rounds_ref ln_funding_ref time_first_vc {
+  2.     quietly summarize `v' if vd_backed==1 & psm_esample
+  3.     local mt0=r(mean)
+  4.     local vt0=r(Var)
+  5.     quietly summarize `v' if vd_backed==0 & psm_esample
+  6.     local mc0=r(mean)
+  7.     local vc0=r(Var)
+  8.     local pool=sqrt((`vt0'+`vc0')/2)
+  9.     quietly summarize `v' if vd_backed==1 & psm_matched
+ 10.     local mt1=r(mean)
+ 11.     local vt1=r(Var)
+ 12.     quietly summarize `v' if vd_backed==0 & psm_matched
+ 13.     local mc1=r(mean)
+ 14.     local vc1=r(Var)
+ 15.     post `B' ("`v'") ("Continuous") (`mt0') (`mc0') ((`mt0'-`mc0')/`pool') (
+> `vt0'/`vc0') ///
+>         (`mt1') (`mc1') ((`mt1'-`mc1')/`pool') (`vt1'/`vc1')
+ 16. }
+
+. 
+. foreach stub in ind reg {
+  2.     unab levels : `stub'_*
+  3.     foreach v of local levels {
+  4.         quietly summarize `v' if vd_backed==1 & psm_esample
+  5.         local mt0=r(mean)
+  6.         quietly summarize `v' if vd_backed==0 & psm_esample
+  7.         local mc0=r(mean)
+  8.         local pool=sqrt((`mt0'*(1-`mt0')+`mc0'*(1-`mc0'))/2)
+  9.         quietly summarize `v' if vd_backed==1 & psm_matched
+ 10.         local mt1=r(mean)
+ 11.         quietly summarize `v' if vd_backed==0 & psm_matched
+ 12.         local mc1=r(mean)
+ 13.         local lab : variable label `v'
+ 14.         post `B' ("`lab'") ("Categorical level") (`mt0') (`mc0') ///
+>             (cond(`pool'>0,(`mt0'-`mc0')/`pool',0)) (.) (`mt1') (`mc1') ///
+>             (cond(`pool'>0,(`mt1'-`mc1')/`pool',0)) (.)
+ 15.     }
+ 16. }
+
+. postclose `B'
+
+. 
+. use "$ROOT/psm_balance.dta", clear
+
+. gen abs_smd_before=abs(smd_before)
+
+. gen abs_smd_after=abs(smd_after)
+
+. gen exceeds_010_after=abs_smd_after>.10
+
+. gsort -abs_smd_before
+
+. gen order=_n
+
+. gen str60 plot_label=covariate
+
+. replace plot_label="Founding year" if covariate=="founding_year"
+(1 real change made)
+
+. replace plot_label="Funding rounds at reference year" if covariate=="funding_ro
+> unds_ref"
+(1 real change made)
+
+. replace plot_label="Log funding at reference year" if covariate=="ln_funding_re
+> f"
+(1 real change made)
+
+. replace plot_label="Years to first VC" if covariate=="time_first_vc"
+(1 real change made)
+
+. forvalues i=1/`=_N' {
+  2.     local text=plot_label[`i']
+  3.     label define orderlbl `i' "`text'", add
+  4. }
+
+. label values order orderlbl
+
+. export delimited using "$ROOT/psm_balance.csv", replace
+(file C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_balance.csv
+    not found)
+file C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_balance.csv saved
+
+. twoway ///
+>  (scatter order abs_smd_before, msymbol(O) mcolor(maroon)) ///
+>  (scatter order abs_smd_after, msymbol(D) mcolor(navy)), ///
+>  xline(.10, lpattern(dash) lcolor(gs7)) ///
+>  ylabel(1(1)`=_N', valuelabel angle(horizontal) labsize(vsmall)) ///
+>  xtitle("Absolute standardized mean difference") ytitle("") ///
+>  title("Covariate balance before and after 1:1 matching") ///
+>  legend(order(1 "Before matching" 2 "After matching") rows(1) position(6)) ///
+>  graphregion(color(white))
+
+. graph export "$ROOT/Figure_Love_plot.png", replace width(2800)
+(file
+    C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/Figure_Love_plot.png
+    not found)
+file
+    C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/Figure_Love_plot.png
+    saved as PNG format
+
+. graph save "$ROOT/Figure_Love_plot.gph", replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/Figure_Love_plot.gph
+    not found)
+file C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/Figure_Love_plot.gph 
+> saved
+
+. 
+. quietly summarize abs_smd_before, meanonly
+
+. display as result "Maximum |SMD| before = " %7.3f r(max)
+Maximum |SMD| before =   0.348
+
+. quietly summarize abs_smd_after, meanonly
+
+. display as result "Maximum |SMD| after  = " %7.3f r(max)
+Maximum |SMD| after  =   0.061
+
+. count if exceeds_010_after
+  0
+
+. display as result "Balance rows above .10 after matching = " r(N)
+Balance rows above .10 after matching = 0
+
+. 
+. use "$ROOT/common_support.dta", clear
+
+. export delimited using "$ROOT/common_support.csv", replace
+(file C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/common_support.csv
+    not found)
+file C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/common_support.csv sa
+> ved
+
+. list, noobs clean
+
+                                  metric       value  
+        Treated propensity-score minimum   .06791336  
+        Treated propensity-score maximum   .69121849  
+        Control propensity-score minimum   .04561795  
+        Control propensity-score maximum   .74416302  
+              Common-support lower bound   .06791336  
+              Common-support upper bound   .69121849  
+                   Group 0: estimation N        5128  
+         Group 0: in empirical overlap N        5081  
+    Group 0: outside empirical overlap N          47  
+                      Group 0: matched N        1410  
+                   Group 1: estimation N        1410  
+         Group 1: in empirical overlap N        1410  
+    Group 1: outside empirical overlap N           0  
+                      Group 1: matched N        1410  
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/PSM_1410_and_
+> diagnostics.log
+  log type:  text
+ closed on:  11 Oct 2026, 21:22:50
+---------------------------------------------------------------------------------
+
+. exit, clear
+
+end of do-file

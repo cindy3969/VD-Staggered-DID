@@ -1,0 +1,4024 @@
+{
+  "tables": [
+    "Table 1. Summary Statistics",
+    "Table 2. Pairwise Correlations \u2014 Panel A",
+    "Table 2. Pairwise Correlations \u2014 Panel B",
+    "Table 3. VD Backing and Post-VD Patent Quantity",
+    "Table 3-2. Funding-stage Heterogeneity \u2014 Panel A",
+    "Table 3-2. Funding-stage Heterogeneity \u2014 Panel B",
+    "Table 3-2. Funding-stage Heterogeneity \u2014 Panel C",
+    "Table 4. VD Backing and Post-VD Patent Quality",
+    "Table 5. Cumulative Subsequent Financing",
+    "Table 6. Annual Subsequent Financing",
+    "Table 7. Cox Proportional Hazard Models",
+    "Table 7-2. Earlier Cox Specification",
+    "Table 7-3. Unadjusted Cox Models",
+    "Table A1. Instrumental-variable Estimates",
+    "Table A2. Patenting Startups",
+    "Table A3. Cox Models with Moderating Effects \u2014 M&A",
+    "Table A4. Cox Models with Moderating Effects \u2014 IPO",
+    "Table A5. Cox Models with Moderating Effects \u2014 Defunct",
+    "Table A8. Gunning Fog Readability",
+    "Table A9. Automated Readability Index",
+    "Table A12. Patents in Existing Technological Domains",
+    "Table A13. Entry into New CPC Classes",
+    "Table A14. Backward Citation Technological Breadth",
+    "Table A15. Self Citations",
+    "Table A19. Uncited Patents",
+    "Table A20. Breakthrough Patents",
+    "Table A21. Patent Claims"
+  ],
+  "cells": [
+    {
+      "model": 1,
+      "term": "VD",
+      "b": "-0.108***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 2,
+      "term": "VD",
+      "b": "-0.068***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 3,
+      "term": "VD",
+      "b": "-0.220***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 4,
+      "term": "VD",
+      "b": "-0.163***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 1,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 2,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.236**",
+      "p": "(0.025)"
+    },
+    {
+      "model": 3,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 4,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.203*",
+      "p": "(0.053)"
+    },
+    {
+      "model": 1,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 2,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 3,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.166***",
+      "p": "(0.005)"
+    },
+    {
+      "model": 4,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.132**",
+      "p": "(0.019)"
+    },
+    {
+      "model": 1,
+      "term": "priorpatentdummy_VD",
+      "b": "1.256***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 2,
+      "term": "priorpatentdummy_VD",
+      "b": "1.371***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 3,
+      "term": "priorpatentdummy_VD",
+      "b": "1.254***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 4,
+      "term": "priorpatentdummy_VD",
+      "b": "1.353***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 1,
+      "term": "Earlystage_VD",
+      "b": "-0.036",
+      "p": "(0.239)"
+    },
+    {
+      "model": 2,
+      "term": "Earlystage_VD",
+      "b": "-0.033",
+      "p": "(0.288)"
+    },
+    {
+      "model": 3,
+      "term": "Earlystage_VD",
+      "b": "-0.113***",
+      "p": "(0.009)"
+    },
+    {
+      "model": 4,
+      "term": "Earlystage_VD",
+      "b": "-0.095**",
+      "p": "(0.026)"
+    },
+    {
+      "model": 1,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.024***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 2,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.025***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 3,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.024***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 4,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.025***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 1,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.012",
+      "p": "(0.173)"
+    },
+    {
+      "model": 2,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.012",
+      "p": "(0.163)"
+    },
+    {
+      "model": 3,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.013",
+      "p": "(0.136)"
+    },
+    {
+      "model": 4,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.013",
+      "p": "(0.135)"
+    },
+    {
+      "model": 1,
+      "term": "_cons",
+      "b": "-0.166",
+      "p": "(0.144)"
+    },
+    {
+      "model": 2,
+      "term": "_cons",
+      "b": "-0.195*",
+      "p": "(0.088)"
+    },
+    {
+      "model": 3,
+      "term": "_cons",
+      "b": "-0.121",
+      "p": "(0.292)"
+    },
+    {
+      "model": 4,
+      "term": "_cons",
+      "b": "-0.155",
+      "p": "(0.180)"
+    },
+    {
+      "model": 5,
+      "term": "VD",
+      "b": "-0.046",
+      "p": "(0.160)"
+    },
+    {
+      "model": 7,
+      "term": "VD",
+      "b": "-0.029",
+      "p": "(0.358)"
+    },
+    {
+      "model": 9,
+      "term": "VD",
+      "b": "-0.141",
+      "p": "(0.302)"
+    },
+    {
+      "model": 11,
+      "term": "VD",
+      "b": "0.021",
+      "p": "(0.855)"
+    },
+    {
+      "model": 5,
+      "term": "1.VD#2.fundstage",
+      "b": "0.004",
+      "p": "(0.937)"
+    },
+    {
+      "model": 7,
+      "term": "1.VD#2.fundstage",
+      "b": "0.016",
+      "p": "(0.776)"
+    },
+    {
+      "model": 9,
+      "term": "1.VD#2.fundstage",
+      "b": "0.028",
+      "p": "(0.666)"
+    },
+    {
+      "model": 11,
+      "term": "1.VD#2.fundstage",
+      "b": "0.013",
+      "p": "(0.809)"
+    },
+    {
+      "model": 5,
+      "term": "1.VD#3.fundstage",
+      "b": "-0.068",
+      "p": "(0.312)"
+    },
+    {
+      "model": 7,
+      "term": "1.VD#3.fundstage",
+      "b": "-0.047",
+      "p": "(0.485)"
+    },
+    {
+      "model": 9,
+      "term": "1.VD#3.fundstage",
+      "b": "0.048",
+      "p": "(0.688)"
+    },
+    {
+      "model": 11,
+      "term": "1.VD#3.fundstage",
+      "b": "-0.073",
+      "p": "(0.474)"
+    },
+    {
+      "model": 5,
+      "term": "1.VD#4.fundstage",
+      "b": "-0.288***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 7,
+      "term": "1.VD#4.fundstage",
+      "b": "-0.246***",
+      "p": "(0.001)"
+    },
+    {
+      "model": 9,
+      "term": "1.VD#4.fundstage",
+      "b": "-0.254*",
+      "p": "(0.094)"
+    },
+    {
+      "model": 11,
+      "term": "1.VD#4.fundstage",
+      "b": "-0.297**",
+      "p": "(0.018)"
+    },
+    {
+      "model": 5,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 7,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.185*",
+      "p": "(0.075)"
+    },
+    {
+      "model": 9,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 11,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.183*",
+      "p": "(0.079)"
+    },
+    {
+      "model": 5,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 7,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 9,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.086",
+      "p": "(0.506)"
+    },
+    {
+      "model": 11,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "-0.050",
+      "p": "(0.647)"
+    },
+    {
+      "model": 5,
+      "term": "2.fundstage",
+      "b": "0.001",
+      "p": "(0.977)"
+    },
+    {
+      "model": 7,
+      "term": "2.fundstage",
+      "b": "-0.003",
+      "p": "(0.944)"
+    },
+    {
+      "model": 9,
+      "term": "2.fundstage",
+      "b": "0.009",
+      "p": "(0.856)"
+    },
+    {
+      "model": 11,
+      "term": "2.fundstage",
+      "b": "-0.001",
+      "p": "(0.974)"
+    },
+    {
+      "model": 5,
+      "term": "3.fundstage",
+      "b": "-0.004",
+      "p": "(0.947)"
+    },
+    {
+      "model": 7,
+      "term": "3.fundstage",
+      "b": "-0.013",
+      "p": "(0.817)"
+    },
+    {
+      "model": 9,
+      "term": "3.fundstage",
+      "b": "-0.147",
+      "p": "(0.100)"
+    },
+    {
+      "model": 11,
+      "term": "3.fundstage",
+      "b": "-0.067",
+      "p": "(0.380)"
+    },
+    {
+      "model": 5,
+      "term": "4.fundstage",
+      "b": "0.174***",
+      "p": "(0.006)"
+    },
+    {
+      "model": 7,
+      "term": "4.fundstage",
+      "b": "0.152**",
+      "p": "(0.015)"
+    },
+    {
+      "model": 9,
+      "term": "4.fundstage",
+      "b": "0.120",
+      "p": "(0.253)"
+    },
+    {
+      "model": 11,
+      "term": "4.fundstage",
+      "b": "0.088",
+      "p": "(0.317)"
+    },
+    {
+      "model": 5,
+      "term": "priorpatentdummy_VD",
+      "b": "1.254***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 7,
+      "term": "priorpatentdummy_VD",
+      "b": "1.344***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 9,
+      "term": "priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 11,
+      "term": "priorpatentdummy_VD",
+      "b": "1.340***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 5,
+      "term": "Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 7,
+      "term": "Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 9,
+      "term": "Earlystage_VD",
+      "b": "-0.244***",
+      "p": "(0.004)"
+    },
+    {
+      "model": 11,
+      "term": "Earlystage_VD",
+      "b": "-0.076",
+      "p": "(0.290)"
+    },
+    {
+      "model": 5,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.027***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 7,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.027***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 9,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.055***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 11,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.026***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 5,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.012",
+      "p": "(0.180)"
+    },
+    {
+      "model": 7,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.012",
+      "p": "(0.176)"
+    },
+    {
+      "model": 9,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.017",
+      "p": "(0.125)"
+    },
+    {
+      "model": 11,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.013",
+      "p": "(0.160)"
+    },
+    {
+      "model": 5,
+      "term": "_cons",
+      "b": "-0.269**",
+      "p": "(0.017)"
+    },
+    {
+      "model": 7,
+      "term": "_cons",
+      "b": "-0.278**",
+      "p": "(0.013)"
+    },
+    {
+      "model": 9,
+      "term": "_cons",
+      "b": "-0.323**",
+      "p": "(0.047)"
+    },
+    {
+      "model": 11,
+      "term": "_cons",
+      "b": "-0.185",
+      "p": "(0.165)"
+    },
+    {
+      "model": 6,
+      "term": "1bn.fundstage",
+      "b": "-0.046",
+      "p": "(0.160)"
+    },
+    {
+      "model": 8,
+      "term": "1bn.fundstage",
+      "b": "-0.061*",
+      "p": "(0.087)"
+    },
+    {
+      "model": 10,
+      "term": "1bn.fundstage",
+      "b": "-0.083",
+      "p": "(0.163)"
+    },
+    {
+      "model": 12,
+      "term": "1bn.fundstage",
+      "b": "-0.044",
+      "p": "(0.386)"
+    },
+    {
+      "model": 6,
+      "term": "2.fundstage",
+      "b": "-0.042",
+      "p": "(0.338)"
+    },
+    {
+      "model": 8,
+      "term": "2.fundstage",
+      "b": "-0.046",
+      "p": "(0.304)"
+    },
+    {
+      "model": 10,
+      "term": "2.fundstage",
+      "b": "-0.055",
+      "p": "(0.396)"
+    },
+    {
+      "model": 12,
+      "term": "2.fundstage",
+      "b": "-0.031",
+      "p": "(0.575)"
+    },
+    {
+      "model": 6,
+      "term": "3.fundstage",
+      "b": "-0.114*",
+      "p": "(0.052)"
+    },
+    {
+      "model": 8,
+      "term": "3.fundstage",
+      "b": "-0.108*",
+      "p": "(0.063)"
+    },
+    {
+      "model": 10,
+      "term": "3.fundstage",
+      "b": "-0.035",
+      "p": "(0.678)"
+    },
+    {
+      "model": 12,
+      "term": "3.fundstage",
+      "b": "-0.117*",
+      "p": "(0.099)"
+    },
+    {
+      "model": 6,
+      "term": "4.fundstage",
+      "b": "-0.334***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 8,
+      "term": "4.fundstage",
+      "b": "-0.307***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 10,
+      "term": "4.fundstage",
+      "b": "-0.337***",
+      "p": "(0.004)"
+    },
+    {
+      "model": 12,
+      "term": "4.fundstage",
+      "b": "-0.341***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 13,
+      "term": "VD",
+      "b": "-0.069**",
+      "p": "(0.039)"
+    },
+    {
+      "model": 14,
+      "term": "VD",
+      "b": "-0.061",
+      "p": "(0.242)"
+    },
+    {
+      "model": 15,
+      "term": "VD",
+      "b": "-0.135***",
+      "p": "(0.005)"
+    },
+    {
+      "model": 16,
+      "term": "VD",
+      "b": "-0.144**",
+      "p": "(0.035)"
+    },
+    {
+      "model": 13,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 14,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.015",
+      "p": "(0.825)"
+    },
+    {
+      "model": 15,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 16,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.013",
+      "p": "(0.850)"
+    },
+    {
+      "model": 13,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 14,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 15,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.117*",
+      "p": "(0.071)"
+    },
+    {
+      "model": 16,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.120*",
+      "p": "(0.071)"
+    },
+    {
+      "model": 13,
+      "term": "priorpatentdummy_VD",
+      "b": "0.053",
+      "p": "(0.144)"
+    },
+    {
+      "model": 14,
+      "term": "priorpatentdummy_VD",
+      "b": "0.059",
+      "p": "(0.249)"
+    },
+    {
+      "model": 15,
+      "term": "priorpatentdummy_VD",
+      "b": "0.054",
+      "p": "(0.136)"
+    },
+    {
+      "model": 16,
+      "term": "priorpatentdummy_VD",
+      "b": "0.049",
+      "p": "(0.352)"
+    },
+    {
+      "model": 13,
+      "term": "Earlystage_VD",
+      "b": "0.030",
+      "p": "(0.477)"
+    },
+    {
+      "model": 14,
+      "term": "Earlystage_VD",
+      "b": "0.030",
+      "p": "(0.479)"
+    },
+    {
+      "model": 15,
+      "term": "Earlystage_VD",
+      "b": "-0.020",
+      "p": "(0.719)"
+    },
+    {
+      "model": 16,
+      "term": "Earlystage_VD",
+      "b": "-0.021",
+      "p": "(0.705)"
+    },
+    {
+      "model": 13,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.005",
+      "p": "(0.449)"
+    },
+    {
+      "model": 14,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.005",
+      "p": "(0.441)"
+    },
+    {
+      "model": 15,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.005",
+      "p": "(0.469)"
+    },
+    {
+      "model": 16,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.005",
+      "p": "(0.482)"
+    },
+    {
+      "model": 13,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.004",
+      "p": "(0.622)"
+    },
+    {
+      "model": 14,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.004",
+      "p": "(0.622)"
+    },
+    {
+      "model": 15,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.003",
+      "p": "(0.699)"
+    },
+    {
+      "model": 16,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.003",
+      "p": "(0.702)"
+    },
+    {
+      "model": 13,
+      "term": "_cons",
+      "b": "0.205*",
+      "p": "(0.091)"
+    },
+    {
+      "model": 14,
+      "term": "_cons",
+      "b": "0.200",
+      "p": "(0.110)"
+    },
+    {
+      "model": 15,
+      "term": "_cons",
+      "b": "0.229*",
+      "p": "(0.061)"
+    },
+    {
+      "model": 16,
+      "term": "_cons",
+      "b": "0.235*",
+      "p": "(0.066)"
+    },
+    {
+      "model": 17,
+      "term": "VD",
+      "b": "-0.008",
+      "p": "(0.922)"
+    },
+    {
+      "model": 18,
+      "term": "VD",
+      "b": "-0.016",
+      "p": "(0.856)"
+    },
+    {
+      "model": 19,
+      "term": "VD",
+      "b": "0.114",
+      "p": "(0.350)"
+    },
+    {
+      "model": 20,
+      "term": "VD",
+      "b": "0.113",
+      "p": "(0.408)"
+    },
+    {
+      "model": 17,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 18,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.043",
+      "p": "(0.806)"
+    },
+    {
+      "model": 19,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 20,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.002",
+      "p": "(0.992)"
+    },
+    {
+      "model": 17,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 18,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 19,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "-0.175",
+      "p": "(0.276)"
+    },
+    {
+      "model": 20,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "-0.175",
+      "p": "(0.286)"
+    },
+    {
+      "model": 17,
+      "term": "priorpatentdummy_VD",
+      "b": "0.247**",
+      "p": "(0.013)"
+    },
+    {
+      "model": 18,
+      "term": "priorpatentdummy_VD",
+      "b": "0.227*",
+      "p": "(0.072)"
+    },
+    {
+      "model": 19,
+      "term": "priorpatentdummy_VD",
+      "b": "0.248**",
+      "p": "(0.013)"
+    },
+    {
+      "model": 20,
+      "term": "priorpatentdummy_VD",
+      "b": "0.247*",
+      "p": "(0.054)"
+    },
+    {
+      "model": 17,
+      "term": "Earlystage_VD",
+      "b": "-0.711***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 18,
+      "term": "Earlystage_VD",
+      "b": "-0.711***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 19,
+      "term": "Earlystage_VD",
+      "b": "-0.642***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 20,
+      "term": "Earlystage_VD",
+      "b": "-0.642***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 17,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.448***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 18,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.448***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 19,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.448***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 20,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.448***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 17,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.100***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 18,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.100***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 19,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.101***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 20,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.101***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 17,
+      "term": "_cons",
+      "b": "10.098***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 18,
+      "term": "_cons",
+      "b": "10.102***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 19,
+      "term": "_cons",
+      "b": "10.076***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 20,
+      "term": "_cons",
+      "b": "10.076***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 21,
+      "term": "VD",
+      "b": "-0.056",
+      "p": "(0.581)"
+    },
+    {
+      "model": 21,
+      "term": "priorpatentdummy_VD",
+      "b": "0.311**",
+      "p": "(0.015)"
+    },
+    {
+      "model": 21,
+      "term": "Earlystage_VD",
+      "b": "-0.963***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 21,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.389***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 21,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.126***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 21,
+      "term": "_cons",
+      "b": "10.821***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 22,
+      "term": "VD",
+      "b": "-0.128",
+      "p": "(0.250)"
+    },
+    {
+      "model": 22,
+      "term": "priorpatentdummy_VD",
+      "b": "0.261*",
+      "p": "(0.069)"
+    },
+    {
+      "model": 22,
+      "term": "Earlystage_VD",
+      "b": "-0.556**",
+      "p": "(0.013)"
+    },
+    {
+      "model": 22,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.486***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 22,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.129***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 22,
+      "term": "_cons",
+      "b": "9.176***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 23,
+      "term": "VD",
+      "b": "-0.220",
+      "p": "(0.121)"
+    },
+    {
+      "model": 23,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.045",
+      "p": "(0.808)"
+    },
+    {
+      "model": 23,
+      "term": "Earlystage_VD",
+      "b": "-0.402*",
+      "p": "(0.066)"
+    },
+    {
+      "model": 23,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.376***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 23,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.042",
+      "p": "(0.225)"
+    },
+    {
+      "model": 23,
+      "term": "_cons",
+      "b": "10.906***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 32,
+      "term": "VD",
+      "b": "0.006",
+      "p": "(0.946)"
+    },
+    {
+      "model": 32,
+      "term": "priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 32,
+      "term": "Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 32,
+      "term": "ln_MoneyRaised_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 32,
+      "term": "NumofFundingRounds_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 33,
+      "term": "VD",
+      "b": "0.023",
+      "p": "(0.785)"
+    },
+    {
+      "model": 33,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.020",
+      "p": "(0.867)"
+    },
+    {
+      "model": 33,
+      "term": "Earlystage_VD",
+      "b": "-0.122",
+      "p": "(0.246)"
+    },
+    {
+      "model": 33,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.048*",
+      "p": "(0.057)"
+    },
+    {
+      "model": 33,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.011",
+      "p": "(0.623)"
+    },
+    {
+      "model": 35,
+      "term": "VD",
+      "b": "0.044",
+      "p": "(0.817)"
+    },
+    {
+      "model": 35,
+      "term": "priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 35,
+      "term": "Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 35,
+      "term": "ln_MoneyRaised_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 35,
+      "term": "NumofFundingRounds_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 36,
+      "term": "VD",
+      "b": "-0.049",
+      "p": "(0.811)"
+    },
+    {
+      "model": 36,
+      "term": "priorpatentdummy_VD",
+      "b": "0.447**",
+      "p": "(0.032)"
+    },
+    {
+      "model": 36,
+      "term": "Earlystage_VD",
+      "b": "-0.501**",
+      "p": "(0.036)"
+    },
+    {
+      "model": 36,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.576***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 36,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.028",
+      "p": "(0.492)"
+    },
+    {
+      "model": 39,
+      "term": "VD",
+      "b": "0.295*",
+      "p": "(0.091)"
+    },
+    {
+      "model": 39,
+      "term": "priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 39,
+      "term": "Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 39,
+      "term": "ln_MoneyRaised_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 39,
+      "term": "NumofFundingRounds_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 40,
+      "term": "VD",
+      "b": "0.245",
+      "p": "(0.164)"
+    },
+    {
+      "model": 40,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.088",
+      "p": "(0.744)"
+    },
+    {
+      "model": 40,
+      "term": "Earlystage_VD",
+      "b": "0.385",
+      "p": "(0.105)"
+    },
+    {
+      "model": 40,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.091***",
+      "p": "(0.004)"
+    },
+    {
+      "model": 40,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.015",
+      "p": "(0.752)"
+    },
+    {
+      "model": 24,
+      "term": "VD",
+      "b": "0.004",
+      "p": "(0.960)"
+    },
+    {
+      "model": 24,
+      "term": "priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 24,
+      "term": "Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 24,
+      "term": "ln_MoneyRaised_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 24,
+      "term": "NumofFundingRounds_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 25,
+      "term": "VD",
+      "b": "0.020",
+      "p": "(0.810)"
+    },
+    {
+      "model": 25,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.072",
+      "p": "(0.547)"
+    },
+    {
+      "model": 25,
+      "term": "Earlystage_VD",
+      "b": "-0.135",
+      "p": "(0.198)"
+    },
+    {
+      "model": 25,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.047*",
+      "p": "(0.056)"
+    },
+    {
+      "model": 25,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.009",
+      "p": "(0.691)"
+    },
+    {
+      "model": 26,
+      "term": "VD",
+      "b": "0.015",
+      "p": "(0.937)"
+    },
+    {
+      "model": 26,
+      "term": "priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 26,
+      "term": "Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 26,
+      "term": "ln_MoneyRaised_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 26,
+      "term": "NumofFundingRounds_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 27,
+      "term": "VD",
+      "b": "-0.104",
+      "p": "(0.608)"
+    },
+    {
+      "model": 27,
+      "term": "priorpatentdummy_VD",
+      "b": "0.452**",
+      "p": "(0.029)"
+    },
+    {
+      "model": 27,
+      "term": "Earlystage_VD",
+      "b": "-0.491**",
+      "p": "(0.041)"
+    },
+    {
+      "model": 27,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.537***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 27,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.043",
+      "p": "(0.308)"
+    },
+    {
+      "model": 28,
+      "term": "VD",
+      "b": "0.293*",
+      "p": "(0.094)"
+    },
+    {
+      "model": 28,
+      "term": "priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 28,
+      "term": "Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 28,
+      "term": "ln_MoneyRaised_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 28,
+      "term": "NumofFundingRounds_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 29,
+      "term": "VD",
+      "b": "0.244",
+      "p": "(0.165)"
+    },
+    {
+      "model": 29,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.065",
+      "p": "(0.808)"
+    },
+    {
+      "model": 29,
+      "term": "Earlystage_VD",
+      "b": "0.399*",
+      "p": "(0.093)"
+    },
+    {
+      "model": 29,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.090***",
+      "p": "(0.004)"
+    },
+    {
+      "model": 29,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.019",
+      "p": "(0.692)"
+    },
+    {
+      "model": 31,
+      "term": "VD",
+      "b": "-0.015",
+      "p": "(0.856)"
+    },
+    {
+      "model": 34,
+      "term": "VD",
+      "b": "0.058",
+      "p": "(0.764)"
+    },
+    {
+      "model": 38,
+      "term": "VD",
+      "b": "0.278",
+      "p": "(0.111)"
+    },
+    {
+      "model": 41,
+      "term": "ln_vdsupply",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 41,
+      "term": "VD",
+      "b": "-0.681***",
+      "p": "(0.007)"
+    },
+    {
+      "model": 41,
+      "term": "priorpatentdummy_VD",
+      "b": "1.252***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 41,
+      "term": "Earlystage_VD",
+      "b": "0.038",
+      "p": "(0.424)"
+    },
+    {
+      "model": 41,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.036***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 41,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.003",
+      "p": "(0.811)"
+    },
+    {
+      "model": 42,
+      "term": "ln_vdsupply",
+      "b": "0.053***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 42,
+      "term": "VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 42,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.007",
+      "p": "(0.783)"
+    },
+    {
+      "model": 42,
+      "term": "Earlystage_VD",
+      "b": "0.137***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 42,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.018***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 42,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.017***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 43,
+      "term": "VD",
+      "b": "-0.137**",
+      "p": "(0.025)"
+    },
+    {
+      "model": 44,
+      "term": "VD",
+      "b": "-0.005",
+      "p": "(0.940)"
+    },
+    {
+      "model": 45,
+      "term": "VD",
+      "b": "-0.296***",
+      "p": "(0.005)"
+    },
+    {
+      "model": 46,
+      "term": "VD",
+      "b": "-0.170",
+      "p": "(0.154)"
+    },
+    {
+      "model": 43,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 44,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.238**",
+      "p": "(0.045)"
+    },
+    {
+      "model": 45,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 46,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.183",
+      "p": "(0.130)"
+    },
+    {
+      "model": 43,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 44,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 45,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.281**",
+      "p": "(0.027)"
+    },
+    {
+      "model": 46,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.237*",
+      "p": "(0.065)"
+    },
+    {
+      "model": 43,
+      "term": "priorpatentdummy_VD",
+      "b": "0.613***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 44,
+      "term": "priorpatentdummy_VD",
+      "b": "0.713***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 45,
+      "term": "priorpatentdummy_VD",
+      "b": "0.616***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 46,
+      "term": "priorpatentdummy_VD",
+      "b": "0.692***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 43,
+      "term": "Earlystage_VD",
+      "b": "0.007",
+      "p": "(0.926)"
+    },
+    {
+      "model": 44,
+      "term": "Earlystage_VD",
+      "b": "0.006",
+      "p": "(0.941)"
+    },
+    {
+      "model": 45,
+      "term": "Earlystage_VD",
+      "b": "-0.112",
+      "p": "(0.246)"
+    },
+    {
+      "model": 46,
+      "term": "Earlystage_VD",
+      "b": "-0.094",
+      "p": "(0.332)"
+    },
+    {
+      "model": 43,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.085***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 44,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.087***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 45,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.084***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 46,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.086***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 43,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.022",
+      "p": "(0.301)"
+    },
+    {
+      "model": 44,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.022",
+      "p": "(0.296)"
+    },
+    {
+      "model": 45,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.024",
+      "p": "(0.252)"
+    },
+    {
+      "model": 46,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.024",
+      "p": "(0.256)"
+    },
+    {
+      "model": 43,
+      "term": "_cons",
+      "b": "-0.153",
+      "p": "(0.691)"
+    },
+    {
+      "model": 44,
+      "term": "_cons",
+      "b": "-0.236",
+      "p": "(0.554)"
+    },
+    {
+      "model": 45,
+      "term": "_cons",
+      "b": "-0.095",
+      "p": "(0.810)"
+    },
+    {
+      "model": 46,
+      "term": "_cons",
+      "b": "-0.167",
+      "p": "(0.680)"
+    },
+    {
+      "model": 48,
+      "term": "VD",
+      "b": "0.075",
+      "p": "(0.358)"
+    },
+    {
+      "model": 49,
+      "term": "VD",
+      "b": "0.085",
+      "p": "(0.339)"
+    },
+    {
+      "model": 50,
+      "term": "VD",
+      "b": "-0.137",
+      "p": "(0.322)"
+    },
+    {
+      "model": 51,
+      "term": "VD",
+      "b": "-0.140",
+      "p": "(0.344)"
+    },
+    {
+      "model": 48,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 49,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.063",
+      "p": "(0.782)"
+    },
+    {
+      "model": 50,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 51,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.015",
+      "p": "(0.948)"
+    },
+    {
+      "model": 48,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 49,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 50,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.333*",
+      "p": "(0.054)"
+    },
+    {
+      "model": 51,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.335*",
+      "p": "(0.056)"
+    },
+    {
+      "model": 48,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.069",
+      "p": "(0.564)"
+    },
+    {
+      "model": 49,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.040",
+      "p": "(0.799)"
+    },
+    {
+      "model": 50,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.075",
+      "p": "(0.531)"
+    },
+    {
+      "model": 51,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.082",
+      "p": "(0.608)"
+    },
+    {
+      "model": 48,
+      "term": "Earlystage_VD",
+      "b": "-0.219**",
+      "p": "(0.030)"
+    },
+    {
+      "model": 49,
+      "term": "Earlystage_VD",
+      "b": "-0.219**",
+      "p": "(0.031)"
+    },
+    {
+      "model": 50,
+      "term": "Earlystage_VD",
+      "b": "-0.366***",
+      "p": "(0.004)"
+    },
+    {
+      "model": 51,
+      "term": "Earlystage_VD",
+      "b": "-0.367***",
+      "p": "(0.004)"
+    },
+    {
+      "model": 48,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.034",
+      "p": "(0.153)"
+    },
+    {
+      "model": 49,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.034",
+      "p": "(0.153)"
+    },
+    {
+      "model": 50,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.034",
+      "p": "(0.145)"
+    },
+    {
+      "model": 51,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.034",
+      "p": "(0.146)"
+    },
+    {
+      "model": 48,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.010",
+      "p": "(0.666)"
+    },
+    {
+      "model": 49,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.009",
+      "p": "(0.668)"
+    },
+    {
+      "model": 50,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.012",
+      "p": "(0.585)"
+    },
+    {
+      "model": 51,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.012",
+      "p": "(0.584)"
+    },
+    {
+      "model": 53,
+      "term": "VD",
+      "b": "-0.139",
+      "p": "(0.464)"
+    },
+    {
+      "model": 54,
+      "term": "VD",
+      "b": "-0.080",
+      "p": "(0.750)"
+    },
+    {
+      "model": 55,
+      "term": "VD",
+      "b": "-0.430*",
+      "p": "(0.062)"
+    },
+    {
+      "model": 56,
+      "term": "VD",
+      "b": "-0.428",
+      "p": "(0.144)"
+    },
+    {
+      "model": 53,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 54,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.134",
+      "p": "(0.717)"
+    },
+    {
+      "model": 55,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 56,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.004",
+      "p": "(0.992)"
+    },
+    {
+      "model": 53,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 54,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 55,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "1.017**",
+      "p": "(0.020)"
+    },
+    {
+      "model": 56,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "1.017**",
+      "p": "(0.021)"
+    },
+    {
+      "model": 53,
+      "term": "priorpatentdummy_VD",
+      "b": "0.501**",
+      "p": "(0.010)"
+    },
+    {
+      "model": 54,
+      "term": "priorpatentdummy_VD",
+      "b": "0.565**",
+      "p": "(0.032)"
+    },
+    {
+      "model": 55,
+      "term": "priorpatentdummy_VD",
+      "b": "0.479**",
+      "p": "(0.014)"
+    },
+    {
+      "model": 56,
+      "term": "priorpatentdummy_VD",
+      "b": "0.481*",
+      "p": "(0.071)"
+    },
+    {
+      "model": 53,
+      "term": "Earlystage_VD",
+      "b": "-0.433*",
+      "p": "(0.052)"
+    },
+    {
+      "model": 54,
+      "term": "Earlystage_VD",
+      "b": "-0.434*",
+      "p": "(0.052)"
+    },
+    {
+      "model": 55,
+      "term": "Earlystage_VD",
+      "b": "-1.045***",
+      "p": "(0.004)"
+    },
+    {
+      "model": 56,
+      "term": "Earlystage_VD",
+      "b": "-1.045***",
+      "p": "(0.004)"
+    },
+    {
+      "model": 53,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.567***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 54,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.566***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 55,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.554***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 56,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.554***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 53,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.017",
+      "p": "(0.667)"
+    },
+    {
+      "model": 54,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.016",
+      "p": "(0.676)"
+    },
+    {
+      "model": 55,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.021",
+      "p": "(0.587)"
+    },
+    {
+      "model": 56,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.021",
+      "p": "(0.588)"
+    },
+    {
+      "model": 58,
+      "term": "VD",
+      "b": "0.240",
+      "p": "(0.166)"
+    },
+    {
+      "model": 59,
+      "term": "VD",
+      "b": "0.257",
+      "p": "(0.167)"
+    },
+    {
+      "model": 60,
+      "term": "VD",
+      "b": "-0.786*",
+      "p": "(0.092)"
+    },
+    {
+      "model": 61,
+      "term": "VD",
+      "b": "-0.805*",
+      "p": "(0.095)"
+    },
+    {
+      "model": 58,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 59,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.129",
+      "p": "(0.800)"
+    },
+    {
+      "model": 60,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 61,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.078",
+      "p": "(0.879)"
+    },
+    {
+      "model": 58,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 59,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 60,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "1.248**",
+      "p": "(0.014)"
+    },
+    {
+      "model": 61,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "1.259**",
+      "p": "(0.014)"
+    },
+    {
+      "model": 58,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.109",
+      "p": "(0.684)"
+    },
+    {
+      "model": 59,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.043",
+      "p": "(0.908)"
+    },
+    {
+      "model": 60,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.118",
+      "p": "(0.661)"
+    },
+    {
+      "model": 61,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.157",
+      "p": "(0.675)"
+    },
+    {
+      "model": 58,
+      "term": "Earlystage_VD",
+      "b": "0.418*",
+      "p": "(0.077)"
+    },
+    {
+      "model": 59,
+      "term": "Earlystage_VD",
+      "b": "0.419*",
+      "p": "(0.076)"
+    },
+    {
+      "model": 60,
+      "term": "Earlystage_VD",
+      "b": "-0.054",
+      "p": "(0.849)"
+    },
+    {
+      "model": 61,
+      "term": "Earlystage_VD",
+      "b": "-0.060",
+      "p": "(0.835)"
+    },
+    {
+      "model": 58,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.097***",
+      "p": "(0.002)"
+    },
+    {
+      "model": 59,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.097***",
+      "p": "(0.002)"
+    },
+    {
+      "model": 60,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.096***",
+      "p": "(0.002)"
+    },
+    {
+      "model": 61,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.096***",
+      "p": "(0.002)"
+    },
+    {
+      "model": 58,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.032",
+      "p": "(0.480)"
+    },
+    {
+      "model": 59,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.033",
+      "p": "(0.478)"
+    },
+    {
+      "model": 60,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.039",
+      "p": "(0.404)"
+    },
+    {
+      "model": 61,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.039",
+      "p": "(0.405)"
+    },
+    {
+      "model": 74,
+      "term": "VD",
+      "b": "-0.323*",
+      "p": "(0.052)"
+    },
+    {
+      "model": 75,
+      "term": "VD",
+      "b": "-0.188",
+      "p": "(0.478)"
+    },
+    {
+      "model": 76,
+      "term": "VD",
+      "b": "-0.340",
+      "p": "(0.123)"
+    },
+    {
+      "model": 77,
+      "term": "VD",
+      "b": "-0.167",
+      "p": "(0.597)"
+    },
+    {
+      "model": 74,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 75,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.249",
+      "p": "(0.452)"
+    },
+    {
+      "model": 76,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 77,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.255",
+      "p": "(0.443)"
+    },
+    {
+      "model": 74,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 75,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 76,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.029",
+      "p": "(0.931)"
+    },
+    {
+      "model": 77,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "-0.030",
+      "p": "(0.928)"
+    },
+    {
+      "model": 74,
+      "term": "priorpatentdummy_VD",
+      "b": "0.027",
+      "p": "(0.881)"
+    },
+    {
+      "model": 75,
+      "term": "priorpatentdummy_VD",
+      "b": "0.130",
+      "p": "(0.577)"
+    },
+    {
+      "model": 76,
+      "term": "priorpatentdummy_VD",
+      "b": "0.027",
+      "p": "(0.881)"
+    },
+    {
+      "model": 77,
+      "term": "priorpatentdummy_VD",
+      "b": "0.133",
+      "p": "(0.575)"
+    },
+    {
+      "model": 74,
+      "term": "Earlystage_VD",
+      "b": "0.036",
+      "p": "(0.863)"
+    },
+    {
+      "model": 75,
+      "term": "Earlystage_VD",
+      "b": "0.035",
+      "p": "(0.869)"
+    },
+    {
+      "model": 76,
+      "term": "Earlystage_VD",
+      "b": "0.025",
+      "p": "(0.926)"
+    },
+    {
+      "model": 77,
+      "term": "Earlystage_VD",
+      "b": "0.046",
+      "p": "(0.862)"
+    },
+    {
+      "model": 74,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.044",
+      "p": "(0.382)"
+    },
+    {
+      "model": 75,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.046",
+      "p": "(0.372)"
+    },
+    {
+      "model": 76,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.044",
+      "p": "(0.382)"
+    },
+    {
+      "model": 77,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.046",
+      "p": "(0.372)"
+    },
+    {
+      "model": 74,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.002",
+      "p": "(0.957)"
+    },
+    {
+      "model": 75,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.002",
+      "p": "(0.954)"
+    },
+    {
+      "model": 76,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.002",
+      "p": "(0.953)"
+    },
+    {
+      "model": 77,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.002",
+      "p": "(0.959)"
+    },
+    {
+      "model": 74,
+      "term": "_cons",
+      "b": "17.761***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 75,
+      "term": "_cons",
+      "b": "17.686***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 76,
+      "term": "_cons",
+      "b": "17.766***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 77,
+      "term": "_cons",
+      "b": "17.680***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 78,
+      "term": "VD",
+      "b": "-0.483**",
+      "p": "(0.012)"
+    },
+    {
+      "model": 79,
+      "term": "VD",
+      "b": "-0.265",
+      "p": "(0.397)"
+    },
+    {
+      "model": 80,
+      "term": "VD",
+      "b": "-0.476*",
+      "p": "(0.059)"
+    },
+    {
+      "model": 81,
+      "term": "VD",
+      "b": "-0.188",
+      "p": "(0.616)"
+    },
+    {
+      "model": 78,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 79,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.402",
+      "p": "(0.300)"
+    },
+    {
+      "model": 80,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 81,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.426",
+      "p": "(0.278)"
+    },
+    {
+      "model": 78,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 79,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 80,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "-0.012",
+      "p": "(0.975)"
+    },
+    {
+      "model": 81,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "-0.110",
+      "p": "(0.778)"
+    },
+    {
+      "model": 78,
+      "term": "priorpatentdummy_VD",
+      "b": "0.022",
+      "p": "(0.920)"
+    },
+    {
+      "model": 79,
+      "term": "priorpatentdummy_VD",
+      "b": "0.188",
+      "p": "(0.517)"
+    },
+    {
+      "model": 80,
+      "term": "priorpatentdummy_VD",
+      "b": "0.022",
+      "p": "(0.920)"
+    },
+    {
+      "model": 81,
+      "term": "priorpatentdummy_VD",
+      "b": "0.198",
+      "p": "(0.506)"
+    },
+    {
+      "model": 78,
+      "term": "Earlystage_VD",
+      "b": "0.158",
+      "p": "(0.494)"
+    },
+    {
+      "model": 79,
+      "term": "Earlystage_VD",
+      "b": "0.155",
+      "p": "(0.500)"
+    },
+    {
+      "model": 80,
+      "term": "Earlystage_VD",
+      "b": "0.163",
+      "p": "(0.588)"
+    },
+    {
+      "model": 81,
+      "term": "Earlystage_VD",
+      "b": "0.199",
+      "p": "(0.512)"
+    },
+    {
+      "model": 78,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.031",
+      "p": "(0.585)"
+    },
+    {
+      "model": 79,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.033",
+      "p": "(0.561)"
+    },
+    {
+      "model": 80,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.030",
+      "p": "(0.586)"
+    },
+    {
+      "model": 81,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.033",
+      "p": "(0.561)"
+    },
+    {
+      "model": 78,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.005",
+      "p": "(0.904)"
+    },
+    {
+      "model": 79,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.005",
+      "p": "(0.908)"
+    },
+    {
+      "model": 80,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.005",
+      "p": "(0.902)"
+    },
+    {
+      "model": 81,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.006",
+      "p": "(0.893)"
+    },
+    {
+      "model": 78,
+      "term": "_cons",
+      "b": "14.237***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 79,
+      "term": "_cons",
+      "b": "14.116***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 80,
+      "term": "_cons",
+      "b": "14.235***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 81,
+      "term": "_cons",
+      "b": "14.092***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 82,
+      "term": "VD",
+      "b": "-0.242**",
+      "p": "(0.013)"
+    },
+    {
+      "model": 83,
+      "term": "VD",
+      "b": "-0.545**",
+      "p": "(0.043)"
+    },
+    {
+      "model": 84,
+      "term": "VD",
+      "b": "-0.379***",
+      "p": "(0.002)"
+    },
+    {
+      "model": 85,
+      "term": "VD",
+      "b": "-0.788***",
+      "p": "(0.007)"
+    },
+    {
+      "model": 82,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 83,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.374",
+      "p": "(0.196)"
+    },
+    {
+      "model": 84,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 85,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.475",
+      "p": "(0.105)"
+    },
+    {
+      "model": 82,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 83,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 84,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.402*",
+      "p": "(0.051)"
+    },
+    {
+      "model": 85,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.473**",
+      "p": "(0.024)"
+    },
+    {
+      "model": 82,
+      "term": "priorpatentdummy_VD",
+      "b": "1.245***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 83,
+      "term": "priorpatentdummy_VD",
+      "b": "1.093***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 84,
+      "term": "priorpatentdummy_VD",
+      "b": "1.245***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 85,
+      "term": "priorpatentdummy_VD",
+      "b": "1.048***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 82,
+      "term": "Earlystage_VD",
+      "b": "0.155",
+      "p": "(0.204)"
+    },
+    {
+      "model": 83,
+      "term": "Earlystage_VD",
+      "b": "0.157",
+      "p": "(0.193)"
+    },
+    {
+      "model": 84,
+      "term": "Earlystage_VD",
+      "b": "-0.023",
+      "p": "(0.881)"
+    },
+    {
+      "model": 85,
+      "term": "Earlystage_VD",
+      "b": "-0.050",
+      "p": "(0.746)"
+    },
+    {
+      "model": 82,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.204***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 83,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.207***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 84,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.199***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 85,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.202***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 82,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.006",
+      "p": "(0.683)"
+    },
+    {
+      "model": 83,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.006",
+      "p": "(0.689)"
+    },
+    {
+      "model": 84,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.006",
+      "p": "(0.680)"
+    },
+    {
+      "model": 85,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.006",
+      "p": "(0.700)"
+    },
+    {
+      "model": 82,
+      "term": "_cons",
+      "b": "-4.317***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 83,
+      "term": "_cons",
+      "b": "-4.249***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 84,
+      "term": "_cons",
+      "b": "-4.173***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 85,
+      "term": "_cons",
+      "b": "-4.055***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 86,
+      "term": "VD",
+      "b": "-0.375*",
+      "p": "(0.085)"
+    },
+    {
+      "model": 87,
+      "term": "VD",
+      "b": "-0.648*",
+      "p": "(0.079)"
+    },
+    {
+      "model": 88,
+      "term": "VD",
+      "b": "-0.520*",
+      "p": "(0.090)"
+    },
+    {
+      "model": 89,
+      "term": "VD",
+      "b": "-0.893*",
+      "p": "(0.059)"
+    },
+    {
+      "model": 86,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 87,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.353",
+      "p": "(0.415)"
+    },
+    {
+      "model": 88,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 89,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.443",
+      "p": "(0.320)"
+    },
+    {
+      "model": 86,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 87,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 88,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.336",
+      "p": "(0.430)"
+    },
+    {
+      "model": 89,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.408",
+      "p": "(0.351)"
+    },
+    {
+      "model": 86,
+      "term": "priorpatentdummy_VD",
+      "b": "1.100***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 87,
+      "term": "priorpatentdummy_VD",
+      "b": "0.973***",
+      "p": "(0.002)"
+    },
+    {
+      "model": 88,
+      "term": "priorpatentdummy_VD",
+      "b": "1.100***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 89,
+      "term": "priorpatentdummy_VD",
+      "b": "0.937***",
+      "p": "(0.003)"
+    },
+    {
+      "model": 86,
+      "term": "Earlystage_VD",
+      "b": "0.482**",
+      "p": "(0.025)"
+    },
+    {
+      "model": 87,
+      "term": "Earlystage_VD",
+      "b": "0.485**",
+      "p": "(0.023)"
+    },
+    {
+      "model": 88,
+      "term": "Earlystage_VD",
+      "b": "0.348",
+      "p": "(0.211)"
+    },
+    {
+      "model": 89,
+      "term": "Earlystage_VD",
+      "b": "0.323",
+      "p": "(0.247)"
+    },
+    {
+      "model": 86,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.188**",
+      "p": "(0.036)"
+    },
+    {
+      "model": 87,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.191**",
+      "p": "(0.037)"
+    },
+    {
+      "model": 88,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.183**",
+      "p": "(0.043)"
+    },
+    {
+      "model": 89,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.186**",
+      "p": "(0.047)"
+    },
+    {
+      "model": 86,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.057",
+      "p": "(0.169)"
+    },
+    {
+      "model": 87,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.057",
+      "p": "(0.171)"
+    },
+    {
+      "model": 88,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.056",
+      "p": "(0.168)"
+    },
+    {
+      "model": 89,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.057",
+      "p": "(0.169)"
+    },
+    {
+      "model": 86,
+      "term": "_cons",
+      "b": "-4.846***",
+      "p": "(0.001)"
+    },
+    {
+      "model": 87,
+      "term": "_cons",
+      "b": "-4.807***",
+      "p": "(0.002)"
+    },
+    {
+      "model": 88,
+      "term": "_cons",
+      "b": "-4.710***",
+      "p": "(0.002)"
+    },
+    {
+      "model": 89,
+      "term": "_cons",
+      "b": "-4.627***",
+      "p": "(0.003)"
+    },
+    {
+      "model": 90,
+      "term": "VD",
+      "b": "0.365",
+      "p": "(0.112)"
+    },
+    {
+      "model": 91,
+      "term": "VD",
+      "b": "-0.113",
+      "p": "(0.676)"
+    },
+    {
+      "model": 92,
+      "term": "VD",
+      "b": "0.469",
+      "p": "(0.210)"
+    },
+    {
+      "model": 93,
+      "term": "VD",
+      "b": "-0.135",
+      "p": "(0.746)"
+    },
+    {
+      "model": 90,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 91,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.971**",
+      "p": "(0.021)"
+    },
+    {
+      "model": 92,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 93,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.978**",
+      "p": "(0.021)"
+    },
+    {
+      "model": 90,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 91,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 92,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "-0.180",
+      "p": "(0.695)"
+    },
+    {
+      "model": 93,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.033",
+      "p": "(0.944)"
+    },
+    {
+      "model": 90,
+      "term": "priorpatentdummy_VD",
+      "b": "0.377*",
+      "p": "(0.062)"
+    },
+    {
+      "model": 91,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.018",
+      "p": "(0.932)"
+    },
+    {
+      "model": 92,
+      "term": "priorpatentdummy_VD",
+      "b": "0.377*",
+      "p": "(0.063)"
+    },
+    {
+      "model": 93,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.021",
+      "p": "(0.923)"
+    },
+    {
+      "model": 90,
+      "term": "Earlystage_VD",
+      "b": "0.053",
+      "p": "(0.837)"
+    },
+    {
+      "model": 91,
+      "term": "Earlystage_VD",
+      "b": "0.067",
+      "p": "(0.796)"
+    },
+    {
+      "model": 92,
+      "term": "Earlystage_VD",
+      "b": "0.123",
+      "p": "(0.633)"
+    },
+    {
+      "model": 93,
+      "term": "Earlystage_VD",
+      "b": "0.054",
+      "p": "(0.833)"
+    },
+    {
+      "model": 90,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.029",
+      "p": "(0.603)"
+    },
+    {
+      "model": 91,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.029",
+      "p": "(0.622)"
+    },
+    {
+      "model": 92,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.029",
+      "p": "(0.606)"
+    },
+    {
+      "model": 93,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.029",
+      "p": "(0.622)"
+    },
+    {
+      "model": 90,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.037",
+      "p": "(0.484)"
+    },
+    {
+      "model": 91,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.035",
+      "p": "(0.514)"
+    },
+    {
+      "model": 92,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.036",
+      "p": "(0.507)"
+    },
+    {
+      "model": 93,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.035",
+      "p": "(0.515)"
+    },
+    {
+      "model": 90,
+      "term": "_cons",
+      "b": "2.325**",
+      "p": "(0.018)"
+    },
+    {
+      "model": 91,
+      "term": "_cons",
+      "b": "2.511**",
+      "p": "(0.014)"
+    },
+    {
+      "model": 92,
+      "term": "_cons",
+      "b": "2.297**",
+      "p": "(0.020)"
+    },
+    {
+      "model": 93,
+      "term": "_cons",
+      "b": "2.517**",
+      "p": "(0.014)"
+    },
+    {
+      "model": 94,
+      "term": "VD",
+      "b": "0.177",
+      "p": "(0.315)"
+    },
+    {
+      "model": 95,
+      "term": "VD",
+      "b": "-0.229",
+      "p": "(0.361)"
+    },
+    {
+      "model": 96,
+      "term": "VD",
+      "b": "0.171",
+      "p": "(0.512)"
+    },
+    {
+      "model": 97,
+      "term": "VD",
+      "b": "-0.283",
+      "p": "(0.332)"
+    },
+    {
+      "model": 94,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 95,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.498",
+      "p": "(0.148)"
+    },
+    {
+      "model": 96,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 97,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.520",
+      "p": "(0.108)"
+    },
+    {
+      "model": 94,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 95,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 96,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.016",
+      "p": "(0.959)"
+    },
+    {
+      "model": 97,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.094",
+      "p": "(0.755)"
+    },
+    {
+      "model": 94,
+      "term": "priorpatentdummy_VD",
+      "b": "1.055***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 95,
+      "term": "priorpatentdummy_VD",
+      "b": "0.859***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 96,
+      "term": "priorpatentdummy_VD",
+      "b": "1.055***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 97,
+      "term": "priorpatentdummy_VD",
+      "b": "0.849***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 94,
+      "term": "Earlystage_VD",
+      "b": "-0.448**",
+      "p": "(0.027)"
+    },
+    {
+      "model": 95,
+      "term": "Earlystage_VD",
+      "b": "-0.448**",
+      "p": "(0.025)"
+    },
+    {
+      "model": 96,
+      "term": "Earlystage_VD",
+      "b": "-0.457*",
+      "p": "(0.073)"
+    },
+    {
+      "model": 97,
+      "term": "Earlystage_VD",
+      "b": "-0.497**",
+      "p": "(0.043)"
+    },
+    {
+      "model": 94,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.019",
+      "p": "(0.668)"
+    },
+    {
+      "model": 95,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.016",
+      "p": "(0.721)"
+    },
+    {
+      "model": 96,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.019",
+      "p": "(0.667)"
+    },
+    {
+      "model": 97,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.015",
+      "p": "(0.736)"
+    },
+    {
+      "model": 94,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.022",
+      "p": "(0.448)"
+    },
+    {
+      "model": 95,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.022",
+      "p": "(0.460)"
+    },
+    {
+      "model": 96,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.022",
+      "p": "(0.443)"
+    },
+    {
+      "model": 97,
+      "term": "NumofFundingRounds_VD",
+      "b": "-0.021",
+      "p": "(0.464)"
+    },
+    {
+      "model": 94,
+      "term": "_cons",
+      "b": "-0.320",
+      "p": "(0.682)"
+    },
+    {
+      "model": 95,
+      "term": "_cons",
+      "b": "-0.114",
+      "p": "(0.884)"
+    },
+    {
+      "model": 96,
+      "term": "_cons",
+      "b": "-0.315",
+      "p": "(0.685)"
+    },
+    {
+      "model": 97,
+      "term": "_cons",
+      "b": "-0.074",
+      "p": "(0.923)"
+    },
+    {
+      "model": 62,
+      "term": "VD",
+      "b": "-0.134",
+      "p": "(0.299)"
+    },
+    {
+      "model": 63,
+      "term": "VD",
+      "b": "-0.145",
+      "p": "(0.491)"
+    },
+    {
+      "model": 64,
+      "term": "VD",
+      "b": "0.413**",
+      "p": "(0.031)"
+    },
+    {
+      "model": 65,
+      "term": "VD",
+      "b": "0.541*",
+      "p": "(0.058)"
+    },
+    {
+      "model": 62,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 63,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.021",
+      "p": "(0.936)"
+    },
+    {
+      "model": 64,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 65,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.187",
+      "p": "(0.489)"
+    },
+    {
+      "model": 62,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 63,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 64,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "-0.931***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 65,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "-0.974***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 62,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.277**",
+      "p": "(0.042)"
+    },
+    {
+      "model": 63,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.286*",
+      "p": "(0.087)"
+    },
+    {
+      "model": 64,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.284**",
+      "p": "(0.037)"
+    },
+    {
+      "model": 65,
+      "term": "priorpatentdummy_VD",
+      "b": "-0.206",
+      "p": "(0.221)"
+    },
+    {
+      "model": 62,
+      "term": "Earlystage_VD",
+      "b": "-0.185",
+      "p": "(0.254)"
+    },
+    {
+      "model": 63,
+      "term": "Earlystage_VD",
+      "b": "-0.184",
+      "p": "(0.254)"
+    },
+    {
+      "model": 64,
+      "term": "Earlystage_VD",
+      "b": "0.193",
+      "p": "(0.323)"
+    },
+    {
+      "model": 65,
+      "term": "Earlystage_VD",
+      "b": "0.207",
+      "p": "(0.290)"
+    },
+    {
+      "model": 62,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.022",
+      "p": "(0.621)"
+    },
+    {
+      "model": 63,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.022",
+      "p": "(0.623)"
+    },
+    {
+      "model": 64,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.022",
+      "p": "(0.629)"
+    },
+    {
+      "model": 65,
+      "term": "ln_MoneyRaised_VD",
+      "b": "0.023",
+      "p": "(0.616)"
+    },
+    {
+      "model": 62,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.048*",
+      "p": "(0.090)"
+    },
+    {
+      "model": 63,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.048*",
+      "p": "(0.090)"
+    },
+    {
+      "model": 64,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.043",
+      "p": "(0.133)"
+    },
+    {
+      "model": 65,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.043",
+      "p": "(0.137)"
+    },
+    {
+      "model": 62,
+      "term": "_cons",
+      "b": "-0.578",
+      "p": "(0.454)"
+    },
+    {
+      "model": 63,
+      "term": "_cons",
+      "b": "-0.571",
+      "p": "(0.460)"
+    },
+    {
+      "model": 64,
+      "term": "_cons",
+      "b": "-0.763",
+      "p": "(0.346)"
+    },
+    {
+      "model": 65,
+      "term": "_cons",
+      "b": "-0.828",
+      "p": "(0.307)"
+    },
+    {
+      "model": 66,
+      "term": "VD",
+      "b": "-0.005",
+      "p": "(0.780)"
+    },
+    {
+      "model": 67,
+      "term": "VD",
+      "b": "-0.010",
+      "p": "(0.660)"
+    },
+    {
+      "model": 68,
+      "term": "VD",
+      "b": "-0.038",
+      "p": "(0.130)"
+    },
+    {
+      "model": 69,
+      "term": "VD",
+      "b": "-0.055",
+      "p": "(0.113)"
+    },
+    {
+      "model": 66,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 67,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.010",
+      "p": "(0.755)"
+    },
+    {
+      "model": 68,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 69,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "0.024",
+      "p": "(0.483)"
+    },
+    {
+      "model": 66,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 67,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 68,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.058*",
+      "p": "(0.077)"
+    },
+    {
+      "model": 69,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.064*",
+      "p": "(0.064)"
+    },
+    {
+      "model": 66,
+      "term": "priorpatentdummy_VD",
+      "b": "0.049***",
+      "p": "(0.004)"
+    },
+    {
+      "model": 67,
+      "term": "priorpatentdummy_VD",
+      "b": "0.045**",
+      "p": "(0.047)"
+    },
+    {
+      "model": 68,
+      "term": "priorpatentdummy_VD",
+      "b": "0.049***",
+      "p": "(0.004)"
+    },
+    {
+      "model": 69,
+      "term": "priorpatentdummy_VD",
+      "b": "0.039*",
+      "p": "(0.087)"
+    },
+    {
+      "model": 66,
+      "term": "Earlystage_VD",
+      "b": "-0.009",
+      "p": "(0.661)"
+    },
+    {
+      "model": 67,
+      "term": "Earlystage_VD",
+      "b": "-0.009",
+      "p": "(0.664)"
+    },
+    {
+      "model": 68,
+      "term": "Earlystage_VD",
+      "b": "-0.032",
+      "p": "(0.186)"
+    },
+    {
+      "model": 69,
+      "term": "Earlystage_VD",
+      "b": "-0.034",
+      "p": "(0.162)"
+    },
+    {
+      "model": 66,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.007",
+      "p": "(0.105)"
+    },
+    {
+      "model": 67,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.007",
+      "p": "(0.104)"
+    },
+    {
+      "model": 68,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.006",
+      "p": "(0.106)"
+    },
+    {
+      "model": 69,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.007",
+      "p": "(0.102)"
+    },
+    {
+      "model": 66,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.001",
+      "p": "(0.859)"
+    },
+    {
+      "model": 67,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.001",
+      "p": "(0.860)"
+    },
+    {
+      "model": 68,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.001",
+      "p": "(0.776)"
+    },
+    {
+      "model": 69,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.001",
+      "p": "(0.770)"
+    },
+    {
+      "model": 66,
+      "term": "_cons",
+      "b": "0.179**",
+      "p": "(0.010)"
+    },
+    {
+      "model": 67,
+      "term": "_cons",
+      "b": "0.183**",
+      "p": "(0.011)"
+    },
+    {
+      "model": 68,
+      "term": "_cons",
+      "b": "0.188***",
+      "p": "(0.007)"
+    },
+    {
+      "model": 69,
+      "term": "_cons",
+      "b": "0.196***",
+      "p": "(0.006)"
+    },
+    {
+      "model": 70,
+      "term": "VD",
+      "b": "0.018",
+      "p": "(0.519)"
+    },
+    {
+      "model": 71,
+      "term": "VD",
+      "b": "0.065",
+      "p": "(0.129)"
+    },
+    {
+      "model": 72,
+      "term": "VD",
+      "b": "-0.063*",
+      "p": "(0.090)"
+    },
+    {
+      "model": 73,
+      "term": "VD",
+      "b": "-0.023",
+      "p": "(0.668)"
+    },
+    {
+      "model": 70,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 71,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.087",
+      "p": "(0.105)"
+    },
+    {
+      "model": 72,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 73,
+      "term": "1.VD#1.priorpatentdummy_VD",
+      "b": "-0.060",
+      "p": "(0.269)"
+    },
+    {
+      "model": 70,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 71,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "",
+      "p": ""
+    },
+    {
+      "model": 72,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.139***",
+      "p": "(0.009)"
+    },
+    {
+      "model": 73,
+      "term": "1.VD#1.Earlystage_VD",
+      "b": "0.125**",
+      "p": "(0.021)"
+    },
+    {
+      "model": 70,
+      "term": "priorpatentdummy_VD",
+      "b": "0.071**",
+      "p": "(0.013)"
+    },
+    {
+      "model": 71,
+      "term": "priorpatentdummy_VD",
+      "b": "0.107***",
+      "p": "(0.003)"
+    },
+    {
+      "model": 72,
+      "term": "priorpatentdummy_VD",
+      "b": "0.071**",
+      "p": "(0.012)"
+    },
+    {
+      "model": 73,
+      "term": "priorpatentdummy_VD",
+      "b": "0.096***",
+      "p": "(0.008)"
+    },
+    {
+      "model": 70,
+      "term": "Earlystage_VD",
+      "b": "-0.062*",
+      "p": "(0.096)"
+    },
+    {
+      "model": 71,
+      "term": "Earlystage_VD",
+      "b": "-0.063*",
+      "p": "(0.092)"
+    },
+    {
+      "model": 72,
+      "term": "Earlystage_VD",
+      "b": "-0.118***",
+      "p": "(0.009)"
+    },
+    {
+      "model": 73,
+      "term": "Earlystage_VD",
+      "b": "-0.112**",
+      "p": "(0.012)"
+    },
+    {
+      "model": 70,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.001",
+      "p": "(0.910)"
+    },
+    {
+      "model": 71,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.001",
+      "p": "(0.942)"
+    },
+    {
+      "model": 72,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.001",
+      "p": "(0.919)"
+    },
+    {
+      "model": 73,
+      "term": "ln_MoneyRaised_VD",
+      "b": "-0.001",
+      "p": "(0.940)"
+    },
+    {
+      "model": 70,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.004",
+      "p": "(0.568)"
+    },
+    {
+      "model": 71,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.004",
+      "p": "(0.563)"
+    },
+    {
+      "model": 72,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.005",
+      "p": "(0.466)"
+    },
+    {
+      "model": 73,
+      "term": "NumofFundingRounds_VD",
+      "b": "0.004",
+      "p": "(0.473)"
+    },
+    {
+      "model": 70,
+      "term": "_cons",
+      "b": "2.946***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 71,
+      "term": "_cons",
+      "b": "2.920***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 72,
+      "term": "_cons",
+      "b": "2.966***",
+      "p": "(<0.001)"
+    },
+    {
+      "model": 73,
+      "term": "_cons",
+      "b": "2.946***",
+      "p": "(<0.001)"
+    }
+  ],
+  "reference_sha256": "23bb9e557ef765d042dad8e69d6653ab2f68e75698fadc78e40884e7db02e5e7"
+}

@@ -1,0 +1,15 @@
+metric,value
+Treated propensity-score minimum,.0679133606474045
+Treated propensity-score maximum,.6912184882296618
+Control propensity-score minimum,.0456179495307616
+Control propensity-score maximum,.7441630163368951
+Common-support lower bound,.0679133606474045
+Common-support upper bound,.6912184882296618
+Group 0: estimation N,5128
+Group 0: in empirical overlap N,5081
+Group 0: outside empirical overlap N,47
+Group 0: matched N,1410
+Group 1: estimation N,1410
+Group 1: in empirical overlap N,1410
+Group 1: outside empirical overlap N,0
+Group 1: matched N,1410

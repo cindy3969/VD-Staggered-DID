@@ -1,0 +1,469 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/table67_merge_audit/add_financing
+> _columns.log
+  log type:  text
+ opened on:  23 Oct 2026, 00:57:21
+
+. use "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original_
+> 2820_cross_section_v2.dta", clear
+
+. isid firm_id
+
+. assert _N==2820
+
+. sort firm_id
+
+. unab original_columns : _all
+
+. tempfile unchanged
+
+. save `unchanged'
+file C:\Users\user\AppData\Local\Temp\ST_5a80_000001.tmp saved as .dta format
+
+. merge 1:1 firm_id using "C:/Users/user/Documents/VD/outputs/downstream_financin
+> g/financing_support.dta", keepusing(next_n next_disclosed next_amount observed 
+> next_event followup_days next_days duration_days complete1 raise1 cum1 undisclo
+> sed1 complete2 raise2 cum2 undisclosed2 complete3 raise3 cum3 undisclosed3) ass
+> ert(match) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                             2,820  
+    -----------------------------------------
+
+. merge 1:1 firm_id using "C:/Users/user/Documents/VD/260122 winsorization_stage4
+> .dta", keepusing(stage4 stage_inference_method) assert(match) nogen
+(label exittype3_ already defined)
+(label Industry2_ already defined)
+(label Region2_ already defined)
+(label OperatingStatus_ already defined)
+(label exittype_ already defined)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                             2,820  
+    -----------------------------------------
+
+. gen byte latestage_VD = (stage4==4) if !missing(stage4)
+
+. label variable latestage_VD "Series C+ at VD/reference date (stage4; includes i
+> mputation)"
+
+. assert priorpatentdummy_VD==patentdummybyfiling
+
+. assert Earlystage_VD==earlystage
+
+. forvalues h=1/3 {
+  2. assert missing(raise`h') if complete`h'==0
+  3. assert missing(cum`h') if undisclosed`h'==1
+  4. }
+
+. sort firm_id
+
+. cf `original_columns' using `unchanged', all
+         firm_id: match
+   Founding_Year: match
+OrganizationName: match
+          VDyear: match
+  MoneyRaised_VD: match
+NumofFundingRo~D: match
+patentdummybyf~g: match
+  patentbyfiling: match
+patentbyfiling~1: match
+patentbyfilin~n2: match
+patentbyfiling~3: match
+patentbyfiling~4: match
+patentbyfiling~5: match
+     patentdummy: match
+patentdummybyg~d: match
+ patentbygranted: match
+patentbygrante~1: match
+patentbygrante~2: match
+patentbygrante~3: match
+patentbygrante~4: match
+patentbygrante~5: match
+         SeriesB: match
+         SeriesC: match
+              VD: match
+   TimetoFirstVC: match
+       Industry2: match
+         Region2: match
+ OperatingStatus: match
+ln_patentbygra~d: match
+ln_patentbygra~1: match
+ln_patentbygra~2: match
+ln_patentbygra~3: match
+ln_patentbygra~4: match
+ln_patentbygra~5: match
+ln_patentbyfil~g: match
+ln_patentbyfil~1: match
+ln_patentbyfil~2: match
+ln_patentbyfil~3: match
+ln_patentbyfil~4: match
+ln_patentbyfil~5: match
+ln_MoneyRaised~D: match
+    Foundingyear: match
+    fwd_raw_win1: match
+    fwd_raw_win2: match
+    fwd_raw_win3: match
+    fwd_raw_win4: match
+    fwd_raw_win5: match
+fwd_norm_cohor~1: match
+fwd_norm_cohor~2: match
+fwd_norm_cohor~3: match
+fwd_norm_cohor~4: match
+fwd_norm_cohor~5: match
+   fwd_rate_win1: match
+   fwd_rate_win2: match
+   fwd_rate_win3: match
+   fwd_rate_win4: match
+   fwd_rate_win5: match
+ ln_fwd_raw_win1: match
+ ln_fwd_raw_win2: match
+ ln_fwd_raw_win3: match
+ ln_fwd_raw_win4: match
+ ln_fwd_raw_win5: match
+ln_fwd_norm_co~1: match
+ln_fwd_norm_co~2: match
+ln_fwd_norm_co~3: match
+ln_fwd_norm_co~4: match
+ln_fwd_norm_co~5: match
+ln_fwd_rate_win1: match
+ln_fwd_rate_win2: match
+ln_fwd_rate_win3: match
+ln_fwd_rate_win4: match
+ln_fwd_rate_win5: match
+    scaleupdummy: match
+timetonextequity: match
+ln_timetonexte~y: match
+timetonextequi~r: match
+moneyraised_win1: match
+moneyraised_win2: match
+moneyraised_win3: match
+moneyraised_win4: match
+moneyraised_win5: match
+ln_moneyraise~n1: match
+ln_moneyraise~n2: match
+ln_moneyraise~n3: match
+ln_moneyraised~4: match
+ln_moneyraised~5: match
+        exityear: match
+        exittype: match
+        goodexit: match
+         badexit: match
+           exit2: match
+       exityear2: match
+        firmage2: match
+       exittype2: match
+       goodexit2: match
+        badexit2: match
+           exit3: match
+       exityear3: match
+        firmage3: match
+          VDage3: match
+       goodexit3: match
+        badexit3: match
+        firmage4: match
+          VDage4: match
+             acq: match
+          public: match
+            acq3: match
+         public3: match
+       employees: match
+    ln_employees: match
+       exittype3: match
+         private: match
+        lastdeal: match
+       lastdeal3: match
+          VDYear: match
+         VDyear2: match
+             vd1: match
+             vd2: match
+     lastdealvd1: match
+         emp2025: match
+      earlystage: match
+      yearsince1: match
+      yearsince2: match
+      yearsince3: match
+       emp2025_2: match
+    lastdeal2vd1: match
+     revenueyear: match
+   timetorevenue: match
+        revenuem: match
+         revenue: match
+      ln_revenue: match
+       _est_est1: match
+       _est_est2: match
+       _est_est3: match
+       _est_est4: match
+  moneyraised_y1: match
+  moneyraised_y2: match
+  moneyraised_y3: match
+  moneyraised_y4: match
+  moneyraised_y5: match
+ln_moneyraised~1: match
+ln_moneyraised~2: match
+ln_moneyraised~3: match
+             _st: match
+              _d: match
+              _t: match
+             _t0: match
+      dealvalueb: match
+       dealcount: match
+ numberoflenders: match
+   ln_dealvalueb: match
+    ln_dealcount: match
+ numberofvddeals: match
+        vdsupply: match
+ln_numberofvdd~s: match
+     ln_vdsupply: match
+numberofvddeals2: match
+       vdsupply2: match
+ln_numberofvdd~2: match
+    ln_vdsupply2: match
+         VD_Tech: match
+          Z_Tech: match
+        VD_Early: match
+         Z_Early: match
+grantedpa~g_win3: match
+grantedpatentb~3: match
+norm_cite_pe~_v4: match
+win3_comple~2024: match
+ln_grante~g_win3: match
+ln_grantedbyfi~3: match
+ln_norm_cite_p~4: match
+  Priorpatent_VD: match
+nopriorpatentd~D: match
+   Earlystage_VD: match
+patent_applica~3: match
+patentbyfiling~2: match
+patent_applica~D: match
+priorpatent_VD_2: match
+priorpatentdum~D: match
+norm_cite_pe~_v1: match
+norm_cite_pe~_v2: match
+norm_cite_pe~_v3: match
+norm_cite_perp~1: match
+norm_cite_perp~2: match
+norm_cite_perp~3: match
+norm_cite_perp~4: match
+Follow_on_Equi~3: match
+ equityraised_t1: match
+ equityraised_t2: match
+ equityraised_t3: match
+          status: match
+             m_a: match
+             ipo: match
+         defunct: match
+     status_year: match
+     status_date: match
+    pb_companyid: match
+  pb_companyname: match
+   pb_name_match: match
+pb_revenue_raw~1: match
+ pb_rev_nvals_t1: match
+pb_rev_min_raw~1: match
+pb_rev_max_raw~1: match
+  pb_rev_rows_t1: match
+pb_rev_dealdat~1: match
+pb_grossprofit~1: match
+pb_netincome_r~1: match
+pb_ebitda_raw_t1: match
+pb_totaldebt_r~1: match
+    employees_t1: match
+employees_year~1: match
+employees_src_t1: match
+employees_basi~1: match
+employees_date~1: match
+      revenue_t1: match
+ revenue_year_t1: match
+  revenue_src_t1: match
+revenue_basis_t1: match
+ revenue_date_t1: match
+      emp_est_t1: match
+    emp_lower_t1: match
+emp_upper_appr~1: match
+      emp_fte_t1: match
+ emp_aux_year_t1: match
+  emp_aux_src_t1: match
+pb_revenue_raw~2: match
+ pb_rev_nvals_t2: match
+pb_rev_min_raw~2: match
+pb_rev_max_raw~2: match
+  pb_rev_rows_t2: match
+pb_rev_dealdat~2: match
+pb_grossprofit~2: match
+pb_netincome_r~2: match
+pb_ebitda_raw_t2: match
+pb_totaldebt_r~2: match
+    employees_t2: match
+employees_year~2: match
+employees_src_t2: match
+employees_basi~2: match
+employees_date~2: match
+      revenue_t2: match
+ revenue_year_t2: match
+  revenue_src_t2: match
+revenue_basis_t2: match
+ revenue_date_t2: match
+      emp_est_t2: match
+    emp_lower_t2: match
+emp_upper_appr~2: match
+      emp_fte_t2: match
+ emp_aux_year_t2: match
+  emp_aux_src_t2: match
+pb_revenue_raw~3: match
+ pb_rev_nvals_t3: match
+pb_rev_min_raw~3: match
+pb_rev_max_raw~3: match
+  pb_rev_rows_t3: match
+pb_rev_dealdat~3: match
+pb_grossprofit~3: match
+pb_netincome_r~3: match
+pb_ebitda_raw_t3: match
+pb_totaldebt_r~3: match
+    employees_t3: match
+employees_year~3: match
+employees_src_t3: match
+employees_basi~3: match
+employees_date~3: match
+      revenue_t3: match
+ revenue_year_t3: match
+  revenue_src_t3: match
+revenue_basis_t3: match
+ revenue_date_t3: match
+      emp_est_t3: match
+    emp_lower_t3: match
+emp_upper_appr~3: match
+      emp_fte_t3: match
+ emp_aux_year_t3: match
+  emp_aux_src_t3: match
+  size_retrieved: match
+  pb_unit_status: match
+employees_nyears: match
+  revenue_nyears: match
+ size_web_status: match
+  moneyraised_t1: match
+  moneyraised_t2: match
+  moneyraised_t3: match
+supplement_sam~e: match
+moneyraised_wi~d: match
+status_pre_ref~e: match
+innov_window_c~e: match
+innov_link_obs~d: match
+innovation_sou~d: match
+innovation_gra~3: match
+readability_pa~d: match
+readability_pa~g: match
+innovation_unc~d: match
+applications_f~3: match
+applications_g~3: match
+py_granted_pat~3: match
+description_ap~3: match
+py_originality~3: match
+py_generality_~3: match
+py_distance_n_~3: match
+partners_total~e: match
+partners_usabl~e: match
+   win3_observed: match
+    base_patents: match
+        base_cpc: match
+    base_cpc_cov: match
+    post_cpc_cov: match
+gunning_fog_me~3: match
+   ari_mean_win3: match
+neg_flesch_mea~3: match
+description_wo~3: match
+ln_description~3: match
+figures_mean_w~3: match
+sheets_mean_win3: match
+claims_mean_win3: match
+indep_claims_m~3: match
+dep_claims_mea~3: match
+no_citation_sh~3: match
+breakthrough_p~3: match
+patent_origina~3: match
+bc_technologic~3: match
+self_cita~s_win3: match
+patent_general~3: match
+originality_al~3: match
+technological_~3: match
+self_citations~3: match
+partner_s~w_win3: match
+search_in_part~3: match
+ grant_rate_win3: match
+     newpat_win3: match
+     oldpat_win3: match
+     newcpc_win3: match
+   newshare_win3: match
+   own_dist_win3: match
+  selfshare_win3: match
+     nocite_win3: match
+nocite_win3_st~s: match
+breakthrough_w~3: match
+breakthrough_w~s: match
+ desc_words_win3: match
+desc_words_win~s: match
+        fog_win3: match
+ fog_win3_status: match
+        ari_win3: match
+ ari_win3_status: match
+ neg_flesch_win3: match
+neg_flesch_win~s: match
+    figures_win3: match
+figures_win3_s~s: match
+     sheets_win3: match
+sheets_win3_st~s: match
+     claims_win3: match
+claims_win3_st~s: match
+ ind_claims_win3: match
+ind_claims_win~s: match
+ dep_claims_win3: match
+dep_claims_win~s: match
+originality_win3: match
+originality_wi~s: match
+cite_breadth_w~3: match
+cite_breadth_w~s: match
+   selfcite_win3: match
+selfcite_win3_~s: match
+partner_search~3: match
+partner_search~s: match
+partner_dist_w~3: match
+partner_dist_w~s: match
+ generality_win3: match
+generality_win~s: match
+cite_diversity~3: match
+cite_diversity~s: match
+  novelty_status: match
+selftotal_status: match
+  ln_newpat_win3: match
+  ln_oldpat_win3: match
+ln_selfcitatio~3: match
+ln_desc_words_~3: match
+ ln_figures_win3: match
+  ln_sheets_win3: match
+  ln_claims_win3: match
+
+. assert _N==2820
+
+. isid firm_id
+
+. save "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original
+> _2820_cross_section_v2.dta", replace
+file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original_2
+    > 820_cross_section_v2.dta saved
+
+. display "COLUMN_ADDITION_COMPLETE"
+COLUMN_ADDITION_COMPLETE
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/table67_merge_audit/add_financing
+> _columns.log
+  log type:  text
+ closed on:  23 Oct 2026, 00:57:21
+---------------------------------------------------------------------------------

@@ -1,0 +1,9 @@
+statistic,value
+Original matched controls,1410
+Legacy-aligned rematched controls,1410
+Controls in both samples,530
+Original controls not retained,880
+Replacement controls,880
+Treated firms in both samples,1410
+Original treated not retained,0
+New treated not in original,0

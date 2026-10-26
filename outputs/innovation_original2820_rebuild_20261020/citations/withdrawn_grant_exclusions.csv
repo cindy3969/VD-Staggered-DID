@@ -1,0 +1,6 @@
+﻿firm_id,OrganizationName,application_id,patent_id,filing_date,filing_year,reference_year,event_time,exclusion_reason
+21428,Previvo Genetics,14814252,9943334,2015-07-30,2015,2017,-2,withdrawn_grant_replaced_by_valid_grant_for_same_application
+25288,Blade Therapeutics,16337377,10894776,2017-09-27,2017,2018,-1,withdrawn_grant_replaced_by_valid_grant_for_same_application
+38241,Glowforge,16677241,11194308,2019-11-07,2019,2019,0,withdrawn_grant_replaced_by_valid_grant_for_same_application
+50233,Group14 Technologies,18003826,12001104,2021-06-30,2021,2020,1,withdrawn_grant_replaced_by_valid_grant_for_same_application
+54842,Sana Health,16422592,11077283,2019-05-24,2019,2020,-1,withdrawn_grant_replaced_by_valid_grant_for_same_application

@@ -1,0 +1,1609 @@
+﻿target,source_col,aggregation,n,exact,pct
+Founding_Year,found year,first,2820,2820,100.0
+Founding_Year,found year,last,2820,2820,100.0
+Founding_Year,found year,min,2820,2820,100.0
+Founding_Year,found year,max,2820,2820,100.0
+Founding_Year,Deal year,first,2820,1044,37.02127659574468
+Founding_Year,Deal year,min,2820,1042,36.95035460992908
+Founding_Year,VD,first,2820,43,1.5248226950354609
+Founding_Year,VD,last,2820,43,1.5248226950354609
+Founding_Year,VD,min,2820,43,1.5248226950354609
+Founding_Year,VD,max,2820,43,1.5248226950354609
+Founding_Year,Deal year,last,2820,6,0.2127659574468085
+Founding_Year,Deal year,max,2820,6,0.2127659574468085
+Founding_Year,no,first,2820,0,0.0
+Founding_Year,no,last,2820,0,0.0
+Founding_Year,no,min,2820,0,0.0
+Founding_Year,no,max,2820,0,0.0
+Founding_Year,weight,first,2820,0,0.0
+Founding_Year,weight,last,2820,0,0.0
+Founding_Year,weight,min,2820,0,0.0
+Founding_Year,weight,max,2820,0,0.0
+Founding_Year,deal no,first,2820,0,0.0
+Founding_Year,deal no,last,2820,0,0.0
+Founding_Year,deal no,min,2820,0,0.0
+Founding_Year,deal no,max,2820,0,0.0
+Founding_Year,last deal,first,2820,0,0.0
+Founding_Year,last deal,last,2820,0,0.0
+Founding_Year,last deal,min,2820,0,0.0
+Founding_Year,last deal,max,2820,0,0.0
+Founding_Year,Announced Date,first,2820,0,0.0
+Founding_Year,Announced Date,last,2820,0,0.0
+Founding_Year,Announced Date,min,2820,0,0.0
+Founding_Year,Announced Date,max,2820,0,0.0
+Founding_Year,First VC,first,2820,0,0.0
+Founding_Year,First VC,last,2820,0,0.0
+Founding_Year,First VC,min,2820,0,0.0
+Founding_Year,First VC,max,2820,0,0.0
+Founding_Year,TimeToFirst_VC,first,2820,0,0.0
+Founding_Year,TimeToFirst_VC,last,2820,0,0.0
+Founding_Year,TimeToFirst_VC,min,2820,0,0.0
+Founding_Year,TimeToFirst_VC,max,2820,0,0.0
+Founding_Year,Debt,first,1410,0,0.0
+Founding_Year,Debt,last,1410,0,0.0
+Founding_Year,Debt,min,1410,0,0.0
+Founding_Year,Debt,max,1410,0,0.0
+Founding_Year,VD_Backing,first,2820,0,0.0
+Founding_Year,VD_Backing,last,2820,0,0.0
+Founding_Year,VD_Backing,min,2820,0,0.0
+Founding_Year,VD_Backing,max,2820,0,0.0
+Founding_Year,First VD,first,1410,0,0.0
+Founding_Year,First VD,last,1410,0,0.0
+Founding_Year,First VD,min,1410,0,0.0
+Founding_Year,First VD,max,1410,0,0.0
+Founding_Year,Turnover시점,first,179,0,0.0
+Founding_Year,Turnover시점,last,179,0,0.0
+Founding_Year,Turnover시점,min,179,0,0.0
+Founding_Year,Turnover시점,max,179,0,0.0
+Founding_Year,Turnover 5years window,first,179,0,0.0
+Founding_Year,Turnover 5years window,last,179,0,0.0
+Founding_Year,Turnover 5years window,min,179,0,0.0
+Founding_Year,Turnover 5years window,max,179,0,0.0
+Founding_Year,CEO turnover,first,179,0,0.0
+Founding_Year,CEO turnover,last,179,0,0.0
+Founding_Year,CEO turnover,min,179,0,0.0
+Founding_Year,CEO turnover,max,179,0,0.0
+Founding_Year,turnover year,first,179,0,0.0
+Founding_Year,turnover year,last,179,0,0.0
+Founding_Year,turnover year,min,179,0,0.0
+Founding_Year,turnover year,max,179,0,0.0
+Founding_Year,Follow-on Year,first,43,0,0.0
+Founding_Year,Follow-on Year,last,43,0,0.0
+Founding_Year,Follow-on Year,min,43,0,0.0
+Founding_Year,Follow-on Year,max,43,0,0.0
+Founding_Year,Follow-on Equity Amt,first,132,0,0.0
+Founding_Year,Follow-on Equity Amt,last,132,0,0.0
+Founding_Year,Follow-on Equity Amt,min,132,0,0.0
+Founding_Year,Follow-on Equity Amt,max,132,0,0.0
+Founding_Year,Subsequent funding amt,first,132,0,0.0
+Founding_Year,Subsequent funding amt,last,132,0,0.0
+Founding_Year,Subsequent funding amt,min,132,0,0.0
+Founding_Year,Subsequent funding amt,max,132,0,0.0
+Founding_Year,TimeToFirst_VD,first,1410,0,0.0
+Founding_Year,TimeToFirst_VD,last,1410,0,0.0
+Founding_Year,TimeToFirst_VD,min,1410,0,0.0
+Founding_Year,TimeToFirst_VD,max,1410,0,0.0
+Founding_Year,TimeBetween_VCVD,first,1410,0,0.0
+Founding_Year,TimeBetween_VCVD,last,1410,0,0.0
+Founding_Year,TimeBetween_VCVD,min,1410,0,0.0
+Founding_Year,TimeBetween_VCVD,max,1410,0,0.0
+Founding_Year,VD Year deal,first,2820,0,0.0
+Founding_Year,VD Year deal,last,2820,0,0.0
+Founding_Year,VD Year deal,min,2820,0,0.0
+Founding_Year,VD Year deal,max,2820,0,0.0
+Founding_Year,NumberOfFunding_Rounds_FirstVD,first,2820,0,0.0
+Founding_Year,NumberOfFunding_Rounds_FirstVD,last,2820,0,0.0
+Founding_Year,NumberOfFunding_Rounds_FirstVD,min,2820,0,0.0
+Founding_Year,NumberOfFunding_Rounds_FirstVD,max,2820,0,0.0
+Founding_Year,TotalFundingAmount_FirstVD,first,2820,0,0.0
+Founding_Year,TotalFundingAmount_FirstVD,last,2820,0,0.0
+Founding_Year,TotalFundingAmount_FirstVD,min,2820,0,0.0
+Founding_Year,TotalFundingAmount_FirstVD,max,2820,0,0.0
+Founding_Year,weight.1,first,2820,0,0.0
+Founding_Year,weight.1,last,2820,0,0.0
+Founding_Year,weight.1,min,2820,0,0.0
+Founding_Year,weight.1,max,2820,0,0.0
+Founding_Year,Total_Funding_Amount_T3,first,2193,0,0.0
+Founding_Year,Total_Funding_Amount_T3,last,2193,0,0.0
+Founding_Year,Total_Funding_Amount_T3,min,2193,0,0.0
+Founding_Year,Total_Funding_Amount_T3,max,2193,0,0.0
+Founding_Year,NumberOfFunding_Rounds_T3,first,2194,0,0.0
+Founding_Year,NumberOfFunding_Rounds_T3,last,2194,0,0.0
+Founding_Year,NumberOfFunding_Rounds_T3,min,2194,0,0.0
+Founding_Year,NumberOfFunding_Rounds_T3,max,2194,0,0.0
+Founding_Year,NumberOfInvestors_T3,first,2106,0,0.0
+Founding_Year,NumberOfInvestors_T3,last,2106,0,0.0
+Founding_Year,NumberOfInvestors_T3,min,2106,0,0.0
+Founding_Year,NumberOfInvestors_T3,max,2106,0,0.0
+Founding_Year,Total_Funding_Amount_T5,first,1401,0,0.0
+Founding_Year,Total_Funding_Amount_T5,last,1401,0,0.0
+Founding_Year,Total_Funding_Amount_T5,min,1401,0,0.0
+Founding_Year,Total_Funding_Amount_T5,max,1401,0,0.0
+Founding_Year,NumberOfFunding_Rounds_T5,first,1401,0,0.0
+Founding_Year,NumberOfFunding_Rounds_T5,last,1401,0,0.0
+Founding_Year,NumberOfFunding_Rounds_T5,min,1401,0,0.0
+Founding_Year,NumberOfFunding_Rounds_T5,max,1401,0,0.0
+Founding_Year,NumberOfInvestors_T5,first,179,0,0.0
+Founding_Year,NumberOfInvestors_T5,last,179,0,0.0
+Founding_Year,NumberOfInvestors_T5,min,179,0,0.0
+Founding_Year,NumberOfInvestors_T5,max,179,0,0.0
+Founding_Year,VD Year,first,179,0,0.0
+Founding_Year,VD Year,last,179,0,0.0
+Founding_Year,VD Year,min,179,0,0.0
+Founding_Year,VD Year,max,179,0,0.0
+Founding_Year,Money Raised Currency (in USD),first,2820,0,0.0
+Founding_Year,Money Raised Currency (in USD),last,2820,0,0.0
+Founding_Year,Money Raised Currency (in USD),min,2820,0,0.0
+Founding_Year,Money Raised Currency (in USD),max,2820,0,0.0
+Founding_Year,First VD.1,first,1410,0,0.0
+Founding_Year,First VD.1,last,1410,0,0.0
+Founding_Year,First VD.1,min,1410,0,0.0
+Founding_Year,First VD.1,max,1410,0,0.0
+Founding_Year,TotalFundingAmt_preVD,first,177,0,0.0
+Founding_Year,TotalFundingAmt_preVD,last,177,0,0.0
+Founding_Year,TotalFundingAmt_preVD,min,177,0,0.0
+Founding_Year,TotalFundingAmt_preVD,max,177,0,0.0
+Founding_Year,TotalFundingAmt_untilVD,first,177,0,0.0
+Founding_Year,TotalFundingAmt_untilVD,last,177,0,0.0
+Founding_Year,TotalFundingAmt_untilVD,min,177,0,0.0
+Founding_Year,TotalFundingAmt_untilVD,max,177,0,0.0
+Founding_Year,TotalFundingAmt_T3,first,179,0,0.0
+Founding_Year,TotalFundingAmt_T3,last,179,0,0.0
+Founding_Year,TotalFundingAmt_T3,min,179,0,0.0
+Founding_Year,TotalFundingAmt_T3,max,179,0,0.0
+Founding_Year,TotalFundingAmt_T5,first,179,0,0.0
+Founding_Year,TotalFundingAmt_T5,last,179,0,0.0
+Founding_Year,TotalFundingAmt_T5,min,179,0,0.0
+Founding_Year,TotalFundingAmt_T5,max,179,0,0.0
+Founding_Year,누적_PREVD_T3,first,179,0,0.0
+Founding_Year,누적_PREVD_T3,last,179,0,0.0
+Founding_Year,누적_PREVD_T3,min,179,0,0.0
+Founding_Year,누적_PREVD_T3,max,179,0,0.0
+Founding_Year,누적_PREVD_T5,first,179,0,0.0
+Founding_Year,누적_PREVD_T5,last,179,0,0.0
+Founding_Year,누적_PREVD_T5,min,179,0,0.0
+Founding_Year,누적_PREVD_T5,max,179,0,0.0
+Founding_Year,누적_VD_T3,first,179,0,0.0
+Founding_Year,누적_VD_T3,last,179,0,0.0
+Founding_Year,누적_VD_T3,min,179,0,0.0
+Founding_Year,누적_VD_T3,max,179,0,0.0
+Founding_Year,누적_VD_T5,first,179,0,0.0
+Founding_Year,누적_VD_T5,last,179,0,0.0
+Founding_Year,누적_VD_T5,min,179,0,0.0
+Founding_Year,누적_VD_T5,max,179,0,0.0
+Founding_Year,후속투자횟수T3,first,179,0,0.0
+Founding_Year,후속투자횟수T3,last,179,0,0.0
+Founding_Year,후속투자횟수T3,min,179,0,0.0
+Founding_Year,후속투자횟수T3,max,179,0,0.0
+Founding_Year,후속투자횟수T5,first,179,0,0.0
+Founding_Year,후속투자횟수T5,last,179,0,0.0
+Founding_Year,후속투자횟수T5,min,179,0,0.0
+Founding_Year,후속투자횟수T5,max,179,0,0.0
+Founding_Year,후속투자횟수,first,179,0,0.0
+Founding_Year,후속투자횟수,last,179,0,0.0
+Founding_Year,후속투자횟수,min,179,0,0.0
+Founding_Year,후속투자횟수,max,179,0,0.0
+Founding_Year,이전투자횟수VD,first,179,0,0.0
+Founding_Year,이전투자횟수VD,last,179,0,0.0
+Founding_Year,이전투자횟수VD,min,179,0,0.0
+Founding_Year,이전투자횟수VD,max,179,0,0.0
+Founding_Year,후속투자금액,first,174,0,0.0
+Founding_Year,후속투자금액,last,174,0,0.0
+Founding_Year,후속투자금액,min,174,0,0.0
+Founding_Year,후속투자금액,max,174,0,0.0
+Founding_Year,후속투자총금액,first,174,0,0.0
+Founding_Year,후속투자총금액,last,174,0,0.0
+Founding_Year,후속투자총금액,min,174,0,0.0
+Founding_Year,후속투자총금액,max,174,0,0.0
+Founding_Year,후속시간(day),first,136,0,0.0
+Founding_Year,후속시간(day),last,136,0,0.0
+Founding_Year,후속시간(day),min,136,0,0.0
+Founding_Year,후속시간(day),max,136,0,0.0
+Founding_Year,후속시간평균(day),first,132,0,0.0
+Founding_Year,후속시간평균(day),last,132,0,0.0
+Founding_Year,후속시간평균(day),min,132,0,0.0
+Founding_Year,후속시간평균(day),max,132,0,0.0
+Founding_Year,직후변화(amount),first,122,0,0.0
+Founding_Year,직후변화(amount),last,122,0,0.0
+Founding_Year,직후변화(amount),min,122,0,0.0
+Founding_Year,직후변화(amount),max,122,0,0.0
+Founding_Year,%valuationq(multiple),first,122,0,0.0
+Founding_Year,%valuationq(multiple),last,122,0,0.0
+Founding_Year,%valuationq(multiple),min,122,0,0.0
+Founding_Year,%valuationq(multiple),max,122,0,0.0
+Founding_Year,%valuationq(increase),first,122,0,0.0
+Founding_Year,%valuationq(increase),last,122,0,0.0
+Founding_Year,%valuationq(increase),min,122,0,0.0
+Founding_Year,%valuationq(increase),max,122,0,0.0
+Founding_Year,직후변화(multiple),first,122,0,0.0
+Founding_Year,직후변화(multiple),last,122,0,0.0
+Founding_Year,직후변화(multiple),min,122,0,0.0
+Founding_Year,직후변화(multiple),max,122,0,0.0
+Founding_Year,직후변화(increase),first,122,0,0.0
+Founding_Year,직후변화(increase),last,122,0,0.0
+Founding_Year,직후변화(increase),min,122,0,0.0
+Founding_Year,직후변화(increase),max,122,0,0.0
+Founding_Year,후속시간(year),first,135,0,0.0
+Founding_Year,후속시간(year),last,135,0,0.0
+Founding_Year,후속시간(year),min,135,0,0.0
+Founding_Year,후속시간(year),max,135,0,0.0
+Founding_Year,후속시간평균(year),first,132,0,0.0
+Founding_Year,후속시간평균(year),last,132,0,0.0
+Founding_Year,후속시간평균(year),min,132,0,0.0
+Founding_Year,후속시간평균(year),max,132,0,0.0
+Founding_Year,Number of Funding Rounds,first,2820,0,0.0
+Founding_Year,Number of Funding Rounds,last,2820,0,0.0
+Founding_Year,Number of Funding Rounds,min,2820,0,0.0
+Founding_Year,Number of Funding Rounds,max,2820,0,0.0
+Founding_Year,Number of Partner Investors,first,2717,0,0.0
+Founding_Year,Number of Partner Investors,last,2717,0,0.0
+Founding_Year,Number of Partner Investors,min,2717,0,0.0
+Founding_Year,Number of Partner Investors,max,2717,0,0.0
+Founding_Year,NumberOfCumulative Investors,first,2820,0,0.0
+Founding_Year,NumberOfCumulative Investors,last,2820,0,0.0
+Founding_Year,NumberOfCumulative Investors,min,2820,0,0.0
+Founding_Year,NumberOfCumulative Investors,max,2820,0,0.0
+Founding_Year,Number of Investors,first,2820,0,0.0
+Founding_Year,Number of Investors,last,2820,0,0.0
+Founding_Year,Number of Investors,min,2820,0,0.0
+Founding_Year,Number of Investors,max,2820,0,0.0
+Founding_Year,Industry Classification,first,3,0,0.0
+Founding_Year,Industry Classification,last,3,0,0.0
+Founding_Year,Industry Classification,min,3,0,0.0
+Founding_Year,Industry Classification,max,3,0,0.0
+Founding_Year,Number of Funding Rounds.1,first,2820,0,0.0
+Founding_Year,Number of Funding Rounds.1,last,2820,0,0.0
+Founding_Year,Number of Funding Rounds.1,min,2820,0,0.0
+Founding_Year,Number of Funding Rounds.1,max,2820,0,0.0
+Founding_Year,Total Equity Funding Amount Currency (in USD),first,1899,0,0.0
+Founding_Year,Total Equity Funding Amount Currency (in USD),last,1899,0,0.0
+Founding_Year,Total Equity Funding Amount Currency (in USD),min,1899,0,0.0
+Founding_Year,Total Equity Funding Amount Currency (in USD),max,1899,0,0.0
+Founding_Year,Total Funding Amount Currency (in USD),first,2820,0,0.0
+Founding_Year,Total Funding Amount Currency (in USD),last,2820,0,0.0
+Founding_Year,Total Funding Amount Currency (in USD),min,2820,0,0.0
+Founding_Year,Total Funding Amount Currency (in USD),max,2820,0,0.0
+Founding_Year,IPO Date,first,2820,0,0.0
+Founding_Year,IPO Date,last,2820,0,0.0
+Founding_Year,IPO Date,min,2820,0,0.0
+Founding_Year,IPO Date,max,2820,0,0.0
+MoneyRaised_VD,TotalFundingAmount_FirstVD,last,2820,2122,75.2482269503546
+MoneyRaised_VD,TotalFundingAmount_FirstVD,max,2820,2122,75.2482269503546
+MoneyRaised_VD,TotalFundingAmount_FirstVD,first,2820,2121,75.2127659574468
+MoneyRaised_VD,TotalFundingAmount_FirstVD,min,2820,2121,75.2127659574468
+MoneyRaised_VD,TotalFundingAmt_untilVD,first,177,133,75.14124293785311
+MoneyRaised_VD,TotalFundingAmt_untilVD,last,177,133,75.14124293785311
+MoneyRaised_VD,TotalFundingAmt_untilVD,min,177,133,75.14124293785311
+MoneyRaised_VD,TotalFundingAmt_untilVD,max,177,133,75.14124293785311
+MoneyRaised_VD,Total_Funding_Amount_T3,first,2193,817,37.254901960784316
+MoneyRaised_VD,Total_Funding_Amount_T3,last,2193,817,37.254901960784316
+MoneyRaised_VD,Total_Funding_Amount_T3,min,2193,817,37.254901960784316
+MoneyRaised_VD,Total_Funding_Amount_T3,max,2193,817,37.254901960784316
+MoneyRaised_VD,Total_Funding_Amount_T5,first,1401,512,36.545324768022844
+MoneyRaised_VD,Total_Funding_Amount_T5,last,1401,512,36.545324768022844
+MoneyRaised_VD,Total_Funding_Amount_T5,min,1401,512,36.545324768022844
+MoneyRaised_VD,Total_Funding_Amount_T5,max,1401,512,36.545324768022844
+MoneyRaised_VD,TotalFundingAmt_T3,first,179,61,34.07821229050279
+MoneyRaised_VD,TotalFundingAmt_T3,last,179,61,34.07821229050279
+MoneyRaised_VD,TotalFundingAmt_T3,min,179,61,34.07821229050279
+MoneyRaised_VD,TotalFundingAmt_T3,max,179,61,34.07821229050279
+MoneyRaised_VD,TotalFundingAmt_T5,first,179,57,31.843575418994412
+MoneyRaised_VD,TotalFundingAmt_T5,last,179,57,31.843575418994412
+MoneyRaised_VD,TotalFundingAmt_T5,min,179,57,31.843575418994412
+MoneyRaised_VD,TotalFundingAmt_T5,max,179,57,31.843575418994412
+MoneyRaised_VD,Total Funding Amount Currency (in USD),first,2820,835,29.609929078014186
+MoneyRaised_VD,Total Funding Amount Currency (in USD),last,2820,835,29.609929078014186
+MoneyRaised_VD,Total Funding Amount Currency (in USD),min,2820,835,29.609929078014186
+MoneyRaised_VD,Total Funding Amount Currency (in USD),max,2820,835,29.609929078014186
+MoneyRaised_VD,Total Equity Funding Amount Currency (in USD),first,1899,297,15.639810426540285
+MoneyRaised_VD,Total Equity Funding Amount Currency (in USD),last,1899,297,15.639810426540285
+MoneyRaised_VD,Total Equity Funding Amount Currency (in USD),min,1899,297,15.639810426540285
+MoneyRaised_VD,Total Equity Funding Amount Currency (in USD),max,1899,297,15.639810426540285
+MoneyRaised_VD,TotalFundingAmt_preVD,first,177,22,12.429378531073446
+MoneyRaised_VD,TotalFundingAmt_preVD,last,177,22,12.429378531073446
+MoneyRaised_VD,TotalFundingAmt_preVD,min,177,22,12.429378531073446
+MoneyRaised_VD,TotalFundingAmt_preVD,max,177,22,12.429378531073446
+MoneyRaised_VD,Money Raised Currency (in USD),first,2820,341,12.092198581560282
+MoneyRaised_VD,Money Raised Currency (in USD),min,2820,281,9.964539007092199
+MoneyRaised_VD,Money Raised Currency (in USD),max,2820,197,6.98581560283688
+MoneyRaised_VD,Money Raised Currency (in USD),last,2820,173,6.134751773049645
+MoneyRaised_VD,CEO turnover,first,179,1,0.5586592178770949
+MoneyRaised_VD,CEO turnover,last,179,1,0.5586592178770949
+MoneyRaised_VD,CEO turnover,min,179,1,0.5586592178770949
+MoneyRaised_VD,CEO turnover,max,179,1,0.5586592178770949
+MoneyRaised_VD,누적_PREVD_T3,first,179,1,0.5586592178770949
+MoneyRaised_VD,누적_PREVD_T3,last,179,1,0.5586592178770949
+MoneyRaised_VD,누적_PREVD_T3,min,179,1,0.5586592178770949
+MoneyRaised_VD,누적_PREVD_T3,max,179,1,0.5586592178770949
+MoneyRaised_VD,누적_PREVD_T5,first,179,1,0.5586592178770949
+MoneyRaised_VD,누적_PREVD_T5,last,179,1,0.5586592178770949
+MoneyRaised_VD,누적_PREVD_T5,min,179,1,0.5586592178770949
+MoneyRaised_VD,누적_PREVD_T5,max,179,1,0.5586592178770949
+MoneyRaised_VD,last deal,first,2820,15,0.5319148936170213
+MoneyRaised_VD,last deal,min,2820,15,0.5319148936170213
+MoneyRaised_VD,VD Year deal,min,2820,15,0.5319148936170213
+MoneyRaised_VD,VD Year deal,first,2820,13,0.46099290780141844
+MoneyRaised_VD,VD Year deal,last,2820,7,0.24822695035460995
+MoneyRaised_VD,VD_Backing,first,2820,6,0.2127659574468085
+MoneyRaised_VD,VD_Backing,last,2820,6,0.2127659574468085
+MoneyRaised_VD,VD_Backing,min,2820,6,0.2127659574468085
+MoneyRaised_VD,VD_Backing,max,2820,6,0.2127659574468085
+MoneyRaised_VD,NumberOfCumulative Investors,first,2820,6,0.2127659574468085
+MoneyRaised_VD,NumberOfCumulative Investors,min,2820,6,0.2127659574468085
+MoneyRaised_VD,TimeToFirst_VC,first,2820,4,0.14184397163120568
+MoneyRaised_VD,TimeToFirst_VC,last,2820,4,0.14184397163120568
+MoneyRaised_VD,TimeToFirst_VC,min,2820,4,0.14184397163120568
+MoneyRaised_VD,TimeToFirst_VC,max,2820,4,0.14184397163120568
+MoneyRaised_VD,no,first,2820,0,0.0
+MoneyRaised_VD,no,last,2820,0,0.0
+MoneyRaised_VD,no,min,2820,0,0.0
+MoneyRaised_VD,no,max,2820,0,0.0
+MoneyRaised_VD,weight,first,2820,0,0.0
+MoneyRaised_VD,weight,last,2820,0,0.0
+MoneyRaised_VD,weight,min,2820,0,0.0
+MoneyRaised_VD,weight,max,2820,0,0.0
+MoneyRaised_VD,deal no,first,2820,0,0.0
+MoneyRaised_VD,deal no,last,2820,0,0.0
+MoneyRaised_VD,deal no,min,2820,0,0.0
+MoneyRaised_VD,deal no,max,2820,0,0.0
+MoneyRaised_VD,last deal,last,2820,0,0.0
+MoneyRaised_VD,last deal,max,2820,0,0.0
+MoneyRaised_VD,found year,first,2820,0,0.0
+MoneyRaised_VD,found year,last,2820,0,0.0
+MoneyRaised_VD,found year,min,2820,0,0.0
+MoneyRaised_VD,found year,max,2820,0,0.0
+MoneyRaised_VD,Announced Date,first,2820,0,0.0
+MoneyRaised_VD,Announced Date,last,2820,0,0.0
+MoneyRaised_VD,Announced Date,min,2820,0,0.0
+MoneyRaised_VD,Announced Date,max,2820,0,0.0
+MoneyRaised_VD,Deal year,first,2820,0,0.0
+MoneyRaised_VD,Deal year,last,2820,0,0.0
+MoneyRaised_VD,Deal year,min,2820,0,0.0
+MoneyRaised_VD,Deal year,max,2820,0,0.0
+MoneyRaised_VD,First VC,first,2820,0,0.0
+MoneyRaised_VD,First VC,last,2820,0,0.0
+MoneyRaised_VD,First VC,min,2820,0,0.0
+MoneyRaised_VD,First VC,max,2820,0,0.0
+MoneyRaised_VD,Debt,first,1410,0,0.0
+MoneyRaised_VD,Debt,last,1410,0,0.0
+MoneyRaised_VD,Debt,min,1410,0,0.0
+MoneyRaised_VD,Debt,max,1410,0,0.0
+MoneyRaised_VD,First VD,first,1410,0,0.0
+MoneyRaised_VD,First VD,last,1410,0,0.0
+MoneyRaised_VD,First VD,min,1410,0,0.0
+MoneyRaised_VD,First VD,max,1410,0,0.0
+MoneyRaised_VD,Turnover시점,first,179,0,0.0
+MoneyRaised_VD,Turnover시점,last,179,0,0.0
+MoneyRaised_VD,Turnover시점,min,179,0,0.0
+MoneyRaised_VD,Turnover시점,max,179,0,0.0
+MoneyRaised_VD,Turnover 5years window,first,179,0,0.0
+MoneyRaised_VD,Turnover 5years window,last,179,0,0.0
+MoneyRaised_VD,Turnover 5years window,min,179,0,0.0
+MoneyRaised_VD,Turnover 5years window,max,179,0,0.0
+MoneyRaised_VD,turnover year,first,179,0,0.0
+MoneyRaised_VD,turnover year,last,179,0,0.0
+MoneyRaised_VD,turnover year,min,179,0,0.0
+MoneyRaised_VD,turnover year,max,179,0,0.0
+MoneyRaised_VD,Follow-on Year,first,43,0,0.0
+MoneyRaised_VD,Follow-on Year,last,43,0,0.0
+MoneyRaised_VD,Follow-on Year,min,43,0,0.0
+MoneyRaised_VD,Follow-on Year,max,43,0,0.0
+MoneyRaised_VD,Follow-on Equity Amt,first,132,0,0.0
+MoneyRaised_VD,Follow-on Equity Amt,last,132,0,0.0
+MoneyRaised_VD,Follow-on Equity Amt,min,132,0,0.0
+MoneyRaised_VD,Follow-on Equity Amt,max,132,0,0.0
+MoneyRaised_VD,Subsequent funding amt,first,132,0,0.0
+MoneyRaised_VD,Subsequent funding amt,last,132,0,0.0
+MoneyRaised_VD,Subsequent funding amt,min,132,0,0.0
+MoneyRaised_VD,Subsequent funding amt,max,132,0,0.0
+MoneyRaised_VD,TimeToFirst_VD,first,1410,0,0.0
+MoneyRaised_VD,TimeToFirst_VD,last,1410,0,0.0
+MoneyRaised_VD,TimeToFirst_VD,min,1410,0,0.0
+MoneyRaised_VD,TimeToFirst_VD,max,1410,0,0.0
+MoneyRaised_VD,VD,first,2820,0,0.0
+MoneyRaised_VD,VD,last,2820,0,0.0
+MoneyRaised_VD,VD,min,2820,0,0.0
+MoneyRaised_VD,VD,max,2820,0,0.0
+MoneyRaised_VD,TimeBetween_VCVD,first,1410,0,0.0
+MoneyRaised_VD,TimeBetween_VCVD,last,1410,0,0.0
+MoneyRaised_VD,TimeBetween_VCVD,min,1410,0,0.0
+MoneyRaised_VD,TimeBetween_VCVD,max,1410,0,0.0
+MoneyRaised_VD,VD Year deal,max,2820,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_FirstVD,first,2820,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_FirstVD,last,2820,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_FirstVD,min,2820,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_FirstVD,max,2820,0,0.0
+MoneyRaised_VD,weight.1,first,2820,0,0.0
+MoneyRaised_VD,weight.1,last,2820,0,0.0
+MoneyRaised_VD,weight.1,min,2820,0,0.0
+MoneyRaised_VD,weight.1,max,2820,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_T3,first,2194,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_T3,last,2194,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_T3,min,2194,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_T3,max,2194,0,0.0
+MoneyRaised_VD,NumberOfInvestors_T3,first,2106,0,0.0
+MoneyRaised_VD,NumberOfInvestors_T3,last,2106,0,0.0
+MoneyRaised_VD,NumberOfInvestors_T3,min,2106,0,0.0
+MoneyRaised_VD,NumberOfInvestors_T3,max,2106,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_T5,first,1401,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_T5,last,1401,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_T5,min,1401,0,0.0
+MoneyRaised_VD,NumberOfFunding_Rounds_T5,max,1401,0,0.0
+MoneyRaised_VD,NumberOfInvestors_T5,first,179,0,0.0
+MoneyRaised_VD,NumberOfInvestors_T5,last,179,0,0.0
+MoneyRaised_VD,NumberOfInvestors_T5,min,179,0,0.0
+MoneyRaised_VD,NumberOfInvestors_T5,max,179,0,0.0
+MoneyRaised_VD,VD Year,first,179,0,0.0
+MoneyRaised_VD,VD Year,last,179,0,0.0
+MoneyRaised_VD,VD Year,min,179,0,0.0
+MoneyRaised_VD,VD Year,max,179,0,0.0
+MoneyRaised_VD,First VD.1,first,1410,0,0.0
+MoneyRaised_VD,First VD.1,last,1410,0,0.0
+MoneyRaised_VD,First VD.1,min,1410,0,0.0
+MoneyRaised_VD,First VD.1,max,1410,0,0.0
+MoneyRaised_VD,누적_VD_T3,first,179,0,0.0
+MoneyRaised_VD,누적_VD_T3,last,179,0,0.0
+MoneyRaised_VD,누적_VD_T3,min,179,0,0.0
+MoneyRaised_VD,누적_VD_T3,max,179,0,0.0
+MoneyRaised_VD,누적_VD_T5,first,179,0,0.0
+MoneyRaised_VD,누적_VD_T5,last,179,0,0.0
+MoneyRaised_VD,누적_VD_T5,min,179,0,0.0
+MoneyRaised_VD,누적_VD_T5,max,179,0,0.0
+MoneyRaised_VD,후속투자횟수T3,first,179,0,0.0
+MoneyRaised_VD,후속투자횟수T3,last,179,0,0.0
+MoneyRaised_VD,후속투자횟수T3,min,179,0,0.0
+MoneyRaised_VD,후속투자횟수T3,max,179,0,0.0
+MoneyRaised_VD,후속투자횟수T5,first,179,0,0.0
+MoneyRaised_VD,후속투자횟수T5,last,179,0,0.0
+MoneyRaised_VD,후속투자횟수T5,min,179,0,0.0
+MoneyRaised_VD,후속투자횟수T5,max,179,0,0.0
+MoneyRaised_VD,후속투자횟수,first,179,0,0.0
+MoneyRaised_VD,후속투자횟수,last,179,0,0.0
+MoneyRaised_VD,후속투자횟수,min,179,0,0.0
+MoneyRaised_VD,후속투자횟수,max,179,0,0.0
+MoneyRaised_VD,이전투자횟수VD,first,179,0,0.0
+MoneyRaised_VD,이전투자횟수VD,last,179,0,0.0
+MoneyRaised_VD,이전투자횟수VD,min,179,0,0.0
+MoneyRaised_VD,이전투자횟수VD,max,179,0,0.0
+MoneyRaised_VD,후속투자금액,first,174,0,0.0
+MoneyRaised_VD,후속투자금액,last,174,0,0.0
+MoneyRaised_VD,후속투자금액,min,174,0,0.0
+MoneyRaised_VD,후속투자금액,max,174,0,0.0
+MoneyRaised_VD,후속투자총금액,first,174,0,0.0
+MoneyRaised_VD,후속투자총금액,last,174,0,0.0
+MoneyRaised_VD,후속투자총금액,min,174,0,0.0
+MoneyRaised_VD,후속투자총금액,max,174,0,0.0
+MoneyRaised_VD,후속시간(day),first,136,0,0.0
+MoneyRaised_VD,후속시간(day),last,136,0,0.0
+MoneyRaised_VD,후속시간(day),min,136,0,0.0
+MoneyRaised_VD,후속시간(day),max,136,0,0.0
+MoneyRaised_VD,후속시간평균(day),first,132,0,0.0
+MoneyRaised_VD,후속시간평균(day),last,132,0,0.0
+MoneyRaised_VD,후속시간평균(day),min,132,0,0.0
+MoneyRaised_VD,후속시간평균(day),max,132,0,0.0
+MoneyRaised_VD,직후변화(amount),first,122,0,0.0
+MoneyRaised_VD,직후변화(amount),last,122,0,0.0
+MoneyRaised_VD,직후변화(amount),min,122,0,0.0
+MoneyRaised_VD,직후변화(amount),max,122,0,0.0
+MoneyRaised_VD,%valuationq(multiple),first,122,0,0.0
+MoneyRaised_VD,%valuationq(multiple),last,122,0,0.0
+MoneyRaised_VD,%valuationq(multiple),min,122,0,0.0
+MoneyRaised_VD,%valuationq(multiple),max,122,0,0.0
+MoneyRaised_VD,%valuationq(increase),first,122,0,0.0
+MoneyRaised_VD,%valuationq(increase),last,122,0,0.0
+MoneyRaised_VD,%valuationq(increase),min,122,0,0.0
+MoneyRaised_VD,%valuationq(increase),max,122,0,0.0
+MoneyRaised_VD,직후변화(multiple),first,122,0,0.0
+MoneyRaised_VD,직후변화(multiple),last,122,0,0.0
+MoneyRaised_VD,직후변화(multiple),min,122,0,0.0
+MoneyRaised_VD,직후변화(multiple),max,122,0,0.0
+MoneyRaised_VD,직후변화(increase),first,122,0,0.0
+MoneyRaised_VD,직후변화(increase),last,122,0,0.0
+MoneyRaised_VD,직후변화(increase),min,122,0,0.0
+MoneyRaised_VD,직후변화(increase),max,122,0,0.0
+MoneyRaised_VD,후속시간(year),first,135,0,0.0
+MoneyRaised_VD,후속시간(year),last,135,0,0.0
+MoneyRaised_VD,후속시간(year),min,135,0,0.0
+MoneyRaised_VD,후속시간(year),max,135,0,0.0
+MoneyRaised_VD,후속시간평균(year),first,132,0,0.0
+MoneyRaised_VD,후속시간평균(year),last,132,0,0.0
+MoneyRaised_VD,후속시간평균(year),min,132,0,0.0
+MoneyRaised_VD,후속시간평균(year),max,132,0,0.0
+MoneyRaised_VD,Number of Funding Rounds,first,2820,0,0.0
+MoneyRaised_VD,Number of Funding Rounds,last,2820,0,0.0
+MoneyRaised_VD,Number of Funding Rounds,min,2820,0,0.0
+MoneyRaised_VD,Number of Funding Rounds,max,2820,0,0.0
+MoneyRaised_VD,Number of Partner Investors,first,2717,0,0.0
+MoneyRaised_VD,Number of Partner Investors,last,2717,0,0.0
+MoneyRaised_VD,Number of Partner Investors,min,2717,0,0.0
+MoneyRaised_VD,Number of Partner Investors,max,2717,0,0.0
+MoneyRaised_VD,NumberOfCumulative Investors,last,2820,0,0.0
+MoneyRaised_VD,NumberOfCumulative Investors,max,2820,0,0.0
+MoneyRaised_VD,Number of Investors,first,2820,0,0.0
+MoneyRaised_VD,Number of Investors,last,2820,0,0.0
+MoneyRaised_VD,Number of Investors,min,2820,0,0.0
+MoneyRaised_VD,Number of Investors,max,2820,0,0.0
+MoneyRaised_VD,Industry Classification,first,3,0,0.0
+MoneyRaised_VD,Industry Classification,last,3,0,0.0
+MoneyRaised_VD,Industry Classification,min,3,0,0.0
+MoneyRaised_VD,Industry Classification,max,3,0,0.0
+MoneyRaised_VD,Number of Funding Rounds.1,first,2820,0,0.0
+MoneyRaised_VD,Number of Funding Rounds.1,last,2820,0,0.0
+MoneyRaised_VD,Number of Funding Rounds.1,min,2820,0,0.0
+MoneyRaised_VD,Number of Funding Rounds.1,max,2820,0,0.0
+MoneyRaised_VD,IPO Date,first,2820,0,0.0
+MoneyRaised_VD,IPO Date,last,2820,0,0.0
+MoneyRaised_VD,IPO Date,min,2820,0,0.0
+MoneyRaised_VD,IPO Date,max,2820,0,0.0
+NumofFundingRounds_VD,NumberOfFunding_Rounds_FirstVD,first,2820,2041,72.3758865248227
+NumofFundingRounds_VD,NumberOfFunding_Rounds_FirstVD,last,2820,2041,72.3758865248227
+NumofFundingRounds_VD,NumberOfFunding_Rounds_FirstVD,min,2820,2041,72.3758865248227
+NumofFundingRounds_VD,NumberOfFunding_Rounds_FirstVD,max,2820,2041,72.3758865248227
+NumofFundingRounds_VD,이전투자횟수VD,first,179,129,72.06703910614524
+NumofFundingRounds_VD,이전투자횟수VD,last,179,129,72.06703910614524
+NumofFundingRounds_VD,이전투자횟수VD,min,179,129,72.06703910614524
+NumofFundingRounds_VD,이전투자횟수VD,max,179,129,72.06703910614524
+NumofFundingRounds_VD,NumberOfFunding_Rounds_T5,first,1401,430,30.692362598144186
+NumofFundingRounds_VD,NumberOfFunding_Rounds_T5,last,1401,430,30.692362598144186
+NumofFundingRounds_VD,NumberOfFunding_Rounds_T5,min,1401,430,30.692362598144186
+NumofFundingRounds_VD,NumberOfFunding_Rounds_T5,max,1401,430,30.692362598144186
+NumofFundingRounds_VD,NumberOfFunding_Rounds_T3,first,2194,657,29.945305378304464
+NumofFundingRounds_VD,NumberOfFunding_Rounds_T3,last,2194,657,29.945305378304464
+NumofFundingRounds_VD,NumberOfFunding_Rounds_T3,min,2194,657,29.945305378304464
+NumofFundingRounds_VD,NumberOfFunding_Rounds_T3,max,2194,657,29.945305378304464
+NumofFundingRounds_VD,deal no,last,2820,635,22.5177304964539
+NumofFundingRounds_VD,deal no,max,2820,635,22.5177304964539
+NumofFundingRounds_VD,Number of Funding Rounds,first,2820,634,22.4822695035461
+NumofFundingRounds_VD,Number of Funding Rounds,min,2820,634,22.4822695035461
+NumofFundingRounds_VD,Number of Funding Rounds,last,2820,633,22.4468085106383
+NumofFundingRounds_VD,Number of Funding Rounds,max,2820,633,22.4468085106383
+NumofFundingRounds_VD,Number of Funding Rounds.1,first,2820,624,22.127659574468083
+NumofFundingRounds_VD,Number of Funding Rounds.1,last,2820,624,22.127659574468083
+NumofFundingRounds_VD,Number of Funding Rounds.1,min,2820,624,22.127659574468083
+NumofFundingRounds_VD,Number of Funding Rounds.1,max,2820,624,22.127659574468083
+NumofFundingRounds_VD,TimeToFirst_VD,first,1410,197,13.97163120567376
+NumofFundingRounds_VD,TimeToFirst_VD,last,1410,197,13.97163120567376
+NumofFundingRounds_VD,TimeToFirst_VD,min,1410,197,13.97163120567376
+NumofFundingRounds_VD,TimeToFirst_VD,max,1410,197,13.97163120567376
+NumofFundingRounds_VD,Number of Partner Investors,max,2717,357,13.139492086860507
+NumofFundingRounds_VD,NumberOfInvestors_T5,first,179,23,12.849162011173185
+NumofFundingRounds_VD,NumberOfInvestors_T5,last,179,23,12.849162011173185
+NumofFundingRounds_VD,NumberOfInvestors_T5,min,179,23,12.849162011173185
+NumofFundingRounds_VD,NumberOfInvestors_T5,max,179,23,12.849162011173185
+NumofFundingRounds_VD,NumberOfInvestors_T3,first,2106,254,12.060778727445394
+NumofFundingRounds_VD,NumberOfInvestors_T3,last,2106,254,12.060778727445394
+NumofFundingRounds_VD,NumberOfInvestors_T3,min,2106,254,12.060778727445394
+NumofFundingRounds_VD,NumberOfInvestors_T3,max,2106,254,12.060778727445394
+NumofFundingRounds_VD,TimeBetween_VCVD,first,1410,156,11.063829787234042
+NumofFundingRounds_VD,TimeBetween_VCVD,last,1410,156,11.063829787234042
+NumofFundingRounds_VD,TimeBetween_VCVD,min,1410,156,11.063829787234042
+NumofFundingRounds_VD,TimeBetween_VCVD,max,1410,156,11.063829787234042
+NumofFundingRounds_VD,NumberOfCumulative Investors,last,2820,309,10.957446808510639
+NumofFundingRounds_VD,NumberOfCumulative Investors,max,2820,309,10.957446808510639
+NumofFundingRounds_VD,Number of Investors,first,2820,303,10.74468085106383
+NumofFundingRounds_VD,Number of Investors,last,2820,303,10.74468085106383
+NumofFundingRounds_VD,Number of Investors,min,2820,303,10.74468085106383
+NumofFundingRounds_VD,Number of Investors,max,2820,303,10.74468085106383
+NumofFundingRounds_VD,후속투자횟수T5,first,179,19,10.614525139664805
+NumofFundingRounds_VD,후속투자횟수T5,last,179,19,10.614525139664805
+NumofFundingRounds_VD,후속투자횟수T5,min,179,19,10.614525139664805
+NumofFundingRounds_VD,후속투자횟수T5,max,179,19,10.614525139664805
+NumofFundingRounds_VD,후속투자횟수,first,179,19,10.614525139664805
+NumofFundingRounds_VD,후속투자횟수,last,179,19,10.614525139664805
+NumofFundingRounds_VD,후속투자횟수,min,179,19,10.614525139664805
+NumofFundingRounds_VD,후속투자횟수,max,179,19,10.614525139664805
+NumofFundingRounds_VD,Number of Partner Investors,last,2717,281,10.34228928965771
+NumofFundingRounds_VD,Number of Partner Investors,first,2717,273,10.047846889952153
+NumofFundingRounds_VD,NumberOfCumulative Investors,first,2820,205,7.2695035460992905
+NumofFundingRounds_VD,NumberOfCumulative Investors,min,2820,205,7.2695035460992905
+NumofFundingRounds_VD,Number of Partner Investors,min,2717,185,6.808980493191019
+NumofFundingRounds_VD,TimeToFirst_VC,first,2820,192,6.808510638297872
+NumofFundingRounds_VD,TimeToFirst_VC,last,2820,192,6.808510638297872
+NumofFundingRounds_VD,TimeToFirst_VC,min,2820,192,6.808510638297872
+NumofFundingRounds_VD,TimeToFirst_VC,max,2820,192,6.808510638297872
+NumofFundingRounds_VD,후속투자횟수T3,first,179,12,6.70391061452514
+NumofFundingRounds_VD,후속투자횟수T3,last,179,12,6.70391061452514
+NumofFundingRounds_VD,후속투자횟수T3,min,179,12,6.70391061452514
+NumofFundingRounds_VD,후속투자횟수T3,max,179,12,6.70391061452514
+NumofFundingRounds_VD,weight,first,2820,138,4.8936170212765955
+NumofFundingRounds_VD,weight,last,2820,138,4.8936170212765955
+NumofFundingRounds_VD,weight,min,2820,138,4.8936170212765955
+NumofFundingRounds_VD,weight,max,2820,138,4.8936170212765955
+NumofFundingRounds_VD,deal no,first,2820,138,4.8936170212765955
+NumofFundingRounds_VD,deal no,min,2820,138,4.8936170212765955
+NumofFundingRounds_VD,last deal,last,2820,138,4.8936170212765955
+NumofFundingRounds_VD,last deal,max,2820,138,4.8936170212765955
+NumofFundingRounds_VD,First VC,first,2820,138,4.8936170212765955
+NumofFundingRounds_VD,First VC,last,2820,138,4.8936170212765955
+NumofFundingRounds_VD,First VC,min,2820,138,4.8936170212765955
+NumofFundingRounds_VD,First VC,max,2820,138,4.8936170212765955
+NumofFundingRounds_VD,VD Year deal,max,2820,138,4.8936170212765955
+NumofFundingRounds_VD,weight.1,first,2820,138,4.8936170212765955
+NumofFundingRounds_VD,weight.1,last,2820,138,4.8936170212765955
+NumofFundingRounds_VD,weight.1,min,2820,138,4.8936170212765955
+NumofFundingRounds_VD,weight.1,max,2820,138,4.8936170212765955
+NumofFundingRounds_VD,VD Year deal,first,2820,120,4.25531914893617
+NumofFundingRounds_VD,Debt,first,1410,17,1.2056737588652482
+NumofFundingRounds_VD,Debt,last,1410,17,1.2056737588652482
+NumofFundingRounds_VD,Debt,min,1410,17,1.2056737588652482
+NumofFundingRounds_VD,Debt,max,1410,17,1.2056737588652482
+NumofFundingRounds_VD,First VD,first,1410,17,1.2056737588652482
+NumofFundingRounds_VD,First VD,last,1410,17,1.2056737588652482
+NumofFundingRounds_VD,First VD,min,1410,17,1.2056737588652482
+NumofFundingRounds_VD,First VD,max,1410,17,1.2056737588652482
+NumofFundingRounds_VD,First VD.1,first,1410,17,1.2056737588652482
+NumofFundingRounds_VD,First VD.1,last,1410,17,1.2056737588652482
+NumofFundingRounds_VD,First VD.1,min,1410,17,1.2056737588652482
+NumofFundingRounds_VD,First VD.1,max,1410,17,1.2056737588652482
+NumofFundingRounds_VD,VD Year deal,last,2820,31,1.099290780141844
+NumofFundingRounds_VD,직후변화(increase),first,122,1,0.819672131147541
+NumofFundingRounds_VD,직후변화(increase),last,122,1,0.819672131147541
+NumofFundingRounds_VD,직후변화(increase),min,122,1,0.819672131147541
+NumofFundingRounds_VD,직후변화(increase),max,122,1,0.819672131147541
+NumofFundingRounds_VD,VD_Backing,first,2820,20,0.7092198581560284
+NumofFundingRounds_VD,VD_Backing,last,2820,20,0.7092198581560284
+NumofFundingRounds_VD,VD_Backing,min,2820,20,0.7092198581560284
+NumofFundingRounds_VD,VD_Backing,max,2820,20,0.7092198581560284
+NumofFundingRounds_VD,last deal,first,2820,18,0.6382978723404255
+NumofFundingRounds_VD,last deal,min,2820,18,0.6382978723404255
+NumofFundingRounds_VD,VD Year deal,min,2820,18,0.6382978723404255
+NumofFundingRounds_VD,no,first,2820,0,0.0
+NumofFundingRounds_VD,no,last,2820,0,0.0
+NumofFundingRounds_VD,no,min,2820,0,0.0
+NumofFundingRounds_VD,no,max,2820,0,0.0
+NumofFundingRounds_VD,found year,first,2820,0,0.0
+NumofFundingRounds_VD,found year,last,2820,0,0.0
+NumofFundingRounds_VD,found year,min,2820,0,0.0
+NumofFundingRounds_VD,found year,max,2820,0,0.0
+NumofFundingRounds_VD,Announced Date,first,2820,0,0.0
+NumofFundingRounds_VD,Announced Date,last,2820,0,0.0
+NumofFundingRounds_VD,Announced Date,min,2820,0,0.0
+NumofFundingRounds_VD,Announced Date,max,2820,0,0.0
+NumofFundingRounds_VD,Deal year,first,2820,0,0.0
+NumofFundingRounds_VD,Deal year,last,2820,0,0.0
+NumofFundingRounds_VD,Deal year,min,2820,0,0.0
+NumofFundingRounds_VD,Deal year,max,2820,0,0.0
+NumofFundingRounds_VD,Turnover시점,first,179,0,0.0
+NumofFundingRounds_VD,Turnover시점,last,179,0,0.0
+NumofFundingRounds_VD,Turnover시점,min,179,0,0.0
+NumofFundingRounds_VD,Turnover시점,max,179,0,0.0
+NumofFundingRounds_VD,Turnover 5years window,first,179,0,0.0
+NumofFundingRounds_VD,Turnover 5years window,last,179,0,0.0
+NumofFundingRounds_VD,Turnover 5years window,min,179,0,0.0
+NumofFundingRounds_VD,Turnover 5years window,max,179,0,0.0
+NumofFundingRounds_VD,CEO turnover,first,179,0,0.0
+NumofFundingRounds_VD,CEO turnover,last,179,0,0.0
+NumofFundingRounds_VD,CEO turnover,min,179,0,0.0
+NumofFundingRounds_VD,CEO turnover,max,179,0,0.0
+NumofFundingRounds_VD,turnover year,first,179,0,0.0
+NumofFundingRounds_VD,turnover year,last,179,0,0.0
+NumofFundingRounds_VD,turnover year,min,179,0,0.0
+NumofFundingRounds_VD,turnover year,max,179,0,0.0
+NumofFundingRounds_VD,Follow-on Year,first,43,0,0.0
+NumofFundingRounds_VD,Follow-on Year,last,43,0,0.0
+NumofFundingRounds_VD,Follow-on Year,min,43,0,0.0
+NumofFundingRounds_VD,Follow-on Year,max,43,0,0.0
+NumofFundingRounds_VD,Follow-on Equity Amt,first,132,0,0.0
+NumofFundingRounds_VD,Follow-on Equity Amt,last,132,0,0.0
+NumofFundingRounds_VD,Follow-on Equity Amt,min,132,0,0.0
+NumofFundingRounds_VD,Follow-on Equity Amt,max,132,0,0.0
+NumofFundingRounds_VD,Subsequent funding amt,first,132,0,0.0
+NumofFundingRounds_VD,Subsequent funding amt,last,132,0,0.0
+NumofFundingRounds_VD,Subsequent funding amt,min,132,0,0.0
+NumofFundingRounds_VD,Subsequent funding amt,max,132,0,0.0
+NumofFundingRounds_VD,VD,first,2820,0,0.0
+NumofFundingRounds_VD,VD,last,2820,0,0.0
+NumofFundingRounds_VD,VD,min,2820,0,0.0
+NumofFundingRounds_VD,VD,max,2820,0,0.0
+NumofFundingRounds_VD,TotalFundingAmount_FirstVD,first,2820,0,0.0
+NumofFundingRounds_VD,TotalFundingAmount_FirstVD,last,2820,0,0.0
+NumofFundingRounds_VD,TotalFundingAmount_FirstVD,min,2820,0,0.0
+NumofFundingRounds_VD,TotalFundingAmount_FirstVD,max,2820,0,0.0
+NumofFundingRounds_VD,Total_Funding_Amount_T3,first,2193,0,0.0
+NumofFundingRounds_VD,Total_Funding_Amount_T3,last,2193,0,0.0
+NumofFundingRounds_VD,Total_Funding_Amount_T3,min,2193,0,0.0
+NumofFundingRounds_VD,Total_Funding_Amount_T3,max,2193,0,0.0
+NumofFundingRounds_VD,Total_Funding_Amount_T5,first,1401,0,0.0
+NumofFundingRounds_VD,Total_Funding_Amount_T5,last,1401,0,0.0
+NumofFundingRounds_VD,Total_Funding_Amount_T5,min,1401,0,0.0
+NumofFundingRounds_VD,Total_Funding_Amount_T5,max,1401,0,0.0
+NumofFundingRounds_VD,VD Year,first,179,0,0.0
+NumofFundingRounds_VD,VD Year,last,179,0,0.0
+NumofFundingRounds_VD,VD Year,min,179,0,0.0
+NumofFundingRounds_VD,VD Year,max,179,0,0.0
+NumofFundingRounds_VD,Money Raised Currency (in USD),first,2820,0,0.0
+NumofFundingRounds_VD,Money Raised Currency (in USD),last,2820,0,0.0
+NumofFundingRounds_VD,Money Raised Currency (in USD),min,2820,0,0.0
+NumofFundingRounds_VD,Money Raised Currency (in USD),max,2820,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_preVD,first,177,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_preVD,last,177,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_preVD,min,177,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_preVD,max,177,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_untilVD,first,177,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_untilVD,last,177,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_untilVD,min,177,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_untilVD,max,177,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_T3,first,179,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_T3,last,179,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_T3,min,179,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_T3,max,179,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_T5,first,179,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_T5,last,179,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_T5,min,179,0,0.0
+NumofFundingRounds_VD,TotalFundingAmt_T5,max,179,0,0.0
+NumofFundingRounds_VD,누적_PREVD_T3,first,179,0,0.0
+NumofFundingRounds_VD,누적_PREVD_T3,last,179,0,0.0
+NumofFundingRounds_VD,누적_PREVD_T3,min,179,0,0.0
+NumofFundingRounds_VD,누적_PREVD_T3,max,179,0,0.0
+NumofFundingRounds_VD,누적_PREVD_T5,first,179,0,0.0
+NumofFundingRounds_VD,누적_PREVD_T5,last,179,0,0.0
+NumofFundingRounds_VD,누적_PREVD_T5,min,179,0,0.0
+NumofFundingRounds_VD,누적_PREVD_T5,max,179,0,0.0
+NumofFundingRounds_VD,누적_VD_T3,first,179,0,0.0
+NumofFundingRounds_VD,누적_VD_T3,last,179,0,0.0
+NumofFundingRounds_VD,누적_VD_T3,min,179,0,0.0
+NumofFundingRounds_VD,누적_VD_T3,max,179,0,0.0
+NumofFundingRounds_VD,누적_VD_T5,first,179,0,0.0
+NumofFundingRounds_VD,누적_VD_T5,last,179,0,0.0
+NumofFundingRounds_VD,누적_VD_T5,min,179,0,0.0
+NumofFundingRounds_VD,누적_VD_T5,max,179,0,0.0
+NumofFundingRounds_VD,후속투자금액,first,174,0,0.0
+NumofFundingRounds_VD,후속투자금액,last,174,0,0.0
+NumofFundingRounds_VD,후속투자금액,min,174,0,0.0
+NumofFundingRounds_VD,후속투자금액,max,174,0,0.0
+NumofFundingRounds_VD,후속투자총금액,first,174,0,0.0
+NumofFundingRounds_VD,후속투자총금액,last,174,0,0.0
+NumofFundingRounds_VD,후속투자총금액,min,174,0,0.0
+NumofFundingRounds_VD,후속투자총금액,max,174,0,0.0
+NumofFundingRounds_VD,후속시간(day),first,136,0,0.0
+NumofFundingRounds_VD,후속시간(day),last,136,0,0.0
+NumofFundingRounds_VD,후속시간(day),min,136,0,0.0
+NumofFundingRounds_VD,후속시간(day),max,136,0,0.0
+NumofFundingRounds_VD,후속시간평균(day),first,132,0,0.0
+NumofFundingRounds_VD,후속시간평균(day),last,132,0,0.0
+NumofFundingRounds_VD,후속시간평균(day),min,132,0,0.0
+NumofFundingRounds_VD,후속시간평균(day),max,132,0,0.0
+NumofFundingRounds_VD,직후변화(amount),first,122,0,0.0
+NumofFundingRounds_VD,직후변화(amount),last,122,0,0.0
+NumofFundingRounds_VD,직후변화(amount),min,122,0,0.0
+NumofFundingRounds_VD,직후변화(amount),max,122,0,0.0
+NumofFundingRounds_VD,%valuationq(multiple),first,122,0,0.0
+NumofFundingRounds_VD,%valuationq(multiple),last,122,0,0.0
+NumofFundingRounds_VD,%valuationq(multiple),min,122,0,0.0
+NumofFundingRounds_VD,%valuationq(multiple),max,122,0,0.0
+NumofFundingRounds_VD,%valuationq(increase),first,122,0,0.0
+NumofFundingRounds_VD,%valuationq(increase),last,122,0,0.0
+NumofFundingRounds_VD,%valuationq(increase),min,122,0,0.0
+NumofFundingRounds_VD,%valuationq(increase),max,122,0,0.0
+NumofFundingRounds_VD,직후변화(multiple),first,122,0,0.0
+NumofFundingRounds_VD,직후변화(multiple),last,122,0,0.0
+NumofFundingRounds_VD,직후변화(multiple),min,122,0,0.0
+NumofFundingRounds_VD,직후변화(multiple),max,122,0,0.0
+NumofFundingRounds_VD,후속시간(year),first,135,0,0.0
+NumofFundingRounds_VD,후속시간(year),last,135,0,0.0
+NumofFundingRounds_VD,후속시간(year),min,135,0,0.0
+NumofFundingRounds_VD,후속시간(year),max,135,0,0.0
+NumofFundingRounds_VD,후속시간평균(year),first,132,0,0.0
+NumofFundingRounds_VD,후속시간평균(year),last,132,0,0.0
+NumofFundingRounds_VD,후속시간평균(year),min,132,0,0.0
+NumofFundingRounds_VD,후속시간평균(year),max,132,0,0.0
+NumofFundingRounds_VD,Industry Classification,first,3,0,0.0
+NumofFundingRounds_VD,Industry Classification,last,3,0,0.0
+NumofFundingRounds_VD,Industry Classification,min,3,0,0.0
+NumofFundingRounds_VD,Industry Classification,max,3,0,0.0
+NumofFundingRounds_VD,Total Equity Funding Amount Currency (in USD),first,1899,0,0.0
+NumofFundingRounds_VD,Total Equity Funding Amount Currency (in USD),last,1899,0,0.0
+NumofFundingRounds_VD,Total Equity Funding Amount Currency (in USD),min,1899,0,0.0
+NumofFundingRounds_VD,Total Equity Funding Amount Currency (in USD),max,1899,0,0.0
+NumofFundingRounds_VD,Total Funding Amount Currency (in USD),first,2820,0,0.0
+NumofFundingRounds_VD,Total Funding Amount Currency (in USD),last,2820,0,0.0
+NumofFundingRounds_VD,Total Funding Amount Currency (in USD),min,2820,0,0.0
+NumofFundingRounds_VD,Total Funding Amount Currency (in USD),max,2820,0,0.0
+NumofFundingRounds_VD,IPO Date,first,2820,0,0.0
+NumofFundingRounds_VD,IPO Date,last,2820,0,0.0
+NumofFundingRounds_VD,IPO Date,min,2820,0,0.0
+NumofFundingRounds_VD,IPO Date,max,2820,0,0.0
+TimetoFirstVC,TimeToFirst_VC,first,2820,2820,100.0
+TimetoFirstVC,TimeToFirst_VC,last,2820,2820,100.0
+TimetoFirstVC,TimeToFirst_VC,min,2820,2820,100.0
+TimetoFirstVC,TimeToFirst_VC,max,2820,2820,100.0
+TimetoFirstVC,VD Year deal,first,2820,885,31.382978723404253
+TimetoFirstVC,last deal,first,2820,883,31.31205673758865
+TimetoFirstVC,last deal,min,2820,883,31.31205673758865
+TimetoFirstVC,VD Year deal,min,2820,883,31.31205673758865
+TimetoFirstVC,VD Year deal,last,2820,860,30.49645390070922
+TimetoFirstVC,weight,first,2820,850,30.141843971631204
+TimetoFirstVC,weight,last,2820,850,30.141843971631204
+TimetoFirstVC,weight,min,2820,850,30.141843971631204
+TimetoFirstVC,weight,max,2820,850,30.141843971631204
+TimetoFirstVC,deal no,first,2820,850,30.141843971631204
+TimetoFirstVC,deal no,min,2820,850,30.141843971631204
+TimetoFirstVC,last deal,last,2820,850,30.141843971631204
+TimetoFirstVC,last deal,max,2820,850,30.141843971631204
+TimetoFirstVC,First VC,first,2820,850,30.141843971631204
+TimetoFirstVC,First VC,last,2820,850,30.141843971631204
+TimetoFirstVC,First VC,min,2820,850,30.141843971631204
+TimetoFirstVC,First VC,max,2820,850,30.141843971631204
+TimetoFirstVC,VD Year deal,max,2820,850,30.141843971631204
+TimetoFirstVC,weight.1,first,2820,850,30.141843971631204
+TimetoFirstVC,weight.1,last,2820,850,30.141843971631204
+TimetoFirstVC,weight.1,min,2820,850,30.141843971631204
+TimetoFirstVC,weight.1,max,2820,850,30.141843971631204
+TimetoFirstVC,Number of Partner Investors,min,2717,778,28.63452337136548
+TimetoFirstVC,VD_Backing,first,2820,793,28.120567375886523
+TimetoFirstVC,VD_Backing,max,2820,793,28.120567375886523
+TimetoFirstVC,VD_Backing,last,2820,792,28.085106382978726
+TimetoFirstVC,VD_Backing,min,2820,792,28.085106382978726
+TimetoFirstVC,Debt,first,1410,394,27.94326241134752
+TimetoFirstVC,Debt,last,1410,394,27.94326241134752
+TimetoFirstVC,Debt,min,1410,394,27.94326241134752
+TimetoFirstVC,Debt,max,1410,394,27.94326241134752
+TimetoFirstVC,First VD,first,1410,394,27.94326241134752
+TimetoFirstVC,First VD,last,1410,394,27.94326241134752
+TimetoFirstVC,First VD,min,1410,394,27.94326241134752
+TimetoFirstVC,First VD,max,1410,394,27.94326241134752
+TimetoFirstVC,First VD.1,first,1410,394,27.94326241134752
+TimetoFirstVC,First VD.1,last,1410,394,27.94326241134752
+TimetoFirstVC,First VD.1,min,1410,394,27.94326241134752
+TimetoFirstVC,First VD.1,max,1410,394,27.94326241134752
+TimetoFirstVC,CEO turnover,first,179,40,22.3463687150838
+TimetoFirstVC,CEO turnover,last,179,40,22.3463687150838
+TimetoFirstVC,CEO turnover,min,179,40,22.3463687150838
+TimetoFirstVC,CEO turnover,max,179,40,22.3463687150838
+TimetoFirstVC,NumberOfCumulative Investors,first,2820,606,21.48936170212766
+TimetoFirstVC,NumberOfCumulative Investors,min,2820,606,21.48936170212766
+TimetoFirstVC,Number of Partner Investors,first,2717,567,20.868605079131395
+TimetoFirstVC,Number of Partner Investors,last,2717,547,20.1324990798675
+TimetoFirstVC,후속투자횟수T3,first,179,34,18.994413407821227
+TimetoFirstVC,후속투자횟수T3,last,179,34,18.994413407821227
+TimetoFirstVC,후속투자횟수T3,min,179,34,18.994413407821227
+TimetoFirstVC,후속투자횟수T3,max,179,34,18.994413407821227
+TimetoFirstVC,후속투자횟수T5,first,179,32,17.877094972067038
+TimetoFirstVC,후속투자횟수T5,last,179,32,17.877094972067038
+TimetoFirstVC,후속투자횟수T5,min,179,32,17.877094972067038
+TimetoFirstVC,후속투자횟수T5,max,179,32,17.877094972067038
+TimetoFirstVC,후속투자횟수,first,179,32,17.877094972067038
+TimetoFirstVC,후속투자횟수,last,179,32,17.877094972067038
+TimetoFirstVC,후속투자횟수,min,179,32,17.877094972067038
+TimetoFirstVC,후속투자횟수,max,179,32,17.877094972067038
+TimetoFirstVC,TimeBetween_VCVD,first,1410,202,14.326241134751774
+TimetoFirstVC,TimeBetween_VCVD,last,1410,202,14.326241134751774
+TimetoFirstVC,TimeBetween_VCVD,min,1410,202,14.326241134751774
+TimetoFirstVC,TimeBetween_VCVD,max,1410,202,14.326241134751774
+TimetoFirstVC,Number of Partner Investors,max,2717,275,10.121457489878543
+TimetoFirstVC,TimeToFirst_VD,first,1410,139,9.858156028368795
+TimetoFirstVC,TimeToFirst_VD,last,1410,139,9.858156028368795
+TimetoFirstVC,TimeToFirst_VD,min,1410,139,9.858156028368795
+TimetoFirstVC,TimeToFirst_VD,max,1410,139,9.858156028368795
+TimetoFirstVC,이전투자횟수VD,first,179,13,7.262569832402235
+TimetoFirstVC,이전투자횟수VD,last,179,13,7.262569832402235
+TimetoFirstVC,이전투자횟수VD,min,179,13,7.262569832402235
+TimetoFirstVC,이전투자횟수VD,max,179,13,7.262569832402235
+TimetoFirstVC,NumberOfFunding_Rounds_FirstVD,first,2820,201,7.127659574468086
+TimetoFirstVC,NumberOfFunding_Rounds_FirstVD,last,2820,201,7.127659574468086
+TimetoFirstVC,NumberOfFunding_Rounds_FirstVD,min,2820,201,7.127659574468086
+TimetoFirstVC,NumberOfFunding_Rounds_FirstVD,max,2820,201,7.127659574468086
+TimetoFirstVC,누적_VD_T3,first,179,11,6.145251396648044
+TimetoFirstVC,누적_VD_T3,last,179,11,6.145251396648044
+TimetoFirstVC,누적_VD_T3,min,179,11,6.145251396648044
+TimetoFirstVC,누적_VD_T3,max,179,11,6.145251396648044
+TimetoFirstVC,누적_VD_T5,first,179,11,6.145251396648044
+TimetoFirstVC,누적_VD_T5,last,179,11,6.145251396648044
+TimetoFirstVC,누적_VD_T5,min,179,11,6.145251396648044
+TimetoFirstVC,누적_VD_T5,max,179,11,6.145251396648044
+TimetoFirstVC,후속투자금액,first,174,9,5.172413793103448
+TimetoFirstVC,후속투자금액,last,174,9,5.172413793103448
+TimetoFirstVC,후속투자금액,min,174,9,5.172413793103448
+TimetoFirstVC,후속투자금액,max,174,9,5.172413793103448
+TimetoFirstVC,후속투자총금액,first,174,9,5.172413793103448
+TimetoFirstVC,후속투자총금액,last,174,9,5.172413793103448
+TimetoFirstVC,후속투자총금액,min,174,9,5.172413793103448
+TimetoFirstVC,후속투자총금액,max,174,9,5.172413793103448
+TimetoFirstVC,NumberOfCumulative Investors,last,2820,145,5.141843971631205
+TimetoFirstVC,NumberOfCumulative Investors,max,2820,145,5.141843971631205
+TimetoFirstVC,Number of Investors,first,2820,145,5.141843971631205
+TimetoFirstVC,Number of Investors,last,2820,145,5.141843971631205
+TimetoFirstVC,Number of Investors,min,2820,145,5.141843971631205
+TimetoFirstVC,Number of Investors,max,2820,145,5.141843971631205
+TimetoFirstVC,NumberOfInvestors_T3,first,2106,107,5.080721747388414
+TimetoFirstVC,NumberOfInvestors_T3,last,2106,107,5.080721747388414
+TimetoFirstVC,NumberOfInvestors_T3,min,2106,107,5.080721747388414
+TimetoFirstVC,NumberOfInvestors_T3,max,2106,107,5.080721747388414
+TimetoFirstVC,NumberOfFunding_Rounds_T3,first,2194,90,4.102096627164995
+TimetoFirstVC,NumberOfFunding_Rounds_T3,last,2194,90,4.102096627164995
+TimetoFirstVC,NumberOfFunding_Rounds_T3,min,2194,90,4.102096627164995
+TimetoFirstVC,NumberOfFunding_Rounds_T3,max,2194,90,4.102096627164995
+TimetoFirstVC,Number of Funding Rounds.1,first,2820,114,4.042553191489362
+TimetoFirstVC,Number of Funding Rounds.1,last,2820,114,4.042553191489362
+TimetoFirstVC,Number of Funding Rounds.1,min,2820,114,4.042553191489362
+TimetoFirstVC,Number of Funding Rounds.1,max,2820,114,4.042553191489362
+TimetoFirstVC,deal no,last,2820,111,3.9361702127659575
+TimetoFirstVC,deal no,max,2820,111,3.9361702127659575
+TimetoFirstVC,Number of Funding Rounds,first,2820,111,3.9361702127659575
+TimetoFirstVC,Number of Funding Rounds,max,2820,111,3.9361702127659575
+TimetoFirstVC,Turnover 5years window,first,179,7,3.910614525139665
+TimetoFirstVC,Turnover 5years window,last,179,7,3.910614525139665
+TimetoFirstVC,Turnover 5years window,min,179,7,3.910614525139665
+TimetoFirstVC,Turnover 5years window,max,179,7,3.910614525139665
+TimetoFirstVC,NumberOfInvestors_T5,first,179,7,3.910614525139665
+TimetoFirstVC,NumberOfInvestors_T5,last,179,7,3.910614525139665
+TimetoFirstVC,NumberOfInvestors_T5,min,179,7,3.910614525139665
+TimetoFirstVC,NumberOfInvestors_T5,max,179,7,3.910614525139665
+TimetoFirstVC,Number of Funding Rounds,last,2820,110,3.900709219858156
+TimetoFirstVC,Number of Funding Rounds,min,2820,110,3.900709219858156
+TimetoFirstVC,NumberOfFunding_Rounds_T5,first,1401,53,3.7830121341898644
+TimetoFirstVC,NumberOfFunding_Rounds_T5,last,1401,53,3.7830121341898644
+TimetoFirstVC,NumberOfFunding_Rounds_T5,min,1401,53,3.7830121341898644
+TimetoFirstVC,NumberOfFunding_Rounds_T5,max,1401,53,3.7830121341898644
+TimetoFirstVC,누적_PREVD_T3,first,179,3,1.675977653631285
+TimetoFirstVC,누적_PREVD_T3,last,179,3,1.675977653631285
+TimetoFirstVC,누적_PREVD_T3,min,179,3,1.675977653631285
+TimetoFirstVC,누적_PREVD_T3,max,179,3,1.675977653631285
+TimetoFirstVC,누적_PREVD_T5,first,179,3,1.675977653631285
+TimetoFirstVC,누적_PREVD_T5,last,179,3,1.675977653631285
+TimetoFirstVC,누적_PREVD_T5,min,179,3,1.675977653631285
+TimetoFirstVC,누적_PREVD_T5,max,179,3,1.675977653631285
+TimetoFirstVC,후속시간(year),first,135,2,1.4814814814814816
+TimetoFirstVC,후속시간(year),last,135,2,1.4814814814814816
+TimetoFirstVC,후속시간(year),min,135,2,1.4814814814814816
+TimetoFirstVC,후속시간(year),max,135,2,1.4814814814814816
+TimetoFirstVC,후속시간(day),first,136,2,1.4705882352941175
+TimetoFirstVC,후속시간(day),last,136,2,1.4705882352941175
+TimetoFirstVC,후속시간(day),min,136,2,1.4705882352941175
+TimetoFirstVC,후속시간(day),max,136,2,1.4705882352941175
+TimetoFirstVC,직후변화(amount),first,122,1,0.819672131147541
+TimetoFirstVC,직후변화(amount),last,122,1,0.819672131147541
+TimetoFirstVC,직후변화(amount),min,122,1,0.819672131147541
+TimetoFirstVC,직후변화(amount),max,122,1,0.819672131147541
+TimetoFirstVC,직후변화(increase),first,122,1,0.819672131147541
+TimetoFirstVC,직후변화(increase),last,122,1,0.819672131147541
+TimetoFirstVC,직후변화(increase),min,122,1,0.819672131147541
+TimetoFirstVC,직후변화(increase),max,122,1,0.819672131147541
+TimetoFirstVC,후속시간평균(year),first,132,1,0.7575757575757576
+TimetoFirstVC,후속시간평균(year),last,132,1,0.7575757575757576
+TimetoFirstVC,후속시간평균(year),min,132,1,0.7575757575757576
+TimetoFirstVC,후속시간평균(year),max,132,1,0.7575757575757576
+TimetoFirstVC,no,first,2820,0,0.0
+TimetoFirstVC,no,last,2820,0,0.0
+TimetoFirstVC,no,min,2820,0,0.0
+TimetoFirstVC,no,max,2820,0,0.0
+TimetoFirstVC,found year,first,2820,0,0.0
+TimetoFirstVC,found year,last,2820,0,0.0
+TimetoFirstVC,found year,min,2820,0,0.0
+TimetoFirstVC,found year,max,2820,0,0.0
+TimetoFirstVC,Announced Date,first,2820,0,0.0
+TimetoFirstVC,Announced Date,last,2820,0,0.0
+TimetoFirstVC,Announced Date,min,2820,0,0.0
+TimetoFirstVC,Announced Date,max,2820,0,0.0
+TimetoFirstVC,Deal year,first,2820,0,0.0
+TimetoFirstVC,Deal year,last,2820,0,0.0
+TimetoFirstVC,Deal year,min,2820,0,0.0
+TimetoFirstVC,Deal year,max,2820,0,0.0
+TimetoFirstVC,Turnover시점,first,179,0,0.0
+TimetoFirstVC,Turnover시점,last,179,0,0.0
+TimetoFirstVC,Turnover시점,min,179,0,0.0
+TimetoFirstVC,Turnover시점,max,179,0,0.0
+TimetoFirstVC,turnover year,first,179,0,0.0
+TimetoFirstVC,turnover year,last,179,0,0.0
+TimetoFirstVC,turnover year,min,179,0,0.0
+TimetoFirstVC,turnover year,max,179,0,0.0
+TimetoFirstVC,Follow-on Year,first,43,0,0.0
+TimetoFirstVC,Follow-on Year,last,43,0,0.0
+TimetoFirstVC,Follow-on Year,min,43,0,0.0
+TimetoFirstVC,Follow-on Year,max,43,0,0.0
+TimetoFirstVC,Follow-on Equity Amt,first,132,0,0.0
+TimetoFirstVC,Follow-on Equity Amt,last,132,0,0.0
+TimetoFirstVC,Follow-on Equity Amt,min,132,0,0.0
+TimetoFirstVC,Follow-on Equity Amt,max,132,0,0.0
+TimetoFirstVC,Subsequent funding amt,first,132,0,0.0
+TimetoFirstVC,Subsequent funding amt,last,132,0,0.0
+TimetoFirstVC,Subsequent funding amt,min,132,0,0.0
+TimetoFirstVC,Subsequent funding amt,max,132,0,0.0
+TimetoFirstVC,VD,first,2820,0,0.0
+TimetoFirstVC,VD,last,2820,0,0.0
+TimetoFirstVC,VD,min,2820,0,0.0
+TimetoFirstVC,VD,max,2820,0,0.0
+TimetoFirstVC,TotalFundingAmount_FirstVD,first,2820,0,0.0
+TimetoFirstVC,TotalFundingAmount_FirstVD,last,2820,0,0.0
+TimetoFirstVC,TotalFundingAmount_FirstVD,min,2820,0,0.0
+TimetoFirstVC,TotalFundingAmount_FirstVD,max,2820,0,0.0
+TimetoFirstVC,Total_Funding_Amount_T3,first,2193,0,0.0
+TimetoFirstVC,Total_Funding_Amount_T3,last,2193,0,0.0
+TimetoFirstVC,Total_Funding_Amount_T3,min,2193,0,0.0
+TimetoFirstVC,Total_Funding_Amount_T3,max,2193,0,0.0
+TimetoFirstVC,Total_Funding_Amount_T5,first,1401,0,0.0
+TimetoFirstVC,Total_Funding_Amount_T5,last,1401,0,0.0
+TimetoFirstVC,Total_Funding_Amount_T5,min,1401,0,0.0
+TimetoFirstVC,Total_Funding_Amount_T5,max,1401,0,0.0
+TimetoFirstVC,VD Year,first,179,0,0.0
+TimetoFirstVC,VD Year,last,179,0,0.0
+TimetoFirstVC,VD Year,min,179,0,0.0
+TimetoFirstVC,VD Year,max,179,0,0.0
+TimetoFirstVC,Money Raised Currency (in USD),first,2820,0,0.0
+TimetoFirstVC,Money Raised Currency (in USD),last,2820,0,0.0
+TimetoFirstVC,Money Raised Currency (in USD),min,2820,0,0.0
+TimetoFirstVC,Money Raised Currency (in USD),max,2820,0,0.0
+TimetoFirstVC,TotalFundingAmt_preVD,first,177,0,0.0
+TimetoFirstVC,TotalFundingAmt_preVD,last,177,0,0.0
+TimetoFirstVC,TotalFundingAmt_preVD,min,177,0,0.0
+TimetoFirstVC,TotalFundingAmt_preVD,max,177,0,0.0
+TimetoFirstVC,TotalFundingAmt_untilVD,first,177,0,0.0
+TimetoFirstVC,TotalFundingAmt_untilVD,last,177,0,0.0
+TimetoFirstVC,TotalFundingAmt_untilVD,min,177,0,0.0
+TimetoFirstVC,TotalFundingAmt_untilVD,max,177,0,0.0
+TimetoFirstVC,TotalFundingAmt_T3,first,179,0,0.0
+TimetoFirstVC,TotalFundingAmt_T3,last,179,0,0.0
+TimetoFirstVC,TotalFundingAmt_T3,min,179,0,0.0
+TimetoFirstVC,TotalFundingAmt_T3,max,179,0,0.0
+TimetoFirstVC,TotalFundingAmt_T5,first,179,0,0.0
+TimetoFirstVC,TotalFundingAmt_T5,last,179,0,0.0
+TimetoFirstVC,TotalFundingAmt_T5,min,179,0,0.0
+TimetoFirstVC,TotalFundingAmt_T5,max,179,0,0.0
+TimetoFirstVC,후속시간평균(day),first,132,0,0.0
+TimetoFirstVC,후속시간평균(day),last,132,0,0.0
+TimetoFirstVC,후속시간평균(day),min,132,0,0.0
+TimetoFirstVC,후속시간평균(day),max,132,0,0.0
+TimetoFirstVC,%valuationq(multiple),first,122,0,0.0
+TimetoFirstVC,%valuationq(multiple),last,122,0,0.0
+TimetoFirstVC,%valuationq(multiple),min,122,0,0.0
+TimetoFirstVC,%valuationq(multiple),max,122,0,0.0
+TimetoFirstVC,%valuationq(increase),first,122,0,0.0
+TimetoFirstVC,%valuationq(increase),last,122,0,0.0
+TimetoFirstVC,%valuationq(increase),min,122,0,0.0
+TimetoFirstVC,%valuationq(increase),max,122,0,0.0
+TimetoFirstVC,직후변화(multiple),first,122,0,0.0
+TimetoFirstVC,직후변화(multiple),last,122,0,0.0
+TimetoFirstVC,직후변화(multiple),min,122,0,0.0
+TimetoFirstVC,직후변화(multiple),max,122,0,0.0
+TimetoFirstVC,Industry Classification,first,3,0,0.0
+TimetoFirstVC,Industry Classification,last,3,0,0.0
+TimetoFirstVC,Industry Classification,min,3,0,0.0
+TimetoFirstVC,Industry Classification,max,3,0,0.0
+TimetoFirstVC,Total Equity Funding Amount Currency (in USD),first,1899,0,0.0
+TimetoFirstVC,Total Equity Funding Amount Currency (in USD),last,1899,0,0.0
+TimetoFirstVC,Total Equity Funding Amount Currency (in USD),min,1899,0,0.0
+TimetoFirstVC,Total Equity Funding Amount Currency (in USD),max,1899,0,0.0
+TimetoFirstVC,Total Funding Amount Currency (in USD),first,2820,0,0.0
+TimetoFirstVC,Total Funding Amount Currency (in USD),last,2820,0,0.0
+TimetoFirstVC,Total Funding Amount Currency (in USD),min,2820,0,0.0
+TimetoFirstVC,Total Funding Amount Currency (in USD),max,2820,0,0.0
+TimetoFirstVC,IPO Date,first,2820,0,0.0
+TimetoFirstVC,IPO Date,last,2820,0,0.0
+TimetoFirstVC,IPO Date,min,2820,0,0.0
+TimetoFirstVC,IPO Date,max,2820,0,0.0
+VDyear,VD,first,2820,2820,100.0
+VDyear,VD,last,2820,2820,100.0
+VDyear,VD,min,2820,2820,100.0
+VDyear,VD,max,2820,2820,100.0
+VDyear,VD Year,first,179,179,100.0
+VDyear,VD Year,last,179,179,100.0
+VDyear,VD Year,min,179,179,100.0
+VDyear,VD Year,max,179,179,100.0
+VDyear,Deal year,last,2820,851,30.177304964539008
+VDyear,Deal year,max,2820,851,30.177304964539008
+VDyear,Deal year,first,2820,178,6.312056737588652
+VDyear,Deal year,min,2820,178,6.312056737588652
+VDyear,turnover year,first,179,7,3.910614525139665
+VDyear,turnover year,last,179,7,3.910614525139665
+VDyear,turnover year,min,179,7,3.910614525139665
+VDyear,turnover year,max,179,7,3.910614525139665
+VDyear,Turnover시점,first,179,5,2.793296089385475
+VDyear,Turnover시점,last,179,5,2.793296089385475
+VDyear,Turnover시점,min,179,5,2.793296089385475
+VDyear,Turnover시점,max,179,5,2.793296089385475
+VDyear,Turnover 5years window,first,179,3,1.675977653631285
+VDyear,Turnover 5years window,last,179,3,1.675977653631285
+VDyear,Turnover 5years window,min,179,3,1.675977653631285
+VDyear,Turnover 5years window,max,179,3,1.675977653631285
+VDyear,found year,first,2820,43,1.5248226950354609
+VDyear,found year,last,2820,43,1.5248226950354609
+VDyear,found year,min,2820,43,1.5248226950354609
+VDyear,found year,max,2820,43,1.5248226950354609
+VDyear,no,first,2820,0,0.0
+VDyear,no,last,2820,0,0.0
+VDyear,no,min,2820,0,0.0
+VDyear,no,max,2820,0,0.0
+VDyear,weight,first,2820,0,0.0
+VDyear,weight,last,2820,0,0.0
+VDyear,weight,min,2820,0,0.0
+VDyear,weight,max,2820,0,0.0
+VDyear,deal no,first,2820,0,0.0
+VDyear,deal no,last,2820,0,0.0
+VDyear,deal no,min,2820,0,0.0
+VDyear,deal no,max,2820,0,0.0
+VDyear,last deal,first,2820,0,0.0
+VDyear,last deal,last,2820,0,0.0
+VDyear,last deal,min,2820,0,0.0
+VDyear,last deal,max,2820,0,0.0
+VDyear,Announced Date,first,2820,0,0.0
+VDyear,Announced Date,last,2820,0,0.0
+VDyear,Announced Date,min,2820,0,0.0
+VDyear,Announced Date,max,2820,0,0.0
+VDyear,First VC,first,2820,0,0.0
+VDyear,First VC,last,2820,0,0.0
+VDyear,First VC,min,2820,0,0.0
+VDyear,First VC,max,2820,0,0.0
+VDyear,TimeToFirst_VC,first,2820,0,0.0
+VDyear,TimeToFirst_VC,last,2820,0,0.0
+VDyear,TimeToFirst_VC,min,2820,0,0.0
+VDyear,TimeToFirst_VC,max,2820,0,0.0
+VDyear,Debt,first,1410,0,0.0
+VDyear,Debt,last,1410,0,0.0
+VDyear,Debt,min,1410,0,0.0
+VDyear,Debt,max,1410,0,0.0
+VDyear,VD_Backing,first,2820,0,0.0
+VDyear,VD_Backing,last,2820,0,0.0
+VDyear,VD_Backing,min,2820,0,0.0
+VDyear,VD_Backing,max,2820,0,0.0
+VDyear,First VD,first,1410,0,0.0
+VDyear,First VD,last,1410,0,0.0
+VDyear,First VD,min,1410,0,0.0
+VDyear,First VD,max,1410,0,0.0
+VDyear,CEO turnover,first,179,0,0.0
+VDyear,CEO turnover,last,179,0,0.0
+VDyear,CEO turnover,min,179,0,0.0
+VDyear,CEO turnover,max,179,0,0.0
+VDyear,Follow-on Year,first,43,0,0.0
+VDyear,Follow-on Year,last,43,0,0.0
+VDyear,Follow-on Year,min,43,0,0.0
+VDyear,Follow-on Year,max,43,0,0.0
+VDyear,Follow-on Equity Amt,first,132,0,0.0
+VDyear,Follow-on Equity Amt,last,132,0,0.0
+VDyear,Follow-on Equity Amt,min,132,0,0.0
+VDyear,Follow-on Equity Amt,max,132,0,0.0
+VDyear,Subsequent funding amt,first,132,0,0.0
+VDyear,Subsequent funding amt,last,132,0,0.0
+VDyear,Subsequent funding amt,min,132,0,0.0
+VDyear,Subsequent funding amt,max,132,0,0.0
+VDyear,TimeToFirst_VD,first,1410,0,0.0
+VDyear,TimeToFirst_VD,last,1410,0,0.0
+VDyear,TimeToFirst_VD,min,1410,0,0.0
+VDyear,TimeToFirst_VD,max,1410,0,0.0
+VDyear,TimeBetween_VCVD,first,1410,0,0.0
+VDyear,TimeBetween_VCVD,last,1410,0,0.0
+VDyear,TimeBetween_VCVD,min,1410,0,0.0
+VDyear,TimeBetween_VCVD,max,1410,0,0.0
+VDyear,VD Year deal,first,2820,0,0.0
+VDyear,VD Year deal,last,2820,0,0.0
+VDyear,VD Year deal,min,2820,0,0.0
+VDyear,VD Year deal,max,2820,0,0.0
+VDyear,NumberOfFunding_Rounds_FirstVD,first,2820,0,0.0
+VDyear,NumberOfFunding_Rounds_FirstVD,last,2820,0,0.0
+VDyear,NumberOfFunding_Rounds_FirstVD,min,2820,0,0.0
+VDyear,NumberOfFunding_Rounds_FirstVD,max,2820,0,0.0
+VDyear,TotalFundingAmount_FirstVD,first,2820,0,0.0
+VDyear,TotalFundingAmount_FirstVD,last,2820,0,0.0
+VDyear,TotalFundingAmount_FirstVD,min,2820,0,0.0
+VDyear,TotalFundingAmount_FirstVD,max,2820,0,0.0
+VDyear,weight.1,first,2820,0,0.0
+VDyear,weight.1,last,2820,0,0.0
+VDyear,weight.1,min,2820,0,0.0
+VDyear,weight.1,max,2820,0,0.0
+VDyear,Total_Funding_Amount_T3,first,2193,0,0.0
+VDyear,Total_Funding_Amount_T3,last,2193,0,0.0
+VDyear,Total_Funding_Amount_T3,min,2193,0,0.0
+VDyear,Total_Funding_Amount_T3,max,2193,0,0.0
+VDyear,NumberOfFunding_Rounds_T3,first,2194,0,0.0
+VDyear,NumberOfFunding_Rounds_T3,last,2194,0,0.0
+VDyear,NumberOfFunding_Rounds_T3,min,2194,0,0.0
+VDyear,NumberOfFunding_Rounds_T3,max,2194,0,0.0
+VDyear,NumberOfInvestors_T3,first,2106,0,0.0
+VDyear,NumberOfInvestors_T3,last,2106,0,0.0
+VDyear,NumberOfInvestors_T3,min,2106,0,0.0
+VDyear,NumberOfInvestors_T3,max,2106,0,0.0
+VDyear,Total_Funding_Amount_T5,first,1401,0,0.0
+VDyear,Total_Funding_Amount_T5,last,1401,0,0.0
+VDyear,Total_Funding_Amount_T5,min,1401,0,0.0
+VDyear,Total_Funding_Amount_T5,max,1401,0,0.0
+VDyear,NumberOfFunding_Rounds_T5,first,1401,0,0.0
+VDyear,NumberOfFunding_Rounds_T5,last,1401,0,0.0
+VDyear,NumberOfFunding_Rounds_T5,min,1401,0,0.0
+VDyear,NumberOfFunding_Rounds_T5,max,1401,0,0.0
+VDyear,NumberOfInvestors_T5,first,179,0,0.0
+VDyear,NumberOfInvestors_T5,last,179,0,0.0
+VDyear,NumberOfInvestors_T5,min,179,0,0.0
+VDyear,NumberOfInvestors_T5,max,179,0,0.0
+VDyear,Money Raised Currency (in USD),first,2820,0,0.0
+VDyear,Money Raised Currency (in USD),last,2820,0,0.0
+VDyear,Money Raised Currency (in USD),min,2820,0,0.0
+VDyear,Money Raised Currency (in USD),max,2820,0,0.0
+VDyear,First VD.1,first,1410,0,0.0
+VDyear,First VD.1,last,1410,0,0.0
+VDyear,First VD.1,min,1410,0,0.0
+VDyear,First VD.1,max,1410,0,0.0
+VDyear,TotalFundingAmt_preVD,first,177,0,0.0
+VDyear,TotalFundingAmt_preVD,last,177,0,0.0
+VDyear,TotalFundingAmt_preVD,min,177,0,0.0
+VDyear,TotalFundingAmt_preVD,max,177,0,0.0
+VDyear,TotalFundingAmt_untilVD,first,177,0,0.0
+VDyear,TotalFundingAmt_untilVD,last,177,0,0.0
+VDyear,TotalFundingAmt_untilVD,min,177,0,0.0
+VDyear,TotalFundingAmt_untilVD,max,177,0,0.0
+VDyear,TotalFundingAmt_T3,first,179,0,0.0
+VDyear,TotalFundingAmt_T3,last,179,0,0.0
+VDyear,TotalFundingAmt_T3,min,179,0,0.0
+VDyear,TotalFundingAmt_T3,max,179,0,0.0
+VDyear,TotalFundingAmt_T5,first,179,0,0.0
+VDyear,TotalFundingAmt_T5,last,179,0,0.0
+VDyear,TotalFundingAmt_T5,min,179,0,0.0
+VDyear,TotalFundingAmt_T5,max,179,0,0.0
+VDyear,누적_PREVD_T3,first,179,0,0.0
+VDyear,누적_PREVD_T3,last,179,0,0.0
+VDyear,누적_PREVD_T3,min,179,0,0.0
+VDyear,누적_PREVD_T3,max,179,0,0.0
+VDyear,누적_PREVD_T5,first,179,0,0.0
+VDyear,누적_PREVD_T5,last,179,0,0.0
+VDyear,누적_PREVD_T5,min,179,0,0.0
+VDyear,누적_PREVD_T5,max,179,0,0.0
+VDyear,누적_VD_T3,first,179,0,0.0
+VDyear,누적_VD_T3,last,179,0,0.0
+VDyear,누적_VD_T3,min,179,0,0.0
+VDyear,누적_VD_T3,max,179,0,0.0
+VDyear,누적_VD_T5,first,179,0,0.0
+VDyear,누적_VD_T5,last,179,0,0.0
+VDyear,누적_VD_T5,min,179,0,0.0
+VDyear,누적_VD_T5,max,179,0,0.0
+VDyear,후속투자횟수T3,first,179,0,0.0
+VDyear,후속투자횟수T3,last,179,0,0.0
+VDyear,후속투자횟수T3,min,179,0,0.0
+VDyear,후속투자횟수T3,max,179,0,0.0
+VDyear,후속투자횟수T5,first,179,0,0.0
+VDyear,후속투자횟수T5,last,179,0,0.0
+VDyear,후속투자횟수T5,min,179,0,0.0
+VDyear,후속투자횟수T5,max,179,0,0.0
+VDyear,후속투자횟수,first,179,0,0.0
+VDyear,후속투자횟수,last,179,0,0.0
+VDyear,후속투자횟수,min,179,0,0.0
+VDyear,후속투자횟수,max,179,0,0.0
+VDyear,이전투자횟수VD,first,179,0,0.0
+VDyear,이전투자횟수VD,last,179,0,0.0
+VDyear,이전투자횟수VD,min,179,0,0.0
+VDyear,이전투자횟수VD,max,179,0,0.0
+VDyear,후속투자금액,first,174,0,0.0
+VDyear,후속투자금액,last,174,0,0.0
+VDyear,후속투자금액,min,174,0,0.0
+VDyear,후속투자금액,max,174,0,0.0
+VDyear,후속투자총금액,first,174,0,0.0
+VDyear,후속투자총금액,last,174,0,0.0
+VDyear,후속투자총금액,min,174,0,0.0
+VDyear,후속투자총금액,max,174,0,0.0
+VDyear,후속시간(day),first,136,0,0.0
+VDyear,후속시간(day),last,136,0,0.0
+VDyear,후속시간(day),min,136,0,0.0
+VDyear,후속시간(day),max,136,0,0.0
+VDyear,후속시간평균(day),first,132,0,0.0
+VDyear,후속시간평균(day),last,132,0,0.0
+VDyear,후속시간평균(day),min,132,0,0.0
+VDyear,후속시간평균(day),max,132,0,0.0
+VDyear,직후변화(amount),first,122,0,0.0
+VDyear,직후변화(amount),last,122,0,0.0
+VDyear,직후변화(amount),min,122,0,0.0
+VDyear,직후변화(amount),max,122,0,0.0
+VDyear,%valuationq(multiple),first,122,0,0.0
+VDyear,%valuationq(multiple),last,122,0,0.0
+VDyear,%valuationq(multiple),min,122,0,0.0
+VDyear,%valuationq(multiple),max,122,0,0.0
+VDyear,%valuationq(increase),first,122,0,0.0
+VDyear,%valuationq(increase),last,122,0,0.0
+VDyear,%valuationq(increase),min,122,0,0.0
+VDyear,%valuationq(increase),max,122,0,0.0
+VDyear,직후변화(multiple),first,122,0,0.0
+VDyear,직후변화(multiple),last,122,0,0.0
+VDyear,직후변화(multiple),min,122,0,0.0
+VDyear,직후변화(multiple),max,122,0,0.0
+VDyear,직후변화(increase),first,122,0,0.0
+VDyear,직후변화(increase),last,122,0,0.0
+VDyear,직후변화(increase),min,122,0,0.0
+VDyear,직후변화(increase),max,122,0,0.0
+VDyear,후속시간(year),first,135,0,0.0
+VDyear,후속시간(year),last,135,0,0.0
+VDyear,후속시간(year),min,135,0,0.0
+VDyear,후속시간(year),max,135,0,0.0
+VDyear,후속시간평균(year),first,132,0,0.0
+VDyear,후속시간평균(year),last,132,0,0.0
+VDyear,후속시간평균(year),min,132,0,0.0
+VDyear,후속시간평균(year),max,132,0,0.0
+VDyear,Number of Funding Rounds,first,2820,0,0.0
+VDyear,Number of Funding Rounds,last,2820,0,0.0
+VDyear,Number of Funding Rounds,min,2820,0,0.0
+VDyear,Number of Funding Rounds,max,2820,0,0.0
+VDyear,Number of Partner Investors,first,2717,0,0.0
+VDyear,Number of Partner Investors,last,2717,0,0.0
+VDyear,Number of Partner Investors,min,2717,0,0.0
+VDyear,Number of Partner Investors,max,2717,0,0.0
+VDyear,NumberOfCumulative Investors,first,2820,0,0.0
+VDyear,NumberOfCumulative Investors,last,2820,0,0.0
+VDyear,NumberOfCumulative Investors,min,2820,0,0.0
+VDyear,NumberOfCumulative Investors,max,2820,0,0.0
+VDyear,Number of Investors,first,2820,0,0.0
+VDyear,Number of Investors,last,2820,0,0.0
+VDyear,Number of Investors,min,2820,0,0.0
+VDyear,Number of Investors,max,2820,0,0.0
+VDyear,Industry Classification,first,3,0,0.0
+VDyear,Industry Classification,last,3,0,0.0
+VDyear,Industry Classification,min,3,0,0.0
+VDyear,Industry Classification,max,3,0,0.0
+VDyear,Number of Funding Rounds.1,first,2820,0,0.0
+VDyear,Number of Funding Rounds.1,last,2820,0,0.0
+VDyear,Number of Funding Rounds.1,min,2820,0,0.0
+VDyear,Number of Funding Rounds.1,max,2820,0,0.0
+VDyear,Total Equity Funding Amount Currency (in USD),first,1899,0,0.0
+VDyear,Total Equity Funding Amount Currency (in USD),last,1899,0,0.0
+VDyear,Total Equity Funding Amount Currency (in USD),min,1899,0,0.0
+VDyear,Total Equity Funding Amount Currency (in USD),max,1899,0,0.0
+VDyear,Total Funding Amount Currency (in USD),first,2820,0,0.0
+VDyear,Total Funding Amount Currency (in USD),last,2820,0,0.0
+VDyear,Total Funding Amount Currency (in USD),min,2820,0,0.0
+VDyear,Total Funding Amount Currency (in USD),max,2820,0,0.0
+VDyear,IPO Date,first,2820,0,0.0
+VDyear,IPO Date,last,2820,0,0.0
+VDyear,IPO Date,min,2820,0,0.0
+VDyear,IPO Date,max,2820,0,0.0
+patentbygranted,last deal,first,2820,2422,85.88652482269504
+patentbygranted,last deal,min,2820,2422,85.88652482269504
+patentbygranted,VD Year deal,min,2820,2422,85.88652482269504
+patentbygranted,VD Year deal,first,2820,2336,82.83687943262412
+patentbygranted,Industry Classification,first,3,2,66.66666666666666
+patentbygranted,Industry Classification,last,3,2,66.66666666666666
+patentbygranted,Industry Classification,min,3,2,66.66666666666666
+patentbygranted,Industry Classification,max,3,2,66.66666666666666
+patentbygranted,VD Year deal,last,2820,1859,65.92198581560284
+patentbygranted,CEO turnover,first,179,114,63.687150837988824
+patentbygranted,CEO turnover,last,179,114,63.687150837988824
+patentbygranted,CEO turnover,min,179,114,63.687150837988824
+patentbygranted,CEO turnover,max,179,114,63.687150837988824
+patentbygranted,VD_Backing,first,2820,1299,46.06382978723404
+patentbygranted,VD_Backing,last,2820,1299,46.06382978723404
+patentbygranted,VD_Backing,min,2820,1299,46.06382978723404
+patentbygranted,VD_Backing,max,2820,1299,46.06382978723404
+patentbygranted,TimeToFirst_VC,first,2820,833,29.53900709219858
+patentbygranted,TimeToFirst_VC,last,2820,833,29.53900709219858
+patentbygranted,TimeToFirst_VC,min,2820,833,29.53900709219858
+patentbygranted,TimeToFirst_VC,max,2820,833,29.53900709219858
+patentbygranted,후속투자횟수T3,first,179,47,26.256983240223462
+patentbygranted,후속투자횟수T3,last,179,47,26.256983240223462
+patentbygranted,후속투자횟수T3,min,179,47,26.256983240223462
+patentbygranted,후속투자횟수T3,max,179,47,26.256983240223462
+patentbygranted,누적_VD_T3,first,179,45,25.139664804469277
+patentbygranted,누적_VD_T3,last,179,45,25.139664804469277
+patentbygranted,누적_VD_T3,min,179,45,25.139664804469277
+patentbygranted,누적_VD_T3,max,179,45,25.139664804469277
+patentbygranted,누적_VD_T5,first,179,45,25.139664804469277
+patentbygranted,누적_VD_T5,last,179,45,25.139664804469277
+patentbygranted,누적_VD_T5,min,179,45,25.139664804469277
+patentbygranted,누적_VD_T5,max,179,45,25.139664804469277
+patentbygranted,후속투자횟수T5,first,179,43,24.022346368715084
+patentbygranted,후속투자횟수T5,last,179,43,24.022346368715084
+patentbygranted,후속투자횟수T5,min,179,43,24.022346368715084
+patentbygranted,후속투자횟수T5,max,179,43,24.022346368715084
+patentbygranted,후속투자횟수,first,179,43,24.022346368715084
+patentbygranted,후속투자횟수,last,179,43,24.022346368715084
+patentbygranted,후속투자횟수,min,179,43,24.022346368715084
+patentbygranted,후속투자횟수,max,179,43,24.022346368715084
+patentbygranted,NumberOfCumulative Investors,first,2820,655,23.22695035460993
+patentbygranted,NumberOfCumulative Investors,min,2820,655,23.22695035460993
+patentbygranted,후속투자금액,first,174,39,22.413793103448278
+patentbygranted,후속투자금액,last,174,39,22.413793103448278
+patentbygranted,후속투자금액,min,174,39,22.413793103448278
+patentbygranted,후속투자금액,max,174,39,22.413793103448278
+patentbygranted,후속투자총금액,first,174,39,22.413793103448278
+patentbygranted,후속투자총금액,last,174,39,22.413793103448278
+patentbygranted,후속투자총금액,min,174,39,22.413793103448278
+patentbygranted,후속투자총금액,max,174,39,22.413793103448278
+patentbygranted,TimeBetween_VCVD,first,1410,155,10.99290780141844
+patentbygranted,TimeBetween_VCVD,last,1410,155,10.99290780141844
+patentbygranted,TimeBetween_VCVD,min,1410,155,10.99290780141844
+patentbygranted,TimeBetween_VCVD,max,1410,155,10.99290780141844
+patentbygranted,누적_PREVD_T3,first,179,14,7.82122905027933
+patentbygranted,누적_PREVD_T3,last,179,14,7.82122905027933
+patentbygranted,누적_PREVD_T3,min,179,14,7.82122905027933
+patentbygranted,누적_PREVD_T3,max,179,14,7.82122905027933
+patentbygranted,누적_PREVD_T5,first,179,14,7.82122905027933
+patentbygranted,누적_PREVD_T5,last,179,14,7.82122905027933
+patentbygranted,누적_PREVD_T5,min,179,14,7.82122905027933
+patentbygranted,누적_PREVD_T5,max,179,14,7.82122905027933
+patentbygranted,weight,first,2820,197,6.98581560283688
+patentbygranted,weight,last,2820,197,6.98581560283688
+patentbygranted,weight,min,2820,197,6.98581560283688
+patentbygranted,weight,max,2820,197,6.98581560283688
+patentbygranted,deal no,first,2820,197,6.98581560283688
+patentbygranted,deal no,min,2820,197,6.98581560283688
+patentbygranted,last deal,last,2820,197,6.98581560283688
+patentbygranted,last deal,max,2820,197,6.98581560283688
+patentbygranted,First VC,first,2820,197,6.98581560283688
+patentbygranted,First VC,last,2820,197,6.98581560283688
+patentbygranted,First VC,min,2820,197,6.98581560283688
+patentbygranted,First VC,max,2820,197,6.98581560283688
+patentbygranted,VD Year deal,max,2820,197,6.98581560283688
+patentbygranted,weight.1,first,2820,197,6.98581560283688
+patentbygranted,weight.1,last,2820,197,6.98581560283688
+patentbygranted,weight.1,min,2820,197,6.98581560283688
+patentbygranted,weight.1,max,2820,197,6.98581560283688
+patentbygranted,Debt,first,1410,90,6.382978723404255
+patentbygranted,Debt,last,1410,90,6.382978723404255
+patentbygranted,Debt,min,1410,90,6.382978723404255
+patentbygranted,Debt,max,1410,90,6.382978723404255
+patentbygranted,First VD,first,1410,90,6.382978723404255
+patentbygranted,First VD,last,1410,90,6.382978723404255
+patentbygranted,First VD,min,1410,90,6.382978723404255
+patentbygranted,First VD,max,1410,90,6.382978723404255
+patentbygranted,First VD.1,first,1410,90,6.382978723404255
+patentbygranted,First VD.1,last,1410,90,6.382978723404255
+patentbygranted,First VD.1,min,1410,90,6.382978723404255
+patentbygranted,First VD.1,max,1410,90,6.382978723404255
+patentbygranted,Number of Partner Investors,min,2717,172,6.330511593669488
+patentbygranted,Turnover 5years window,first,179,10,5.58659217877095
+patentbygranted,Turnover 5years window,last,179,10,5.58659217877095
+patentbygranted,Turnover 5years window,min,179,10,5.58659217877095
+patentbygranted,Turnover 5years window,max,179,10,5.58659217877095
+patentbygranted,직후변화(amount),first,122,6,4.918032786885246
+patentbygranted,직후변화(amount),last,122,6,4.918032786885246
+patentbygranted,직후변화(amount),min,122,6,4.918032786885246
+patentbygranted,직후변화(amount),max,122,6,4.918032786885246
+patentbygranted,직후변화(increase),first,122,6,4.918032786885246
+patentbygranted,직후변화(increase),last,122,6,4.918032786885246
+patentbygranted,직후변화(increase),min,122,6,4.918032786885246
+patentbygranted,직후변화(increase),max,122,6,4.918032786885246
+patentbygranted,Number of Partner Investors,first,2717,128,4.711078395288921
+patentbygranted,후속시간(day),first,136,6,4.411764705882353
+patentbygranted,후속시간(day),last,136,6,4.411764705882353
+patentbygranted,후속시간(day),min,136,6,4.411764705882353
+patentbygranted,후속시간(day),max,136,6,4.411764705882353
+patentbygranted,Number of Partner Investors,last,2717,117,4.30622009569378
+patentbygranted,후속시간(year),first,135,5,3.7037037037037033
+patentbygranted,후속시간(year),last,135,5,3.7037037037037033
+patentbygranted,후속시간(year),min,135,5,3.7037037037037033
+patentbygranted,후속시간(year),max,135,5,3.7037037037037033
+patentbygranted,TimeToFirst_VD,first,1410,49,3.4751773049645394
+patentbygranted,TimeToFirst_VD,last,1410,49,3.4751773049645394
+patentbygranted,TimeToFirst_VD,min,1410,49,3.4751773049645394
+patentbygranted,TimeToFirst_VD,max,1410,49,3.4751773049645394
+patentbygranted,후속시간평균(day),first,132,3,2.272727272727273
+patentbygranted,후속시간평균(day),last,132,3,2.272727272727273
+patentbygranted,후속시간평균(day),min,132,3,2.272727272727273
+patentbygranted,후속시간평균(day),max,132,3,2.272727272727273
+patentbygranted,후속시간평균(year),first,132,3,2.272727272727273
+patentbygranted,후속시간평균(year),last,132,3,2.272727272727273
+patentbygranted,후속시간평균(year),min,132,3,2.272727272727273
+patentbygranted,후속시간평균(year),max,132,3,2.272727272727273
+patentbygranted,Number of Partner Investors,max,2717,47,1.729849098270151
+patentbygranted,이전투자횟수VD,first,179,3,1.675977653631285
+patentbygranted,이전투자횟수VD,last,179,3,1.675977653631285
+patentbygranted,이전투자횟수VD,min,179,3,1.675977653631285
+patentbygranted,이전투자횟수VD,max,179,3,1.675977653631285
+patentbygranted,NumberOfFunding_Rounds_FirstVD,first,2820,38,1.3475177304964538
+patentbygranted,NumberOfFunding_Rounds_FirstVD,last,2820,38,1.3475177304964538
+patentbygranted,NumberOfFunding_Rounds_FirstVD,min,2820,38,1.3475177304964538
+patentbygranted,NumberOfFunding_Rounds_FirstVD,max,2820,38,1.3475177304964538
+patentbygranted,%valuationq(increase),first,122,1,0.819672131147541
+patentbygranted,%valuationq(increase),last,122,1,0.819672131147541
+patentbygranted,%valuationq(increase),min,122,1,0.819672131147541
+patentbygranted,%valuationq(increase),max,122,1,0.819672131147541
+patentbygranted,NumberOfFunding_Rounds_T3,first,2194,17,0.7748404740200547
+patentbygranted,NumberOfFunding_Rounds_T3,last,2194,17,0.7748404740200547
+patentbygranted,NumberOfFunding_Rounds_T3,min,2194,17,0.7748404740200547
+patentbygranted,NumberOfFunding_Rounds_T3,max,2194,17,0.7748404740200547
+patentbygranted,NumberOfInvestors_T3,first,2106,16,0.7597340930674265
+patentbygranted,NumberOfInvestors_T3,last,2106,16,0.7597340930674265
+patentbygranted,NumberOfInvestors_T3,min,2106,16,0.7597340930674265
+patentbygranted,NumberOfInvestors_T3,max,2106,16,0.7597340930674265
+patentbygranted,Number of Investors,first,2820,21,0.7446808510638299
+patentbygranted,Number of Investors,last,2820,21,0.7446808510638299
+patentbygranted,Number of Investors,min,2820,21,0.7446808510638299
+patentbygranted,Number of Investors,max,2820,21,0.7446808510638299
+patentbygranted,NumberOfCumulative Investors,last,2820,20,0.7092198581560284
+patentbygranted,NumberOfCumulative Investors,max,2820,20,0.7092198581560284
+patentbygranted,NumberOfFunding_Rounds_T5,first,1401,9,0.6423982869379015
+patentbygranted,NumberOfFunding_Rounds_T5,last,1401,9,0.6423982869379015
+patentbygranted,NumberOfFunding_Rounds_T5,min,1401,9,0.6423982869379015
+patentbygranted,NumberOfFunding_Rounds_T5,max,1401,9,0.6423982869379015
+patentbygranted,Number of Funding Rounds.1,first,2820,17,0.6028368794326241
+patentbygranted,Number of Funding Rounds.1,last,2820,17,0.6028368794326241
+patentbygranted,Number of Funding Rounds.1,min,2820,17,0.6028368794326241
+patentbygranted,Number of Funding Rounds.1,max,2820,17,0.6028368794326241
+patentbygranted,NumberOfInvestors_T5,first,179,1,0.5586592178770949
+patentbygranted,NumberOfInvestors_T5,last,179,1,0.5586592178770949
+patentbygranted,NumberOfInvestors_T5,min,179,1,0.5586592178770949
+patentbygranted,NumberOfInvestors_T5,max,179,1,0.5586592178770949
+patentbygranted,deal no,last,2820,15,0.5319148936170213
+patentbygranted,deal no,max,2820,15,0.5319148936170213
+patentbygranted,Number of Funding Rounds,first,2820,15,0.5319148936170213
+patentbygranted,Number of Funding Rounds,last,2820,15,0.5319148936170213
+patentbygranted,Number of Funding Rounds,min,2820,15,0.5319148936170213
+patentbygranted,Number of Funding Rounds,max,2820,15,0.5319148936170213
+patentbygranted,no,first,2820,0,0.0
+patentbygranted,no,last,2820,0,0.0
+patentbygranted,no,min,2820,0,0.0
+patentbygranted,no,max,2820,0,0.0
+patentbygranted,found year,first,2820,0,0.0
+patentbygranted,found year,last,2820,0,0.0
+patentbygranted,found year,min,2820,0,0.0
+patentbygranted,found year,max,2820,0,0.0
+patentbygranted,Announced Date,first,2820,0,0.0
+patentbygranted,Announced Date,last,2820,0,0.0
+patentbygranted,Announced Date,min,2820,0,0.0
+patentbygranted,Announced Date,max,2820,0,0.0
+patentbygranted,Deal year,first,2820,0,0.0
+patentbygranted,Deal year,last,2820,0,0.0
+patentbygranted,Deal year,min,2820,0,0.0
+patentbygranted,Deal year,max,2820,0,0.0
+patentbygranted,Turnover시점,first,179,0,0.0
+patentbygranted,Turnover시점,last,179,0,0.0
+patentbygranted,Turnover시점,min,179,0,0.0
+patentbygranted,Turnover시점,max,179,0,0.0
+patentbygranted,turnover year,first,179,0,0.0
+patentbygranted,turnover year,last,179,0,0.0
+patentbygranted,turnover year,min,179,0,0.0
+patentbygranted,turnover year,max,179,0,0.0
+patentbygranted,Follow-on Year,first,43,0,0.0
+patentbygranted,Follow-on Year,last,43,0,0.0
+patentbygranted,Follow-on Year,min,43,0,0.0
+patentbygranted,Follow-on Year,max,43,0,0.0
+patentbygranted,Follow-on Equity Amt,first,132,0,0.0
+patentbygranted,Follow-on Equity Amt,last,132,0,0.0
+patentbygranted,Follow-on Equity Amt,min,132,0,0.0
+patentbygranted,Follow-on Equity Amt,max,132,0,0.0
+patentbygranted,Subsequent funding amt,first,132,0,0.0
+patentbygranted,Subsequent funding amt,last,132,0,0.0
+patentbygranted,Subsequent funding amt,min,132,0,0.0
+patentbygranted,Subsequent funding amt,max,132,0,0.0
+patentbygranted,VD,first,2820,0,0.0
+patentbygranted,VD,last,2820,0,0.0
+patentbygranted,VD,min,2820,0,0.0
+patentbygranted,VD,max,2820,0,0.0
+patentbygranted,TotalFundingAmount_FirstVD,first,2820,0,0.0
+patentbygranted,TotalFundingAmount_FirstVD,last,2820,0,0.0
+patentbygranted,TotalFundingAmount_FirstVD,min,2820,0,0.0
+patentbygranted,TotalFundingAmount_FirstVD,max,2820,0,0.0
+patentbygranted,Total_Funding_Amount_T3,first,2193,0,0.0
+patentbygranted,Total_Funding_Amount_T3,last,2193,0,0.0
+patentbygranted,Total_Funding_Amount_T3,min,2193,0,0.0
+patentbygranted,Total_Funding_Amount_T3,max,2193,0,0.0
+patentbygranted,Total_Funding_Amount_T5,first,1401,0,0.0
+patentbygranted,Total_Funding_Amount_T5,last,1401,0,0.0
+patentbygranted,Total_Funding_Amount_T5,min,1401,0,0.0
+patentbygranted,Total_Funding_Amount_T5,max,1401,0,0.0
+patentbygranted,VD Year,first,179,0,0.0
+patentbygranted,VD Year,last,179,0,0.0
+patentbygranted,VD Year,min,179,0,0.0
+patentbygranted,VD Year,max,179,0,0.0
+patentbygranted,Money Raised Currency (in USD),first,2820,0,0.0
+patentbygranted,Money Raised Currency (in USD),last,2820,0,0.0
+patentbygranted,Money Raised Currency (in USD),min,2820,0,0.0
+patentbygranted,Money Raised Currency (in USD),max,2820,0,0.0
+patentbygranted,TotalFundingAmt_preVD,first,177,0,0.0
+patentbygranted,TotalFundingAmt_preVD,last,177,0,0.0
+patentbygranted,TotalFundingAmt_preVD,min,177,0,0.0
+patentbygranted,TotalFundingAmt_preVD,max,177,0,0.0
+patentbygranted,TotalFundingAmt_untilVD,first,177,0,0.0
+patentbygranted,TotalFundingAmt_untilVD,last,177,0,0.0
+patentbygranted,TotalFundingAmt_untilVD,min,177,0,0.0
+patentbygranted,TotalFundingAmt_untilVD,max,177,0,0.0
+patentbygranted,TotalFundingAmt_T3,first,179,0,0.0
+patentbygranted,TotalFundingAmt_T3,last,179,0,0.0
+patentbygranted,TotalFundingAmt_T3,min,179,0,0.0
+patentbygranted,TotalFundingAmt_T3,max,179,0,0.0
+patentbygranted,TotalFundingAmt_T5,first,179,0,0.0
+patentbygranted,TotalFundingAmt_T5,last,179,0,0.0
+patentbygranted,TotalFundingAmt_T5,min,179,0,0.0
+patentbygranted,TotalFundingAmt_T5,max,179,0,0.0
+patentbygranted,%valuationq(multiple),first,122,0,0.0
+patentbygranted,%valuationq(multiple),last,122,0,0.0
+patentbygranted,%valuationq(multiple),min,122,0,0.0
+patentbygranted,%valuationq(multiple),max,122,0,0.0
+patentbygranted,직후변화(multiple),first,122,0,0.0
+patentbygranted,직후변화(multiple),last,122,0,0.0
+patentbygranted,직후변화(multiple),min,122,0,0.0
+patentbygranted,직후변화(multiple),max,122,0,0.0
+patentbygranted,Total Equity Funding Amount Currency (in USD),first,1899,0,0.0
+patentbygranted,Total Equity Funding Amount Currency (in USD),last,1899,0,0.0
+patentbygranted,Total Equity Funding Amount Currency (in USD),min,1899,0,0.0
+patentbygranted,Total Equity Funding Amount Currency (in USD),max,1899,0,0.0
+patentbygranted,Total Funding Amount Currency (in USD),first,2820,0,0.0
+patentbygranted,Total Funding Amount Currency (in USD),last,2820,0,0.0
+patentbygranted,Total Funding Amount Currency (in USD),min,2820,0,0.0
+patentbygranted,Total Funding Amount Currency (in USD),max,2820,0,0.0
+patentbygranted,IPO Date,first,2820,0,0.0
+patentbygranted,IPO Date,last,2820,0,0.0
+patentbygranted,IPO Date,min,2820,0,0.0
+patentbygranted,IPO Date,max,2820,0,0.0

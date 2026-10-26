@@ -1,0 +1,87 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:/Users/user/Documents/VD/outputs/table_refresh_20261022/plot_figure42.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. use "C:/Users/user/Documents/VD/outputs/table_refresh_20261022/coefficients.dta
+> ", clear
+
+. keep if model==12 & se>0
+(1,068 observations deleted)
+
+. assert _N==4
+
+. gen byte stage = _n
+
+. gen double lower = b-invttail(df,.025)*se
+
+. gen double upper = b+invttail(df,.025)*se
+
+. gen str8 pointlabel = string(b,"%5.3f")
+
+. graph set window fontface "Times New Roman"
+
+. graph set print fontface "Times New Roman"
+
+. twoway (rcap lower upper stage, lcolor(navy) lwidth(medthick)) ///
+>     (scatter b stage, mcolor(navy) msymbol(O) msize(medlarge) ///
+>     mlabel(pointlabel) mlabposition(3) mlabcolor(navy) mlabsize(medsmall)), ///
+>     xlabel(1 "Seed / pre-Series" 2 "Series A" 3 "Series B" 4 "Series C+", labsi
+> ze(medsmall)) ///
+>     xscale(range(.5 4.7)) ylabel(-.4(.1).1, angle(horizontal) format(%3.1f)) //
+> /
+>     yline(0, lcolor(gs8) lpattern(dash)) ///
+>     xtitle("Venture stage at VD/reference date", size(medsmall)) ///
+>     ytitle("Estimated VD effect on log(1 + normalized" "granted patent applicat
+> ions)", size(medsmall)) ///
+>     title("Figure 4-2. Estimated effect of VD on subsequent patenting" "by vent
+> ure stage", size(medium) color(black)) ///
+>     note("Points show average discrete effects of VD (0 to 1); bars show pointw
+> ise 95% CIs." ///
+>     "Full model (Table 4-2, column 4); N = 2,820.", size(small)) ///
+>     legend(off) graphregion(color(white)) plotregion(color(white)) ///
+>     xsize(8.4) ysize(5.1) scheme(s2mono)
+
+. graph export "C:/Users/user/Documents/VD/outputs/table_refresh_20261022/Figure_
+> 4-2_VD_effect_by_stage.png", replace width(2520)
+(file
+    C:/Users/user/Documents/VD/outputs/table_refresh_20261022/Figure_4-2_VD_eff
+    > ect_by_stage.png not found)
+file
+    C:/Users/user/Documents/VD/outputs/table_refresh_20261022/Figure_4-2_VD_eff
+    > ect_by_stage.png saved as PNG format
+
+. graph export "C:/Users/user/Documents/VD/outputs/table_refresh_20261022/Figure_
+> 4-2_VD_effect_by_stage.pdf", replace
+file
+    C:/Users/user/Documents/VD/outputs/table_refresh_20261022/Figure_4-2_VD_eff
+    > ect_by_stage.pdf saved as PDF format
+
+. 
+end of do-file

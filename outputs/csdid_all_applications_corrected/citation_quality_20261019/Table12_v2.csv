@@ -1,0 +1,13 @@
+Effect,Never-treated,Not-yet-treated
+Simple-aggregated effect,0.128 (1.556),-0.012 (1.535)
+Event time -4,4.761 (3.796),5.553 (3.852)
+Event time -3,-3.074 (2.811),-2.967 (3.048)
+Event time -2,0.247 (0.977),0.435 (0.969)
+Event time -1,-0.542 (0.731),-0.441 (0.731)
+Event time 0,-0.323 (0.880),-0.321 (0.860)
+Event time 1,0.198 (0.842),0.386 (0.833)
+Event time 2,0.532 (2.238),0.407 (2.215)
+Event time 3,0.373 (2.410),0.403 (2.378)
+Event time 4,0.388 (6.280),0.008 (6.098)
+Dynamic-aggregated effect,0.234 (1.691),0.177 (1.644)
+Group-aggregated effect,0.165 (1.434),0.088 (1.429)

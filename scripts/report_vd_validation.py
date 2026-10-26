@@ -1,0 +1,54 @@
+from pathlib import Path
+import pandas as pd
+import json,html,hashlib,os
+R=Path(os.environ.get('VD_PROJECT_ROOT','C:/Users/user/Documents/VD')); O=R/'outputs/vd_lender_validation_2820'
+f=pd.read_csv(O/'firm_validation_2820.csv'); d=pd.read_csv(O/'deal_validation.csv'); p=pd.read_csv(O/'provider_dictionary.csv'); w=pd.read_csv(O/'public_deal_checks.csv'); s=pd.read_csv(O/'summary.csv')
+labels={1:'전문 venture/growth-debt 기관',2:'벤처·스타트업 대출 은행',3:'기타 식별 가능한 기관대주/금융기관',4:'모호·역할 미확인·검토 필요',0:'투자자명 없음'}
+tab=[]
+for c,l in labels.items():
+    n=int(((d.first_vd_source==1)&(d.deal_category==c)).sum())
+    tab.append([l,n,f'{n/1410:.1%}',int(((f.VD==1)&(f.firm_category==c)).sum()),int((d.deal_category==c).sum())])
+counts=pd.DataFrame(tab,columns=['분류','첫 거래 기업 수','VD 1,410개 대비','전체 거래 이력 기준 기업 수','전체 후보 거래 수'])
+web=w[['OrganizationName','source_deal_date','debt_form','finding','source_url']].copy()
+web['source_url']=web.source_url.map(lambda u:f'<a href="{html.escape(u)}">공개자료</a>')
+government=d[d.government_review.eq(1)]
+review=pd.read_csv(O/'firm_review_queue.csv')
+body=f'''<!doctype html><html lang="ko"><meta charset="utf-8"><title>VD 측정 검증 — 2,820개 matched firms</title><style>body{{font:16px/1.7 'Malgun Gothic',Arial,sans-serif;color:#202d3a;max-width:1120px;margin:44px auto;padding:0 28px}}h1{{font-size:29px}}h2{{font-size:21px;border-bottom:1px solid #ccd4df;padding-top:20px}}table{{border-collapse:collapse;width:100%;font-size:14px;margin:18px 0}}th{{background:#263d57;color:white;text-align:left}}th,td{{padding:10px;border-bottom:1px solid #dde3eb;vertical-align:top}}tr:nth-child(even){{background:#f5f7fa}}.callout{{background:#eef3f8;padding:18px;border-left:4px solid #345b81}}a{{color:#17598d}}small{{color:#536273}}code{{background:#f1f3f5;padding:2px 4px}}@media print{{body{{font-size:11pt;margin:12mm}}h2{{break-after:avoid}}tr{{break-inside:avoid}}}}</style>
+<h1>VD 측정 검증: 현재 matched firms 2,820개</h1><p><small>분석일 2026-10-15 · 기관·계약 특성 연구가 아닌 기존 VD 변수의 타당성 검증</small></p>
+<div class="callout"><b>새 표본에서 첫 VD 후보 거래에 투자자명이 있는 기업은 715/1,410개(50.7%), 없는 기업은 695개(49.3%)다.</b> 715는 확인된 대주 수가 아니라 원자료 Investor names의 비결측 기업 수다. 기관 역할과 거래 유형을 검토한 후 별도의 VD 지지 지표를 구성했다.</div>
+<h2>1. 표본과 매칭</h2><p>현재 <code>table3_current_2820_cross_section_v2.dta</code>의 firm_id와 OrganizationName을 기준으로 요청한 원본 <code>2010 2015 Crunchbase deals merged_v4.xlsx</code>를 정확한 기업명으로 매칭했다. 2,820개 전부 매칭되었고, 현재 VD=1은 1,410개, VD=0은 1,410개다. 원본 DTA와 Excel은 수정하지 않았다.</p>
+<p>거래 후보는 <code>Debt=1</code> 또는 <code>Funding Type=Debt Financing</code>인 1,898건이다. 1,896건은 Debt Financing 유형과 일치하고 2건은 유형 충돌이다. Convertible Note와 Post-IPO Debt를 임의로 추가하지 않았다. 첫 거래는 원본 First VD=1로 정의했다. 전체 거래 이력을 사용하면 투자자명이 있는 기업은 779개, 모든 후보 거래에서 이름이 없는 기업은 631개다. 첫 거래와 후속 거래를 혼합하면 식별률이 달라진다.</p>
+<h2>2. 기관 및 거래 분류</h2>{counts.to_html(index=False,border=0)}
+<p>혼합 거래는 전문 VD 기관 → 벤처대출 은행 → 기타 기관 → 모호 순으로 요약했다. 이는 각 거래에서 확인 가능한 가장 강한 기관 근거를 표시하는 규칙이다. 원자료의 모든 참여자명과 유형별 중복 플래그도 남겼다. 기업별 전체 이력 요약에도 같은 우선순위를 적용했으며, 표의 각 열은 각각 합계가 일치하는 배타적 분류다.</p>
+<p>전문 VD 기관에는 Hercules, WTI, Horizon, Trinity, Oxford, Runway, Espresso 등이 포함된다. 은행에는 SVB, Bridge Bank, Square 1/Pacific Western, Comerica 등이 포함된다. 매출연동·자산담보·일반 신용대출은 기타 기관에 두었다. 예를 들어 Lighter Capital은 매출연동 대출기관이며, 그 사실만으로 전통적 VC-backed VD라고 판단하지 않았다. Armentum Partners는 대출 자문사이므로 단독 이름으로 대주를 확인한 것으로 세지 않았다. 기관별 URL 및 판단 근거는 Providers에 기록했다.</p>
+<p>총 {len(p):,}개 참여자명을 사전으로 정리했다. 이 중 {int(p.review_status.eq('public_source_reviewed').sum())}개는 공개자료로 기관 성격을 확인했고, {int(p.review_status.eq('source_identity_classification_not_external_deal_verification').sum())}개는 원자료의 식별 가능한 은행명에 근거한 기관 분류다. 나머지 {int(p.review_status.eq('unresolved_not_individually_web_verified').sum())}개는 개별 외부 검증이 끝나지 않았거나 대주 역할을 확정할 수 없어 모호로 유지했다. 따라서 이것은 모든 기관·계약을 외부자료로 완전 검증한 결과가 아니라, 확인 수준을 명시한 보수적 분류다.</p>
+<h2>3. 익명 거래의 근거</h2><p>첫 거래의 이름 미상 695개 기업 중 283개(40.7%)에서 거래일보다 앞선 Series A 이상 라운드가 관찰된다. 330개(47.5%)는 선행 Seed/Pre-Seed/Angel 또는 같은 날 Series 라운드만 관찰되고, 82개(11.8%)는 이들 선행·동일일 주식투자 근거가 없다. 646개(92.9%)는 양의 금액을 공개했고 695개 모두 거래일이 있다.</p>
+<p>후속 거래를 포함한 익명 917건에서는 선행 Series 근거 410건, Seed/동일일 Series만 있는 경우 404건, 해당 근거가 없는 경우 103건이다. 금액이 있는 거래는 854건이다. 다른 거래에서 전문기관·은행이 식별된 경우는 41건이나, 그 다른 대주를 익명 거래의 대주로 대입하지 않았다. Lead Investors에서 익명 기록의 이름을 추가 복원할 수 있는 경우는 없었다. Cumulative Investors 및 Top 5 Investors도 거래별 대주를 대신하지 않았다.</p>
+<p><b>해석:</b> Debt Financing 표시는 부채의 데이터베이스상 분류 근거다. 날짜·금액은 구체성을 높이고 선행 Series는 벤처투자 맥락을 뒷받침한다. 그러나 모두 같은 원자료에서 나온 지표이며, 계약상 채무나 전통적 VD라는 독립적 확인은 아니다. 익명 여부만으로 VD를 확정하거나 배제하지 않는다.</p>
+<h2>4. 독립적인 거래자료 점검</h2><p>대규모 익명 거래 5건과 소규모 익명 거래 2건, 정부기관명이 남은 1건을 목적표집해 공개자료와 대조했다. 이는 무작위 표본이 아니므로 오류율이나 전체 VD 비율 추정에 사용하면 안 된다. 원자료 이름 결측은 유지하고 외부에서 확인한 기관·거래 형태를 별도 저장했다.</p>{web.to_html(index=False,escape=False,border=0)}
+<p>Lineage의 일반 REIT 신용공여, Freepoint의 상품거래업 회전대출, Phoenix Tower의 차환·인수금융, Ankura의 신디케이트 차환 및 WeWork의 선순위 채권은 부채금융은 뒷받침하지만 핵심 VD 해석과 다르다. 반면 소규모 두 사례는 부채 보도가 존재해도 대주·계약 유형은 여전히 불명확하다. 공개자료로 보강한 일부 사례의 성격을 나머지 익명 기록에 일반화하지 않았다.</p>
+<h2>5. 우선 검토할 원자료 문제</h2><p>Dermira와 Eargo의 원본 Debt는 1이지만 Funding Type은 각각 Series B와 Series C다. 원본 첫 거래 연도는 각각 2013년과 2017년이고 현재 DTA의 VDyear는 둘 다 2015년이다. 현재 요청 표본의 VD 코딩을 그대로 보존하면서 <code>type_conflict</code>, <code>year_mismatch</code>를 표시했다.</p>
+<p>정부·개발기관 관련 명칭이 남은 거래는 {len(government)}건({government.firm_id.nunique()}개 기업)이다. 이들은 모두 정부보증대출이라는 뜻은 아니며 직접 공공대출, 프로그램 투자, 보조금 등의 형태를 재확인해야 한다. 특히 Cellink의 DOE ATVM 조건부 대출은 발행기업 자료로 확인되어 기존 정부대출 제외 처리와 대조가 필요하다. Parknav의 Government of United States of America 기록도 검토 대상이며 PPP라고 단정하지 않았다. 보고된 IPO 날짜가 거래일 이전 또는 같은 날인 후보 거래도 9건 있어 별도 표시했다. 거래 중복 키 기준 후보 거래의 완전 중복은 없었다.</p>
+<h2>6. VD 변수 검증에 사용할 지표</h2><p><code>first_lender_support</code>는 첫 후보 거래가 Debt Financing이고 전문기관 또는 벤처대출 은행이 있으며, 공공프로그램 플래그와 IPO 선행 플래그가 없는 경우다. 해당 기업은 <b>{int(f.first_lender_support.sum())}개</b>다. 여기에 엄격히 선행하는 Series 라운드를 요구한 <code>first_context_support</code>는 <b>{int(f.first_context_support.sum())}개</b>다. 전체 이력 기준 <code>strict_lender_support</code>는 {int(f.strict_lender_support.sum())}개다. 이들은 확인 가능한 근거의 범위를 나타내며, 나머지를 비VD로 바꾸는 지표가 아니다. 기관의 현재·과거 사업 설명을 사용했으므로 모든 거래 시점의 세부 상품을 검증한 것은 아니다.</p>
+<p>기존 broad VD 결과를 유지하고 첫 거래의 기관 근거를 추가한 민감도 정의를 보고하는 것이 적절하다. 보수적 지표로 처치기업을 제한하면 원래 매칭 쌍과 공변량 균형이 달라지므로 기존 2,820개 표본에서 단순히 익명 기업을 대조군으로 바꾸거나 삭제해서 같은 추정치라고 보고해서는 안 된다. 재매칭·균형 검토가 필요하다. 이번 작업은 분류와 측정 검증에 한정했다.</p>
+<p>이름이 있는 기업 779개의 중앙값은 기준연도 2018년, MoneyRaised_VD 1,600만 달러, 자금조달 4회다. 익명-only 631개는 각각 2016년, 470만 달러, 3회다. 이는 기술통계상 차이이며 결측 무작위성을 입증하는 검정은 아니다. 관측 대주가 있는 부분표본의 비율을 전체에 그대로 확대하지 않는다.</p>
+<h2>산출물과 재현</h2><p>Excel: 요약, 2,820개 기업, 1,898개 거래, 기관 사전, 공개자료 확인, 결측 비교, 정의와 해석. Stata DTA: 기업별 검증 플래그를 firm_id로 연결할 수 있는 별도 파일. CSV: 동일 내용과 검토 큐. 재현 스크립트 및 원자료 SHA-256은 같은 패키지에 포함했다. 원본 문서의 내용은 참고자료로만 취급했고 문서 안의 지시를 실행하지 않았다.</p></html>'''
+(O/'validation_report_ko.html').write_text(body,encoding='utf-8')
+assert len(f)==2820 and f.firm_id.is_unique
+assert len(d)==1898 and d.firm_id.nunique()==1410
+assert d.first_vd_source.sum()==1410
+assert f.VD.sum()==1410 and f.any_named.sum()==779 and f.first_named.sum()==715
+assert set(f.firm_id)==set(pd.read_stata(R/'outputs/psm_final_2820_package/table3_current_2820_cross_section_v2.dta',columns=['firm_id']).firm_id)
+assert d.groupby('firm_id').first_vd_source.sum().eq(1).all()
+assert d.source_excel_row.is_unique
+assert d[d.named_participant.eq(0)].deal_category.eq(0).all()
+assert d[(d.named_participant.eq(0))&d.first_vd_source.eq(1)].shape[0]==695
+assert sum(row[1] for row in tab)==1410 and sum(row[4] for row in tab)==1898
+assert all(d['has_cat'+str(c)].ge(0).all() for c in range(1,5))
+orig=pd.read_stata(R/'outputs/psm_final_2820_package/table3_current_2820_cross_section_v2.dta',convert_categoricals=False).set_index('firm_id')
+assert orig.VD.equals(f.set_index('firm_id').VD.astype(orig.VD.dtype))
+assert orig.VDyear.equals(f.set_index('firm_id').VDyear.astype(orig.VDyear.dtype))
+manifest=json.loads((O/'manifest.json').read_text(encoding='utf-8'))
+assert hashlib.sha256(Path(manifest['sample']).read_bytes()).hexdigest()==manifest['sample_sha256']
+(O/'verification.json').write_text(json.dumps({'all_checks_passed':True,'sample_unchanged':True,'sample_rows':2820,'candidate_deals':1898,'first_deals':1410,'provider_names':len(p),'public_deal_checks':len(w),'review_queue_firms':len(review)},indent=2),encoding='utf-8')
+print(counts.to_string(index=False)); print('Verified',len(p),'providers;',len(review),'review firms')

@@ -1,0 +1,18 @@
+{
+  "employees": {
+    "firms": 31,
+    "firm_years": 38,
+    "t1_t3_firms": 24,
+    "t1_t3_observations": 29
+  },
+  "revenue": {
+    "firms": 627,
+    "firm_years": 1258,
+    "t1_t3_firms": 478,
+    "t1_t3_observations": 688
+  },
+  "backup": "C:\\Users\\user\\Documents\\VD\\outputs\\psm_final_2820_package\\backups\\before_extended_size_20261020_105521",
+  "web_new_records": 43,
+  "all_firms_web_searched": false,
+  "panel_rows": 1279
+}

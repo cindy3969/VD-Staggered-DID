@@ -1,0 +1,2281 @@
+===PAGE 1===
+Inventor Performance Pressure and Strategic Innovation Management
+*
+Xiangqian (Sharon) Huang
+CUHK Business School
+Chinese University of Hong Kong
+xiangqianhuang@cuhk.edu.hk
+Tao Shu
+CUHK Business School
+Chinese University of Hong Kong and ABFER
+taoshu@cuhk.edu.hk
+Xuan Tian
+PBC School of Finance
+Tsinghua University
+tianx@pbcsf.tsinghua.edu.cn
+March 2025
+* We appreciate the helpful comments from Vikas Agarwal, Sudipto Dasgupta, Andrew Ellul, Michael Hertzel, David
+Hirshleifer, Nadya Malenko, Xiao Ren, Siew Hong Teoh, Sheridan Titman, Bohui Zhang, and seminar participants at
+the Chinese University of Hong Kong. All errors are our own.
+
+===PAGE 2===
+Inventor Performance Pressure and Strategic Innovation Management
+March 2025
+Abstract
+We investigate whether corporate inventors, under pressure from annual performance appraisals,
+engage in opportunistic innovation management by filing an excessive number of low-quality
+patents during the fiscal year-end (FYE) month. Consistent with this behavior, we find that US
+public firms file 43% more patents in FYE months compared to other months. This pattern persists
+over time, across various firm sizes, industries, and technologies, and extends internationally.
+Patents associated with such innovation management exhibit significantly lower quality compared
+to their counterparts. Furthermore, innovation management is more pronounced among inventors
+who are trailing in patent filings earlier in the year, have less experience, or possess poor track
+records. Innovation management by inventors is associated with reduced inventor turnover in the
+initial years but increased turnover in subsequent years, highlighting a tradeoff between short-term
+gains from enhanced performance and long-term harm from lower patent quality and reputational
+damage. Finally, innovation management leads to lower future firm performance and stock returns.
+Our findings suggest that opportunistic innovation management contributes to the excessive filing
+of low-quality patents, a significant issue in the innovation system.
+Keywords: Innovation management, inventor opportunistic behavior, patent filing, fiscal year-end,
+patent quality, annual performance appraisals.
+JEL Classification: O31, J24, M52
+
+===PAGE 3===
+High-quality innovation is essential for economic growth and firm performance (e.g., Hall et al.
+2005; Kogan et al. 2017; Hirshleifer, Hsu, and Li 2018). However, there is longstanding criticism
+that an excessive number of poor-quality patents are issued (Pakes 1986; Hall, Jaffe, and
+Trajtenberg 2001). These low-quality patents discourage R&D, hinder commercialization, and
+increase litigation risk, consequently harming firm operations and innovation incentives (e.g.,
+Frakes and Wasserman 2015; De Rassenfosse et al. 2021). Additionally, low-quality patents
+significantly impede the efficiency of the patenting process. For example, as of September 2024,
+the United States Patent and Trademark Office (USPTO) has a backlog of 793,824 unexamined
+patent applications. On average, a patent application takes over a year to be assigned to an USPTO
+examiner.1
+Previous studies have examined fundamental drivers of patent quality, including firm
+characteristics, CEO traits, financial intermediaries, government policies, corporate events, and
+patent examiner attributes.2 In this paper, we differ from prior research by examining whether
+opportunistic innovation management by inventors contributes to the prevalence of low-quality
+innovation.
+Inventors, like other employees, experience pressure from performance appraisals.
+Performance appraisal has been a widely practiced management activity for centuries (Burke and
+Wilcox 1969; Lansbury 1988; Islam and Rasad 2006). The majority of employers in the US
+conduct formal performance appraisals at least annually to determine employees’ compensation
+and career outcomes, such as promotion and retention. For illustrative purposes, Figure 1 presents
+1 See https://www.uspto.gov/dashboard/patents/production-unexamined-filing.html.
+2 An incomplete list of this literature includes Audretsch (1995), Balasubramanian and Lee (2008), Makri, Hitt, and
+Lane (2010), Becker-Blease (2011), Hirshleifer, Low, and Teoh (2012), Valentini (2012), He and Tian (2013),
+Hirshleifer, Hsu, and Li (2013), Mukherjee, Singh, and Žaldokas (2017), Chemmanur et al. (2019), Righi and Simcoe
+(2019), Islam and Zein (2020), Chen, Hshieh, and Zhang (2021), Hegde, Ljungqvist, and Raj (2022), Shu, Tian, and
+Zhan (2022), Dyer et al. (2024).
+1
+
+===PAGE 4===
+employee testimonies regarding the performance appraisal processes at Google (Panel A) and
+Microsoft (Panel B), sourced from Quora, a major social Q&A platform. As shown in Figure 1, it
+is common for firms to schedule performance reviews at the fiscal year-end (FYE), evaluating
+employees based on their ability to meet or exceed predefined objectives.
+We examine whether the performance pressure from annual performance appraisal prompts
+inventors to engage in opportunistic innovation management by filing an excessive number of
+poor-quality patents to enhance their performance metrics. If such behavior occurs, it is likely to
+be more pronounced as the evaluation period concludes, specifically at the fiscal year-end. The
+answer to this question is not clear ex ante. On the one hand, the number of patent filings is a
+crucial indicator in an inventor’s performance review.3 Additionally, the quantity of innovation
+output (number of patent applications) is more readily observable than patent quality, which often
+requires specialized expertise to evaluate and is subject to a significant time lag.4 Consequently,
+inventors might be inclined to engage in innovation management. On the other hand, inventors
+may avoid such opportunistic behavior due to concerns about their long-term reputation or due to
+the monitoring mechanisms institute by their firms.
+Using data on all patents filed by US publicly listed firms from 1980 to 2019, we
+investigate three key questions. First, do inventors engage in innovation management by filing a
+disproportionately high number of patents in the FYE month? Second, do these additional patents
+have lower quality compared to other patents? Third, how do these patents impact firms’
+performance?
+To address the first question, we begin by examining the seasonality of corporate patent
+3 The most significant performance criteria for individual inventors are patent applications, conference papers, patent
+grants, and journal publications (Balasubramanian, Lee, and Sivadasan 2018).
+4 It takes more than three years for a patent to be granted from the application date (Lemley and Sampat 2012), and
+even longer for a patent to accumulate citations.
+2
+
+===PAGE 5===
+filings throughout the year. We find that 10.12% of all patents are filed in December, a figure
+significantly higher than the average of 8.17% for other months. Notably, this spike in December
+patent filings is observed only for firms whose fiscal year ends in December, and is absent in firms
+with fiscal years ending in other months. Therefore, we focus on FYE patent filings for all sample
+firms. During our sample period, public firms file a total of 262,719 patents in the FYE months,
+significantly higher than an average of 183,589 patents filed in non-FYE months. This results in
+firms filing 43.1% more patents during FYE months compared to other months, a finding
+consistent with innovation management due to annual performance appraisals.
+For comparison, we examine patent filings by individuals, government agencies, and
+universities, and find no similar surge in year-end filings for these groups, suggesting that the spike
+in FYE patent filings is a corporate phenomenon. Further analyses reveal that innovation
+management among US firms persists over time, across various firm sizes, industries, and
+technologies. Innovation management also exists in other countries beyond the United States. For
+example, Chinese public firms exhibit a 120% increase in patent filings in December compared to
+other months during 2004 to 2023, given that all Chinse public firms have fiscal years ending in
+December. This seasonality remains robust in formal OLS and Poisson regression analyses that
+control for firm characteristics as well as firm and year fixed effects.
+Next, we address the second question regarding patent quality. It is important to note that
+not all patent filings during the FYE months, i.e., FYE patents, are driven by innovation
+management. We thus categorize FYE patents into two groups – those associated with innovation
+management (“IM Patents”), and those not associated (“non-IM patents”) – based on the inventors’
+propensity to file patents in the FYE months. Specifically, if inventors exhibit an abnormally high
+propensity to file FYE patents in a year, their FYE patents in the year are more likely to be
+3
+
+===PAGE 6===
+associated with innovation management and are thus classified as IM patents. The remaining FYE
+patents are classified as non-IM patents. If inventors engage in opportunistic innovation
+management, we expect FYE patents, particularly IM patents, to exhibit significantly lower quality
+than other patents.
+We follow the literature and construct five measures of patent quality: forward citations,
+truncation-adjusted citations (Hall, Jaffe, and Trajtenberg 2001, 2005), patent originality
+(Hirshleifer, Hsu, and Li 2018), an indicator variable for patents with no citation (Balsmeier,
+Fleming and Manso 2017), and an indicator variable for breakthrough patents (Singh and Fleming
+2010). We estimate patent-level regressions of patent quality, controlling for firm, art unit, and
+year fixed effects. The regression results show that FYE patents have significantly lower quality
+compared to other patents across all patent quality metrics. Further analyses reveal that this decline
+in patent quality for FYE patents is concentrated in IM patents (rather than non-IM patents), whose
+quality measures are 7% to 10% lower compared to other patents.
+To complement the analysis of patent quality, we follow the literature and examine patent
+disclosure quality (Dyer et al. 2024). Our findings indicate that innovation management also leads
+to significantly lower disclosure quality. Specifically, IM patents have shorter description sections,
+lower readability, and fewer figures and sheets compared to their peers. They also contain fewer
+claims, indicating narrower protection.
+We next examine inventors’ incentives and consequences of innovation management.
+Regarding incentives, we hypothesize that inventors who are trailing in patent filings earlier in the
+year are more likely to engage in innovation management.5 Moreover, inventors with less
+experience or weaker track records may face intensified scrutiny during performance appraisals,
+5 This is similar to the well-documented tournament behavior of mutual fund managers, where mid-year losers tend
+to increase portfolio risk in the second half of the year (e.g., Brown, Harlow, and Starks, 1996).
+4
+
+===PAGE 7===
+potentially increasing their propensity for innovation management. Consistent with our predictions,
+we find that innovation management is significantly more prevalent among investors who are
+trailing in patent filings earlier in the year, have less experience (as measured by tenure and the
+number of past patents), and possess weaker track records (as measured by the average quality of
+their past patents).
+Regarding consequences, we find that innovation management, which enhances annual
+innovation performance for inventors, is associated with a significantly lower likelihood of
+inventor turnover in the following four years. However, these inventors experience a significantly
+higher likelihood of turnover in subsequent years, consistent with the long-term negative effects
+from lower patent quality and reputational damage.
+To directly examine the linkage between innovation management and annual performance
+appraisals, we analyze four cases in our sample period where firms abandon the practice of annual
+performance appraisals. We observe that innovation management significantly declines at these
+firms after the abandonment of annual performance appraisals. In contrast, peer firms that do not
+abandon annual performance appraisals exhibit no change in innovation management. We further
+conduct an inventor-level difference-in-differences (DiD) regression analysis and find that
+inventors engage in significantly less innovation management after their companies abandon
+annual performance appraisals. In the meantime, we find little relationship between innovation
+management and measures of CEO incentives, such as CEO horizon (proxied by remaining tenure
+and unexcised options) and firm performance (proxied by contemporaneous and historical
+financial performance and stock returns). These results suggest that innovation management is the
+result of opportunistic behavior by inventors rather than firm managers.
+To address our third research question, we examine the relationship between innovation
+5
+
+===PAGE 8===
+management and firms’ future performance, as previous studies show that patent quality can
+significantly impact a firm’s future financial performance and stock returns (e.g., Hirshleifer, Hsu,
+and Li 2018; Shu, Tian, and Zhan 2022). Given that innovation management leads to lower patent
+quality, firms with a higher proportion of IM patents in their patent stock may experience lower
+future financial performance. This effect should be more pronounced for firms with high
+innovation intensity, as innovation is pivotal to their performance.
+We estimate firm-level regressions where the dependent variable is a measure of firm’s
+future financial performance, including operating cash flow and ROA for the next two years. We
+find that, for firms with high innovation intensity (past patents above the annual sample median),
+a higher proportion of IM patents in patent stock leads to significantly lower future financial
+performance. For example, a one-standard-deviation increase in the proportion of IM patents in a
+firm’s patent stock leads to a 0.92% decrease in the firm’s ROA, which is a 13.1% decrease
+compared to the mean. Additionally, the results of Fama-MacBeth regressions of monthly stock
+returns also show that, for high innovation intensity firms, a higher proportion of IM patents is
+associated with significantly lower future stock returns.6
+We contribute to the literature on corporate innovation by providing the first evidence of
+opportunistic innovation management and documenting its role in driving the excessive filing of
+low-quality patents, a significant issue in contemporary innovation. Our findings suggest that
+innovation management by inventors, driven by the pressure of annual performance appraisals,
+can lead to an excessive number of low-quality patents filed in the FYE months. It is worth noting
+that the observed innovation management may represent only the visible portion of opportunistic
+behavior in patent filings, as such behavior could also occur during non-FYE months, albeit to a
+6 We also examine firms with low innovation intensity and find that, consistent with our prediction, there is little
+relationship between the proportion of IM patents and future financial performance and stock returns.
+6
+
+===PAGE 9===
+smaller scale.
+Our paper also contributes to the literature on opportunistic behavior driven by fixed-term
+performance evaluations. For example, firms are well known to boost reported accounting
+performance through accrual-based and real-based earnings announcement (e.g., Dechow, Sloan,
+and Sweeney 1996; Healy and Wahlen 1999; Roychowdhury 2006). Similarly, mutual fund
+managers have been documented to engage in portfolio pumping or window dressing at quarter-
+and year-ends, showcasing their portfolio management skills to attract fund inflows (e.g.,
+Lakonishok 1991; Chevalier and Ellison 1997; Musto 1999; Carhart et al. 2002). We extend this
+literature by documenting that inventors also engage in innovation management due to the pressure
+from annual performance appraisals, and this behavior significantly impacts corporate innovation,
+patent quality, and firm performance.
+1. INSITUTIONAL BACKGROUND
+1.1 Performance Review of Inventors
+Balasubramanian, Lee, and Sivadasan (2018) conduct a survey among 140 inventors,
+where 130 of them consider patent applications as a crucial criterion in their performance reviews.
+The other three main criteria are conference papers (cited by 128 inventors), paper publications
+(127 inventors), and patent grants (127 inventors). Among these four main criteria, patent grants
+receive the highest importance score of 6.65 out of 10, followed by patent applications (6.38),
+conference papers (4.21), and paper publications (4.17).
+If inventors wish to engage in opportunistic behavior to boost their performance before the
+annual performance review, increasing the number of patent filings is the most viable method. This
+is because the patent filing date is relatively easier for inventors to control, particularly for those
+familiar with a firm’s patent filing procedures and timelines. In contrast, controlling the timing for
+7
+
+===PAGE 10===
+the other three criteria is far more challenging. Inventors cannot set the dates of conferences, and
+conference paper acceptance is determined by the conference committee, making it beyond their
+control. Similarly, paper publication and patent grants are time-consuming processes with
+unpredictable timelines. For instance, it often takes over a year for a patent application to be
+assigned to an examiner and more than three years for it to be granted. Therefore, inventors are
+both capable and have incentives to opportunistically engage in “innovation management” by
+filing more patents in the fiscal year-end to meet or exceed predefined objectives.
+1.2 Patent Filing Process
+The patent filing process in a firm begins with inventors submitting a one- to two-page
+disclosure note outlining their idea to the internal review committee. This committee typically
+comprises senior managers from the R&D department and staff from the legal department (internal
+lawyers). The internal committee assesses the idea’s patentability. If the committee approves the
+idea for a patent application, the process of drafting the patent application begins. The inventors
+are responsible for preparing the patent applications, with potential input from an internal lawyer.
+Once the patent application is finalized, it is filed with the relevant USPTO patent office, either by
+an internal lawyer or externally hired lawyer. The lawyer also handles further negotiations with
+USPTO patent examiners until the patent is granted.
+The time from management approval to filing typically ranges from two weeks to one year,
+with 72% of cases taking less than three months (Balasubramanian, Lee, and Sivadasan 2018).
+This relatively short interval between internal approval and filing enables inventors to
+opportunistically engage in innovation management in the fiscal year end month, especially for
+those who are familiar with their firms’ patent filing procedures.
+One may wonder whether the observed innovation management, i.e., the excessive patent
+8
+
+===PAGE 11===
+filings in the FYE month, could be driven by the incentives of external lawyers rather than
+inventors, given that the majority of firms hire external lawyers to assist inventors in completing
+the patent applications. This, however, is unlikely, as external law firms typically operate on a
+monthly billing cycle. As a result, external lawyers have an incentive to meet monthly deadlines
+to receive payments sooner, rather than concentrating their efforts towards the fiscal year-end.
+Moreover, we show that the surge in patent filings is concentrated in the companies’ FYE months,
+rather than being a December phenomenon. It is unlikely that these companies’ law firms share
+the same fiscal year-ends as their clients.
+2. DATA AND SAMPLE CONSTRUCTION
+2.1 Data and Sample
+We obtain the data of all patents filed in the United States between 1980 and 2019 from the
+USPTO, including patent application number, patent number, filing date, examiner art unit, and
+technology class. We then match the patents to public firms using the patent-public firm linkage
+file from the KPSS database.7 Our sample includes granted patents, as the KPSS linkage file
+covers only the granted patents for public firms. We obtain inventor information and the patent
+text from the PatentsView database, CEO compensation data from the Capital IQ database,
+financial information from the Compustat database, and monthly stock returns from the CRSP
+database.
+We obtained patents filed with the China National Intellectual Property Administration by
+Chinese listed firms from the CSMAR database. To identify patents filed with the USPTO by other
+countries or regions, we retrieved the patent applicant’s country code from the PatentsView
+7 We thank the authors of Kogan, Papanikolaou, Seru, and Stoffman (2017) for making this dataset available at
+https://github.com/KPSS2017/Technological-Innovation-Resource-Allocation-and-Growth-Extended-Data.
+9
+
+===PAGE 12===
+database. Information regarding the nature of patent applicants, whether they are individuals,
+corporations, government agencies, or universities, also came from the PatentsView database. To
+control for outliers, all continuous variables are winsorized at the 1st and 99th percentiles.
+2.2 Summary Statistics
+Table 1 presents the summary statistics of the variables used in our analyses. Our final
+sample comprises 2,259,890 patents filed by US public firms during 1980 to 2019. On average,
+patents in our sample receive 12.98 future citations, and about 24% of patents in our sample receive
+zero future citations. A patent in our sample on average contains 17 claims. The originality is about
+9, indicating that, on average, the patents in our sample cite patents from 9 different technology
+subclasses. The average number of words in the description section is 4,830. Additionally, a patent
+document in our sample, on average, contain 12 figures and 9 sheets.
+In a given year during our sample period, an average inventor in our sample has nine years
+work experience and have filed 23 patents. At the firm-year level, firms in our sample have a patent
+stock of 284 patents, with a firm age of about 22 years, R&D expenditures (scaled by total assets)
+of 0.09, and an ROA of -0.07. At the firm-month level, firms in our sample file about 4 patents
+each month. The average monthly stock return is about 1%. Detailed variable definitions are
+provided in Appendix A.
+3. INNOVATION MANAGEMENT AND FISCAL-YEAR END PATENT FILINGS
+3.1 Seasonality in Corporate Patent Filings
+We begin by examining whether there are seasonal patterns in corporate patent filings
+throughout the year. Panel A of Figure 2 plots the monthly distribution of patent filings by U.S.
+public firms from 1980 to 2019. We observe a pronounced spike in patent filings during December,
+with 10.12% of all patents filed in December alone, which is significantly higher than the average
+10
+
+===PAGE 13===
+of 8.17% for each of the months from January to November.
+Since the annual performance review is conducted at the end of fiscal year rather than the
+end of calendar year, we further investigate whether this pattern is attributable to the surge in patent
+filings at the fiscal year-end rather than at the calendar year-end. We separate our sample firms
+into two groups: firms whose fiscal year ends in December and those with fiscal year ends in other
+months. Panel B of Figure 2 shows that firms with December fiscal year-ends demonstrate a spike
+in patent filings in December, mirroring the trend seen in the full sample. Interestingly, Panel C of
+Figure 2 shows that firms with fiscal year ends in other months do not show any increase in patent
+filings for December. This distinction suggests that the increase in patent filings is a fiscal year-
+end phenomenon, consistent with the pressure from annual performance review encouraging
+inventors’ opportunistic innovation management.
+Therefore, we focus on the seasonal patterns in patent filings through the fiscal year for all
+our sample firms. In Figure 3, we plot the distribution of patent filings by months within the fiscal
+year. During 1980 to 2019, public firms file a total of 262,719 patents in the final month of the
+fiscal year. This contrasts with an average of 183,589 patents filed in a non-fiscal year-end month.
+This indicates that firms file 43.1% more patents in the last month of the fiscal year compared to
+other months. Moreover, Figure 4 plots the annual difference in patent filings between the fiscal
+year-end month and other months for each year during our sample period. We find that innovation
+management, i.e., the surge in patent filings at the fiscal year-end, is a consistent pattern in every
+year of our sample period.
+We further examine whether this seasonality is unique among corporate patent filings or a
+broad trend affecting all patent filers. In Figure 5, we focus on patents that are filed by individuals
+(Panel A), government agencies (Panel B), and universities (Panel C). Contrary to the corporate
+11
+
+===PAGE 14===
+pattern, we do not find a similar innovation management for these groups.
+We then examine if innovation management is concentrated in certain types of firms or
+technology fields. Figure 6 shows that the seasonality in patent filings is pervasive across all
+industries, as classified by one-digit SIC codes (Panel A), except for the agriculture industry, and
+across the different USPTO technology classes, as defined by the examiner art units (Panel B).
+Moreover, Figure 7 shows that innovation management is pronounced across all firm size groups
+classified by market capitalization (Panel A) or total assets (Panel B). These results suggest
+innovation management is a widespread phenomenon among U.S. public firms.
+One concern is that since our sample include only granted patents, the surge in FYE patents
+could be driven by a higher grant rate for patent applications filed in the FYE month compared to
+other months.8 For example, if the patent applications filed in FYE months are of higher quality
+relative to other months, then even if firms file the same number of patent applications in the FYE
+month as in other months, they will have a higher number of granted patents filed in the FYE
+month. To address this concern, we calculated the grant rate for patent applications filed in a month
+as the number of patents filed in the month and are eventually granted, scaled by the total number
+of patent applications filed in the month. As shown in Figure 8, the grant rate for patent applications
+filed in December is slightly lower (rather than higher) compared to other months. We
+acknowledge that this analysis does not distinguish between public firms and other types of patent
+applicants.9 However, given that more than 65% of public firms have their fiscal year-end in
+December, this finding provides suggestive evidence that the observed innovation management is
+unlikely to be driven by higher grant rates for FYE patent applications.
+8 Note that it takes on average over a year for a patent application to be assigned to an USPTO examiner, so it is
+uncertain in which months the application will be assigned and reviewed.
+9 We are unable to conduct this analysis for the subsample of public firms because the KPSS linkage file includes only
+the granted patents of public firms.
+12
+
+===PAGE 15===
+Next, we examine whether innovation management also extends beyond the US We first
+examine the seasonality of patents filed by Chinese public firms with the China National
+Intellectual Property Administration. We obtain the patent data of Chinese public firms during
+2004 to 2023 from the CSMAR database. Note that all publicly listed firms in China have a fiscal
+year ending in December. Panel A of Figure 9 shows that, similar to the US, there is a pronounced
+innovation management, with 16.64% of all patents filed in December alone, significantly higher
+than the average of 7.58% for each of the months from January to November. Therefore, innovation
+management among Chinese public firms is even more pronounced than their US counterparts.
+We further examine patents filed with the USPTO by other countries or regions, including
+Australia, Germany, Switzerland, the UK, Finland, France, Taiwan, Japan, China, and Korea. We
+included these countries or regions because their companies have homogeneous fiscal year and
+their companies filed more than 10,000 patents with the USPTO from 1980 to 2019. For example,
+Japanese firms have a fiscal year-end in March, Australian firms in June, and German and Swiss
+firms in December. Panel B of Figure 9 shows the percentage difference between patents filed in
+the FYE month and the average patent filings in other months. Similar to the US, there is a
+pronounced spike in patent filings in the FYE month, with the percentage difference ranging from
+5% to 50%. These results demonstrate that innovation management exists globally.
+Finally, we conduct formal regression analysis to further examine innovation management.
+We estimate firm-level panel regressions of monthly patent filings, where the dependent variable
+is the number of patent filings for a given firm-month. The main independent variable is FYE, a
+dummy variable for the final month of the fiscal year. We control for firm size and patent stock, as
+well as firm and year fixed effects.10 We report t-statistics using robust standard errors adjusted for
+10 The regression sample includes only firms that file at least one patent in a year.
+13
+
+===PAGE 16===
+heteroscedasticity and clustered at the firm level. For robustness, we conduct both Ordinary Least
+Squares (OLS) regressions and Poisson regressions (Cohn, Liu and Wardlaw 2022). Table 2
+presents the regression results. The coefficient of FYE is significantly positive in all models,
+consistent with innovation management. For example, the coefficient in the OLS regression
+(Column 2) indicates that firms file 1.30 more patents in the FYE month relative to other months,
+or a 33.8% increase from the sample mean of 3.85 patents per month. Similarly, the coefficient in
+the Poisson regression (Column 4) indicates a 31.5% increase in patent filings in the FYE month.
+3.2 Innovation Management and Patent Quality
+If innovation management is associated with opportunistic behavior, we would expect the
+corresponding patents filed in the fiscal year-end month to be of lower quality compared to those
+filed in other months.
+To test this prediction, we follow the literature and construct five measures of patent quality.
+The first two measures are the total number of forward citations and the truncation-adjusted
+citations (Hall, Jaffe, and Trajtenberg 2001, 2005). The third measure is patent originality, which
+assesses the ability to combine different technologies in a novel way (Hirshleifer, Hsu, and Li
+2018). The fourth measure is a dummy variable for a patent receiving no citation (Balsmeier,
+Fleming and Manso 2017), and the fifth measure is a dummy variable for breakthrough patents
+with citations in the top 5 percent out of all patents (Singh and Fleming 2010).
+We estimate patent-level regressions of patent quality using patents filed by the US public
+firms. The dependent variable is one of the patent-quality measures, and the main independent
+variable is FYE Patent, a dummy variable for patents filed in the FYE month. We control for firm,
+art unit, and filing year fixed effects and report t-statistics using robust standard errors adjusted for
+heteroscedasticity and clustered at the firm level.
+14
+
+===PAGE 17===
+Panel A of Table 3 presents the regressions using the two citation measures based on raw
+citations and truncation-adjusted citations. The coefficient of FYE Patent is significantly negative,
+which reveals a significant decrease in quality for patents filed in the last month of the fiscal year.
+The results are also economically significant. For example, patents filed at the end of the fiscal
+year receive 4.0% fewer raw citations and 3.7% fewer adjusted citation compared to other patents.
+In Panel B of Table 3, we present the regressions using the other three patent quality
+measures. The coefficient of FYE Patent is significantly negative in Columns (1) and (3), and
+significantly positive in Column (2). The results consistently indicate that FYE patents have
+significantly lower quality than patents filed in the other months. Specifically, FYE patents are less
+novel and less likely to be breakthrough patents, but more likely to receive no citations in the future.
+The results also show economic significance, suggesting that patents filed at the fiscal year-end
+month exhibit lower quality, with differences ranging from 2% to 5% based on these measures.
+Overall, the results in Table 3 suggest that the surge in FYE patent filings is associated with
+opportunistic behavior as the FYE patents have significantly lower quality.
+3.3 Identifying Patents Associated with Innovation Management
+As shown in Table 3, the overall quality difference between FYE patents and patents filed
+in other months does not seem to be very large (2%-5% lower quality for FYE patents). However,
+it is worth noting that FYE patents include both normal patents and the ones with opportunistic
+behaviors. That is, not all patent filings in the FYE month result from opportunistic innovation
+management. Therefore, the quality difference observed in Table 3 underrepresents the reduction
+in quality caused by innovation management.
+To distinguish normal and opportunistic patent filings in the FYE month, we divide FYE
+patents into two groups, namely IM patents (innovation management) and non-IM patents based
+15
+
+===PAGE 18===
+on inventors’ tendency of filing FYE patents. Specifically, for each FYE patent, we first calculate
+the tendency of FYE patent filings for each of its inventors (FYE tendency), defined as the
+proportion of the inventor’s FYE patent filings among all her patent filings in the year. We then
+calculate the average inventor FYE tendency for the patent. For example, consider a patent is filed
+by inventors A, B, and C. Inventor A’s FYE tendency is 1/12, i.e., 1/12 of her patent filings in this
+year are in the FYE month. Inventor B and C’s FYE tendencies are 1/3 and 3/4, respectively. Then
+the average inventor FYE tendency of the patent is (1/12+1/3+3/4)/3=0.389. We classify a FYE
+patent as IM patent if its average inventor FYE tendency is above the median of the FYE patents
+in the previous year. The intuition of this approach is that if inventors engage in abnormally high
+FYE patent filings in the year, then their FYE patents are more likely to result from opportunistic
+innovation management.
+Table 4 presents the results of patent quality for the two subgroups of FYE patents: IM
+patents and non-IM patents. Panel A of Table 4 presents the regression of citation measures based
+on raw and adjusted citations using the full sample. The coefficient of IM Patent is significantly
+negative in all models. The results are also economically significant, as they indicate that IM
+patents receive 6.9% fewer raw citations and 7.9% fewer adjusted citations compared to other
+patents. These figures are much larger than the baseline analysis, suggesting that the classification
+of IM patents helps us capture innovation management and sharpen the patent quality analysis.
+We further compare the quality of IM patents and non-IM patents with patents filed in other
+months (non-FYE patents) separately. In Panel B of Table 4, we directly compare the quality
+differences between IM patents and non-FYE patents by excluding non-IM patents from the
+sample. The coefficients of IM Patent are negative and significant, similar to those in Panel A.
+Panel C of Table 4 presents the results of quality differences between non-IM patents and non-
+16
+
+===PAGE 19===
+FYE patents by excluding IM patents from the sample. The coefficients of Non-IM Patent are
+marginally significant or insignificant with a small magnitude, suggesting that there are no
+significant quality differences between non-IM patents and non-FYE patents.
+Table 5 is similar to Table 4, except we present the results of patent quality using the other
+three patent quality measures, namely Originality, No Citation, and Breakthrough Patent. Panel A
+of Table 5 presents the regression of the three quality measures using the full sample. The
+coefficient of IM Patent is significantly negative in Columns (1) and (3), and significantly positive
+in Column (2). The results are also economically significant, as they indicate that IM patents have
+a lower quality ranging from 7% to 10% using these measures.
+We further compare the quality of IM patents and non-IM patents with patents filed in other
+months separately using the three quality measures. In Panel B of Table 5, we directly compare the
+quality differences between IM patents and non-FYE patents by excluding non-IM patents from
+the sample. The coefficients of IM Patent are negative and significant, similar to those in Panel A.
+Panel C of Table 5 presents the results of quality differences between non-IM patents and non-
+FYE patents by excluding IM patents from the sample. The coefficients of Non-IM Patent are
+positively significant in Column (1), positively significant with much smaller magnitude compare
+to IM patents in Column (2) (0.022 and 0.004, respectively) or insignificant in Column (3). The
+results suggest that non-IM patents do not have a significantly lower quality, than non-FYE patents
+using these three quality measures.
+For a robustness tests, we also use an alternative approach to detect the patents associated
+with innovation management that further controls for firms’ industries. Under this method, a patent
+is classified as IM Industry Patent if its FYE tendency is above the median of firms in the same 2-
+digit SIC industry from the previous year. The results on patent quality are similar to the baseline
+17
+
+===PAGE 20===
+analysis (Table B1 in Appendix B).
+Our previous analysis shows that, unlike companies, other types of patent applicants such
+as individuals, government agencies, and universities do not exhibit abnormal FYE patent filing.
+For comparison with companies, we also examine the quality of patents filed in December by these
+groups of applicants. As shown in Table B2 in Appendix B, there are no significant quality
+differences between these applicant’s December patents and other patents, suggesting that the
+lower quality for firms’ FYE patents results from the firms’ surge in FYE patent fillings.
+3.4 Innovation Management and Disclosure Quality of Patents
+According to the requirements of 35 U.S.C. 112, a patent disclosure should be “full, clear,
+concise, and exact” to enable a person familiar with the technology to replicate the patented
+innovation. Existing literature shows that disclosure quality is a crucial dimension of patent quality
+that can significantly impact follow-on innovation (e.g., Dyer et al. 2024). Therefore, we further
+investigate whether patents associated with innovation management also have lower disclosure
+quality compared to their peers. Following Dyer et al. (2024), we construct four measures of
+disclosure quality, including the number of words in the description section, text readability, and
+the number of figures and sheets. Patents with a longer description section, easier readability, and
+more figures and sheets exhibit higher disclosure quality.
+Panel A of Table 6 presents the results of the number of words in the description section.
+The coefficient of IM Patent is significantly negative, indicating that IM patents have a shorter
+description section compared to other patents. Panel B of Table 6 presents the results on the text
+readability of the description section. To assess text readability, we utilize three measures: Gunning
+Fog, Automated Readability, and Flesch Reading. The Gunning Fog index estimates the years of
+formal education required to understand a text on the first reading, with a higher value indicating
+18
+
+===PAGE 21===
+less readability. The Automated Readability index determines the U.S. grade level needed to read
+a piece of text, with a higher value indicating less readability. In contrast, the Flesch Reading index
+rates texts on a scale from 0 to 100, with higher scores indicating easier readability. We multiply
+the Flesch Reading score by -1 to make all three measures indicate readability in the same direction.
+The coefficient of IM Patent is significantly positive in all models, indicating that IM patents have
+lower readability compared to other patents.
+Panel C of Table 6 presents the results on the number of figures and sheets in the patent
+text. Many patents have a spatial nature, where figures and sheets serve as effective tools for
+conveying information about complex concepts. Additionally, figures and sheets can succinctly
+summarize information and enhance the transparency of the disclosure. We find that the coefficient
+of IM Patent is significantly negative in both models, suggesting that patents associated with
+innovation management contain fewer figures and sheets in the patent text compared to their peers.
+To complement the disclosure quality measures based on textual analysis, we use an
+alternative measure of disclosure quality based on the number of claims in a patent. Patents with
+more claims offer broader protection, indicating higher patent quality (e.g., Marco, Sarnoff, and
+Charles 2019; Ganglmair, Robinson, and Seeligson 2022). In Panel D of Table 6, Column (1)
+shows that IM patents have significantly fewer claims than their peers. In Columns (2) and (3), we
+further divide claims into independent and dependent claims. Independent claims are more
+important than dependent claims, as the latter outline specific applications or embodiments that
+fall under the broader concepts established by the former (Marco, Sarnoff, & Charles 2019). We
+find that the coefficient of IM Patent is significantly negative in both regressions, and the
+coefficient is larger and more significant in the regression of independent claims than that of
+dependent claims. Overall, the results in Table 6 provide further evidence that patents associated
+19
+
+===PAGE 22===
+with innovation management have significantly lower quality compared to their peers.
+4. INNOVATION MANAGEMENT: INVENTOR INCENTIVES AND CONSEQUENCES
+Innovation management is consistent with inventors’ opportunistic behavior due to the
+pressure from annual performance appraisal. In this section, we further examine inventors’
+incentives of innovation management by investigating the relation between innovation
+management and inventor characteristics. We then test the consequences of innovation
+management to inventors, including its short-term benefits and long-term costs in terms of job
+security.
+4.1 Innovation Management and Inventor Characteristics
+It has been well documented that individuals’ career concerns influence their decision-
+making (Prendergast and Stole 1996; Holmstrom 1999). In this subsection, we examine three
+inventor characteristics that are likely associated with stronger incentives for innovation
+management. The first characteristic is motivated by the well-documented tournament behavior of
+mutual fund managers, where mid-year losers tend to increase portfolio risk in the second half of
+the year (e.g., Brown, Harlow, and Starks 1996). Similarly, inventors who are trailing in patent
+filing earlier in the year may be more likely to engage in innovation management to push up patent
+filings towards the end of the year.
+To test this prediction, we construct two measures to identify trailing inventors. The first
+measure, Trailing_3Qtrs, is a dummy variable equals to one if the total number of patents filed by
+an inventor in the first three quarters of the year is lower than the first three quarters of the previous
+year, and zero otherwise. The second measure, Trailing_11M, is similarly constructed but based
+on the first eleven months of the year instead of the first three quarters. Panel A of Table 7 presents
+20
+
+===PAGE 23===
+inventor-patent level regressions of a dummy variable for IM patents on these two measures.11 The
+results show that, consistent with our prediction, the coefficients on both measures are significantly
+positive, indicating that inventors who are trailing earlier in a year are significantly more likely to
+engage in innovation management.
+Next, we expect that inventors with less experience or a worse track record may be subject
+to intensified scrutiny during performance appraisals, potentially leading to a more pronounced
+tendency of opportunistic behaviors. As a result, we expect these inventors to have a greater
+tendency to engage in innovation management compared to their peers.
+Panel B of Table 7 presents the regression analysis for inventor experience. We construct
+two measures of inventor experience based on the inventor’s tenure and the historical number of
+patents filed by the inventor up to the previous year. The results show that, consistent with our
+prediction, inventors with a shorter tenure and fewer past patents are more likely to file IM patents.
+The result is also economically significant. A one standard deviation decrease in the inventor
+experience based on historical patents leads to a 20.2% increase in the probability of innovation
+management.
+Panel C of Table 7 presents the regressions for inventor past performance. We use three
+measures of inventor’s past performance based on the average adjusted citations of an inventor’s
+past patents, the average patent originality measure of the inventor’s past patents, and the total
+number of breakthrough patents from the inventor up to the previous year. Consistent with our
+prediction, we find that inventors with worse track record are significantly more likely to engage
+in innovation management.12
+11 We control for firm, filing year, and art unit fixed effects in the main results. In untabulated analysis, we control for
+firm by filing year and art unit fixed effects and find similar results.
+12 A patent is typically filed by an invention team with an average of three members, and we include all inventors for
+each patent in the analysis. We conduct a robustness test by considering only the lead inventors for the patents and
+21
+
+===PAGE 24===
+4.2 Consequences of Innovation Management for Inventors
+We further examine the short-term and long-term consequences of innovation management
+for inventors in terms of job security. On the one hand, inventors can use innovation management
+to enhance their annual performance and improve short-term job security. On the other, the decline
+patent quality arising from innovation management may damage the inventors’ reputation, hinder
+long-term performance, and ultimately reduce long-term job security.
+To test these predictions, we follow the literature and identify inventor turnovers by
+tracking their patent filing history. Specifically, an inventor’s job switch is assumed to occur in the
+middle of the filing years of two consecutive patents with different companies (e.g., Marx,
+Strumsky, and Fleming 2009; Song, Almeida, and Wu 2003; Liu, Mao, and Tian 2023). For
+example, if an inventor files a patent for Firm A in 2008 and the next for Firm B in 2012, we
+assume the inventor moves from Firm A to Firm B in 2010.
+Table 8 presents the regression results, where the dependent variables are Turnover to
+t+1
+Turnover , which are dummy variables equal to one if an inventor experiences a turnover in the
+t+8
+corresponding years. The main independent variable, %Inventor IM Patent, is calculated as
+number of IM patents filed by the inventor in year t, scaled by the total number of patents filed by
+the inventor in year t. We find that the coefficient is significantly negative in columns (1) to (4),
+indicating that innovation management is associated with a significantly lower probability of
+turnover in the next four years. Interestingly, the coefficient becomes insignificantly positive in
+columns (5) and (6) and significantly positive in columns (7) and (8), suggesting that the negative
+consequences, in terms of an increased likelihood of turnover, begin to emerge in later years. These
+results illustrate the tradeoff between short-term gains and long-term harm associated with
+find similar results in Table B3 of Appendix B. Overall, the results in this subsection provides evidence supporting the
+inventor opportunistic innovation management due to inventor performance appraisals.
+22
+
+===PAGE 25===
+innovation management.
+5. IS INNOVATION MANAGEMENT DRIVEN BY INVENTORS OR MANAGERS?
+While the observed innovation management is consistent with inventors’ opportunistic
+behavior driven by pressure from annual performance appraisals, it could also stem from
+managerial performance pressures. In this section, we conduct balanced analyses to further
+investigate the relationships between innovation management, employee annual performance
+appraisal, and managerial (or firm) performance.
+5.1 Innovation Management and Abandonment of Annual Performance Appraisal
+To directly investigate the influence of inventor’s annual performance appraisals on
+innovation management, we examine several events where firms abandon annual performance
+reviews. There is a growing trend among publicly listed firms to move away from the traditional
+annual performance reviews in favor of continuous and real-time feedback. This shift is driven by
+the time-consuming nature of annual performance reviews, which can negatively impact employee
+productivity and the relationship between employees and their managers. For example, in August
+2015, General Electric announced that it had transitioned away from annual performance reviews
+in an effort to foster a more positive work environment and attract younger employees.13
+According to a Washington Post article, as of 2015, approximately 10% of Fortune 500 companies
+had eliminated annual performance reviews.14
+If the innovation management is associated with inventors’ pressure from annual
+performance reviews, we would expect significantly less innovation management following the
+13 For details, see the CNBC article at https://www.cnbc.com/2015/08/19/general-electric-rethinks-from-annual-job-
+reviews.html.
+14 See the news article at https://www.washingtonpost.com/news/on-leadership/wp/2015/08/17/why-big-business-is-
+falling-out-of-love-with-annual-performance-reviews/.
+23
+
+===PAGE 26===
+abandonment of annual performance review. Although there is no publicly available data for firms’
+annual performance review process, we are able to identify four companies that abandon annual
+performance reviews during our sample period, using a report by the Society for Human Resource
+Management, the world’s largest HR association.15 The four companies include Medtronic PLC,
+Microsoft, General Electric, and Intel Corporation, which abandon annual performance reviews in
+2012, 2013, 2015, and 2016, respectively.
+Panels A to D of Figure 10 plot the percentage of FYE patent filings for these four
+companies before and after the abandonment of annual performance reviews. Consistent with our
+prediction, we find that for all four companies, the percentage of FYE patent filings experiences a
+significant decrease after the abandonment. To ensure that these results are not driven by a general
+trend of declining innovation management, we examine four other large tech firms–Apple Inc,
+Micron Technology, Texas Industries Inc, and Procter & Gamble–in Panels E to H of Figure 10.
+In contrast to the four event firms, there is no observable decrease in fiscal year-end patent filings
+for these benchmark firms. These findings provide direct evidence that the innovation management
+is associated with annual performance appraisals.
+We further exploit the cases where inventors move between the firms with annual
+performance appraisals and the firms that have abandoned annual performance appraisals.
+Although we can only observe four cases of abandonment of annual performance appraisals
+(“event firms”), these four firms are large tech companies that collectively account for 6.5% of
+corporate patent filings during our sample. We estimate an inventor-patent level regression using
+inventors who have filed at least one patent for an event firm. The dependent variable, %Inventor
+FYE, is defined as the number of FYE patents filed by the inventor in a given year, scaled by the
+15 See https://www.shrm.org/topics-tools/news/employee-relations/annual-performance-review-dead.
+24
+
+===PAGE 27===
+inventor’s total patent filings in that year. The main independent variable, Abandon, is a dummy
+variable equal to one for inventors in the event firms in the years following the abandonment, and
+zero otherwise. In Table 9, the coefficient of Abandon is significantly negative, which is consistent
+with our univariate analysis that inventors are significantly less likely to engage in innovation
+management after the abandonment of annual performance review.
+5.2 Is Innovation Management Driven by Managerial Incentives?
+Like inventors, CEOs undergo annual performance appraisals, which can significantly
+influence their compensation and career outcomes. As a result, managers could possibly instruct
+inventors to engage in innovation management to embellish their list of accomplishments,
+potentially explaining our findings. To investigate this alternative explanation, we conduct two
+analyses focused on CEO’s long-term incentives and past performance.
+CEO’s long-term incentives can align their actions more closely with shareholder interests
+and reduce opportunistic behaviors (e.g., Eisenhardt 1989; Makri et al. 2006). If IM patents are
+driven by CEOs’ opportunistic behavior, we would expect these patent filings to be less
+pronounced among CEOs with stronger long-term incentives. We estimate firm-year level
+regressions where the dependent variable is %IM Patent, defined as the number of IM patents
+scaled by the total patents filed in a year, and the primary independent variable is a measure of
+inventor CEO long-term incentives.16
+We follow previous literature and construct two measures of CEO long-term incentives.
+The first measure, Career Horizon, is calculated as the estimated time remaining until a CEO’s
+departure due to retirement or termination (Antia, Pantzalis, and Park 2010; Lee, Park, and Folta
+2018). The second measure, Unexercised Options, is calculated as the value of unexercised options
+16 This analysis includes only firm-years with at least one patent filings, where % IM Patent can be calculated.
+25
+
+===PAGE 28===
+scaled by total compensation.17 Longer tenure and more unexercised options indicate a longer
+CEO horizon. Panel A of Table 10 presents the regressions results, in which the coefficients of
+CEO long-term incentives are insignificant across all models. The results are inconsistent with the
+IM patents being driven by CEO incentives.
+We further investigate the relationship between innovation management and CEO
+performance. CEOs with poorer performance may face increased pressure from performance
+appraisals, potentially driving innovation management. We examine this possibility using stock
+returns and ROA from the previous year and the current year as proxies for CEO performance. In
+Panel B of Table 10, we find little relationship between these measures and innovation
+management, which is inconsistent with the explanation based on managerial incentives. To
+summarize, the results this section suggest that innovation management is likely driven by
+inventors’ pressure from annual performance appraisal rather than managerial opportunistic
+behavior.
+6. INNOVATION MANAGEMENT AND FIRM PERFORMANCE
+Patent quality can significantly impact a firm’s financial performance and stock returns
+(e.g., Hirshleifer, Hsu, and Li 2018; Shu, Tian, and Zhan 2022). Our results so far indicate that
+patents involving innovation management are of significantly lower quality compared to other
+patents. In this section, we examine whether these patents influence firms’ future financial
+performance and stock returns.
+6.1 Innovation Management and Future Financial Performance
+We begin by examining the relationship between innovation management and firms’ future
+17 The sample period for the CEO analysis is from 1994 to 2019, as the first available year of detailed CEO
+compensation data in the Capital IQ database is 1994.
+26
+
+===PAGE 29===
+financial performance. Given that innovation management leads to lower patent quality, firms with
+a higher proportion of IM patents in their patent stock may experience lower future financial
+performance. For this analysis, we focus on firms with high innovation intensity, as innovation is
+pivotal to their performance. For comparison, we also conduct a placebo test using firms with low
+innovation intensity.
+We estimate firm-level regressions where the dependent variable is a measure of firm’s
+future financial performance, including operating cash flow for the next year and the next two
+years, and ROA for the next year and the next two years. We exclude utility firms (SIC codes from
+6000 to 6999) and financial firms (SIC codes from 4900 to 4999) for this analysis. The main
+independent variable is Proportion IM, which is defined as the cumulative number of IM patents
+up to the current year, scaled by the total cumulative number of patents filed up to the current year
+(henceforth patent stock).18 We follow the literature and control for a broad set of firm
+characteristics including patent stock, firm size, firm age, leverage, cash holdings, book-to-market,
+R&D expenditures, capital expenditures, PPE, as well as firm and year fixed effects. We report t-
+statistics using robust standard errors adjusted for heteroscedasticity and clustered at the firm level.
+Panel A of Table 11 presents regressions of future financial performance for high
+innovation intensity firms. We define a firm as a high innovation intensity firm in a year if its
+patent stock in the year exceeds the annual sample median. We find that the coefficient of
+Proportion IM is significantly negative in all models, showing that firms with a higher proportion
+of IM patents in the patent stock experience lower future financial performance. The results are
+also economically significant. For example, a one standard deviation increase in Proportion IM
+leads to a 0.92% decrease in ROA, which is a 13.1% decrease compared to the mean.
+18 We require the firms that have filed at least one patent up to the current year
+27
+
+===PAGE 30===
+For a placebo test, we present results for low innovation intensity firms in Panel B of Table
+11. We find that, consistent with our prediction, the coefficient of Proportion IM is statistically
+insignificant in all models. Taken together, the results in Panels A and B indicate that patents
+involving innovation management, relative to other patents, have a significantly negative impact
+on future financial performance in high innovation intensity firms.
+6.2 Innovation Management and Future Stock Returns
+If investors underreact to the negative impact of innovation management on firm
+performance relative to their peers, then firms with a higher proportion of IM patents in their
+patents stock may be overpriced and will likely experience lower returns when the overvaluation
+is corrected. In this subsection, we examine the relationship between innovation management and
+future stock returns.
+We estimate Fama-MacBeth regressions where the dependent variable is the monthly stock
+return from July year t to June year t+1 and the independent variable is Proportion IM of the year
+t-1. We further control for firm characteristics corresponding to price factors, including patent
+stock, market capitalization, book-to-market, past one-year returns up to month -2, past one-month
+return, asset growth and ROE. We also control for industry fixed effects. We follow the literature
+and drop penny stocks that are priced below $5.
+Panel A of Table 12 presents the regression results for high innovation intensity firms. The
+coefficients of Proportion IM are negative and significant in all models, indicating that firms with
+a higher proportion of IM patents have lower future stock returns. Panel B is similar to Panel A,
+except we present the results for low innovation intensity firms. The coefficients of Proportion IM
+are statistically insignificant, suggesting that there is no correlation between IM patents and future
+stock returns in low innovation intensity firms. These results are consistent with the financial
+28
+
+===PAGE 31===
+performance results in Table 11.
+7. CONCLUSION
+This paper investigates whether inventors engage in innovation management by filing an
+excessive number of low-quality patents in the fiscal year-end month, due to the pressure from
+annual performance appraisals. Analyzing patents filed by US publicly listed firms from 1980 to
+2019, we find that firms file 43% more patents in the fiscal year-end month compared to other
+months. This pattern is a corporate phenomenon, as it is absent in patents filed by individuals,
+government agencies, or universities. Furthermore, this pattern persists over time, across various
+firm sizes, industries, and technologies, and extends beyond the United States.
+Further analyses show that, consistent with inventor opportunistic behavior, the patents
+associated with innovation management exhibit significantly lower patent quality and disclosure
+quality compared to other patents. Additionally, inventors trailing in patent filings earlier in the
+year, as well as those with less experience or weaker track record, who may face intensified
+scrutiny during performance appraisals, are significantly more likely to engage in innovation
+management. Additionally, innovation management by inventors leads to a lower turnover rate in
+the first several years but a heightened turnover rate in subsequent years, highlighting a tradeoff
+between short-term benefits and long-term costs.
+We further examine four events where publicly listed firms abandon annual performance
+reviews and find that innovation management becomes significantly less pronounced after the
+abandonment of annual performance reviews. DiD analysis at the inventor level also reveals that
+inventors are less likely to engage in innovation management after their firms abandon annual
+performance reviews. In contrast, we find little relationship between innovation management and
+measures of CEO incentives, suggesting that innovation management likely stems from inventor
+29
+
+===PAGE 32===
+behavior rather than managerial behavior. Finally, we provide evidence that innovation
+management negatively impacts future firm performance. Among innovation intensive firms, a
+higher proportion of IM patents in patent stock leads to significantly lower future financial
+performance and stock returns.
+The excessive filing of low-quality patents has become a major issue in contemporary
+innovation system (Frakes, Melissa, and Wasserman 2015; De Rassenfosse et al. 2021). We are the
+first to provide evidence that opportunistic innovation management contributes to this
+phenomenon, and our findings call for firms and regulators to implement improved monitoring
+and performance appraisal systems to mitigate potential opportunistic actions. While we focus on
+inventor behavior driven by performance appraisal pressure, future research could explore how
+other opportunistic behaviors by inventors and firms impact the quantity and quality of corporate
+innovation.
+30
+
+===PAGE 33===
+REFERENCES
+Antia, Murad, Christos Pantzalis, and Jung Chul Park, 2010, CEO decision horizon and firm
+performance: An empirical investigation, Journal of Corporate Finance 16, 288-301.
+Audretsch, David B., 1995, Firm profitability, growth, and innovation, Review of Industrial
+Organization 10, 579-588.
+Balasubramanian, Natarajan, and Jeongsik Lee, 2008, Firm age and innovation, Industrial and
+corporate change 17, 1019-1047.
+Balasubramanian, Natarajan, Jeongsik Lee, and Jagadeesh Sivadasan, 2018, Deadlines, workflows,
+task sorting, and work quality, Management Science 64, 1804-1824.
+Balsmeier, Benjamin, Lee Fleming, and Gustavo Manso, 2017, Independent boards and innovation,
+Journal of Financial Economics 123, 536-557.
+Becker-Blease, John R., 2011, Governance and innovation, Journal of Corporate Finance 17, 947-
+958.
+Brown, Keith C, W Van Harlow, and Laura T Starks, 1996, Of tournaments and temptations: An
+analysis of managerial incentives in the mutual fund industry, Journal of Finance 51, 85-
+110.
+Burke, Ronald J., and Douglas S. Wilcox, 1969, Characteristics of effective employee performance
+review and development interviews, Personnel Psychology 3, 22.
+Carhart, Mark M., Ron Kaniel, David K. Musto, and Adam V. Reed, 2002, Leaning for the tape:
+Evidence of gaming behavior in equity mutual funds, Journal of Finance 57, 661-693.
+Chemmanur, Thomas J., Lei Kong, Karthik Krishnan, and Qianqian Yu, 2019, Top Management
+Human Capital, Inventor Mobility, and Corporate Innovation, Journal of Financial and
+Quantitative Analysis 54, 2383–2422.
+Chen, Jun, Shenje Hshieh, and Feng Zhang, 2021, The role of high-skilled foreign labor in startup
+performance: Evidence from two natural experiments, Journal of Financial Economics 142,
+430-452.
+Chevalier, Judith, and Glenn Ellison, 1997, Risk taking by mutual funds as a response to incentives,
+Journal of Political Economy 105, 1167-1200.
+Cohn, Jonathan B., Zack Liu, and Malcolm I. Wardlaw, 2022, Count (and count-like) data in
+finance, Journal of Financial Economics 146, 529-551.
+Dechow, Patricia M., Richard G. Sloan, and Amy P. Sweeney, 1996, Contemporary Accounting
+Research 13, 1-36.
+De Rassenfosse, Gaétan, William E. Griffiths, Adam B. Jaffe, and Elizabeth Webster, 2021, Low-
+quality patents in the eye of the beholder: Evidence from multiple examiners, Journal of
+Law, Economics, and Organization 37, 607-636.
+Dyer, Travis A., Stephen Glaeser, Mark H. Lang, and Caroline Sprecher, 2024, The effect of patent
+disclosure quality on innovation, Journal of Accounting and Economics 77, 101647.
+Eisenhardt, Kathleen M., 1989, Agency theory: An assessment and review, Academy of
+management review 14, 57-74.
+Frakes, Michael D., and Melissa F. Wasserman, 2015, Does the US patent and trademark office
+grant too many bad patents: Evidence from a quasi-experiment, Stan. L. Rev. 67, 613.
+31
+
+===PAGE 34===
+Ganglmair, Bernhard, W. Keith Robinson, and Michael Seeligson, 2022, The rise of process claims:
+Evidence from a century of US patents, Working Paper.
+Hall, Bronwyn H., Adam B. Jaffe, and Manuel Trajtenberg, 2001, The NBER patent citation data
+file: Lessons, insights and methodological tools, National Bureau of Economic Research
+Cambridge, Print.
+Hall, Bronwyn H., Adam Jaffe, and Manuel Trajtenberg, 2005, Market value and patent citations,
+RAND Journal of economics, 16-38.
+He, Jie Jack, and Xuan Tian, 2013, The dark side of analyst coverage: The case of innovation,
+Journal of Financial Economics 109, 856-878.
+Healy, Paul M. and James Michael Wahlen, 1999, A Review of the Earnings Management
+Literature and its Implications for Standard Setting, Accounting Horizons 13, 365-383.
+Hegde, Deepak, Alexander Ljungqvist, and Manav Raj, 2022, Quick or broad patents? Evidence
+from US startups, Review of Financial Studies 35, 2705-2742.
+Hirshleifer, David, Angie Low, and Siew Hong Teoh, 2012, Are overconfident CEOs better
+innovators?, Journal of Finance 67, 1457-1498.
+Hirshleifer, David, Po-Hsuan Hsu, and Dongmei Li, 2013, Innovative efficiency and stock returns,
+Journal of Financial Economics 107, 632-654.
+Hirshleifer, David, Po-Hsuan Hsu, and Dongmei Li, 2018, Innovative originality, profitability, and
+stock returns, Review of Financial Studies 31, 2553-2605.
+Holmström, Bengt, 1999, Managerial incentive problems: A dynamic perspective, Review of
+Economic Studies 66, 169-182.
+Kogan, Leonid, Dimitris Papanikolaou, Amit Seru, and Noah Stoffman, 2017, Technological
+innovation, resource allocation, and growth, Quarterly Journal of Economics 132, 665-712.
+Islam, Rafikul, and Shuib bin Mohd Rasad, 2006, Employee performance evaluation by the AHP:
+A case study, Asia Pacific Management Review 11.
+Islam, Emdad, and Jason Zein, 2020, Inventor CEOs, Journal of Financial Economics 135, 505-
+527.
+Lakonishok, Josef, 1991, Window dressing by pension fund managers, American Economic
+Review 81, 227-231.
+Lansbury, Russell, 1988, Performance management: A process approach, Asia Pacific Journal of
+Human Resources 26, 46-54.
+Lee, Joon Mahn, Jung Chul Park, and Timothy B. Folta, 2018, CEO career horizon, corporate
+governance, and real options: The role of economic short‐termism, Strategic Management
+Journal 39, 2703-2725.
+Lemley, Mark A., and Bhaven Sampat, 2012, Examiner characteristics and patent office outcomes,
+Review of Economics and Statistics 94, 817-827.
+Liu, Tong, Yifei Mao, and Xuan Tian, 2023, The role of human capital: Evidence from corporate
+innovation, Journal of Empirical Finance 74, 101435.
+Makri, Marianna, Peter J. Lane, and Luis R. Gomez‐Mejia, 2006, CEO incentives, innovation, and
+performance in technology‐intensive firms: A reconciliation of outcome and behavior‐
+based incentive schemes, Strategic Management Journal 27, 1057-1080.
+Makri, Marianna, Michael A. Hitt, and Peter J. Lane, 2010, Complementary technologies,
+32
+
+===PAGE 35===
+knowledge relatedness, and invention outcomes in high technology mergers and
+acquisitions, Strategic Management Journal 31, 602-628.
+Marco, Alan C., Joshua D. Sarnoff, and AW. Charles, 2019, Patent claims and patent scope,
+Research Policy 48, 103790.
+Marx, Matt, Deborah Strumsky, and Lee Fleming, 2009, Mobility, Skills, and the Michigan Non-
+Compete Experiment, Management science 55, 875–889.
+Mukherjee, Abhiroop, Manpreet Singh, and Alminas Žaldokas, 2017, Do corporate taxes hinder
+innovation?, Journal of Financial Economics 124, 195-221.
+Musto, David K, 1999, Investment decisions depend on portfolio disclosures, Journal of Finance
+54, 935-952.
+Pakes, Ariel, 1986, Patents as options: Some estimates of the value of holding European patent
+socks, Econometrica 54.
+Prendergast, Canice, and Lars Stole, 1996, Impetuous youngsters and jaded old-timers: Acquiring
+a reputation for learning, Journal of Political Economy 104, 1105-1134.
+Righi, Cesare, and Timothy Simcoe, 2019, Patent examiner specialization, Research Policy 48,
+137-148.
+Roychowdhury, Sugata, 2006, Earnings Management Through Real Activities Manipulation,
+Journal of Accounting and Economics 42, 335-370.
+Shu, Tao, Xuan Tian, and Xintong Zhan, 2022, Patent quality, firm value, and investor
+underreaction: Evidence from patent examiner busyness, Journal of Financial Economics
+143, 1043-1069.
+Singh, Jasjit, and Lee Fleming, 2010, Lone inventors as sources of breakthroughs: Myth or reality?,
+Management Science 56, 41-56.
+Song, Jaeyong, Paul Almeida, and Geraldine Wu, 2003, Learning by hiring: When is mobility
+more likely to facilitate interfirm knowledge transfer?, Management Science 49, 351-365.
+Valentini, Giovanni, 2012, Measuring the effect of M&A on patenting quantity and quality,
+Strategic Management Journal 33, 336-346.
+33
+
+===PAGE 36===
+Figure 1
+Examples of Employee Performance Appraisal on Quora
+This figure presents a webpage discussing employee performance appraisal at Google and Microsoft on
+Quora, a major social question-and-answer website. The discussion includes details about how and when
+the employee performance appraisal occurs in their respective companies. The page was downloaded on
+March 24, 2024.
+Panel A: Discussion on Employee Performance Appraisal at Google
+34
+
+===PAGE 37===
+Panel B: Discussion on Employee Performance Appraisal at Microsoft
+35
+
+===PAGE 38===
+Figure 2
+Patents Filed by US Public Firms Across Calendar Months
+This figure presents patents filings by US public firms across calendar months. Panel A presents the number
+and percentage of patents filed by all public listed firms from 1980 to 2019. Panel B presents patents filed
+by firms with a fiscal year-end in December. Panel C presents patents filed by firms with a fiscal year-end
+in a month other than December.
+Panel A: Patents Filed by Calendar Months
+240,000 0.11
+200,000
+0.08
+160,000
+0.06
+120,000
+0.04
+80,000
+0.02
+40,000
+0 0.00
+Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+Panel B: Subsample of Firms Whose Fiscal Year-End Month is December
+36
+stnetaP
+of
+rebmuN
+stnetaP
+fo
+egatnecreP
+Month
+Number of Patents Percentage of Patents
+165,000 0.12
+132,000 0.09
+99,000 0.07
+66,000 0.05
+33,000 0.02
+0 0.00
+Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+stnetaP
+fo
+rebmuN
+snetaP
+fo
+egatnecreP
+Month
+Number of Patents Percentage of Patents
+
+===PAGE 39===
+Panel C: Subsample of Firms Whose Fiscal Year Ends in Months Other Than December
+85,000 0.10
+68,000 0.08
+51,000 0.06
+34,000 0.04
+17,000 0.02
+0 0.00
+Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+37
+stnetaP
+fo
+rebmuN
+snetaP
+fo
+egatnecreP
+Month
+Number of Patents Percentage of Patents
+
+===PAGE 40===
+Figure 3
+Patents Filed by US Public Firms Across Fiscal Months
+This figure presents the number and percentage of patents filed by US public firms across fiscal months
+1980 to 2019. FYE presents the fiscal year-end month.
+275,000 0.12
+250,000
+225,000 0.10
+200,000
+0.08
+175,000
+150,000
+0.06
+125,000
+100,000
+0.04
+75,000
+50,000 0.02
+25,000
+0 0.00
+38
+stnetaP
+fo
+rebmuN
+stnetaP
+fo
+egatnecreP
+Month
+Number of Patents Percentage of Patents
+
+===PAGE 41===
+Figure 4
+Differences in Patents Filed by US Public Firms Between Fiscal Year-End Month vs. Other Months
+This figure presents the annual number and percentage differences between patents filed in the fiscal year-
+end month and other months from 1980 to 2019. The number difference is calculated as the number of
+patents filed in FYE month minus the average number of patents filed in other months. The percentage
+difference is calculated by scaling the number difference with the number of patents filed in the FYE month.
+4500 0.7
+4000
+0.6
+3500
+0.5
+3000
+2500 0.4
+2000 0.3
+1500
+0.2
+1000
+0.1
+500
+0 0
+39
+stnetaP
+fo
+rebmuN
+stnetaP
+fo
+egatnecreP
+Fiscal Year
+Number Difference Percentage Difference
+
+===PAGE 42===
+Figure 5
+Patents Filed by Individuals, Government Agencies, and Universities
+This figure presents the number and percentage of patents filed by individuals (Panel A), government
+agencies (Panel B), and universities (Panel C) across different calendar months.
+Panel A: Patents Filed by Individuals
+4,000 0.10
+0.08
+3,000
+0.06
+2,000
+0.04
+1,000
+0.02
+0 0.00
+Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+Panel B: Patents Filed by Government Agencies
+40
+stnetaP
+fo
+rebmuN
+stnetaP
+fo
+egatnecreP
+Month
+Number of Patents Percentage of Patents
+4,500 0.10
+4,000
+0.08
+3,500
+3,000
+0.06
+2,500
+2,000
+0.04
+1,500
+1,000
+0.02
+500
+0 0.00
+Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+stnetaP
+fo
+rebmuN
+stnetaP
+fo
+egatnecreP
+Month
+Number of Patents Percentage of Patents
+
+===PAGE 43===
+Panel C: Patents Filed by Universities
+18000 0.10
+16000 0.09
+0.08
+14000
+0.07
+12000
+0.06
+10000
+0.05
+8000
+0.04
+6000
+0.03
+4000
+0.02
+2000 0.01
+0 0.00
+Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+41
+stnetaP
+fo
+rebmuN
+stnetaP
+fo
+egatnecreP
+Month
+Number of Patents Percentage of Patents
+
+===PAGE 44===
+Figure 6
+Innovation Management across Industries and Technologies
+This figure presents innovation management across different industries and technology centers. Panel A
+presents the percentage of patents filed in the FYE month and the average of patents filed in other months
+for different industries. FYE represents the percentage of patents filed in the fiscal year-end month. Average
+of Other Months is the average percentage of patents filed in other months. We use the SIC one-digit code
+to categorize industries (0-Agriculture, Forestry, and Fishing, 1-Mining, 2-Construction, 3-Manufacturing,
+4-Transportation, Communications, Electric, Gas, and Sanitary Services, 5-Wholesale Trade, 6-Retail
+Trade, 7-Finance, Insurance, and Real Estate, 8-Services, 9-Public Administration). Panel B presents the
+percentage of patents filed in the FYE month and the average of patents filed in other months for USPTO
+technology centers (1600-Biotechnology and Organic Chemistry, 1700-Chemical and Materials
+Engineering, 2100-Computer Architecture, Software, and Information Security, 2400-Computer Networks,
+Multiplex Communication, Video Distribution, and Security, 2600-Communications, 2800-
+Semiconductors, Electrical and Optical Systems and Components, 3600-Transportation, Construction,
+Electronic Commerce, Agriculture, National Security and License & Review, 3700-Mechanical
+Engineering, Manufacturing, Products).
+Panel A: Industry
+0.14
+0.12
+0.10
+0.08
+0.06
+0.04
+0.02
+0.00
+0 1 2 3 4 5 6 7 8 9
+Panel B: Technology Center
+42
+stnetaP
+fo
+egatnecreP
+One Digit SIC Code
+Average of Other Months FYE
+0.14
+0.12
+0.10
+0.08
+0.06
+0.04
+0.02
+0.00
+1600 1700 2100 2400 2600 2800 3600 3700
+stnetaP
+fo
+egatnecreP
+Technology Center
+Average of Other Months FYE
+
+===PAGE 45===
+Figure 7
+Innovation Management across Firm Size
+This figure presents innovation management in different groups of firm size, which is proxied by market
+capitalization in Panel A and total assets in Panel B. For each year, we divide firms into five groups based
+on the firm size measures. FYE represents the percentage of patents filed in the fiscal year-end month.
+Average of Other Months is the average percentage of patents filed in other months.
+Panel A: Market Capitalization
+0.14
+0.12
+0.10
+0.08
+0.06
+0.04
+0.02
+0.00
+Low 2 3 4 High
+Panel B: Total Assets
+43
+stnetaP
+fo
+egatnecreP
+Market Capitalization
+Average of Other Months FYE
+0.14
+0.12
+0.10
+0.08
+0.06
+0.04
+0.02
+0.00
+Low 2 3 4 High
+stnetaP
+fo
+egatnecreP
+Total Assets
+Average of Other Months FYE
+
+===PAGE 46===
+Figure 8
+Grant Rate of Patent Filings by Month
+This figure presents the grant rate of patent filings in each calendar month. The sample includes all patent
+applications filed with USPTO from 1980 to 2019. The patent grant rate for a month is calculated as the
+number of patents filed in that month that were eventually granted, scaled by the total number of patent
+applications filed in that month.
+0.770
+0.765
+0.760
+0.755
+0.750
+Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+44
+etaR
+tnarG
+tnetaP
+Month
+
+===PAGE 47===
+Figure 9
+Innovation Management: International Evidence
+This figure presents innovation management globally. Panel A presents the number and percentage of
+patents filed with the China National Intellectual Property Administration by Chinese public firms across
+different months between 2004 and 2023. The fiscal year end of all public firms in China is in December.
+Panel B presents the number of patents filed with the USPTO by applicants from foreign countries or
+regions including Australia, Germany, Switzerland, UK, Finland, France, Taiwan, Japan, China, and Korea
+from 1980 to 2019. The y-axis shows the percentage difference between patents filed in the FYE month
+and the average patent filings in other months across countries.
+Panel A: Patents filed by Chinese Listed Firms with CNIPA in Different Months
+30,000 18.00%
+16.00%
+25,000
+14.00%
+20,000 12.00%
+10.00%
+15,000
+8.00%
+10,000 6.00%
+4.00%
+5,000
+2.00%
+0 0.00%
+Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+Panel B: Percentage Difference between FYE and Non-FYE Patent Filings: International Evidence
+45
+stnetaP
+fo
+rebmuN
+stnetaP
+fo
+egatnecreP
+Month
+Number of Patents Percentage of Patents
+0.50
+0.45
+0.40
+0.35
+0.30
+0.25
+0.20
+0.15
+0.10
+0.05
+0.00
+ecnereffiD
+egatnecreP
+Country/Region
+
+===PAGE 48===
+Figure 10
+Abandonment of Annual Performance Reviews and Innovation Management
+This figure presents the percentage of FYE patents for firms that announced to abandon the annual
+performance review in Panels A to D, and randomly selected firms without the announcement in Panels E
+to H. The vertical red dashed line in Panels A to D represents the announcement time. The x-axis represents
+the fiscal year, and the y-axis represents the percentage of FYE patents, which is the number of patents filed
+in the FYE month scaled by the total patents filed in that year. The sample period is from 1992 to 2020.
+Panel A: Medtronic PLC
+Panel B: Microsoft Corporation
+46
+
+===PAGE 49===
+Panel C: General Electric
+Panel D: Intel Corporation
+Panel E: Apple Inc
+47
+
+===PAGE 50===
+Panel F: Micron Technology
+Panel G: Texas Industries Inc
+Panel H: Procter & Gamble Company
+48
+
+===PAGE 51===
+Table 1
+Summary Statistics
+This table reports summary statistics for patent-, firm-month, firm-year, and inventor-level variables from
+1980 to 2019. FYE Patent is a dummy variable that equals one if a patent is filed in the fiscal year-end
+month, and zero otherwise. IM Patent is a dummy variable that equals one if its average inventor FYE
+tendency is above the median of the FYE patents in the previous year, and zero otherwise. Inventor FYE
+tendency is defined as the proportion of the inventor’s FYE patent filings among all her patent filings in the
+year. Average inventor FYE tendency is calculated as the average inventor FYE tendency for the patent.
+Non-IM Patent are the remaining patents filed in the fiscal year-end month. Adjusted Citation is the
+truncation-adjusted future citations. Originality is the number of unique technology subclasses cited by the
+focal patent. No Citation is a dummy variable that equals one if the patent receives no future citation.
+Breakthrough Patent is a dummy variable that equals one if the forward citation counts being in the top 5%
+of all patents in the same application year and technology class. #Claims is the total number of claims in
+the patent. #Independent Claims is the number of independent claims in the patent. #Dependent Claims is
+the number of dependent claims in the patent. ln(Number of Words) is the natural logarithm of total number
+of words in the description section of a patent. Gunning Fog is the Fog index of the description section.
+Automated Reading is the Automated Readability index of the description section. Flesch Reading is the
+Flesch Reading index of the description. #Figures is the total number of figures in the patent text. #Sheets
+is the total number of sheets in the patent text. Trailing_3Qtrs is a dummy variable equals to one if the total
+number of patents filed by an inventor in the first three quarters of the year is lower than the first three
+quarters of the previous year, and zero otherwise. Trailing_11M is a dummy variable equals to one if the
+total number of patents filed by an inventor in the first eleven months of the year is lower than the first
+eleven months of the previous year, and zero otherwise. Working Years is the number of years an inventor
+has worked. Total Patents Filed is the average truncation adjusted citation for patents filed by the inventor
+up to the current year. Average Adjusted Citation is the average truncation adjusted citation for patents filed
+by the inventor up to the current year. Average Originality is the average originality of patents filed by the
+inventor up to the current year. Total Breakthrough Patents is the total number of breakthrough patents filed
+by the inventor up to the current year. %Inventor IM Patent is the number of IM patents filed, scaled by the
+total number of patents filed by an inventor in a year. Turnover is a dummy variable that equals one if an
+t+1
+inventor moves to another company in the next year. OCF is the operating cash flow scaled by the total
+t+1
+assets in the next year. ROA is the net income scaled by total assets in the next year. Size is the logarithm
+t+1
+of total assets. Firm Age is the number of years since the year of the company’s IPO. Cash is cash scaled
+by total assets. Leverage is total debt scaled by total equity. BM is the book to market ratio. CAPX is capital
+expenditures scaled by total assets. PPE is net property, plant, and equipment scaled by total assets. %IM
+Patent is the number of IM patents scaled by the total patents filed in a year. CEO Unexercised Options is
+the total unexercised stock options scaled by total compensation in that year. CEO Career Horizon is the
+estimated time remaining until a CEO’s departure due to retirement or termination. IM Proportion is the
+cumulative number of IM patent scaled by all patents filed up to the current year. ln(Patent Stock) is the
+natural logarithm of total patent filed up to the current year. #Patents is the total number of patents filed in
+the fiscal month. Stock Return is the monthly stock return. BM is the book to market ratio. ln(ME) is the
+natural logarithm of the market capitalization. Ret [-1] is the return of the month t-1. Ret [-12, -2] is the
+buy-and-hold return from month t-2 to t-12. Asset Growth is change in total assets, scaled by lagged total
+assets. ROE is return on equity.
+49
+
+===PAGE 52===
+Variables Obs. Mean SD P10 P25 P50 P75 P90
+Patent Level Variables
+FYE Patent 2,259,890 0.11 0.32 0.00 0.00 0.00 0.00 1.00
+IM Patent 2,259,890 0.06 0.23 0.00 0.00 0.00 0.00 0.00
+Non-IM Patent 2,259,890 0.06 0.24 0.00 0.00 0.00 0.00 0.00
+Citation 2,259,890 12.98 26.53 0.00 0.00 3.00 13.00 34.00
+Adjusted citation 2,259,890 0.91 1.56 0.00 0.00 0.38 1.03 2.31
+Originality 2,069,535 9.16 13.74 1.00 3.00 5.00 10.00 19.00
+No Citation 2,069,535 0.24 0.43 0.00 0.00 0.00 0.00 1.00
+Breakthrough 2,069,535 0.05 0.21 0.00 0.00 0.00 0.00 0.00
+#Claims 1,585,404 16.90 11.12 5.00 9.00 15.00 21.00 30.00
+#Independent Claims 1,585,404 2.94 2.00 1.00 2.00 3.00 4.00 5.00
+#Dependent Claims 1,585,404 13.93 10.16 3.00 7.00 13.00 18.00 26.00
+ln(Number of Words) 2,097,253 8.33 0.82 7.28 7.78 8.33 8.87 9.37
+Gunning Fog 2,097,253 18.36 2.66 15.11 16.59 18.23 19.96 21.73
+Automated Readability 2,097,253 15.72 3.06 12.06 13.73 15.53 17.46 19.53
+Flesch Reading 2,097,253 35.36 10.51 48.81 42.45 35.40 28.38 21.92
+#Figures 2,104,266 12.05 11.41 3.00 5.00 9.00 15.00 24.00
+#Sheets 2,104,266 8.61 7.95 2.00 4.00 6.00 11.00 17.00
+Patent-Inventor Level Variables
+Trailing_3Qtrs 4,791,747 0.26 0.44 0.00 0.00 0.00 1.00 1.00
+Trailing_11M 4,791,747 0.25 0.43 0.00 0.00 0.00 0.00 1.00
+Working Years 4,765,441 8.82 6.96 2.00 3.00 7.00 13.00 19.00
+Total Patents Filed 4,765,441 22.42 40.45 1.00 3.00 8.00 22.00 55.00
+Average Adjusted Citation 4,765,441 1.22 1.32 0.23 0.48 0.85 1.46 2.51
+Average Originality 4,765,441 9.01 11.56 1.67 3.25 5.67 9.65 18.42
+Total Breakthrough Patent 4,765,441 1.52 3.73 0.00 0.00 0.00 1.00 4.00
+Inventor Level Variables
+%Inventor IM Patent 5,311,228 0.01 0.11 0.00 0.00 0.00 0.00 0.00
+Turnover 5,311,228 0.05 0.21 0.00 0.00 0.00 0.00 0.00
+t+1
+Firm-Year Level Variables
+OCF 59,662 0.00 0.24 -0.25 -0.01 0.07 0.13 0.18
+t+1
+ROA 59,662 -0.07 0.30 -0.39 -0.08 0.03 0.08 0.12
+t+1
+Proportion IM 59,662 0.07 0.14 0.00 0.00 0.03 0.08 0.17
+ln(Patent Stock) 59,662 2.93 2.19 0.00 1.10 2.64 4.25 6.08
+Size 59,662 5.83 2.35 2.92 4.06 5.63 7.48 9.16
+Firm Age 59,662 21.08 15.54 5.00 8.00 16.00 30.00 45.00
+Cash 59,662 0.24 0.25 0.01 0.04 0.14 0.37 0.66
+Leverage 59,662 0.53 1.40 0.00 0.01 0.24 0.70 1.44
+BM 59,662 0.54 0.48 0.11 0.23 0.43 0.72 1.11
+R&D 59,662 0.09 0.15 0.00 0.00 0.03 0.11 0.24
+CAPX 59,662 0.05 0.05 0.01 0.02 0.04 0.06 0.10
+PPE 59,662 0.22 0.19 0.04 0.08 0.17 0.32 0.50
+%IM Patent 21,055 0.04 0.13 0.00 0.00 0.00 0.00 0.10
+CEO Horizon 21,055 -0.42 3.18 -4.58 -2.00 -0.09 1.67 3.50
+CEO LT Incentives 21,055 1.97 4.98 0.00 0.00 0.12 1.57 5.06
+Firm-Month Level Variables
+# Patents 586,680 3.85 19.96 0.00 0.00 0.00 1.00 6.00
+Stock Return 618,883 0.01 0.15 -0.13 -0.06 0.01 0.07 0.16
+BM 618,883 0.58 1.06 0.12 0.24 0.44 0.73 1.14
+50
+
+===PAGE 53===
+Variables Obs. Mean SD P10 P25 P50 P75 P90
+Ln(ME) 618,883 13.4 2.06 10.79 11.88 13.30 14.78 16.2
+Ret[-1] 618,883 0.01 0.14 -0.13 -0.06 0.01 0.07 0.15
+Ret[-12,-2] 618,883 0.13 0.59 -0.40 -0.17 0.07 0.31 0.64
+Asset Growth 618,883 0.23 1.10 -0.09 -0.01 0.07 0.20 0.50
+51
+
+===PAGE 54===
+Table 2
+Number of Patents Filed in the Fiscal Year-End Month
+This table examines whether there is innovation management in terms of a surge in patent filings in the
+fiscal year-end month. The sample period covers the firm-months from 1980 to 2019. The dependent
+variable is the total number of patents filed in the fiscal month. The main independent variable is FYE,
+which is a dummy variable that equals one for the fiscal year-end month, and zero otherwise. Columns (1)
+and (2) use OLS regression, while Columns (3) and (4) use Poisson regression. Control variables including
+Market Cap and ln(Patent Stock) are defined in Appendix A. We control for firm and year fixed effects in
+all models. T-statistics using robust standard errors adjusted for heteroscedasticity and clustered at the firm
+level are reported in parentheses. *, **, and *** denote statistical significance at the 10%, 5%, and 1%
+levels, respectively.
+Dep. Var. #Patents
+OLS Poisson
+(1) (2) (3) (4)
+FYE 1.637*** 1.301*** 0.365*** 0.315***
+(7.25) (6.58) (11.53) (10.25)
+Market Cap 0.721*** 0.135***
+(2.71) (4.32)
+ln(Patent Stock) 2.410*** 0.621***
+(6.43) (18.04)
+Firm FE Yes Yes Yes Yes
+Year FE Yes Yes Yes Yes
+Adj. R2/ Pseudo R2 0.614 0.620 0.803 0.826
+Observations 562,498 558,784 562,498 558,594
+52
+
+===PAGE 55===
+Table 3
+Quality of Patents Filed in the Fiscal Year-End Month
+This table examines the quality of patents filed in the fiscal year-end month relative to patents that filed in
+other months. Panel A presents the results of Citations. The dependent variable is Raw Citation in Columns
+(1) and (2), and Adjusted Citation in Columns (3) and (4). The main independent variable is FYE Patent,
+which is a dummy variable that equals one if a patent is filed in the fiscal year-end month, and zero
+otherwise. Panel B is similar to Panel A except we use other patent quality measures instead of citations.
+The dependent variable is Originality in Column (1), No Citation in Column (2), and Breakthrough Patent
+in Column (3). We control for the filing year, art unit, and firm fixed effects. T-statistics using robust
+standard errors adjusted for heteroscedasticity and clustered at the firm level are reported in parentheses. *,
+**, and *** denote statistical significance at the 10%, 5%, and 1% levels, respectively.
+Panel A: Citations
+Dep. Var. Raw Citation Adjusted Citation
+(1) (2) (3) (4)
+FYE Patent -0.507** -0.523*** -0.035*** -0.034***
+(-5.98) (-6.86) (-5.40) (-5.37)
+Filing Year FE Yes Yes Yes Yes
+Firm FE Yes Yes Yes Yes
+Art Unit FE No Yes No Yes
+Adj. R2 0.250 0.288 0.072 0.079
+Observations 2,258,788 2,258,764 2,258,788 2,258,764
+Panel B: Other Patent Quality Measures
+Dep. Var. Originality No Citation Breakthrough Patent
+(1) (2) (3)
+FYE Patent -0.191*** 0.013*** -0.002***
+(-2.86) (9.38) (-3.67)
+Filing Year FE Yes Yes Yes
+Firm FE Yes Yes Yes
+Art Unit FE Yes Yes Yes
+Adj. R2 0.229 0.320 0.044
+Observations 2,068,395 2,068,395 2,068,395
+53
+
+===PAGE 56===
+Table 4
+Patent Quality of the Patents associated with Innovation Management
+This table examines the quality of patents associated with innovation management. We categorize FYE
+patent into two groups: IM patents (innovation management) and non-IM patents based on FYE tendency.
+FYE tendency is the proportion of the inventor’s FYE patent filings among all her patent filings in the year.
+The average FYE tendency for a patent is calculated as the average FYE tendency of all inventors who file
+that patent. IM Patent is a dummy variable that equals one if its average inventor FYE tendency is above
+the median of the FYE patents in the previous year, and zero otherwise. The remaining FYE patent are
+classified as non-IM patent. Panel A presents the quality of IM patents. The dependent variables are Raw
+Citation in Columns (1) and (2), and Adjusted Citation in Columns (3) and (4). The independent variable
+is IM Patent. In Panel B, we directly compare the quality differences between IM patents and patents filed
+in other months by excluding non-IM patents. Panel C presents the results of quality differences between
+non-IM patents and patents filed in other months, excluding IM patents. We control for patent filing year,
+art unit, and firm fixed effects. T-statistics using robust standard errors adjusted for heteroscedasticity and
+clustered at the firm level are reported in parentheses. *, **, and *** denote statistical significance at the
+10%, 5%, and 1% levels, respectively.
+Panel A: Full Sample
+Dep. Var. Raw Citation Adjusted Citation
+(1) (2) (3) (4)
+IM Patent -0.776*** -0.902*** -0.076*** -0.072***
+(-5.08) (-6.86) (-10.13) (-10.34)
+Filing Year FE Yes Yes Yes Yes
+Firm FE Yes Yes Yes Yes
+Art Unit FE No Yes No Yes
+Adj. R2 0.250 0.288 0.072 0.079
+Observations 2,258,496 2,258,472 2,258,496 2,258,472
+Panel B: IM Patents vs. Patents Filed in Other Months
+Dep. Var. Raw Citation Adjusted Citation
+(1) (2)
+IM Patent -0.909*** -0.071***
+(-6.90) (-9.98)
+Filing Year FE Yes Yes
+Firm FE Yes Yes
+Art Unit FE Yes Yes
+Adj. R2 0.289 0.079
+Observations 2,124,696 2,124,696
+54
+
+===PAGE 57===
+Panel C: Non-IM Patents vs. Patents Filed in Other Months
+Dep. Var. Raw Citation Adjusted Citation
+(1) (2)
+Non-IM Patent -0.168* 0.002
+(-1.80) (0.20)
+Filing Year FE Yes Yes
+Firm FE Yes Yes
+Art Unit FE Yes Yes
+Adj. R2 0.290 0.079
+Observations 2,133,136 2,133,136
+55
+
+===PAGE 58===
+Table 5
+Other Patent Quality Measures of the Patents associated with Innovation Management
+This table examines the quality of IM and Non-IM Patents using other patent quality measures including
+Originality, No Citation and Breakthrough Patent. We categorize FYE patent into two groups: IM patents
+(opportunistic) and non-IM patents (non-opportunistic) based on FYE tendency. FYE tendency is the
+proportion of the inventor’s FYE patent filings among all her patent filings in the year. The average FYE
+tendency for a patent is calculated as the average FYE tendency of all inventors who file that patent. IM
+Patent is a dummy variable that equals one if its average inventor FYE tendency is above the median of the
+FYE patents in the previous year, and zero otherwise. The remaining FYE patent are classified as non-IM
+patents. Panel A presents the quality of IM patents. The dependent variables are Originality in Column (1),
+No Citation in Column (2) and Breakthrough Patent in Column (3). The independent variable is IM Patent.
+In Panel B, we directly compare the quality differences between IM patents and patents filed in other months
+by excluding non-IM patents. In Panel C, we directly compare the quality differences between non-IM
+patents and patents filed in other months by excluding IM patents. We control for patent filing year, art unit,
+and firm fixed effects. T-statistics using robust standard errors adjusted for heteroscedasticity and clustered
+at the firm level are reported in parentheses. *, **, and *** denote statistical significance at the 10%, 5%,
+and 1% levels, respectively.
+Panel A: Full Sample
+Dep. Var. Originality No Citation Breakthrough Patent
+(1) (2) (3)
+IM Patent -0.657*** 0.022*** -0.006***
+(-6.24) (11.74) (-7.19)
+Filing Year FE Yes Yes Yes
+Firm FE Yes Yes Yes
+Art Unit FE Yes Yes Yes
+Adj. R2 0.229 0.320 0.044
+Observations 2,068,292 2,068,292 2,068,292
+Panel B: IM Patents vs. Patents Filed in Other Months
+Dep. Var. Originality No Citation Breakthrough Patent
+(1) (2) (3)
+IM Patent -0.645*** 0.022*** -0.006***
+(-6.16) (11.67) (-6.97)
+Filing Year FE Yes Yes Yes
+Firm FE Yes Yes Yes
+Art Unit FE Yes Yes Yes
+Adj. R2 0.228 0.321 0.044
+Observations 1,945,544 1,945,544 1,945,544
+56
+
+===PAGE 59===
+Panel C: Non-IM Patents vs. Patents Filed in Other Months
+Dep. Var. Originality No Citation Breakthrough Patent
+(1) (2) (3)
+Non-IM Patent 0.224** 0.004*** 0.001
+(2.28) (2.83) (0.61)
+Filing Year FE Yes Yes Yes
+Firm FE Yes Yes Yes
+Art Unit FE Yes Yes Yes
+Adj. R2 0.231 0.320 0.045
+Observations 1,953,350 1,953,350 1,953,350
+57
+
+===PAGE 60===
+Table 6
+Disclosure Quality of Patents associated with Innovation Management
+This table examines the disclosure quality of patents associated with innovation management. Panel A
+presents the results of the length of the description section of a patent. The dependent variable is the natural
+logarithm of total number of words in the description section. The independent variable is IM Patent, which
+is a dummy variable that equals one if its average inventor FYE tendency is above the median of the FYE
+patents in the previous year, and zero otherwise. Panel B presents the results of readability of the description
+section. The dependent variables are the Gunning Fog index in Column (1), Automated Readability index
+in Column (2) and Flesch Reading index in Column (3). For the Gunning Fog and Automated Readability,
+the larger the index number, the harder the text is to read. However, for the Flesch Reading, the smaller the
+index number, the harder the text is to read. To make all three measures indicate readability in the same
+direction, we multiply the Flesch Reading by -1. Panel C presents the results of number of figures and
+sheets in the patent text. Panel D presents the results of number of claims. The dependent variable is total
+number of claims in Column (1), total number of independent claims in Column (2), and total number of
+dependent claims in Column (3). We control for the patent filing year, art unit, and firm fixed effects. T-
+statistics using robust standard errors adjusted for heteroscedasticity and clustered at the firm level are
+reported in parentheses. *, **, and *** denote statistical significance at the 10%, 5%, and 1% levels,
+respectively.
+Panel A: Length of Description
+Dep. Var. ln(Number of Words)
+(1) (2)
+IM Patent -0.018** -0.021***
+(-2.07) (-3.16)
+Filing Year FE Yes Yes
+Firm FE Yes Yes
+Art Unit FE No Yes
+Adj. R2 0.326 0.365
+Observations 2,095,850 2,095,821
+Panel B: Text Readability of Description
+Dep. Var. Gunning Fog Automated Readability Flesch Reading
+(1) (2) (3)
+IM Patent 0.041** 0.069*** 0.129**
+(2.27) (2.65) (2.16)
+Filing Year FE Yes Yes Yes
+Firm FE Yes Yes Yes
+Art Unit FE Yes Yes Yes
+Adj. R2 0.190 0.198 0.256
+Observations 2,095,821 2,095,821 2,095,821
+58
+
+===PAGE 61===
+Panel C: Figures and Sheets
+Dep. Var. #Figures #Sheets
+(1) (2)
+IM Patent -0.397*** -0.197**
+(-3.21) (-2.17)
+Filing Year FE Yes Yes
+Firm FE Yes Yes
+Art Unit FE Yes Yes
+Adj. R2 0.193 0.215
+Observations 2,102,845 2,102,845
+Panel D: Number of Claims
+Dep. Var. # of Claims # of Independent Claims # of Dependent Claims
+(1) (2) (3)
+IM Patent -0.160** -0.041*** -0.112*
+(-2.33) (-3.38) (-1.86)
+Filing Year FE Yes Yes Yes
+Firm FE Yes Yes Yes
+Art Unit FE Yes Yes Yes
+Adj. R2 0.167 0.138 0.157
+Observations 1,583,948 1,583,948 1,583,948
+59
+
+===PAGE 62===
+Table 7
+Inventor Characteristics and Innovation Management
+This table examines the relationship between inventor characteristics and innovation management. In Panel
+A, the dependent variable is IM Patent, which is a dummy variable for patent associated with innovation
+management. The independent variable is Trailing_3Qtrs in Column (1) and Trailing_11M in Column (2).
+Trailing_3Qtrs is a dummy variable that equals one if the total patents filed by an inventor in the first three
+quarters of this year are less than the total number of patents filed in the first three quarters of the previous
+year, and zero otherwise. Trailing_11M is similarly defined as Trailing_3Qtrs, except it equals one if the
+total patents filed in the first eleven months of this year are less than those filed in the previous year. Panel
+B presents the results of inventor’s working experience. The independent variable is Working Years in
+t-1
+Columns (1), and Total Patents Filed in Columns (2). Working Years is the number of years an inventor
+t-1 t-1
+has worked up to the previous year. Total Patents Filed is the total number of patents filed by the inventor
+t-1
+up to the previous year. Panel C presents the results of inventor’s past performance. The independent
+variable is the Average Adjusted Citation in Column (1), and Average Originality in Column (2), and
+t-1 t-1
+Total Breakthrough Patent in Column (3). Average Adjusted Citation is the average truncation adjusted
+t-1 t-1
+citation for patents filed by the inventor up to the previous year. Average Originality is the average
+originality of patents filed by the inventor up to the previous year. Total Breakthrough Patents is the total
+number of breakthrough patents filed by the inventor up to the previous year. We control for filing year, art
+unit, and firm fixed effects. T-statistics using robust standard errors adjusted for heteroscedasticity and
+clustered at the firm level are reported in parentheses. *, **, and *** denote statistical significance at the
+10%, 5%, and 1% levels, respectively.
+Panel A: Trailing in Early Months
+Dep. Var. IM Patent
+(1) (2)
+Trailing_3Qtrs 0.058***
+(18.02)
+Trailing_11M 0.120***
+(16.90)
+Filing Year FE Yes Yes
+Firm FE Yes Yes
+Art Unit FE Yes Yes
+Adj. R2 0.036 0.084
+Observations 4,791,390 4,791,390
+Panel B: Working Experience
+Dep. Var. IM Patent
+(1) (2)
+Working Years -0.0001***
+t-1
+(-2.74)
+Total Patents Filed -0.0003***
+t-1
+(-8.51)
+Filing Year FE Yes Yes
+Firm FE Yes Yes
+Art Unit FE Yes Yes
+Adj. R2 0.020 0.022
+Observations 4,764,482 4,764,482
+60
+
+===PAGE 63===
+Panel C: Past Performance
+Dep. Var. IM Patent
+(1) (2) (3)
+Average Adjusted Citation -0.0025***
+t-1
+(-8.18)
+Average Originality -0.0003***
+t-1
+(-7.28)
+Total Breakthrough Patent -0.0022***
+t-1
+(-10.49)
+Filing Year FE Yes Yes Yes
+Firm FE Yes Yes Yes
+Art Unit FE Yes Yes Yes
+Adj. R2 0.021 0.021 0.022
+Observations 4,764,482 4,764,482 4,764,482
+61
+
+===PAGE 64===
+Table 8
+Innovation Management and Future Inventor Turnovers
+This table examines the relationship between inventors’ innovation management and their future turnovers. The dependent variable is Turnover
+t+1
+to Turnover in Columns (1) to (8), respectively. Turnover is a dummy variable that equals one if an inventor moves to another company in the
+t+8 t+1
+next year, and zero otherwise. Turnover to Turnover are similarly defined, except they equal one if an inventor moves to another company in
+t+2 t+8
+the next two to eight years. The independent variable is %Inventor IM Patent, which is defined as the number of IM patents filed, scaled by the total
+number of patents filed by an inventor in a year. We control for filing year and inventor fixed effects. T-statistics using robust standard errors adjusted
+for heteroscedasticity and clustered at the inventor level are reported in parentheses. *, **, and *** denote statistical significance at the 10%, 5%,
+and 1% levels, respectively.
+Dep. Var. Turnover Turnover Turnover Turnover Turnover Turnover Turnover Turnover
+t+1 t+2 t+3 t+4 t+5 t+6 t+7 t+8
+(1) (2) (3) (4) (5) (6) (7) (8)
+%Inventor IM Patent -0.006*** -0.005*** -0.005*** -0.002** 0.000 0.000 0.004** 0.006***
+(-7.99) (-6.14) (-5.63) (-2.13) (0.34) (0.05) (2.43) (3.78)
+Year FE Yes Yes Yes Yes Yes Yes Yes Yes
+Inventor FE Yes Yes Yes Yes Yes Yes Yes Yes
+Adj. R2 0.006 0.009 0.006 0.004 0.002 0.001 0.000 0.001
+Observations 5,240,595 4,603,024 4,043,162 3,556,058 3,130,908 2,757,979 2,428,736 2,135,839
+62
+
+===PAGE 65===
+Table 9
+Abandonment of Annual Performance Appraisals and Innovation Management
+This table examines how a firm’s abandonment of annual performance appraisals influences its inventors’
+innovation management. The dependent variable is %Inventor FYE, which is the number of FYE patents
+filed, scaled by the total patent filings by an inventor in a year. The independent variable is Abandon, which
+is a dummy variable that equals one for firms that announce the abandonment of annual performance
+reviews after the announcement year, and zero otherwise. We have identified four firms that announced
+their abandonment of the annual performance review: Medtronic (2012), Microsoft (2013), General Electric
+(2015), and Intel (2016). We control for firm and year fixed effects, or firm, year, and inventor fixed effects
+in some models. T-statistics using robust standard errors adjusted for heteroscedasticity and clustered at the
+firm level are reported in parentheses. *, **, and *** denote statistical significance at the 10%, 5%, and 1%
+levels, respectively.
+Dep. Var. %Inventor FYE
+(1) (2)
+Abandon -0.016*** -0.018***
+(-3.28) (-3.40)
+Year FE Yes Yes
+Firm FE Yes Yes
+Inventor FE No Yes
+Adj. R2 0.006 0.038
+Observations 446,315 434,370
+63
+
+===PAGE 66===
+Table 10
+Innovation Management and CEO Incentives
+This table examines the relationship between CEO characteristics and innovation management. Panel A
+presents the results of CEO’s long-term incentives. The dependent variable is %IM Patent, which is defined
+as number of IM patents scaled by total patents filed in the year. The independent variable is CEO Career
+Horizon in Columns (1) and (2), and CEO Unexercised Option in Columns (3) and (4). The CEO Career
+Horizon is the estimated time remaining until a CEO’s departure due to retirement or termination. CEO
+Unexercised Option is the value of the unexercised option scaled by total compensation. Panel B presents
+the results of CEO performance pressure. The independent variable is stock return in the previous year in
+Column (1), stock return in the current year in Column (2), ROA in the previous year in Column (3), and
+ROA in the current year in Column (4). Control variables including ln(Patent Stock), Size, Firm Age, Cash,
+Leverage, BM, R&D, CAPX and PPE in the previous year are defined in Appendix A. We control firm and
+year fixed effects in all models. T-statistics using robust standard errors adjusted for heteroscedasticity and
+clustered at the firm level are reported in parentheses. *, **, and *** denote statistical significance at the
+10%, 5%, and 1% levels, respectively.
+Panel A: CEO Long-Term Incentives
+Dep. Var. %IM Patent
+(1) (2) (3) (4)
+CEO Career Horizon -0.0612 -0.0540
+(-1.41) (-1.25)
+CEO Unexercised Option -0.0226 -0.0193
+(-1.05) (-0.92)
+ln(Patent Stock 1.2686*** 1.2744***
+t-1)
+(4.56) (4.59)
+Size 0.1652 0.1516
+t-1
+(0.79) (0.72)
+Firm Age -0.0281 -0.0307
+t-1
+(-0.54) (-0.58)
+Cash 0.1458 0.1887
+t-1
+(0.15) (0.20)
+Leverage -0.4146 -0.4496
+t-1
+(-0.49) (-0.53)
+BM 0.0893 0.0775
+t-1
+(0.28) (0.24)
+R&D 0.6758 0.6538
+t-1
+(0.57) (0.55)
+CAPX 7.3142* 7.4289*
+t-1
+(1.69) (1.72)
+PPE -2.3893 -2.4188
+t-1
+(-1.18) (-1.19)
+Firm FE Yes Yes Yes Yes
+Year FE Yes Yes Yes Yes
+Adj. R2 0.045 0.046 0.045 0.046
+Observations 20,804 20,804 20,804 20,804
+64
+
+===PAGE 67===
+Panel B: CEO Performance Pressure
+Dep. Var. %IM Patent
+(1) (2) (3) (4)
+Stock Return -0.0763
+t-1
+(-0.61)
+Stock Return 0.1659
+t
+(1.13)
+ROA 0.3944
+t-1
+(1.51)
+ROA 0.0706
+t
+(0.25)
+ln(Patent Stock ) 1.2820*** 1.2726*** 1.2789*** 1.2806***
+t-1
+(4.61) (4.57) (4.60) (4.61)
+Size 0.1467 0.2176 0.1352 0.1597
+t-1
+(0.71) (1.01) (0.64) (0.76)
+Firm Age -0.0319 -0.0298 -0.0342 -0.0312
+t-1
+(-0.60) (-0.57) (-0.64) (-0.59)
+Cash 0.1732 0.2219 0.1085 0.1673
+t-1
+(0.18) (0.23) (0.11) (0.17)
+Leverage -0.4530 -0.5398 -0.2916 -0.4218
+t-1
+(-0.54) (-0.64) (-0.35) (-0.50)
+BM 0.0419 -0.0145 0.1145 0.1000
+t-1
+(0.13) (-0.04) (0.36) (0.31)
+R&D 0.5794 0.6017 1.3418 0.7174
+t-1
+(0.49) (0.50) (1.01) (0.59)
+CAPX 7.1002 7.4771* 7.3482* 7.3316*
+t-1
+(1.64) (1.72) (1.70) (1.70)
+PPE -2.3786 -2.4142 -2.3766 -2.4011
+t-1
+(-1.17) (-1.18) (-1.17) (-1.17)
+Firm FE Yes Yes Yes Yes
+Year FE Yes Yes Yes Yes
+Adj. R2 0.044 0.044 0.044 0.044
+Observations 20,804 20,804 20,804 20,804
+65
+
+===PAGE 68===
+Table 11
+IM Patents and Future Financial Performance
+This table examines the effect of IM patents on a firm’s future financial performance based on innovation
+intensity. We separate firms into high and low innovation intensity based on the total number of patents
+filed by the firm up to the current year. A firm is classified as innovation intensity firm if its total patent
+filings up to the current year is above the yearly sample median. Panel A presents the results of high
+innovation intensity firms. The dependent variable is OCF in year t+1 in Column (1), OCF in year t+2 in
+Column (2), ROA in year t+1 in Column (3) and ROA in year t+2 in Column (4). The main independent
+variable is Proportion IM, which is defined as the cumulative number of IM patents up to the current year
+scaled by the cumulative number of total patents filed by the firm up to the current year. Control variables
+including ln(Patent Stock), Size, Firm Age, Cash, Leverage, BM, R&D, CAPX and PPE are defined in
+Appendix A. We control for firm and year fixed effects in all models. Panel B is similar to Panel A, except
+it presents the results of low innovation intensity firms. T-statistics using robust standard errors adjusted for
+heteroscedasticity and clustered at the firm level are reported in parentheses. *, **, and *** denote statistical
+significance at the 10%, 5%, and 1% levels, respectively.
+Panel A: High Innovation Intensity Firms
+Dep. Var. OCF OCF ROA ROA
+t+1 t+2 t+1 t+2
+(1) (2) (3) (4)
+Proportion IM -0.096** -0.073* -0.127** -0.092*
+(-2.46) (-1.93) (-2.20) (-1.92)
+ln(Patent Stock) -0.002 -0.001 0.002 0.005
+(-0.85) (-0.44) (0.63) (1.32)
+Size 0.005 -0.001 -0.008* -0.020***
+(1.27) (-0.22) (-1.73) (-3.85)
+Firm Age 0.000 0.000 0.001 -0.000
+(0.36) (0.31) (0.66) (-0.02)
+Cash -0.146*** -0.138*** -0.024 -0.100***
+(-9.28) (-8.17) (-1.10) (-4.32)
+Leverage -0.001 -0.000 -0.000 0.001
+(-0.74) (-0.22) (-0.17) (0.81)
+BM -0.027*** -0.023*** -0.090*** -0.046***
+(-7.55) (-5.95) (-16.37) (-8.75)
+R&D -0.409*** -0.238*** -0.498*** -0.262***
+(-12.12) (-6.94) (-12.36) (-5.97)
+CAPX 0.002 0.050 -0.053 -0.045
+(0.05) (1.14) (-1.00) (-0.79)
+PPE 0.058*** 0.063*** 0.043 0.054*
+(2.71) (2.85) (1.58) (1.90)
+Firm FE Yes Yes Yes Yes
+Year FE Yes Yes Yes Yes
+Adj. R2 0.688 0.677 0.603 0.592
+Observations 30,004 27,668 30,004 27,668
+66
+
+===PAGE 69===
+Panel B: Low Innovation Intensity Firms
+Dep. Var. OCF OCF ROA ROA
+t+1 t+2 t+1 t+2
+(1) (2) (3) (4)
+Proportion IM -0.026 -0.010 -0.013 -0.011
+(-1.39) (-0.54) (-0.55) (-0.41)
+ln(Patent Stock) -0.002 -0.000 0.006 0.004
+(-0.55) (-0.10) (1.41) (0.87)
+Size 0.005 -0.000 -0.016*** -0.022***
+(1.57) (-0.13) (-3.55) (-4.76)
+Firm Age -0.000 -0.001 0.001 0.000
+(-0.12) (-0.31) (0.52) (0.28)
+Cash -0.224*** -0.165*** -0.069*** -0.112***
+(-14.35) (-9.62) (-3.22) (-4.90)
+Leverage -0.001 -0.001 -0.000 0.000
+(-0.65) (-1.11) (-0.19) (0.09)
+BM -0.018*** -0.019*** -0.085*** -0.037***
+(-5.63) (-6.00) (-16.52) (-8.20)
+R&D -0.416*** -0.163*** -0.437*** -0.153***
+(-13.75) (-4.57) (-11.34) (-3.47)
+CAPX -0.116*** -0.059* -0.059 -0.059
+(-3.19) (-1.69) (-1.21) (-1.17)
+PPE -0.043* -0.005 -0.019 -0.018
+(-1.86) (-0.21) (-0.56) (-0.54)
+Firm FE Yes Yes Yes Yes
+Year FE Yes Yes Yes Yes
+Adj. R2 0.690 0.683 0.612 0.611
+Observations 28,912 25,737 28,912 25,737
+67
+
+===PAGE 70===
+Table 12
+IM Patents and Future Stock Return
+This table presents Fama-MacBeth regressions of monthly stock return on IM patents based on innovation
+intensity. We separate firms into high and low innovation intensity based on the total number of patents
+filed by the firm up to the current year. A firm is classified as innovation intensity firm if its total patent
+filings up to the current year is above the yearly sample median. Panel A presents the results of high
+innovation intensity firms. The dependent variable is the monthly stock return from July year t to June year
+t+1 and the independent variable is Proportion IM of year t-1. Proportion IM is defined as the cumulative
+number of IM patents up to the current year scaled by the cumulative number of total patents filed by the
+firm up to the current year. ln(Patent Stock) is the natural logarithm of the cumulative patents filed up to
+the current month. BM is the book-to-market ratio. ln(ME) is natural logarithm of market capitalization in
+June. Ret [-1] is the previous monthly return. Ret [-12, -2] is the buy-and-hold return from month t-12 to
+month t-2. Assets growth is annual change in total assets, scaled by lagged total assets. ROE is return to
+equity. Panel B is similar to Panel A, except it presents the results of low innovation intensity firms. Some
+models include one-digit SIC industry fixed effects. All t-statistics are based on Newey-West standard errors
+with nine lags.
+Panel A: High Innovation Intensity Firms
+Dep. Var. Stock Return
+(1) (2) (3)
+Proportion IM -0.0083** -0.0090** -0.0098**
+(-2.06) (-2.34) (-2.50)
+ln(Patent Stock) 0.0007*** 0.0006***
+(3.60) (2.94)
+BM 0.0033** 0.0036***
+(2.45) (2.68)
+ln(ME) -0.0006 -0.0005
+(-1.48) (-1.23)
+Ret[-1] -0.0332*** -0.0344***
+(-7.14) (-7.40)
+Ret[-12,-2] 0.0028 0.0026
+(1.22) (1.11)
+Asset Growth -0.0015 -0.0014
+(-1.54) (-1.44)
+ROE 0.0018* 0.0016*
+(1.75) (1.66)
+Industry FE No No Yes
+Adj. R2 0.002 0.063 0.084
+Ave. #Firms 758 758 758
+68
+
+===PAGE 71===
+Panel B: Low Innovation Intensity Firms
+Dep. Var. Stock Return
+(1) (2) (3)
+Proportion IM 0.0007 0.0017 0.0017
+(0.55) (1.27) (1.30)
+ln(Patent Stock) 0.0002 0.0003
+(0.44) (0.69)
+BM 0.0026** 0.0026**
+(2.14) (2.15)
+ln(ME) 0.0002 0.0003
+(0.67) (0.82)
+Ret[-1] -0.0330*** -0.0350***
+(-7.32) (-7.64)
+Ret[-12,-2] 0.0024 0.0022
+(0.93) (0.82)
+Asset Growth -0.0020*** -0.0020***
+(-3.06) (-3.18)
+ROE 0.0010 0.0009
+(1.57) (1.37)
+Industry FE No No Yes
+Adj. R2 0.002 0.057 0.082
+Ave. #Firms 675 675 675
+69
+
+===PAGE 72===
+Appendix A
+Variable Definition
+Variable Definition
+Patent Level Variables:
+FYE Patent Dummy variable that equals one if a patent is filed in the last month of the
+fiscal year, and zero otherwise.
+IM Patent Dummy variable that equals one if its average inventor FYE tendency is
+above the median of the FYE patents in the previous year, and zero
+otherwise. Inventor FYE tendency is defined as the proportion of the
+inventor’s FYE patent filings among all her patent filings in the year.
+Average inventor FYE tendency is calculated as the average inventor FYE
+tendency for the patent.
+Non-IM Patent Dummy variable that equals one if the patent is filed in the fiscal year end
+month, and its FYE tendency is less than or equal to the sample median of
+the FYE patents in the previous year, and zero otherwise.
+Citation Number of forward citations received by the patent.
+Adjusted Citation Truncation-adjusted future citations. The truncation is adjusted by dividing
+patent citations by the mean number of citations filed in that year and
+within the same three-digit technology class.
+Originality Number of unique technology subclasses cited by the focal patent.
+No Citation Dummy variable that equals one if the patent receives no future citation.
+Breakthrough Patent Dummy variable that equals one if the forward citation counts being in the
+top 5% of all patents in the same application year and technology class.
+#Claims Total number of claims contained in the patent.
+#Independent Claims Total number of independent claims contained in the patent.
+#Dependent Claims Total number of dependent claims contained in the patent.
+ln(Number of Words) The natural logarithm of total number of words in the description section.
+Gunning Fog The Gunning Fog index of the description section of a patent.
+Automated Reading The Automated Readability index of the description section of a patent.
+Claim Flesch Reading The Flesch Reading index of the description section of a patent.
+#Figures The total number of figures in the patent text.
+#Sheets The total number of sheets in the patent text.
+Firm-month level Variables:
+#Patents The total number of patents filed in the fiscal month.
+ln(Patent Stock) Natural logarithm of patents filed up to the current year.
+Stock Return Monthly stock return.
+Ret[-1] Monthly stock return in month t-1.
+Ret[-12,-2] Buy-and-hold return from month t-12 to month t-2.
+ROE Income before extraordinary items scaled by total equity.
+Asset Growth Annual change in total assets, scaled by lagged total assets.
+BM Book to market ratio.
+Firm-Year level Variables:
+%IM Patent Total number of IM scaled by total patents filed in the year.
+Proportion IM The cumulative number of IM up to the current year scaled by cumulative
+number of total patents filed by the firm up to the current year.
+OCF Operating cash flow scaled by the total assets.
+ROA Net income scaled by total assets.
+Size The logarithm of total assets.
+Firm Age Number of years since the year of the company’s IPO.
+Cash Cash scaled by total assets.
+70
+
+===PAGE 73===
+Variable Definition
+Leverage Total debt scaled by total equity.
+CAPX Capital expenditures scaled by total assets.
+PPE Net property, plant, and equipment scaled by total assets.
+CEO Horizon = [Tenure - Tenure ] + [Age – Age ], where
+i,t ind,t i,t ind,t i,t
+CEO Horizon Tenure is the industry average tenure of all CEOs in year t, Tenure is
+ind,t i,t
+the tenure of CEO i in year t, Age is the industry average age of all CEOs
+ind,t
+in year t, and Age is the age of CEO i in year t.
+i,t
+CEO Unexercised Options Unexercised stock options scaled by total compensation.
+Inventor-Patent level Variables:
+Trailing_3Qtrs Dummy variable equals to one if the total number of patents filed by an
+inventor in the first three quarters of the year is lower than the first three
+quarters of the previous year, and zero otherwise.
+Trailing_11M Dummy variable equals to one if the total number of patents filed by an
+inventor in the first eleven months of the year is lower than the first eleven
+months of the previous year, and zero otherwise.
+Working Years The number of years an inventor has worked.
+Total Patents Filed The total number of patents filed by the inventor up to the current year.
+Average Adjusted Citation The average truncation adjusted citation for patents filed by the inventor
+up to the current year.
+Average Originality The average originality of patents filed by the inventor up to the current
+year.
+Total Breakthrough Patents The total number of breakthrough patents filed by the inventor up to the
+current year.
+Inventor Level Variables:
+%Inventor IM Patent Number of IM patents filed, scaled by the total number of patents filed by
+an inventor in a year.
+Turnover Dummy variable that equals one if an inventor moves to another company
+t+1
+in the next year.
+71
+
+===PAGE 74===
+Appendix B: Additional Results
+Table B1
+Alternative Measure of IM Patents
+This table examines the quality of IM patents using an alternative innovation management measure. Panel
+A presents the results of citations. The dependent variable is Raw Citation in Columns (1) and (2), and
+Adjusted Citation in Columns (3) and (4). The independent variable is IM Industry Patent. IM Industry
+Patent is a dummy variable that equals one if the FYE tendency is above the sample median of firms in the
+same 2-digit SIC industry from the previous year, and zero otherwise. Panel B is similar to Panel A except
+we use other patent quality measures. The dependent variable is Originality in Column (1), No Citation in
+Column (2), and Breakthrough Patent in Column (3). We control for filing year, art unit, and firm fixed
+effects. T-statistics using robust standard errors adjusted for heteroscedasticity and clustered at the firm
+level are reported in parentheses. *, **, and *** denote statistical significance at the 10%, 5%, and 1%
+levels, respectively.
+Panel A: Adjusted Citation
+Dep. Var. Raw Citation Adjusted Citation
+(1) (2) (3) (4)
+IM Industry Patent -0.832*** -0.942*** -0.074*** -0.070***
+(-5.78) (-7.47) (-10.13) (-10.39)
+Filing Year FE Yes Yes Yes Yes
+Firm FE Yes Yes Yes Yes
+Art Unit FE No Yes No Yes
+Adj. R2 0.250 0.288 0.072 0.079
+Observations 2,255,307 2,255,283 2,255,307 2,255,283
+Panel B: Other Patent Quality Measures
+Dep. Var. Originality No Citation Breakthrough Patent
+(1) (2) (3)
+IM Industry Patent -0.144*** 0.021*** -0.005***
+(-5.64) (10.90) (-7.05)
+Filing Year FE Yes Yes Yes
+Firm FE Yes Yes Yes
+Art Unit FE Yes Yes Yes
+Adj. R2 0.225 0.320 0.044
+Observations 2,067,214 2,067,214 2,067,214
+72
+
+===PAGE 75===
+Table B2
+Quality of December Patents File by Other Organizations
+This table presents the results of patent quality filed in December by other organizations, including
+individuals, government agencies, and universities. The dependent variable is Raw Citation in Column (1)
+and Adjusted Citation in Column (2). The independent variable is December Patent, a dummy variable that
+equals one if the patent is filed in December by an individual, government agency, or university. We control
+for filing year, art unit, and assignee fixed effects. T-statistics using robust standard errors adjusted for
+heteroscedasticity and clustered at the assignee level are reported in parentheses. *, **, and *** denote
+statistical significance at the 10%, 5%, and 1% levels, respectively.
+Dep. Var. Raw Citation Adjusted Citation
+(1) (2)
+December Patent -0.375 -0.021
+(-0.97) (-1.30)
+Filing Year FE Yes Yes
+Assignee FE Yes Yes
+Art Unit FE Yes Yes
+Adj. R2 0.280 0.123
+Observations 6,812,838 6,812,838
+73
+
+===PAGE 76===
+Table B3
+Inventor Pressure and Innovation Management: Robustness Tests Using Lead Inventors
+This table is similar to Table 7, except that we only include the lead inventor for each patent in the analyses.
+In Panel A, the dependent variable is IM Patent, which is a dummy variable for patent associated with
+innovation management. The independent variable is Trailing_3Qtrs in Column (1) and Trailing_11M in
+Column (2). Trailing_3Qtrs is a dummy variable that equals one if the total patents filed by an inventor in
+the first three quarters of this year are less than the total number of patents filed in the first three quarters
+of the previous year, and zero otherwise. Trailing_11M is similarly defined as Trailing_3Qtrs, except it
+equals one if the total patents filed in the first eleven months of this year are less than those filed in the
+previous year. Panel B presents the results of inventor’s working experience. The dependent variable is IM
+Patent. The independent variable is Working Years in Columns (1), and Total Patents Filed in Columns
+t-1 t-1
+(2). Working Years is the number of years an inventor has worked up to the previous year. Total Patents
+t-1
+Filed is the total number of patents filed by the inventor up to the previous year. Panel C presents the
+t-1
+results of inventor’s past performance. The independent variable is the Average Adjusted Citation in
+t-1
+Column (1), and Average Originality in Column (2), and Total Breakthrough Patent in Column (3).
+t-1 t-1
+Average Adjusted Citation is the average truncation adjusted citation for patents filed by the inventor up
+t-1
+to the previous year. Average Originality is the average originality of patents filed by the inventor up to the
+previous year. Total Breakthrough Patents is the total number of breakthrough patents filed by the inventor
+up to the previous year. We control for filing year, art unit, and firm fixed effects. T-statistics using robust
+standard errors adjusted for heteroscedasticity and clustered at the firm level are reported in parentheses. *,
+**, and *** denote statistical significance at the 10%, 5%, and 1% levels, respectively.
+Panel A: Trailing in Early Months
+Dep. Var. IM Patent
+(1) (2)
+Trailing_3Qtrs 0.064***
+(23.36)
+Trailing_11M 0.160***
+(28.08)
+Filing Year FE Yes Yes
+Firm FE Yes Yes
+Art Unit FE Yes Yes
+Adj. R2 0.059 0.096
+Observations 1,709,625 1,709,625
+Panel B: Working Experience
+Dep. Var. IM Patent
+(1) (2)
+Working Years -0.0002***
+t-1
+(-4.11)
+Total Patents Filed -0.0003***
+t-1
+(-10.06)
+Filing Year FE Yes Yes
+Firm FE Yes Yes
+Art Unit FE Yes Yes
+Adj. R2 0.018 0.022
+Observations 1,672,276 1,672,276
+74
+
+===PAGE 77===
+Panel C: Past Performance
+Dep. Var. IM Patent
+(1) (2) (3)
+Average Adjusted Citation -0.0026***
+t-1
+(-8.70)
+Average Originality -0.0003***
+t-1
+(-7.36)
+Total Breakthrough Patent -0.0023***
+t-1
+(-12.11)
+Filing Year FE Yes Yes Yes
+Firm FE Yes Yes Yes
+Art Unit FE Yes Yes Yes
+Adj. R2 0.018 0.018 0.020
+Observations 1,672,276 1,672,276 1,672,276
+75

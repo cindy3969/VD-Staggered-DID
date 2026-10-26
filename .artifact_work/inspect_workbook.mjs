@@ -1,0 +1,21 @@
+import fs from "node:fs/promises";
+import { FileBlob, SpreadsheetFile } from "@oai/artifact-tool";
+
+const inputPath = "C:/Users/user/iCloudDrive/5학기/연구미팅/20240108-2010 to 2015 firms/2010 2015 Crunchbase deals merged_v4.xlsx";
+const outDir = "C:/Users/user/Documents/VD/.artifact_work/preview";
+const input = await FileBlob.load(inputPath);
+const workbook = await SpreadsheetFile.importXlsx(input);
+const sheets = await workbook.inspect({ kind: "sheet", include: "id,name", maxChars: 12000 });
+console.log("SHEETS\n" + sheets.ndjson);
+const summary = await workbook.inspect({ kind: "workbook,table", maxChars: 12000, tableMaxRows: 8, tableMaxCols: 16, tableMaxCellChars: 120 });
+console.log("SUMMARY\n" + summary.ndjson);
+const first = workbook.worksheets.getItemAt(0);
+const used = first.getUsedRange();
+console.log("FIRST_SHEET", first.name, used?.address ?? "NO_USED_RANGE");
+const head = await workbook.inspect({ kind: "region", sheetId: first.name, range: "A1:Z20", maxChars: 20000 });
+console.log("HEAD\n" + head.ndjson);
+const unknown = await workbook.inspect({ kind: "match", searchTerm: "Venture - Series Unknown", options: { useRegex: false, maxResults: 100 }, maxChars: 20000 });
+console.log("UNKNOWN\n" + unknown.ndjson);
+await fs.mkdir(outDir, { recursive: true });
+const preview = await workbook.render({ sheetName: first.name, range: "A1:Z25", scale: 1, format: "png" });
+await fs.writeFile(`${outDir}/before.png`, new Uint8Array(await preview.arrayBuffer()));

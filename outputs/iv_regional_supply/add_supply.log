@@ -1,0 +1,57 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/iv_regional_supply/add_supply.log
+  log type:  text
+ opened on:  15 Oct 2026, 18:23:49
+
+. use "C:/Users/user/iCloudDrive/5학기/연구미팅/20240108-2010 to 2015 firms/26012
+> 2 winsorization.dta", clear
+
+. keep Region2 VDyear numberofvddeals vdsupply
+
+. duplicates drop
+
+Duplicates in terms of all variables
+
+(2,765 observations deleted)
+
+. isid Region2 VDyear
+
+. tempfile supply
+
+. save `supply'
+file C:\Users\user\AppData\Local\Temp\ST_5ff8_000001.tmp saved as .dta format
+
+. use "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_current_2
+> 820_cross_section_v2.dta", clear
+
+. gen long __original_order = _n
+
+. merge m:1 Region2 VDyear using `supply', keep(master match) assert(match) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                             2,820  
+    -----------------------------------------
+
+. assert !missing(numberofvddeals, vdsupply)
+
+. sort __original_order
+
+. drop __original_order
+
+. assert _N == 2820
+
+. save "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_current_
+> 2820_cross_section_v2.dta", replace
+file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_current_28
+    > 20_cross_section_v2.dta saved
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/iv_regional_supply/add_supply.log
+  log type:  text
+ closed on:  15 Oct 2026, 18:23:50
+---------------------------------------------------------------------------------

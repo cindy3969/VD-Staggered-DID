@@ -1,0 +1,1007 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/downstream_financing/validation.l
+> og
+  log type:  text
+ opened on:  20 Oct 2026, 18:17:28
+
+. use "$ROOT/table3_original_2820_cross_section_v2.dta", clear
+
+. 
+. * Original 260122 winsorization variables are identical for all 2820 firms.
+. * Reproduce legacy specifications separately from revised definitions below.
+. * The existing Table 6 mixes all-financing t1/t2 and equity t3; it is NOT
+. * an exact replication of ln_moneyraised_y1/y2/y3. Table 7 below also uses
+. * different exit dates/status and some non-factor categorical controls.
+. preserve
+
+. use "$ROOT/table3_original_2820_cross_section_v2.dta", clear
+
+. forvalues h=1/3 {
+  2.     reghdfe ln_moneyraised_y`h' VD i.patentdummybyfiling i.earlystage ///
+>         ln_MoneyRaised_VD NumofFundingRounds_VD, ///
+>         absorb(Region2 Industry2 Foundingyear) vce(robust)
+  3.     estimates store legacy6_`h'
+  4. }
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,043
+Absorbing 3 HDFE groups                           F(   5,   1026) =      81.43
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4321
+                                                  Adj R-squared   =     0.4233
+                                                  Within R-sq.    =     0.3745
+                                                  Root MSE        =     1.5184
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y1 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   -.085141   .0948116    -0.90   0.369    -.2711879    .1009059
+1.patentdumm~g |   .3024521   .1218568     2.48   0.013      .063335    .5415692
+  1.earlystage |  -.8947451   .1855613    -4.82   0.000    -1.258868   -.5306221
+ln_MoneyRais~D |   .4127558   .0758289     5.44   0.000     .2639584    .5615533
+NumofFunding~D |   -.114138   .0249104    -4.58   0.000    -.1630192   -.0652568
+         _cons |    10.3756   1.298088     7.99   0.000      7.82839    12.92281
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,043
+Absorbing 3 HDFE groups                           F(   5,   1026) =       3.97
+                                                  Prob > F        =     0.0014
+                                                  R-squared       =     0.0302
+                                                  Adj R-squared   =     0.0150
+                                                  Within R-sq.    =     0.0187
+                                                  Root MSE        =     7.7890
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   1.620768   .4919577     3.29   0.001     .6554095    2.586126
+1.patentdumm~g |   1.448517   .6671529     2.17   0.030     .1393768    2.757657
+  1.earlystage |   .1096128   .6275571     0.17   0.861    -1.121829    1.341055
+ln_MoneyRais~D |   .0050661   .1222278     0.04   0.967     -.234779    .2449112
+NumofFunding~D |   .1860002   .1156508     1.61   0.108     -.040939    .4129393
+         _cons |   3.846585   2.129914     1.81   0.071    -.3329003     8.02607
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,485
+Absorbing 3 HDFE groups                           F(   5,   1468) =       2.10
+                                                  Prob > F        =     0.0624
+                                                  R-squared       =     0.0317
+                                                  Adj R-squared   =     0.0211
+                                                  Within R-sq.    =     0.0062
+                                                  Root MSE        =     7.3674
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .7269329    .386894     1.88   0.060    -.0319912    1.485857
+1.patentdumm~g |   .2626956   .5444443     0.48   0.630    -.8052762    1.330667
+  1.earlystage |  -.1840768    .495686    -0.37   0.710    -1.156405    .7882515
+ln_MoneyRais~D |   .1511272   .1003267     1.51   0.132    -.0456718    .3479261
+NumofFunding~D |  -.1778719   .0874485    -2.03   0.042    -.3494092   -.0063346
+         _cons |   2.682913   1.734288     1.55   0.122    -.7190332     6.08486
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. esttab legacy6_1 legacy6_2 legacy6_3 using "$OUT/Table6_legacy_replication.csv"
+> , ///
+>     replace b(6) se(6) stats(N r2)
+(output written to C:/Users/user/Documents/VD/outputs/downstream_financing/Table6
+> _legacy_replication.csv)
+
+. local j=0
+
+. foreach event in acq3 public3 badexit3 {
+  2.     stset VDage3, failure(`event'==1) id(firm_id)
+  3.     stcox VD i.Region2 i.Industry2 i.Foundingyear, nohr
+  4.     local ++j
+  5.     estimates store legacy7_`j'
+  6.     stcox VD patentdummybyfiling earlystage ln_MoneyRaised_VD ///
+>         NumofFundingRounds_VD i.Region2 i.Industry2 i.Foundingyear, nohr
+  7.     local ++j
+  8.     estimates store legacy7_`j'
+  9. }
+
+Survival-time data settings
+
+           ID variable: firm_id
+         Failure event: acq3==1
+Observed time interval: (VDage3[_n-1], VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      2,820  total observations
+        130  observations end on or before enter()
+--------------------------------------------------------------------------
+      2,690  observations remaining, representing
+      2,690  subjects
+        846  failures in single-failure-per-subject data
+     15,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+        Failure _d: acq3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -6296.3194
+Iteration 1:  Log likelihood = -6276.2807
+Iteration 2:  Log likelihood = -6276.1346
+Iteration 3:  Log likelihood = -6276.1345
+Refining estimates:
+Iteration 0:  Log likelihood = -6276.1345
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    846
+Time at risk    = 15,262
+                                                        LR chi2(12)   =  40.37
+Log likelihood = -6276.1345                             Prob > chi2   = 0.0001
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .1465178   .0693937     2.11   0.035     .0105086    .2825271
+               |
+       Region2 |
+Massachusetts  |   .0573497   .1340618     0.43   0.669    -.2054065    .3201059
+     New York  |   .0046763   .1081336     0.04   0.966    -.2072616    .2166142
+        Other  |  -.0476256   .0814003    -0.59   0.558    -.2071672    .1119161
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0603105   .1352525     0.45   0.656    -.2047795    .3254004
+        Other  |    .341593   .1131516     3.02   0.003     .1198199    .5633661
+Software/IT..  |    .341622     .10601     3.22   0.001     .1338462    .5493977
+               |
+  Foundingyear |
+         2011  |  -.0798507    .102691    -0.78   0.437    -.2811214      .12142
+         2012  |  -.2119653    .110145    -1.92   0.054    -.4278455    .0039149
+         2013  |  -.1463051   .1142348    -1.28   0.200    -.3702011     .077591
+         2014  |  -.1915947   .1164011    -1.65   0.100    -.4197367    .0365472
+         2015  |  -.5555462   .1390535    -4.00   0.000    -.8280861   -.2830064
+--------------------------------------------------------------------------------
+
+        Failure _d: acq3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -6296.3194
+Iteration 1:  Log likelihood = -6261.3273
+Iteration 2:  Log likelihood =  -6261.082
+Iteration 3:  Log likelihood =  -6261.082
+Refining estimates:
+Iteration 0:  Log likelihood =  -6261.082
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    846
+Time at risk    = 15,262
+                                                        LR chi2(16)   =  70.47
+Log likelihood = -6261.082                              Prob > chi2   = 0.0000
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |    .187459   .0703335     2.67   0.008     .0496078    .3253102
+patentdummyb~g |  -.1120795   .1020527    -1.10   0.272    -.3120991    .0879402
+    earlystage |  -.2226613   .0884242    -2.52   0.012    -.3959695   -.0493531
+ln_MoneyRais~D |   .0503607    .021091     2.39   0.017     .0090231    .0916982
+NumofFunding~D |   .0194217   .0185223     1.05   0.294    -.0168813    .0557247
+               |
+       Region2 |
+Massachusetts  |    .077605    .134455     0.58   0.564    -.1859219    .3411318
+     New York  |   .0383651   .1087068     0.35   0.724    -.1746964    .2514266
+        Other  |   .0329531   .0831122     0.40   0.692    -.1299437      .19585
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0469643   .1353743     0.35   0.729    -.2183645    .3122931
+        Other  |   .3228481   .1151609     2.80   0.005     .0971369    .5485593
+Software/IT..  |   .3059746   .1076668     2.84   0.004     .0949516    .5169976
+               |
+  Foundingyear |
+         2011  |  -.0931038   .1032853    -0.90   0.367    -.2955393    .1093317
+         2012  |  -.1999793   .1111153    -1.80   0.072    -.4177613    .0178026
+         2013  |  -.1514358   .1154974    -1.31   0.190    -.3778065    .0749349
+         2014  |  -.2006986   .1174876    -1.71   0.088      -.43097    .0295729
+         2015  |  -.5623602   .1413361    -3.98   0.000    -.8393739   -.2853466
+--------------------------------------------------------------------------------
+
+Survival-time data settings
+
+           ID variable: firm_id
+         Failure event: public3==1
+Observed time interval: (VDage3[_n-1], VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      2,820  total observations
+        130  observations end on or before enter()
+--------------------------------------------------------------------------
+      2,690  observations remaining, representing
+      2,690  subjects
+        141  failures in single-failure-per-subject data
+     15,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+        Failure _d: public3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1065.3169
+Iteration 1:  Log likelihood = -1023.2586
+Iteration 2:  Log likelihood = -1019.4444
+Iteration 3:  Log likelihood =  -1019.434
+Iteration 4:  Log likelihood =  -1019.434
+Refining estimates:
+Iteration 0:  Log likelihood =  -1019.434
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    141
+Time at risk    = 15,262
+                                                        LR chi2(12)   =  91.77
+Log likelihood = -1019.434                              Prob > chi2   = 0.0000
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .3470845   .1711008     2.03   0.043     .0117331    .6824359
+               |
+       Region2 |
+Massachusetts  |  -.0992095   .2521097    -0.39   0.694    -.5933354    .3949165
+     New York  |  -.8444497   .3163279    -2.67   0.008    -1.464441   -.2244584
+        Other  |  -1.004163   .1984883    -5.06   0.000    -1.393192   -.6151326
+               |
+     Industry2 |
+Hardware/Ma~h  |  -1.026217   .2773565    -3.70   0.000    -1.569826   -.4826084
+        Other  |  -1.553308   .2797188    -5.55   0.000    -2.101547   -1.005069
+Software/IT..  |   -1.02736   .1992335    -5.16   0.000     -1.41785   -.6368695
+               |
+  Foundingyear |
+         2011  |   .5426253   .2729588     1.99   0.047     .0076358    1.077615
+         2012  |   .5370933   .2822585     1.90   0.057    -.0161233     1.09031
+         2013  |  -.0063775   .3400363    -0.02   0.985    -.6728364    .6600814
+         2014  |   .0036053   .3284356     0.01   0.991    -.6401168    .6473273
+         2015  |   .1735163   .3238415     0.54   0.592    -.4612014    .8082339
+--------------------------------------------------------------------------------
+
+        Failure _d: public3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1065.3169
+Iteration 1:  Log likelihood =   -938.092
+Iteration 2:  Log likelihood = -923.79387
+Iteration 3:  Log likelihood = -923.48278
+Iteration 4:  Log likelihood = -923.48232
+Iteration 5:  Log likelihood = -923.48232
+Refining estimates:
+Iteration 0:  Log likelihood = -923.48232
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    141
+Time at risk    = 15,262
+                                                        LR chi2(16)   = 283.67
+Log likelihood = -923.48232                             Prob > chi2   = 0.0000
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .3703482   .1788293     2.07   0.038     .0198492    .7208472
+patentdummyb~g |   .3649452   .1842493     1.98   0.048     .0038231    .7260672
+    earlystage |   -.657737    .213557    -3.08   0.002    -1.076301    -.239173
+ln_MoneyRais~D |    .525389   .0609742     8.62   0.000     .4058817    .6448962
+NumofFunding~D |   .0298335   .0391314     0.76   0.446    -.0468627    .1065296
+               |
+       Region2 |
+Massachusetts  |   .0780682   .2539807     0.31   0.759    -.4197249    .5758612
+     New York  |  -.4962535   .3207251    -1.55   0.122    -1.124863    .1323561
+        Other  |  -.3170989   .2052543    -1.54   0.122    -.7193899    .0851921
+               |
+     Industry2 |
+Hardware/Ma~h  |  -1.305648   .2835882    -4.60   0.000    -1.861471   -.7498254
+        Other  |   -1.50313   .2870846    -5.24   0.000    -2.065806   -.9404549
+Software/IT..  |  -1.082805   .2072653    -5.22   0.000    -1.489037    -.676572
+               |
+  Foundingyear |
+         2011  |   .6287038   .2747177     2.29   0.022     .0902669    1.167141
+         2012  |   .7164306   .2860775     2.50   0.012      .155729    1.277132
+         2013  |   .0377325   .3424498     0.11   0.912    -.6334568    .7089217
+         2014  |    .008012   .3302635     0.02   0.981    -.6392926    .6553166
+         2015  |  -.0826899   .3354737    -0.25   0.805    -.7402063    .5748265
+--------------------------------------------------------------------------------
+
+Survival-time data settings
+
+           ID variable: firm_id
+         Failure event: badexit3==1
+Observed time interval: (VDage3[_n-1], VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      2,820  total observations
+        130  observations end on or before enter()
+--------------------------------------------------------------------------
+      2,690  observations remaining, representing
+      2,690  subjects
+        266  failures in single-failure-per-subject data
+     15,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+        Failure _d: badexit3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1959.7921
+Iteration 1:  Log likelihood = -1955.0439
+Iteration 2:  Log likelihood =  -1955.037
+Iteration 3:  Log likelihood =  -1955.037
+Refining estimates:
+Iteration 0:  Log likelihood =  -1955.037
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    266
+Time at risk    = 15,262
+                                                        LR chi2(12)   =   9.51
+Log likelihood = -1955.037                              Prob > chi2   = 0.6588
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .1436538   .1241776     1.16   0.247    -.0997298    .3870373
+               |
+       Region2 |
+Massachusetts  |  -.0532831   .2437555    -0.22   0.827     -.531035    .4244689
+     New York  |  -.1665859   .2096449    -0.79   0.427    -.5774825    .2443106
+        Other  |   .0182345   .1438526     0.13   0.899    -.2637114    .3001803
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0733083   .2018882     0.36   0.717    -.3223852    .4690019
+        Other  |   -.020669   .1819994    -0.11   0.910    -.3773813    .3360433
+Software/IT..  |  -.2600283   .1737829    -1.50   0.135    -.6006365    .0805798
+               |
+  Foundingyear |
+         2011  |   .0424496   .1819371     0.23   0.816    -.3141406    .3990397
+         2012  |  -.1784093   .2002426    -0.89   0.373    -.5708777    .2140591
+         2013  |  -.1723368   .2160346    -0.80   0.425    -.5957569    .2510833
+         2014  |  -.1121129   .2116551    -0.53   0.596    -.5269494    .3027235
+         2015  |  -.1591413   .2301893    -0.69   0.489     -.610304    .2920215
+--------------------------------------------------------------------------------
+
+        Failure _d: badexit3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1959.7921
+Iteration 1:  Log likelihood = -1949.5282
+Iteration 2:  Log likelihood = -1949.0842
+Iteration 3:  Log likelihood = -1949.0802
+Iteration 4:  Log likelihood = -1949.0802
+Refining estimates:
+Iteration 0:  Log likelihood = -1949.0802
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    266
+Time at risk    = 15,262
+                                                        LR chi2(16)   =  21.42
+Log likelihood = -1949.0802                             Prob > chi2   = 0.1628
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .1247228   .1255979     0.99   0.321    -.1214446    .3708901
+patentdummyb~g |  -.1859138   .1898322    -0.98   0.327    -.5579782    .1861505
+    earlystage |   .0979778   .1659357     0.59   0.555    -.2272501    .4232058
+ln_MoneyRais~D |  -.0740005   .0263083    -2.81   0.005    -.1255638   -.0224372
+NumofFunding~D |   .0307903   .0327984     0.94   0.348    -.0334932    .0950739
+               |
+       Region2 |
+Massachusetts  |  -.0773928   .2439919    -0.32   0.751    -.5556082    .4008226
+     New York  |  -.2051782   .2099115    -0.98   0.328    -.6165973    .2062408
+        Other  |  -.0546157   .1458533    -0.37   0.708     -.340483    .2312516
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0764502   .2023529     0.38   0.706    -.3201541    .4730546
+        Other  |  -.0635449   .1846114    -0.34   0.731    -.4253765    .2982867
+Software/IT..  |   -.290604   .1762665    -1.65   0.099      -.63608     .054872
+               |
+  Foundingyear |
+         2011  |   .0597864   .1837603     0.33   0.745    -.3003772    .4199501
+         2012  |  -.1894485      .2021    -0.94   0.349    -.5855572    .2066603
+         2013  |  -.1625322   .2190341    -0.74   0.458    -.5918311    .2667667
+         2014  |  -.1065507   .2139271    -0.50   0.618    -.5258401    .3127387
+         2015  |  -.1430684   .2345879    -0.61   0.542    -.6028523    .3167155
+--------------------------------------------------------------------------------
+
+. esttab legacy7_1 legacy7_2 legacy7_3 legacy7_4 legacy7_5 legacy7_6 ///
+>     using "$OUT/Table7_legacy_replication.csv", replace b(6) se(6) stats(N N_fa
+> il)
+(output written to C:/Users/user/Documents/VD/outputs/downstream_financing/Table7
+> _legacy_replication.csv)
+
+. restore
+
+. * Four supporting estimands; separate outputs, no changes to innovation outcome
+> s.
+. version 19
+
+. * Financing support analysis embedded directly in this master do-file.
+. * Supporting evidence, not a mediation test. Post-treatment selection affects a
+> mounts.
+. * Build data with scripts/build_downstream_financing.py after updating source/c
+> utoff.
+. preserve
+
+. local D "C:/Users/user/Documents/VD/outputs/downstream_financing"
+
+. use "`D'/financing_support.dta", clear
+
+. isid firm_id
+
+. assert _N == 2820
+
+. local X "VD i.patentdummybyfiling i.earlystage ln_MoneyRaised_VD NumofFundingRo
+> unds_VD"
+
+. local FE "i.Region2 i.Industry2 i.Foundingyear"
+
+. display as text "SUPPORT ONLY: year-end reference, assumed coverage through 202
+> 3-12-31."
+SUPPORT ONLY: year-end reference, assumed coverage through 2023-12-31.
+
+. display as text "Not exact time since VD; no competing-exit adjustment."
+Not exact time since VD; no competing-exit adjustment.
+
+. tempname P
+
+. postfile `P' str32 model double b se N using "`D'/support_estimates.dta", repla
+> ce
+
+. * 1. Cumulative next-round probability at fixed horizons, robust LPM.
+. * 4. Cumulative USD, including verified no-round zeros under cutoff assumption.
+. forvalues h=1/3 {
+  2.     assert missing(raise`h') if complete`h' == 0
+  3.     assert missing(cum`h') if undisclosed`h' == 1
+  4.     reghdfe raise`h' `X', absorb(Region2 Industry2 Foundingyear) vce(robust)
+  5.     post `P' ("probability_`h'y") (_b[VD]) (_se[VD]) (e(N))
+  6.     estimates save "`D'/probability_`h'y.ster", replace
+  7.     gen double cum_million`h' = cum`h'/1000000
+  8.     reghdfe cum_million`h' `X', absorb(Region2 Industry2 Foundingyear) vce(r
+> obust)
+  9.     post `P' ("cumulative_USD_million_`h'y") (_b[VD]) (_se[VD]) (e(N))
+ 10.     estimates save "`D'/cumulative_`h'y.ster", replace
+ 11. }
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,755
+Absorbing 3 HDFE groups                           F(   5,   2738) =       1.49
+                                                  Prob > F        =     0.1896
+                                                  R-squared       =     0.0099
+                                                  Adj R-squared   =     0.0042
+                                                  Within R-sq.    =     0.0027
+                                                  Root MSE        =     0.4824
+
+--------------------------------------------------------------------------------
+               |               Robust
+        raise1 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0146847   .0185653    -0.79   0.429     -.051088    .0217187
+1.patentdumm~g |    .056475   .0267689     2.11   0.035     .0039858    .1089643
+  1.earlystage |    .005365   .0232584     0.23   0.818    -.0402408    .0509707
+ln_MoneyRais~D |  -.0074503    .004862    -1.53   0.126    -.0169839    .0020832
+NumofFunding~D |    .003952   .0048624     0.81   0.416    -.0055823    .0134863
+         _cons |   .4685005   .0842371     5.56   0.000     .3033259    .6336751
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+file C:/Users/user/Documents/VD/outputs/downstream_financing/probability_1y.ster 
+> saved
+(280 missing values generated)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,540
+Absorbing 3 HDFE groups                           F(   5,   2523) =       5.59
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0583
+                                                  Adj R-squared   =     0.0523
+                                                  Within R-sq.    =     0.0478
+                                                  Root MSE        =    72.3969
+
+--------------------------------------------------------------------------------
+               |               Robust
+  cum_million1 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   2.983954   2.786503     1.07   0.284    -2.480112    8.448021
+1.patentdumm~g |   .9037022   4.507691     0.20   0.841     -7.93545    9.742854
+  1.earlystage |  -3.344547   4.173996    -0.80   0.423    -11.52936    4.840261
+ln_MoneyRais~D |   6.346381     2.0335     3.12   0.002      2.35888    10.33388
+NumofFunding~D |   1.308461   1.335277     0.98   0.327     -1.30989    3.926811
+         _cons |  -93.31765    33.1175    -2.82   0.005    -158.2579   -28.37739
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+file C:/Users/user/Documents/VD/outputs/downstream_financing/cumulative_1y.ster s
+> aved
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,630
+Absorbing 3 HDFE groups                           F(   5,   2613) =       0.88
+                                                  Prob > F        =     0.4954
+                                                  R-squared       =     0.0119
+                                                  Adj R-squared   =     0.0058
+                                                  Within R-sq.    =     0.0017
+                                                  Root MSE        =     0.4952
+
+--------------------------------------------------------------------------------
+               |               Robust
+        raise2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0291265   .0196239    -1.48   0.138    -.0676065    .0093534
+1.patentdumm~g |   .0352414   .0272541     1.29   0.196    -.0182004    .0886832
+  1.earlystage |    .011491   .0248737     0.46   0.644    -.0372832    .0602652
+ln_MoneyRais~D |   .0031883   .0053534     0.60   0.552     -.007309    .0136856
+NumofFunding~D |  -.0009087   .0050307    -0.18   0.857    -.0107732    .0089558
+         _cons |   .5115004   .0917628     5.57   0.000     .3315652    .6914355
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+file C:/Users/user/Documents/VD/outputs/downstream_financing/probability_2y.ster 
+> saved
+(547 missing values generated)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,273
+Absorbing 3 HDFE groups                           F(   5,   2256) =       9.07
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0902
+                                                  Adj R-squared   =     0.0837
+                                                  Within R-sq.    =     0.0722
+                                                  Root MSE        =    89.8001
+
+--------------------------------------------------------------------------------
+               |               Robust
+  cum_million2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   1.986753   3.920026     0.51   0.612     -5.70048    9.673987
+1.patentdumm~g |   .9673172   6.203386     0.16   0.876    -11.19762    13.13226
+  1.earlystage |  -4.288435   6.220646    -0.69   0.491    -16.48722    7.910352
+ln_MoneyRais~D |   10.78523    2.66095     4.05   0.000     5.567061    16.00339
+NumofFunding~D |   .2851419   1.521832     0.19   0.851    -2.699196    3.269479
+         _cons |   -148.121     43.421    -3.41   0.001    -233.2702   -62.97167
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+file C:/Users/user/Documents/VD/outputs/downstream_financing/cumulative_2y.ster s
+> aved
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,497
+Absorbing 3 HDFE groups                           F(   5,   2480) =       2.35
+                                                  Prob > F        =     0.0385
+                                                  R-squared       =     0.0129
+                                                  Adj R-squared   =     0.0065
+                                                  Within R-sq.    =     0.0047
+                                                  Root MSE        =     0.4823
+
+--------------------------------------------------------------------------------
+               |               Robust
+        raise3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0425048   .0198545    -2.14   0.032     -.081438   -.0035716
+1.patentdumm~g |   .0542483   .0270739     2.00   0.045     .0011586    .1073379
+  1.earlystage |   .0041668   .0254548     0.16   0.870     -.045748    .0540816
+ln_MoneyRais~D |   .0065525   .0057072     1.15   0.251    -.0046389    .0177438
+NumofFunding~D |   -.005163    .005009    -1.03   0.303    -.0149853    .0046592
+         _cons |   .5500207   .0975814     5.64   0.000     .3586714    .7413701
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+file C:/Users/user/Documents/VD/outputs/downstream_financing/probability_3y.ster 
+> saved
+(769 missing values generated)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,051
+Absorbing 3 HDFE groups                           F(   5,   2034) =      15.93
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.1057
+                                                  Adj R-squared   =     0.0986
+                                                  Within R-sq.    =     0.0861
+                                                  Root MSE        =    83.2961
+
+--------------------------------------------------------------------------------
+               |               Robust
+  cum_million3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -1.320636   3.735492    -0.35   0.724    -8.646426    6.005154
+1.patentdumm~g |    7.04253   6.151624     1.14   0.252    -5.021611    19.10667
+  1.earlystage |  -11.14772   6.254406    -1.78   0.075    -23.41343    1.117986
+ln_MoneyRais~D |   10.26248   2.037879     5.04   0.000     6.265936    14.25903
+NumofFunding~D |   .0425489   1.784662     0.02   0.981    -3.457407    3.542504
+         _cons |  -127.8193   34.84042    -3.67   0.000    -196.1459   -59.49266
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+file C:/Users/user/Documents/VD/outputs/downstream_financing/cumulative_3y.ster s
+> aved
+
+. * 1. Next-round hazard. Common three-year follow-up cap; retain censored firms.
+. gen double stop3 = mdy(12,31,VDyear+3)-mdy(12,31,VDyear)
+
+. gen double surv_days = min(duration_days,1095) if observed == 1
+(65 missing values generated)
+
+. gen byte event3 = next_event == 1 & next_days <= stop3 if observed == 1
+(65 missing values generated)
+
+. gen byte surv_event = next_event == 1 & next_days <= 1095 if observed == 1
+(65 missing values generated)
+
+. stset surv_days if observed == 1, failure(surv_event==1) id(firm_id)
+
+Survival-time data settings
+
+           ID variable: firm_id
+         Failure event: surv_event==1
+Observed time interval: (surv_days[_n-1], surv_days]
+     Exit on or before: failure
+      Keep observations 
+                if exp: observed == 1
+
+--------------------------------------------------------------------------
+      2,820  total observations
+         65  ignored at outset because of if exp
+--------------------------------------------------------------------------
+      2,755  observations remaining, representing
+      2,755  subjects
+      1,643  failures in single-failure-per-subject data
+  1,659,101  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =     1,095
+
+. stcox `X' `FE', nohr vce(robust)
+
+        Failure _d: surv_event==1
+  Analysis time _t: surv_days
+       ID variable: firm_id
+
+Iteration 0:  Log pseudolikelihood = -12323.274
+Iteration 1:  Log pseudolikelihood = -12305.206
+Iteration 2:  Log pseudolikelihood = -12305.162
+Iteration 3:  Log pseudolikelihood = -12305.162
+Refining estimates:
+Iteration 0:  Log pseudolikelihood = -12305.162
+
+Cox regression with Breslow method for ties
+
+No. of subjects =     2,755                             Number of obs =  2,755
+No. of failures =     1,643
+Time at risk    = 1,659,101
+                                                        Wald chi2(16) =  35.61
+Log pseudolikelihood = -12305.162                       Prob > chi2   = 0.0033
+
+                              (Std. err. adjusted for 2,755 clusters in firm_id)
+--------------------------------------------------------------------------------
+               |               Robust
+            _t | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   -.133349    .050187    -2.66   0.008    -.2317137   -.0349843
+1.patentdumm~g |   .1374006   .0703072     1.95   0.051    -.0003991    .2752002
+  1.earlystage |   .0565919    .063052     0.90   0.369    -.0669878    .1801716
+ln_MoneyRais~D |   .0015656   .0141441     0.11   0.912    -.0261564    .0292876
+NumofFunding~D |   .0030368   .0132492     0.23   0.819    -.0229311    .0290047
+               |
+       Region2 |
+            2  |  -.1546305   .0968395    -1.60   0.110    -.3444324    .0351714
+            3  |  -.1778144   .0822359    -2.16   0.031    -.3389938    -.016635
+            4  |  -.0258348   .0592297    -0.44   0.663    -.1419229    .0902532
+               |
+     Industry2 |
+            2  |   .0829433   .0853126     0.97   0.331    -.0842663     .250153
+            3  |   -.011304   .0784418    -0.14   0.885     -.165047     .142439
+            4  |   .0361361    .070913     0.51   0.610    -.1028508    .1751229
+               |
+  Foundingyear |
+         2011  |   .1079771   .0819889     1.32   0.188    -.0527183    .2686724
+         2012  |   .1557213   .0853291     1.82   0.068    -.0115207    .3229633
+         2013  |   .1671547   .0903609     1.85   0.064    -.0099494    .3442589
+         2014  |   .1328801   .0859322     1.55   0.122     -.035544    .3013042
+         2015  |    .308029   .0874008     3.52   0.000     .1367265    .4793315
+--------------------------------------------------------------------------------
+
+. post `P' ("next_round_log_hazard") (_b[VD]) (_se[VD]) (e(N))
+
+. estimates save "`D'/next_round_cox.ster", replace
+file C:/Users/user/Documents/VD/outputs/downstream_financing/next_round_cox.ster 
+> saved
+
+. * 2. Timing: KM survival and restricted mean waiting time, including censoring.
+. * RMST has a common 1095-day restriction and is unadjusted/descriptive;
+. * Weibull AFT log-time coefficient is parametric.
+. sts list, by(VD) at(365 730 1095)
+
+        Failure _d: surv_event==1
+  Analysis time _t: surv_days
+       ID variable: firm_id
+
+Kaplan–Meier survivor function
+By variable: VD
+
+              Beg.             Survivor      Std.
+    Time     total     Fail    function     error     [95% conf. int.]
+----------------------------------------------------------------------
+VD=0 
+     365       877      534      0.6213    0.0129     0.5954    0.6460
+     730       605      272      0.4284    0.0132     0.4024    0.4540
+    1095       499      105      0.3539    0.0127     0.3290    0.3789
+VD=1 
+     365       855      490      0.6357    0.0131     0.6093    0.6608
+     730       557      194      0.4715    0.0141     0.4437    0.4988
+    1095       434       48      0.4245    0.0142     0.3966    0.4522
+----------------------------------------------------------------------
+Note: Survivor function is calculated over full data and evaluated at
+      indicated times; it is not calculated from aggregates shown at left.
+
+. stci, by(VD) rmean
+
+        Failure _d: surv_event==1
+  Analysis time _t: surv_days
+       ID variable: firm_id
+
+             | Number of  Restricted
+VD           |  subjects        mean      Std. err.    [95% conf. interval]
+-------------+-------------------------------------------------------------
+           0 |      1410    618.0106(*)   11.05862      596.336    639.685
+           1 |      1345     648.463(*)   11.89455       625.15    671.776
+-------------+-------------------------------------------------------------
+       Total |      2755    631.9165(*)   8.100378       616.04    647.793
+
+(*) largest observed analysis time is censored, mean is underestimated
+
+. sts graph, by(VD) xtitle("Days since end of VD/reference year") ///
+>     ytitle("Probability of no subsequent equity round") ///
+>     title("Supporting financing environment: next equity round")
+
+        Failure _d: surv_event==1
+  Analysis time _t: surv_days
+       ID variable: firm_id
+
+. graph export "`D'/next_equity_survival.png", replace
+file
+    C:/Users/user/Documents/VD/outputs/downstream_financing/next_equity_surviva
+    > l.png saved as PNG format
+
+. streg `X' `FE', distribution(weibull) time vce(robust)
+
+        Failure _d: surv_event==1
+  Analysis time _t: surv_days
+       ID variable: firm_id
+
+Fitting constant-only model:
+Iteration 0:  Log pseudolikelihood =  -4302.974
+Iteration 1:  Log pseudolikelihood = -4230.0162
+Iteration 2:  Log pseudolikelihood = -4229.2276
+Iteration 3:  Log pseudolikelihood = -4229.2275
+
+Fitting full model:
+Iteration 0:  Log pseudolikelihood = -4229.2275  
+Iteration 1:  Log pseudolikelihood = -4210.6733  
+Iteration 2:  Log pseudolikelihood = -4210.5103  
+Iteration 3:  Log pseudolikelihood = -4210.5102  
+
+Weibull AFT regression
+
+No. of subjects =     2,755                             Number of obs =  2,755
+No. of failures =     1,643
+Time at risk    = 1,659,101
+                                                        Wald chi2(16) =  34.70
+Log pseudolikelihood = -4210.5102                       Prob > chi2   = 0.0044
+
+                              (Std. err. adjusted for 2,755 clusters in firm_id)
+--------------------------------------------------------------------------------
+               |               Robust
+            _t | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .1635711   .0663459     2.47   0.014     .0335356    .2936066
+1.patentdumm~g |  -.1793263   .0929111    -1.93   0.054    -.3614287    .0027761
+  1.earlystage |  -.0678693   .0833013    -0.81   0.415    -.2311368    .0953983
+ln_MoneyRais~D |  -.0049233   .0185765    -0.27   0.791    -.0413326    .0314861
+NumofFunding~D |  -.0023711   .0173851    -0.14   0.892    -.0364454    .0317031
+               |
+       Region2 |
+            2  |    .198095     .12803     1.55   0.122    -.0528392    .4490292
+            3  |   .2303211      .1083     2.13   0.033      .018057    .4425853
+            4  |   .0302182   .0781363     0.39   0.699     -.122926    .1833625
+               |
+     Industry2 |
+            2  |  -.1120638   .1128611    -0.99   0.321    -.3332674    .1091397
+            3  |   .0128163   .1035245     0.12   0.901     -.190088    .2157206
+            4  |  -.0494576   .0937729    -0.53   0.598    -.2332491    .1343339
+               |
+  Foundingyear |
+         2011  |  -.1486095   .1083944    -1.37   0.170    -.3610586    .0638395
+         2012  |  -.2077527   .1126032    -1.84   0.065     -.428451    .0129456
+         2013  |  -.2175802   .1190774    -1.83   0.068    -.4509677    .0158073
+         2014  |  -.1889515   .1133689    -1.67   0.096    -.4111505    .0332474
+         2015  |  -.4144642   .1152504    -3.60   0.000    -.6403508   -.1885776
+               |
+         _cons |    7.24364   .3382845    21.41   0.000     6.580615    7.906665
+---------------+----------------------------------------------------------------
+         /ln_p |  -.2503967   .0208107   -12.03   0.000    -.2911849   -.2096085
+---------------+----------------------------------------------------------------
+             p |   .7784919   .0162009                      .7473775    .8109016
+           1/p |   1.284535    .026732                      1.233195    1.338012
+--------------------------------------------------------------------------------
+
+. post `P' ("waiting_time_weibull_logtime") (_b[VD]) (_se[VD]) (e(N))
+
+. estimates save "`D'/waiting_time_aft.ster", replace
+file C:/Users/user/Documents/VD/outputs/downstream_financing/waiting_time_aft.ste
+> r saved
+
+. * 3. First next-round amount conditional on raising within 3 years.
+. * Complete 3-year cohorts only; unknown amounts and ambiguous tied rounds exclu
+> ded.
+. gen double ln_next_amount = ln(next_amount) if next_amount > 0 & !missing(next_
+> amount)
+(1,405 missing values generated)
+
+. reghdfe ln_next_amount `X' if complete3==1 & event3==1 & next_n==1, ///
+>     absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,260
+Absorbing 3 HDFE groups                           F(   5,   1243) =     110.50
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4335
+                                                  Adj R-squared   =     0.4262
+                                                  Within R-sq.    =     0.3798
+                                                  Root MSE        =     1.3594
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_next_amount | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.2501141   .0780485    -3.20   0.001    -.4032354   -.0969927
+1.patentdumm~g |   .1505082   .1057663     1.42   0.155     -.056992    .3580085
+  1.earlystage |  -.7684241   .1544447    -4.98   0.000    -1.071425   -.4654231
+ln_MoneyRais~D |   .4196525   .0714523     5.87   0.000     .2794721    .5598329
+NumofFunding~D |  -.1103876   .0247102    -4.47   0.000    -.1588659   -.0619094
+         _cons |   10.26793   1.202579     8.54   0.000     7.908618    12.62724
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. post `P' ("conditional_next_round_logUSD") (_b[VD]) (_se[VD]) (e(N))
+
+. estimates save "`D'/conditional_next_amount.ster", replace
+file C:/Users/user/Documents/VD/outputs/downstream_financing/conditional_next_amo
+> unt.ster saved
+
+. postclose `P'
+
+. use "`D'/support_estimates.dta", clear
+
+. export delimited using "`D'/support_estimates.csv", replace
+file C:/Users/user/Documents/VD/outputs/downstream_financing/support_estimates.cs
+> v saved
+
+. restore
+
+. 
+. 
+. display "FINANCING_VALIDATION_COMPLETE"
+FINANCING_VALIDATION_COMPLETE
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/downstream_financing/validation.l
+> og
+  log type:  text
+ closed on:  20 Oct 2026, 18:17:43
+---------------------------------------------------------------------------------

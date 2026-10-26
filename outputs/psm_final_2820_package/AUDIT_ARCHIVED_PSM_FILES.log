@@ -1,0 +1,439 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/AUDIT_ARCH
+> IVED_PSM_FILES.log
+  log type:  text
+ opened on:  12 Oct 2026, 14:28:43
+
+. 
+. foreach f in "all_with_pscore.dta" "all_with_pscore 2.dta" "matchedset.dta" "24
+> 0626.dta" "240626 2.dta" {
+  2.     display as text _newline "==============================================
+> =============="
+  3.     display as result "FILE: `f'"
+  4.     use "$OLD/`f'", clear
+  5.     display as result "N = " _N
+  6.     capture noisily describe VD_Backing VD _pscore _weight _id _n1 _nn _pdif
+>  ///
+>         pscore pscore2 Founding_Year VD_Year Industry2 Region2 ///
+>         NumberOfFunding_Rounds_FirstVD NumberOfFunding_Rounds_FirstVC ///
+>         ln_Total_Funding_Amount_FirstVD ln_Total_Funding_Amount_FirstVC ///
+>         Patents_VD PatentGranted_VD Grant_VD TimeToFirst_VC TimeToFirst_VD
+  7.     capture noisily summarize _pscore _weight _id _n1 _nn _pdif, detail
+  8.     capture noisily tab VD_Backing
+  9.     capture noisily tab VD
+ 10.     capture noisily tab VD_Backing _weight, missing
+ 11.     capture noisily tab VD _weight, missing
+ 12.     capture noisily codebook Industry2 Region2
+ 13. }
+
+============================================================
+FILE: all_with_pscore.dta
+N = 270
+VD ambiguous abbreviation
+variable _pscore not found
+
+ VD_Backing |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |        133       49.26       49.26
+          1 |        137       50.74      100.00
+------------+-----------------------------------
+      Total |        270      100.00
+VD ambiguous abbreviation
+variable _weight not found
+VD ambiguous abbreviation
+
+---------------------------------------------------------------------------------
+Industry2                                                               Industry2
+---------------------------------------------------------------------------------
+
+                  Type: Numeric (long)
+                 Label: Industry2_
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 0/270
+
+            Tabulation: Freq.   Numeric  Label
+                           62         1  Bio/Healthcare
+                           32         2  Hardware/Manufacturing/DeepTech
+                           58         3  Other
+                          118         4  Software/IT services
+
+---------------------------------------------------------------------------------
+Region2                                                                   Region2
+---------------------------------------------------------------------------------
+
+                  Type: Numeric (long)
+                 Label: Region2_
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 0/270
+
+            Tabulation: Freq.   Numeric  Label
+                           84         1  California
+                           20         2  Massachusetts
+                           24         3  New York
+                          142         4  Other
+
+============================================================
+FILE: all_with_pscore 2.dta
+N = 270
+VD ambiguous abbreviation
+variable _pscore not found
+
+ VD_Backing |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |        133       49.26       49.26
+          1 |        137       50.74      100.00
+------------+-----------------------------------
+      Total |        270      100.00
+VD ambiguous abbreviation
+
+           |  _weight
+VD_Backing |         1 |     Total
+-----------+-----------+----------
+         0 |       133 |       133 
+         1 |       137 |       137 
+-----------+-----------+----------
+     Total |       270 |       270 
+VD ambiguous abbreviation
+
+---------------------------------------------------------------------------------
+Industry2                                                               Industry2
+---------------------------------------------------------------------------------
+
+                  Type: Numeric (long)
+                 Label: Industry2_
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 0/270
+
+            Tabulation: Freq.   Numeric  Label
+                           62         1  Bio/Healthcare
+                           32         2  Hardware/Manufacturing/DeepTech
+                           58         3  Other
+                          118         4  Software/IT services
+
+---------------------------------------------------------------------------------
+Region2                                                                   Region2
+---------------------------------------------------------------------------------
+
+                  Type: Numeric (long)
+                 Label: Region2_
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 0/270
+
+            Tabulation: Freq.   Numeric  Label
+                           84         1  California
+                           20         2  Massachusetts
+                           24         3  New York
+                          142         4  Other
+
+============================================================
+FILE: matchedset.dta
+N = 0
+no variables defined
+no variables defined
+no variables defined
+no variables defined
+no variables defined
+no variables defined
+no variables defined
+
+============================================================
+FILE: 240626.dta
+N = 7314
+VD ambiguous abbreviation
+
+                           _pscore
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%      860.211       770.0398
+ 5%     1130.235       770.1138
+10%     1610.062       770.1458       Obs               5,886
+25%     4830.121       770.1657       Sum of wgt.       5,886
+
+50%     9890.102                      Mean            9415.92
+                        Largest       Std. dev.      4672.349
+75%     12950.07       15920.07
+90%     15140.09       15960.07       Variance       2.18e+07
+95%     15360.07        15980.1       Skewness      -.3581989
+99%     15710.07       16020.04       Kurtosis       1.884957
+
+                           _weight
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            1              1
+ 5%            1              1
+10%            1              1       Obs                 270
+25%            1              1       Sum of wgt.         270
+
+50%            1                      Mean                  1
+                        Largest       Std. dev.             0
+75%            1              1
+90%            1              1       Variance              0
+95%            1              1       Skewness              .
+99%            1              1       Kurtosis              .
+
+                             _id
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%           74              1
+ 5%          366              2
+10%          732              3       Obs               7,314
+25%         1829              4       Sum of wgt.       7,314
+
+50%       3657.5                      Mean             3657.5
+                        Largest       Std. dev.      2111.514
+75%         5486           7311
+90%         6583           7312       Variance        4458493
+95%         6949           7313       Skewness              0
+99%         7241           7314       Kurtosis            1.8
+
+                             _n1
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%           16              3
+ 5%          109             16
+10%          316             17       Obs                 135
+25%         1039             68       Sum of wgt.         135
+
+50%         2461                      Mean           2482.674
+                        Largest       Std. dev.      1633.344
+75%         4264           4938
+90%         4721           4953       Variance        2667812
+95%         4806           4958       Skewness       .0505764
+99%         4958           4979       Kurtosis       1.561864
+
+                             _nn
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               5,886
+25%            0              0       Sum of wgt.       5,886
+
+50%            0                      Mean           .0229358
+                        Largest       Std. dev.      .1497115
+75%            0              1
+90%            0              1       Variance       .0224135
+95%            0              1       Skewness       6.373655
+99%            1              1       Kurtosis       41.62347
+
+                            _pdif
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%     .0000272         .00002
+ 5%     .0001096       .0000272
+10%     .0003227       .0000314       Obs                 135
+25%     .0011334       .0000325       Sum of wgt.         135
+
+50%     .0043601                      Mean           .0147971
+                        Largest       Std. dev.      .0261514
+75%     .0136871       .1104416
+90%     .0428764       .1160195       Variance       .0006839
+95%     .0922768       .1217381       Skewness       2.808254
+99%     .1217381       .1315907       Kurtosis       10.71399
+
+ VD_Backing |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |      5,872       80.28       80.28
+          1 |      1,442       19.72      100.00
+------------+-----------------------------------
+      Total |      7,314      100.00
+VD ambiguous abbreviation
+
+           |        _weight
+VD_Backing |         1          . |     Total
+-----------+----------------------+----------
+         0 |       133      5,739 |     5,872 
+         1 |       137      1,305 |     1,442 
+-----------+----------------------+----------
+     Total |       270      7,044 |     7,314 
+VD ambiguous abbreviation
+
+---------------------------------------------------------------------------------
+Industry2                                                               Industry2
+---------------------------------------------------------------------------------
+
+                  Type: Numeric (long)
+                 Label: Industry2_
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 0/7,314
+
+            Tabulation: Freq.   Numeric  Label
+                        1,310         1  Bio/Healthcare
+                          931         2  Hardware/Manufacturing/DeepTech
+                        1,883         3  Other
+                        3,190         4  Software/IT services
+
+---------------------------------------------------------------------------------
+Region2                                                                   Region2
+---------------------------------------------------------------------------------
+
+                  Type: Numeric (long)
+                 Label: Region2_
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 0/7,314
+
+            Tabulation: Freq.   Numeric  Label
+                        2,745         1  California
+                          576         2  Massachusetts
+                        1,035         3  New York
+                        2,958         4  Other
+
+============================================================
+FILE: 240626 2.dta
+N = 7314
+VD ambiguous abbreviation
+
+                           _pscore
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%      860.211       770.0398
+ 5%     1130.235       770.1138
+10%     1610.062       770.1458       Obs               5,886
+25%     4830.121       770.1657       Sum of wgt.       5,886
+
+50%     9890.102                      Mean            9415.92
+                        Largest       Std. dev.      4672.349
+75%     12950.07       15920.07
+90%     15140.09       15960.07       Variance       2.18e+07
+95%     15360.07        15980.1       Skewness      -.3581989
+99%     15710.07       16020.04       Kurtosis       1.884957
+
+                           _weight
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            1              1
+ 5%            1              1
+10%            1              1       Obs                 270
+25%            1              1       Sum of wgt.         270
+
+50%            1                      Mean                  1
+                        Largest       Std. dev.             0
+75%            1              1
+90%            1              1       Variance              0
+95%            1              1       Skewness              .
+99%            1              1       Kurtosis              .
+
+                             _id
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%           74              1
+ 5%          366              2
+10%          732              3       Obs               7,314
+25%         1829              4       Sum of wgt.       7,314
+
+50%       3657.5                      Mean             3657.5
+                        Largest       Std. dev.      2111.514
+75%         5486           7311
+90%         6583           7312       Variance        4458493
+95%         6949           7313       Skewness              0
+99%         7241           7314       Kurtosis            1.8
+
+                             _n1
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%           16              3
+ 5%          109             16
+10%          316             17       Obs                 135
+25%         1039             68       Sum of wgt.         135
+
+50%         2461                      Mean           2482.674
+                        Largest       Std. dev.      1633.344
+75%         4264           4938
+90%         4721           4953       Variance        2667812
+95%         4806           4958       Skewness       .0505764
+99%         4958           4979       Kurtosis       1.561864
+
+                             _nn
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               5,886
+25%            0              0       Sum of wgt.       5,886
+
+50%            0                      Mean           .0229358
+                        Largest       Std. dev.      .1497115
+75%            0              1
+90%            0              1       Variance       .0224135
+95%            0              1       Skewness       6.373655
+99%            1              1       Kurtosis       41.62347
+
+                            _pdif
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%     .0000272         .00002
+ 5%     .0001096       .0000272
+10%     .0003227       .0000314       Obs                 135
+25%     .0011334       .0000325       Sum of wgt.         135
+
+50%     .0043601                      Mean           .0147971
+                        Largest       Std. dev.      .0261514
+75%     .0136871       .1104416
+90%     .0428764       .1160195       Variance       .0006839
+95%     .0922768       .1217381       Skewness       2.808254
+99%     .1217381       .1315907       Kurtosis       10.71399
+
+ VD_Backing |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |      5,872       80.28       80.28
+          1 |      1,442       19.72      100.00
+------------+-----------------------------------
+      Total |      7,314      100.00
+VD ambiguous abbreviation
+
+           |        _weight
+VD_Backing |         1          . |     Total
+-----------+----------------------+----------
+         0 |       133      5,739 |     5,872 
+         1 |       137      1,305 |     1,442 
+-----------+----------------------+----------
+     Total |       270      7,044 |     7,314 
+VD ambiguous abbreviation
+
+---------------------------------------------------------------------------------
+Industry2                                                               Industry2
+---------------------------------------------------------------------------------
+
+                  Type: Numeric (long)
+                 Label: Industry2_
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 0/7,314
+
+            Tabulation: Freq.   Numeric  Label
+                        1,310         1  Bio/Healthcare
+                          931         2  Hardware/Manufacturing/DeepTech
+                        1,883         3  Other
+                        3,190         4  Software/IT services
+
+---------------------------------------------------------------------------------
+Region2                                                                   Region2
+---------------------------------------------------------------------------------
+
+                  Type: Numeric (long)
+                 Label: Region2_
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 0/7,314
+
+            Tabulation: Freq.   Numeric  Label
+                        2,745         1  California
+                          576         2  Massachusetts
+                        1,035         3  New York
+                        2,958         4  Other
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/AUDIT_ARCH
+> IVED_PSM_FILES.log
+  log type:  text
+ closed on:  12 Oct 2026, 14:28:43
+---------------------------------------------------------------------------------

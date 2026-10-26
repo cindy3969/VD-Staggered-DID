@@ -1,0 +1,1109 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/table67_merge_audit/audit.log
+  log type:  text
+ opened on:  20 Oct 2026, 16:48:56
+
+. postfile audit str12 source str16 model str60 term double b se p N failures usi
+> ng "C:/Users/user/Documents/VD/outputs/table67_merge_audit/estimates.dta", repl
+> ace
+
+. program define record_model
+  1. syntax, Source(string) Model(string)
+  2. tempname B V
+  3. matrix `B'=e(b)
+  4. matrix `V'=e(V)
+  5. local names : colnames `B'
+  6. forvalues j=1/`=colsof(`B')' {
+  7. local term : word `j' of `names'
+  8. local se=sqrt(`V'[`j',`j'])
+  9. local prob=.
+ 10. if `se'>0 & !missing(`se') {
+ 11. if !missing(e(df_r)) local prob=2*ttail(e(df_r),abs(`B'[1,`j']/`se'))
+ 12. else local prob=2*normal(-abs(`B'[1,`j']/`se'))
+ 13. }
+ 14. post audit ("`source'") ("`model'") ("`term'") (`B'[1,`j']) (`se') (`prob') 
+> (e(N)) (e(N_fail))
+ 15. }
+ 16. end
+
+. use "C:/Users/user/iCloudDrive/5학기/연구미팅/20240108-2010 to 2015 firms/26012
+> 2 winsorization.dta", clear
+
+. capture drop audit_prior
+
+. gen audit_prior=patentdummybyfiling
+
+. reghdfe ln_moneyraised_y1 VD i.audit_prior i.earlystage ln_MoneyRaised_VD Numof
+> FundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,043
+Absorbing 3 HDFE groups                           F(   5,   1026) =      81.43
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4321
+                                                  Adj R-squared   =     0.4233
+                                                  Within R-sq.    =     0.3745
+                                                  Root MSE        =     1.5184
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y1 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   -.085141   .0948116    -0.90   0.369    -.2711879    .1009059
+ 1.audit_prior |   .3024521   .1218568     2.48   0.013      .063335    .5415692
+  1.earlystage |  -.8947451   .1855613    -4.82   0.000    -1.258868   -.5306221
+ln_MoneyRais~D |   .4127558   .0758289     5.44   0.000     .2639584    .5615533
+NumofFunding~D |   -.114138   .0249104    -4.58   0.000    -.1630192   -.0652568
+         _cons |    10.3756   1.298088     7.99   0.000      7.82839    12.92281
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. record_model, source(legacy) model(T6_legacy_1)
+
+. reghdfe ln_moneyraised_y2 VD i.audit_prior i.earlystage ln_MoneyRaised_VD Numof
+> FundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,043
+Absorbing 3 HDFE groups                           F(   5,   1026) =       3.97
+                                                  Prob > F        =     0.0014
+                                                  R-squared       =     0.0302
+                                                  Adj R-squared   =     0.0150
+                                                  Within R-sq.    =     0.0187
+                                                  Root MSE        =     7.7890
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   1.620768   .4919577     3.29   0.001     .6554095    2.586126
+ 1.audit_prior |   1.448517   .6671529     2.17   0.030     .1393768    2.757657
+  1.earlystage |   .1096128   .6275571     0.17   0.861    -1.121829    1.341055
+ln_MoneyRais~D |   .0050661   .1222278     0.04   0.967     -.234779    .2449112
+NumofFunding~D |   .1860002   .1156508     1.61   0.108     -.040939    .4129393
+         _cons |   3.846585   2.129914     1.81   0.071    -.3329003     8.02607
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. record_model, source(legacy) model(T6_legacy_2)
+
+. reghdfe ln_moneyraised_y3 VD i.audit_prior i.earlystage ln_MoneyRaised_VD Numof
+> FundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,485
+Absorbing 3 HDFE groups                           F(   5,   1468) =       2.10
+                                                  Prob > F        =     0.0624
+                                                  R-squared       =     0.0317
+                                                  Adj R-squared   =     0.0211
+                                                  Within R-sq.    =     0.0062
+                                                  Root MSE        =     7.3674
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .7269329    .386894     1.88   0.060    -.0319912    1.485857
+ 1.audit_prior |   .2626956   .5444443     0.48   0.630    -.8052762    1.330667
+  1.earlystage |  -.1840768    .495686    -0.37   0.710    -1.156405    .7882515
+ln_MoneyRais~D |   .1511272   .1003267     1.51   0.132    -.0456718    .3479261
+NumofFunding~D |  -.1778719   .0874485    -2.03   0.042    -.3494092   -.0063346
+         _cons |   2.682913   1.734288     1.55   0.122    -.7190332     6.08486
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. record_model, source(legacy) model(T6_legacy_3)
+
+. stset VDage3, failure(acq3==1) id(firm_id)
+
+Survival-time data settings
+
+           ID variable: firm_id
+         Failure event: acq3==1
+Observed time interval: (VDage3[_n-1], VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      2,820  total observations
+        130  observations end on or before enter()
+--------------------------------------------------------------------------
+      2,690  observations remaining, representing
+      2,690  subjects
+        846  failures in single-failure-per-subject data
+     15,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+. stcox VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: acq3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -6296.3194
+Iteration 1:  Log likelihood = -6276.2807
+Iteration 2:  Log likelihood = -6276.1346
+Iteration 3:  Log likelihood = -6276.1345
+Refining estimates:
+Iteration 0:  Log likelihood = -6276.1345
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    846
+Time at risk    = 15,262
+                                                        LR chi2(12)   =  40.37
+Log likelihood = -6276.1345                             Prob > chi2   = 0.0001
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .1465178   .0693937     2.11   0.035     .0105086    .2825271
+               |
+       Region2 |
+Massachusetts  |   .0573497   .1340618     0.43   0.669    -.2054065    .3201059
+     New York  |   .0046763   .1081336     0.04   0.966    -.2072616    .2166142
+        Other  |  -.0476256   .0814003    -0.59   0.558    -.2071672    .1119161
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0603105   .1352525     0.45   0.656    -.2047795    .3254004
+        Other  |    .341593   .1131516     3.02   0.003     .1198199    .5633661
+Software/IT..  |    .341622     .10601     3.22   0.001     .1338462    .5493977
+               |
+  Foundingyear |
+         2011  |  -.0798507    .102691    -0.78   0.437    -.2811214      .12142
+         2012  |  -.2119653    .110145    -1.92   0.054    -.4278455    .0039149
+         2013  |  -.1463051   .1142348    -1.28   0.200    -.3702011     .077591
+         2014  |  -.1915947   .1164011    -1.65   0.100    -.4197367    .0365472
+         2015  |  -.5555462   .1390535    -4.00   0.000    -.8280861   -.2830064
+--------------------------------------------------------------------------------
+
+. record_model, source(legacy) model(acq3_base)
+
+. stcox VD audit_prior earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Regio
+> n2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: acq3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -6296.3194
+Iteration 1:  Log likelihood = -6261.3273
+Iteration 2:  Log likelihood =  -6261.082
+Iteration 3:  Log likelihood =  -6261.082
+Refining estimates:
+Iteration 0:  Log likelihood =  -6261.082
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    846
+Time at risk    = 15,262
+                                                        LR chi2(16)   =  70.47
+Log likelihood = -6261.082                              Prob > chi2   = 0.0000
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |    .187459   .0703335     2.67   0.008     .0496078    .3253102
+   audit_prior |  -.1120795   .1020527    -1.10   0.272    -.3120991    .0879402
+    earlystage |  -.2226613   .0884242    -2.52   0.012    -.3959695   -.0493531
+ln_MoneyRais~D |   .0503607    .021091     2.39   0.017     .0090231    .0916982
+NumofFunding~D |   .0194217   .0185223     1.05   0.294    -.0168813    .0557247
+               |
+       Region2 |
+Massachusetts  |    .077605    .134455     0.58   0.564    -.1859219    .3411318
+     New York  |   .0383651   .1087068     0.35   0.724    -.1746964    .2514266
+        Other  |   .0329531   .0831122     0.40   0.692    -.1299437      .19585
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0469643   .1353743     0.35   0.729    -.2183645    .3122931
+        Other  |   .3228481   .1151609     2.80   0.005     .0971369    .5485593
+Software/IT..  |   .3059746   .1076668     2.84   0.004     .0949516    .5169976
+               |
+  Foundingyear |
+         2011  |  -.0931038   .1032853    -0.90   0.367    -.2955393    .1093317
+         2012  |  -.1999793   .1111153    -1.80   0.072    -.4177613    .0178026
+         2013  |  -.1514358   .1154974    -1.31   0.190    -.3778065    .0749349
+         2014  |  -.2006986   .1174876    -1.71   0.088      -.43097    .0295729
+         2015  |  -.5623602   .1413361    -3.98   0.000    -.8393739   -.2853466
+--------------------------------------------------------------------------------
+
+. record_model, source(legacy) model(acq3_ctrl)
+
+. stset VDage3, failure(public3==1) id(firm_id)
+
+Survival-time data settings
+
+           ID variable: firm_id
+         Failure event: public3==1
+Observed time interval: (VDage3[_n-1], VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      2,820  total observations
+        130  observations end on or before enter()
+--------------------------------------------------------------------------
+      2,690  observations remaining, representing
+      2,690  subjects
+        141  failures in single-failure-per-subject data
+     15,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+. stcox VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: public3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1065.3169
+Iteration 1:  Log likelihood = -1023.2586
+Iteration 2:  Log likelihood = -1019.4444
+Iteration 3:  Log likelihood =  -1019.434
+Iteration 4:  Log likelihood =  -1019.434
+Refining estimates:
+Iteration 0:  Log likelihood =  -1019.434
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    141
+Time at risk    = 15,262
+                                                        LR chi2(12)   =  91.77
+Log likelihood = -1019.434                              Prob > chi2   = 0.0000
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .3470845   .1711008     2.03   0.043     .0117331    .6824359
+               |
+       Region2 |
+Massachusetts  |  -.0992095   .2521097    -0.39   0.694    -.5933354    .3949165
+     New York  |  -.8444497   .3163279    -2.67   0.008    -1.464441   -.2244584
+        Other  |  -1.004163   .1984883    -5.06   0.000    -1.393192   -.6151326
+               |
+     Industry2 |
+Hardware/Ma~h  |  -1.026217   .2773565    -3.70   0.000    -1.569826   -.4826084
+        Other  |  -1.553308   .2797188    -5.55   0.000    -2.101547   -1.005069
+Software/IT..  |   -1.02736   .1992335    -5.16   0.000     -1.41785   -.6368695
+               |
+  Foundingyear |
+         2011  |   .5426253   .2729588     1.99   0.047     .0076358    1.077615
+         2012  |   .5370933   .2822585     1.90   0.057    -.0161233     1.09031
+         2013  |  -.0063775   .3400363    -0.02   0.985    -.6728364    .6600814
+         2014  |   .0036053   .3284356     0.01   0.991    -.6401168    .6473273
+         2015  |   .1735163   .3238415     0.54   0.592    -.4612014    .8082339
+--------------------------------------------------------------------------------
+
+. record_model, source(legacy) model(public3_base)
+
+. stcox VD audit_prior earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Regio
+> n2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: public3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1065.3169
+Iteration 1:  Log likelihood =   -938.092
+Iteration 2:  Log likelihood = -923.79387
+Iteration 3:  Log likelihood = -923.48278
+Iteration 4:  Log likelihood = -923.48232
+Iteration 5:  Log likelihood = -923.48232
+Refining estimates:
+Iteration 0:  Log likelihood = -923.48232
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    141
+Time at risk    = 15,262
+                                                        LR chi2(16)   = 283.67
+Log likelihood = -923.48232                             Prob > chi2   = 0.0000
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .3703482   .1788293     2.07   0.038     .0198492    .7208472
+   audit_prior |   .3649452   .1842493     1.98   0.048     .0038231    .7260672
+    earlystage |   -.657737    .213557    -3.08   0.002    -1.076301    -.239173
+ln_MoneyRais~D |    .525389   .0609742     8.62   0.000     .4058817    .6448962
+NumofFunding~D |   .0298335   .0391314     0.76   0.446    -.0468627    .1065296
+               |
+       Region2 |
+Massachusetts  |   .0780682   .2539807     0.31   0.759    -.4197249    .5758612
+     New York  |  -.4962535   .3207251    -1.55   0.122    -1.124863    .1323561
+        Other  |  -.3170989   .2052543    -1.54   0.122    -.7193899    .0851921
+               |
+     Industry2 |
+Hardware/Ma~h  |  -1.305648   .2835882    -4.60   0.000    -1.861471   -.7498254
+        Other  |   -1.50313   .2870846    -5.24   0.000    -2.065806   -.9404549
+Software/IT..  |  -1.082805   .2072653    -5.22   0.000    -1.489037    -.676572
+               |
+  Foundingyear |
+         2011  |   .6287038   .2747177     2.29   0.022     .0902669    1.167141
+         2012  |   .7164306   .2860775     2.50   0.012      .155729    1.277132
+         2013  |   .0377325   .3424498     0.11   0.912    -.6334568    .7089217
+         2014  |    .008012   .3302635     0.02   0.981    -.6392926    .6553166
+         2015  |  -.0826899   .3354737    -0.25   0.805    -.7402063    .5748265
+--------------------------------------------------------------------------------
+
+. record_model, source(legacy) model(public3_ctrl)
+
+. stset VDage3, failure(badexit3==1) id(firm_id)
+
+Survival-time data settings
+
+           ID variable: firm_id
+         Failure event: badexit3==1
+Observed time interval: (VDage3[_n-1], VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      2,820  total observations
+        130  observations end on or before enter()
+--------------------------------------------------------------------------
+      2,690  observations remaining, representing
+      2,690  subjects
+        266  failures in single-failure-per-subject data
+     15,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+. stcox VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: badexit3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1959.7921
+Iteration 1:  Log likelihood = -1955.0439
+Iteration 2:  Log likelihood =  -1955.037
+Iteration 3:  Log likelihood =  -1955.037
+Refining estimates:
+Iteration 0:  Log likelihood =  -1955.037
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    266
+Time at risk    = 15,262
+                                                        LR chi2(12)   =   9.51
+Log likelihood = -1955.037                              Prob > chi2   = 0.6588
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .1436538   .1241776     1.16   0.247    -.0997298    .3870373
+               |
+       Region2 |
+Massachusetts  |  -.0532831   .2437555    -0.22   0.827     -.531035    .4244689
+     New York  |  -.1665859   .2096449    -0.79   0.427    -.5774825    .2443106
+        Other  |   .0182345   .1438526     0.13   0.899    -.2637114    .3001803
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0733083   .2018882     0.36   0.717    -.3223852    .4690019
+        Other  |   -.020669   .1819994    -0.11   0.910    -.3773813    .3360433
+Software/IT..  |  -.2600283   .1737829    -1.50   0.135    -.6006365    .0805798
+               |
+  Foundingyear |
+         2011  |   .0424496   .1819371     0.23   0.816    -.3141406    .3990397
+         2012  |  -.1784093   .2002426    -0.89   0.373    -.5708777    .2140591
+         2013  |  -.1723368   .2160346    -0.80   0.425    -.5957569    .2510833
+         2014  |  -.1121129   .2116551    -0.53   0.596    -.5269494    .3027235
+         2015  |  -.1591413   .2301893    -0.69   0.489     -.610304    .2920215
+--------------------------------------------------------------------------------
+
+. record_model, source(legacy) model(badexit3_base)
+
+. stcox VD audit_prior earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Regio
+> n2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: badexit3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1959.7921
+Iteration 1:  Log likelihood = -1949.5282
+Iteration 2:  Log likelihood = -1949.0842
+Iteration 3:  Log likelihood = -1949.0802
+Iteration 4:  Log likelihood = -1949.0802
+Refining estimates:
+Iteration 0:  Log likelihood = -1949.0802
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    266
+Time at risk    = 15,262
+                                                        LR chi2(16)   =  21.42
+Log likelihood = -1949.0802                             Prob > chi2   = 0.1628
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .1247228   .1255979     0.99   0.321    -.1214446    .3708901
+   audit_prior |  -.1859138   .1898322    -0.98   0.327    -.5579782    .1861505
+    earlystage |   .0979778   .1659357     0.59   0.555    -.2272501    .4232058
+ln_MoneyRais~D |  -.0740005   .0263083    -2.81   0.005    -.1255638   -.0224372
+NumofFunding~D |   .0307903   .0327984     0.94   0.348    -.0334932    .0950739
+               |
+       Region2 |
+Massachusetts  |  -.0773928   .2439919    -0.32   0.751    -.5556082    .4008226
+     New York  |  -.2051782   .2099115    -0.98   0.328    -.6165973    .2062408
+        Other  |  -.0546157   .1458533    -0.37   0.708     -.340483    .2312516
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0764502   .2023529     0.38   0.706    -.3201541    .4730546
+        Other  |  -.0635449   .1846114    -0.34   0.731    -.4253765    .2982867
+Software/IT..  |   -.290604   .1762665    -1.65   0.099      -.63608     .054872
+               |
+  Foundingyear |
+         2011  |   .0597864   .1837603     0.33   0.745    -.3003772    .4199501
+         2012  |  -.1894485      .2021    -0.94   0.349    -.5855572    .2066603
+         2013  |  -.1625322   .2190341    -0.74   0.458    -.5918311    .2667667
+         2014  |  -.1065507   .2139271    -0.50   0.618    -.5258401    .3127387
+         2015  |  -.1430684   .2345879    -0.61   0.542    -.6028523    .3167155
+--------------------------------------------------------------------------------
+
+. record_model, source(legacy) model(badexit3_ctrl)
+
+. use "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original_
+> 2820_cross_section_v2.dta", clear
+
+. capture drop audit_prior
+
+. gen audit_prior=patentdummybyfiling
+
+. reghdfe ln_moneyraised_y1 VD i.audit_prior i.earlystage ln_MoneyRaised_VD Numof
+> FundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,043
+Absorbing 3 HDFE groups                           F(   5,   1026) =      81.43
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4321
+                                                  Adj R-squared   =     0.4233
+                                                  Within R-sq.    =     0.3745
+                                                  Root MSE        =     1.5184
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y1 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   -.085141   .0948116    -0.90   0.369    -.2711879    .1009059
+ 1.audit_prior |   .3024521   .1218568     2.48   0.013      .063335    .5415692
+  1.earlystage |  -.8947451   .1855613    -4.82   0.000    -1.258868   -.5306221
+ln_MoneyRais~D |   .4127558   .0758289     5.44   0.000     .2639584    .5615533
+NumofFunding~D |   -.114138   .0249104    -4.58   0.000    -.1630192   -.0652568
+         _cons |    10.3756   1.298088     7.99   0.000      7.82839    12.92281
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. record_model, source(current) model(T6_legacy_1)
+
+. reghdfe ln_moneyraised_y2 VD i.audit_prior i.earlystage ln_MoneyRaised_VD Numof
+> FundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,043
+Absorbing 3 HDFE groups                           F(   5,   1026) =       3.97
+                                                  Prob > F        =     0.0014
+                                                  R-squared       =     0.0302
+                                                  Adj R-squared   =     0.0150
+                                                  Within R-sq.    =     0.0187
+                                                  Root MSE        =     7.7890
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y2 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   1.620768   .4919577     3.29   0.001     .6554095    2.586126
+ 1.audit_prior |   1.448517   .6671529     2.17   0.030     .1393768    2.757657
+  1.earlystage |   .1096128   .6275571     0.17   0.861    -1.121829    1.341055
+ln_MoneyRais~D |   .0050661   .1222278     0.04   0.967     -.234779    .2449112
+NumofFunding~D |   .1860002   .1156508     1.61   0.108     -.040939    .4129393
+         _cons |   3.846585   2.129914     1.81   0.071    -.3329003     8.02607
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. record_model, source(current) model(T6_legacy_2)
+
+. reghdfe ln_moneyraised_y3 VD i.audit_prior i.earlystage ln_MoneyRaised_VD Numof
+> FundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      1,485
+Absorbing 3 HDFE groups                           F(   5,   1468) =       2.10
+                                                  Prob > F        =     0.0624
+                                                  R-squared       =     0.0317
+                                                  Adj R-squared   =     0.0211
+                                                  Within R-sq.    =     0.0062
+                                                  Root MSE        =     7.3674
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_moneyrai~y3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .7269329    .386894     1.88   0.060    -.0319912    1.485857
+ 1.audit_prior |   .2626956   .5444443     0.48   0.630    -.8052762    1.330667
+  1.earlystage |  -.1840768    .495686    -0.37   0.710    -1.156405    .7882515
+ln_MoneyRais~D |   .1511272   .1003267     1.51   0.132    -.0456718    .3479261
+NumofFunding~D |  -.1778719   .0874485    -2.03   0.042    -.3494092   -.0063346
+         _cons |   2.682913   1.734288     1.55   0.122    -.7190332     6.08486
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. record_model, source(current) model(T6_legacy_3)
+
+. stset VDage3, failure(acq3==1) id(firm_id)
+
+Survival-time data settings
+
+           ID variable: firm_id
+         Failure event: acq3==1
+Observed time interval: (VDage3[_n-1], VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      2,820  total observations
+        130  observations end on or before enter()
+--------------------------------------------------------------------------
+      2,690  observations remaining, representing
+      2,690  subjects
+        846  failures in single-failure-per-subject data
+     15,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+. stcox VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: acq3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -6296.3194
+Iteration 1:  Log likelihood = -6276.2807
+Iteration 2:  Log likelihood = -6276.1346
+Iteration 3:  Log likelihood = -6276.1345
+Refining estimates:
+Iteration 0:  Log likelihood = -6276.1345
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    846
+Time at risk    = 15,262
+                                                        LR chi2(12)   =  40.37
+Log likelihood = -6276.1345                             Prob > chi2   = 0.0001
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .1465178   .0693937     2.11   0.035     .0105086    .2825271
+               |
+       Region2 |
+Massachusetts  |   .0573497   .1340618     0.43   0.669    -.2054065    .3201059
+     New York  |   .0046763   .1081336     0.04   0.966    -.2072616    .2166142
+        Other  |  -.0476256   .0814003    -0.59   0.558    -.2071672    .1119161
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0603105   .1352525     0.45   0.656    -.2047795    .3254004
+        Other  |    .341593   .1131516     3.02   0.003     .1198199    .5633661
+Software/IT..  |    .341622     .10601     3.22   0.001     .1338462    .5493977
+               |
+  Foundingyear |
+         2011  |  -.0798507    .102691    -0.78   0.437    -.2811214      .12142
+         2012  |  -.2119653    .110145    -1.92   0.054    -.4278455    .0039149
+         2013  |  -.1463051   .1142348    -1.28   0.200    -.3702011     .077591
+         2014  |  -.1915947   .1164011    -1.65   0.100    -.4197367    .0365472
+         2015  |  -.5555462   .1390535    -4.00   0.000    -.8280861   -.2830064
+--------------------------------------------------------------------------------
+
+. record_model, source(current) model(acq3_base)
+
+. stcox VD audit_prior earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Regio
+> n2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: acq3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -6296.3194
+Iteration 1:  Log likelihood = -6261.3273
+Iteration 2:  Log likelihood =  -6261.082
+Iteration 3:  Log likelihood =  -6261.082
+Refining estimates:
+Iteration 0:  Log likelihood =  -6261.082
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    846
+Time at risk    = 15,262
+                                                        LR chi2(16)   =  70.47
+Log likelihood = -6261.082                              Prob > chi2   = 0.0000
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |    .187459   .0703335     2.67   0.008     .0496078    .3253102
+   audit_prior |  -.1120795   .1020527    -1.10   0.272    -.3120991    .0879402
+    earlystage |  -.2226613   .0884242    -2.52   0.012    -.3959695   -.0493531
+ln_MoneyRais~D |   .0503607    .021091     2.39   0.017     .0090231    .0916982
+NumofFunding~D |   .0194217   .0185223     1.05   0.294    -.0168813    .0557247
+               |
+       Region2 |
+Massachusetts  |    .077605    .134455     0.58   0.564    -.1859219    .3411318
+     New York  |   .0383651   .1087068     0.35   0.724    -.1746964    .2514266
+        Other  |   .0329531   .0831122     0.40   0.692    -.1299437      .19585
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0469643   .1353743     0.35   0.729    -.2183645    .3122931
+        Other  |   .3228481   .1151609     2.80   0.005     .0971369    .5485593
+Software/IT..  |   .3059746   .1076668     2.84   0.004     .0949516    .5169976
+               |
+  Foundingyear |
+         2011  |  -.0931038   .1032853    -0.90   0.367    -.2955393    .1093317
+         2012  |  -.1999793   .1111153    -1.80   0.072    -.4177613    .0178026
+         2013  |  -.1514358   .1154974    -1.31   0.190    -.3778065    .0749349
+         2014  |  -.2006986   .1174876    -1.71   0.088      -.43097    .0295729
+         2015  |  -.5623602   .1413361    -3.98   0.000    -.8393739   -.2853466
+--------------------------------------------------------------------------------
+
+. record_model, source(current) model(acq3_ctrl)
+
+. stset VDage3, failure(public3==1) id(firm_id)
+
+Survival-time data settings
+
+           ID variable: firm_id
+         Failure event: public3==1
+Observed time interval: (VDage3[_n-1], VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      2,820  total observations
+        130  observations end on or before enter()
+--------------------------------------------------------------------------
+      2,690  observations remaining, representing
+      2,690  subjects
+        141  failures in single-failure-per-subject data
+     15,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+. stcox VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: public3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1065.3169
+Iteration 1:  Log likelihood = -1023.2586
+Iteration 2:  Log likelihood = -1019.4444
+Iteration 3:  Log likelihood =  -1019.434
+Iteration 4:  Log likelihood =  -1019.434
+Refining estimates:
+Iteration 0:  Log likelihood =  -1019.434
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    141
+Time at risk    = 15,262
+                                                        LR chi2(12)   =  91.77
+Log likelihood = -1019.434                              Prob > chi2   = 0.0000
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .3470845   .1711008     2.03   0.043     .0117331    .6824359
+               |
+       Region2 |
+Massachusetts  |  -.0992095   .2521097    -0.39   0.694    -.5933354    .3949165
+     New York  |  -.8444497   .3163279    -2.67   0.008    -1.464441   -.2244584
+        Other  |  -1.004163   .1984883    -5.06   0.000    -1.393192   -.6151326
+               |
+     Industry2 |
+Hardware/Ma~h  |  -1.026217   .2773565    -3.70   0.000    -1.569826   -.4826084
+        Other  |  -1.553308   .2797188    -5.55   0.000    -2.101547   -1.005069
+Software/IT..  |   -1.02736   .1992335    -5.16   0.000     -1.41785   -.6368695
+               |
+  Foundingyear |
+         2011  |   .5426253   .2729588     1.99   0.047     .0076358    1.077615
+         2012  |   .5370933   .2822585     1.90   0.057    -.0161233     1.09031
+         2013  |  -.0063775   .3400363    -0.02   0.985    -.6728364    .6600814
+         2014  |   .0036053   .3284356     0.01   0.991    -.6401168    .6473273
+         2015  |   .1735163   .3238415     0.54   0.592    -.4612014    .8082339
+--------------------------------------------------------------------------------
+
+. record_model, source(current) model(public3_base)
+
+. stcox VD audit_prior earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Regio
+> n2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: public3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1065.3169
+Iteration 1:  Log likelihood =   -938.092
+Iteration 2:  Log likelihood = -923.79387
+Iteration 3:  Log likelihood = -923.48278
+Iteration 4:  Log likelihood = -923.48232
+Iteration 5:  Log likelihood = -923.48232
+Refining estimates:
+Iteration 0:  Log likelihood = -923.48232
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    141
+Time at risk    = 15,262
+                                                        LR chi2(16)   = 283.67
+Log likelihood = -923.48232                             Prob > chi2   = 0.0000
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .3703482   .1788293     2.07   0.038     .0198492    .7208472
+   audit_prior |   .3649452   .1842493     1.98   0.048     .0038231    .7260672
+    earlystage |   -.657737    .213557    -3.08   0.002    -1.076301    -.239173
+ln_MoneyRais~D |    .525389   .0609742     8.62   0.000     .4058817    .6448962
+NumofFunding~D |   .0298335   .0391314     0.76   0.446    -.0468627    .1065296
+               |
+       Region2 |
+Massachusetts  |   .0780682   .2539807     0.31   0.759    -.4197249    .5758612
+     New York  |  -.4962535   .3207251    -1.55   0.122    -1.124863    .1323561
+        Other  |  -.3170989   .2052543    -1.54   0.122    -.7193899    .0851921
+               |
+     Industry2 |
+Hardware/Ma~h  |  -1.305648   .2835882    -4.60   0.000    -1.861471   -.7498254
+        Other  |   -1.50313   .2870846    -5.24   0.000    -2.065806   -.9404549
+Software/IT..  |  -1.082805   .2072653    -5.22   0.000    -1.489037    -.676572
+               |
+  Foundingyear |
+         2011  |   .6287038   .2747177     2.29   0.022     .0902669    1.167141
+         2012  |   .7164306   .2860775     2.50   0.012      .155729    1.277132
+         2013  |   .0377325   .3424498     0.11   0.912    -.6334568    .7089217
+         2014  |    .008012   .3302635     0.02   0.981    -.6392926    .6553166
+         2015  |  -.0826899   .3354737    -0.25   0.805    -.7402063    .5748265
+--------------------------------------------------------------------------------
+
+. record_model, source(current) model(public3_ctrl)
+
+. stset VDage3, failure(badexit3==1) id(firm_id)
+
+Survival-time data settings
+
+           ID variable: firm_id
+         Failure event: badexit3==1
+Observed time interval: (VDage3[_n-1], VDage3]
+     Exit on or before: failure
+
+--------------------------------------------------------------------------
+      2,820  total observations
+        130  observations end on or before enter()
+--------------------------------------------------------------------------
+      2,690  observations remaining, representing
+      2,690  subjects
+        266  failures in single-failure-per-subject data
+     15,262  total analysis time at risk and under observation
+                                                At risk from t =         0
+                                     Earliest observed entry t =         0
+                                          Last observed exit t =        15
+
+. stcox VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: badexit3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1959.7921
+Iteration 1:  Log likelihood = -1955.0439
+Iteration 2:  Log likelihood =  -1955.037
+Iteration 3:  Log likelihood =  -1955.037
+Refining estimates:
+Iteration 0:  Log likelihood =  -1955.037
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    266
+Time at risk    = 15,262
+                                                        LR chi2(12)   =   9.51
+Log likelihood = -1955.037                              Prob > chi2   = 0.6588
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .1436538   .1241776     1.16   0.247    -.0997298    .3870373
+               |
+       Region2 |
+Massachusetts  |  -.0532831   .2437555    -0.22   0.827     -.531035    .4244689
+     New York  |  -.1665859   .2096449    -0.79   0.427    -.5774825    .2443106
+        Other  |   .0182345   .1438526     0.13   0.899    -.2637114    .3001803
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0733083   .2018882     0.36   0.717    -.3223852    .4690019
+        Other  |   -.020669   .1819994    -0.11   0.910    -.3773813    .3360433
+Software/IT..  |  -.2600283   .1737829    -1.50   0.135    -.6006365    .0805798
+               |
+  Foundingyear |
+         2011  |   .0424496   .1819371     0.23   0.816    -.3141406    .3990397
+         2012  |  -.1784093   .2002426    -0.89   0.373    -.5708777    .2140591
+         2013  |  -.1723368   .2160346    -0.80   0.425    -.5957569    .2510833
+         2014  |  -.1121129   .2116551    -0.53   0.596    -.5269494    .3027235
+         2015  |  -.1591413   .2301893    -0.69   0.489     -.610304    .2920215
+--------------------------------------------------------------------------------
+
+. record_model, source(current) model(badexit3_base)
+
+. stcox VD audit_prior earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Regio
+> n2 i.Industry2 i.Foundingyear, nohr
+
+        Failure _d: badexit3==1
+  Analysis time _t: VDage3
+       ID variable: firm_id
+
+Iteration 0:  Log likelihood = -1959.7921
+Iteration 1:  Log likelihood = -1949.5282
+Iteration 2:  Log likelihood = -1949.0842
+Iteration 3:  Log likelihood = -1949.0802
+Iteration 4:  Log likelihood = -1949.0802
+Refining estimates:
+Iteration 0:  Log likelihood = -1949.0802
+
+Cox regression with Breslow method for ties
+
+No. of subjects =  2,690                                Number of obs =  2,690
+No. of failures =    266
+Time at risk    = 15,262
+                                                        LR chi2(16)   =  21.42
+Log likelihood = -1949.0802                             Prob > chi2   = 0.1628
+
+--------------------------------------------------------------------------------
+            _t | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |   .1247228   .1255979     0.99   0.321    -.1214446    .3708901
+   audit_prior |  -.1859138   .1898322    -0.98   0.327    -.5579782    .1861505
+    earlystage |   .0979778   .1659357     0.59   0.555    -.2272501    .4232058
+ln_MoneyRais~D |  -.0740005   .0263083    -2.81   0.005    -.1255638   -.0224372
+NumofFunding~D |   .0307903   .0327984     0.94   0.348    -.0334932    .0950739
+               |
+       Region2 |
+Massachusetts  |  -.0773928   .2439919    -0.32   0.751    -.5556082    .4008226
+     New York  |  -.2051782   .2099115    -0.98   0.328    -.6165973    .2062408
+        Other  |  -.0546157   .1458533    -0.37   0.708     -.340483    .2312516
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0764502   .2023529     0.38   0.706    -.3201541    .4730546
+        Other  |  -.0635449   .1846114    -0.34   0.731    -.4253765    .2982867
+Software/IT..  |   -.290604   .1762665    -1.65   0.099      -.63608     .054872
+               |
+  Foundingyear |
+         2011  |   .0597864   .1837603     0.33   0.745    -.3003772    .4199501
+         2012  |  -.1894485      .2021    -0.94   0.349    -.5855572    .2066603
+         2013  |  -.1625322   .2190341    -0.74   0.458    -.5918311    .2667667
+         2014  |  -.1065507   .2139271    -0.50   0.618    -.5258401    .3127387
+         2015  |  -.1430684   .2345879    -0.61   0.542    -.6028523    .3167155
+--------------------------------------------------------------------------------
+
+. record_model, source(current) model(badexit3_ctrl)
+
+. capture drop audit_dv
+
+. gen audit_dv=ln(1+moneyraised_t1)
+(1,877 missing values generated)
+
+. reghdfe audit_dv VD i.audit_prior i.earlystage ln_MoneyRaised_VD NumofFundingRo
+> unds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        943
+Absorbing 3 HDFE groups                           F(   5,    926) =      71.63
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4212
+                                                  Adj R-squared   =     0.4112
+                                                  Within R-sq.    =     0.3607
+                                                  Root MSE        =     1.5361
+
+--------------------------------------------------------------------------------
+               |               Robust
+      audit_dv | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0558625    .101138    -0.55   0.581    -.2543488    .1426238
+ 1.audit_prior |   .3108078   .1280679     2.43   0.015     .0594708    .5621448
+  1.earlystage |  -.9630709   .1866719    -5.16   0.000     -1.32942   -.5967218
+ln_MoneyRais~D |   .3894281   .0756695     5.15   0.000     .2409244    .5379318
+NumofFunding~D |  -.1262846   .0273643    -4.61   0.000    -.1799877   -.0725814
+         _cons |   10.82106   1.293338     8.37   0.000      8.28285    13.35928
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. record_model, source(current) model(T6_new_1)
+
+. capture drop audit_dv
+
+. gen audit_dv=ln(1+moneyraised_t2)
+(2,079 missing values generated)
+
+. reghdfe audit_dv VD i.audit_prior i.earlystage ln_MoneyRaised_VD NumofFundingRo
+> unds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        741
+Absorbing 3 HDFE groups                           F(   5,    724) =      53.50
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.4464
+                                                  Adj R-squared   =     0.4341
+                                                  Within R-sq.    =     0.3716
+                                                  Root MSE        =     1.4829
+
+--------------------------------------------------------------------------------
+               |               Robust
+      audit_dv | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.1281427   .1113011    -1.15   0.250    -.3466541    .0903686
+ 1.audit_prior |   .2605479   .1432617     1.82   0.069      -.02071    .5418058
+  1.earlystage |  -.5557404   .2236246    -2.49   0.013    -.9947705   -.1167102
+ln_MoneyRais~D |   .4864995   .1031521     4.72   0.000     .2839865    .6890124
+NumofFunding~D |  -.1291575   .0287139    -4.50   0.000    -.1855301    -.072785
+         _cons |   9.176267   1.743342     5.26   0.000     5.753659    12.59888
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. record_model, source(current) model(T6_new_2)
+
+. capture drop audit_dv
+
+. gen audit_dv=ln(1+equityraised_t3)
+(2,369 missing values generated)
+
+. reghdfe audit_dv VD i.audit_prior i.earlystage ln_MoneyRaised_VD NumofFundingRo
+> unds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =        451
+Absorbing 3 HDFE groups                           F(   5,    434) =      19.72
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.3820
+                                                  Adj R-squared   =     0.3592
+                                                  Within R-sq.    =     0.2934
+                                                  Root MSE        =     1.4081
+
+--------------------------------------------------------------------------------
+               |               Robust
+      audit_dv | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.2201792    .141651    -1.55   0.121    -.4985865    .0582281
+ 1.audit_prior |  -.0447126   .1840597    -0.24   0.808    -.4064718    .3170465
+  1.earlystage |  -.4020344   .2177859    -1.85   0.066    -.8300806    .0260117
+ln_MoneyRais~D |   .3761207    .093389     4.03   0.000     .1925697    .5596717
+NumofFunding~D |  -.0421232   .0346685    -1.22   0.225    -.1102622    .0260158
+         _cons |   10.90641   1.577442     6.91   0.000     7.806029    14.00678
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+------------------------------------------------------+
+  Absorbed FE | Categories  - Redundant  = Num. Coefs |
+--------------+---------------------------------------|
+      Region2 |         4           0           4     |
+    Industry2 |         4           1           3     |
+ Foundingyear |         6           1           5    ?|
+------------------------------------------------------+
+? = number of redundant parameters may be higher
+
+. record_model, source(current) model(T6_new_3)
+
+. postclose audit
+
+. display "AUDIT_COMPLETE"
+AUDIT_COMPLETE
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/table67_merge_audit/audit.log
+  log type:  text
+ closed on:  20 Oct 2026, 16:49:00
+---------------------------------------------------------------------------------

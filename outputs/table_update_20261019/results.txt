@@ -1,0 +1,20 @@
+	(1)
+VARIABLES	ari_mean_win3
+	
+VD	-0.383*
+	(0.058)
+1.nopriorpatentdummy_VD	0.274
+	(0.350)
+1.Earlystage_VD	0.083
+	(0.735)
+ln_MoneyRaised_VD	0.050
+	(0.396)
+NumofFundingRounds_VD	0.008
+	(0.865)
+Constant	13.807***
+	(0.000)
+	
+Observations	649
+R-squared	0.034
+Robust pval in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

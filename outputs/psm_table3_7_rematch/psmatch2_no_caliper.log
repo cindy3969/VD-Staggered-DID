@@ -1,0 +1,119 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/psmatch2_no_
+> caliper.log
+  log type:  text
+ opened on:  13 Oct 2026, 13:43:17
+
+. use "$OUT/psm_input_7316.dta", clear
+
+. 
+. capture confirm numeric variable Region2
+
+. if _rc encode Region2, gen(Region2_num)
+
+. else gen Region2_num=Region2
+
+. capture confirm numeric variable Industry2
+
+. if _rc encode Industry2, gen(Industry2_num)
+
+. else gen Industry2_num=Industry2
+
+. 
+. sort name_key OrganizationURL
+
+. psmatch2 VD_Backing ///
+>     ln_Total_Funding_Amount_FirstVD ///
+>     NumberOfFunding_Rounds_FirstVD ///
+>     Patents_VD ///
+>     i.Founding_Year ///
+>     TimeToFirst_VC ///
+>     i.Region2_num ///
+>     i.Industry2_num, ///
+>     logit neighbor(1) noreplacement common
+
+Logistic regression                                     Number of obs =  6,541
+                                                        LR chi2(16)   = 336.02
+                                                        Prob > chi2   = 0.0000
+Log likelihood = -3241.3882                             Pseudo R2     = 0.0493
+
+--------------------------------------------------------------------------------
+    VD_Backing | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+ln_Total_Fun~D |   .0385032   .0178297     2.16   0.031     .0035576    .0734488
+NumberOfFund~D |   .1643717   .0170732     9.63   0.000      .130909    .1978345
+    Patents_VD |   .0031689   .0029207     1.08   0.278    -.0025557    .0088934
+               |
+ Founding_Year |
+         2011  |  -.1528385   .1069707    -1.43   0.153    -.3624973    .0568203
+         2012  |  -.2270798   .1110132    -2.05   0.041    -.4446618   -.0094979
+         2013  |  -.5905717   .1102007    -5.36   0.000    -.8065611   -.3745823
+         2014  |  -.7225144   .1077746    -6.70   0.000    -.9337487   -.5112801
+         2015  |  -.8985593   .1082205    -8.30   0.000    -1.110667   -.6864511
+               |
+TimeToFirst_VC |  -.0578634   .0194917    -2.97   0.003    -.0960664   -.0196604
+               |
+   Region2_num |
+Massachusetts  |   .2745433   .1216847     2.26   0.024     .0360457    .5130409
+     New York  |   .4483313   .0978766     4.58   0.000     .2564967     .640166
+        Other  |   .6085227   .0738963     8.23   0.000     .4636885    .7533568
+               |
+ Industry2_num |
+        False  |  -.2949096   .3209474    -0.92   0.358    -.9239549    .3341358
+Hardware/Ma~h  |  -.0009731   .1114116    -0.01   0.993    -.2193359    .2173896
+        Other  |  -.0328714     .09565    -0.34   0.731    -.2203419    .1545991
+Software/IT..  |  -.2236999   .0870928    -2.57   0.010    -.3943986   -.0530011
+               |
+         _cons |  -2.203174   .3079664    -7.15   0.000    -2.806777   -1.599571
+--------------------------------------------------------------------------------
+
+. 
+. gen byte matched=(_weight==1 & !missing(_weight))
+
+. count if matched
+  2,820
+
+. display "MATCHED TOTAL=" r(N)
+MATCHED TOTAL=2820
+
+. count if matched & VD_Backing==1
+  1,410
+
+. display "MATCHED TREATED=" r(N)
+MATCHED TREATED=1410
+
+. count if matched & VD_Backing==0
+  1,410
+
+. display "MATCHED CONTROLS=" r(N)
+MATCHED CONTROLS=1410
+
+. save "$OUT/psmatch2_no_caliper_full7316.dta", replace
+file
+    C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/psmatch2_no_caliper
+    > _full7316.dta saved
+
+. preserve
+
+. keep if matched
+(4,496 observations deleted)
+
+. save "$OUT/psmatch2_no_caliper_matched.dta", replace
+file
+    C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/psmatch2_no_caliper
+    > _matched.dta saved
+
+. export delimited using "$OUT/psmatch2_no_caliper_matched.csv", replace
+file C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/psmatch2_no_caliper_
+> matched.csv saved
+
+. restore
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/psmatch2_no_
+> caliper.log
+  log type:  text
+ closed on:  13 Oct 2026, 13:43:20
+---------------------------------------------------------------------------------

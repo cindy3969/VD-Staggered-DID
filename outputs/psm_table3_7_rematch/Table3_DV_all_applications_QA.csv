@@ -1,0 +1,7 @@
+﻿metric,value
+corrected_union_rows,39721.0
+unique_firm_application_2010_2024,39249.0
+matched_sample_window3_applications,4763.0
+firms_with_window3_application,539.0
+firms_with_zero_window3_applications,2281.0
+mean_log1p_window3_applications,0.29481921789716387

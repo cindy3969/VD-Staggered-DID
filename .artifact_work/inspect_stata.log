@@ -1,0 +1,248 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\.artifact_work\inspect_stata.do 
+
+. clear all
+
+. set more off
+
+. capture log close
+
+. log using "C:/Users/user/Documents/VD/.artifact_work/inspect_details.log", repl
+> ace text
+(file C:/Users/user/Documents/VD/.artifact_work/inspect_details.log not found)
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/.artifact_work/inspect_details.log
+  log type:  text
+ opened on:  12 Oct 2026, 21:24:07
+
+. use "C:/Users/user/iCloudDrive/5학기/연구미팅/20240108-2010 to 2015 firms/26012
+> 2 winsorization.dta", clear
+
+. describe
+
+Contains data from C:/Users/user/iCloudDrive/5학기/연구미팅/20240108-2010 to 2015
+>  firms/260122 winsorization.dta
+ Observations:         2,820                  
+    Variables:           164                  19 May 2026 03:48
+---------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+---------------------------------------------------------------------------------
+firm_id         long    %10.0g                firm_id
+Founding_Year   int     %10.0g                Founding_Year
+OrganizationN~e str50   %50s                  OrganizationName
+VDyear          int     %10.0g                VDyear
+MoneyRaised_VD  double  %10.0g                MoneyRaised_VD
+NumofFundingR~D byte    %10.0g                NumofFundingRounds_VD
+patentdummyby~g byte    %10.0g                patentdummybyfiling
+patentbyfiling  int     %10.0g                patentbyfiling
+patentbyfilin~1 int     %10.0g                patentbyfiling_win1
+patentbyfilin~2 int     %10.0g                patentbyfiling_win2
+patentbyfilin~3 int     %10.0g                patentbyfiling_win3
+patentbyfilin~4 int     %10.0g                patentbyfiling_win4
+patentbyfilin~5 int     %10.0g                patentbyfiling_win5
+patentdummy     byte    %10.0g                patentdummy
+patentdummyby~d byte    %10.0g                patentdummybygranted
+patentbygranted int     %10.0g                patentbygranted
+patentbygrant~1 int     %10.0g                patentbygranted_win1
+patentbygrant~2 int     %10.0g                patentbygranted_win2
+patentbygrant~3 int     %10.0g                patentbygranted_win3
+patentbygrant~4 int     %10.0g                patentbygranted_win4
+patentbygrant~5 int     %10.0g                patentbygranted_win5
+SeriesB         byte    %10.0g                SeriesB
+SeriesC         byte    %10.0g                SeriesC
+VD              byte    %10.0g                VD
+TimetoFirstVC   byte    %10.0g                TimetoFirstVC
+Industry2       long    %31.0g     Industry2_
+                                              Industry2
+Region2         long    %13.0g     Region2_   Region2
+OperatingStatus long    %8.0g      OperatingStatus_
+                                              OperatingStatus
+ln_patentbygr~d float   %9.0g                 
+ln_patentbygr~1 float   %9.0g                 
+ln_patentbygr~2 float   %9.0g                 
+ln_patentbygr~3 float   %9.0g                 
+ln_patentbygr~4 float   %9.0g                 
+ln_patentbygr~5 float   %9.0g                 
+ln_patentbyfi~g float   %9.0g                 
+ln_patentbyfi~1 float   %9.0g                 
+ln_patentbyfi~2 float   %9.0g                 
+ln_patentbyfi~3 float   %9.0g                 
+ln_patentbyfi~4 float   %9.0g                 
+ln_patentbyfi~5 float   %9.0g                 
+ln_MoneyRaise~D float   %9.0g                 
+Foundingyear    int     %8.0g                 Foundingyear
+fwd_raw_win1    int     %8.0g                 
+fwd_raw_win2    int     %8.0g                 
+fwd_raw_win3    int     %8.0g                 
+fwd_raw_win4    int     %8.0g                 
+fwd_raw_win5    int     %8.0g                 
+fwd_norm_coho~1 float   %8.0g                 
+fwd_norm_coho~2 float   %8.0g                 
+fwd_norm_coho~3 float   %8.0g                 
+fwd_norm_coho~4 float   %8.0g                 
+fwd_norm_coho~5 float   %8.0g                 
+fwd_rate_win1   float   %8.0g                 
+fwd_rate_win2   float   %8.0g                 
+fwd_rate_win3   float   %8.0g                 
+fwd_rate_win4   float   %8.0g                 
+fwd_rate_win5   float   %8.0g                 
+ln_fwd_raw_win1 float   %9.0g                 
+ln_fwd_raw_win2 float   %9.0g                 
+ln_fwd_raw_win3 float   %9.0g                 
+ln_fwd_raw_win4 float   %9.0g                 
+ln_fwd_raw_win5 float   %9.0g                 
+ln_fwd_norm_c~1 float   %9.0g                 
+ln_fwd_norm_c~2 float   %9.0g                 
+ln_fwd_norm_c~3 float   %9.0g                 
+ln_fwd_norm_c~4 float   %9.0g                 
+ln_fwd_norm_c~5 float   %9.0g                 
+ln_fwd_rate_w~1 float   %9.0g                 
+ln_fwd_rate_w~2 float   %9.0g                 
+ln_fwd_rate_w~3 float   %9.0g                 
+ln_fwd_rate_w~4 float   %9.0g                 
+ln_fwd_rate_w~5 float   %9.0g                 
+scaleupdummy    byte    %8.0g                 scaleup dummy
+timetonextequ~y int     %8.0g                 Time to next equity
+ln_timetonext~y float   %9.0g                 
+timetonextequ~r float   %9.0g                 
+moneyraised_w~1 double  %8.0g                 MoneyRaised_win1
+moneyraised_w~2 double  %8.0g                 MoneyRaised_win2
+moneyraised_w~3 double  %8.0g                 MoneyRaised_win3
+moneyraised_w~4 double  %8.0g                 MoneyRaised_win4
+moneyraised_w~5 double  %8.0g                 MoneyRaised_win5
+ln_moneyrais~n1 float   %9.0g                 
+ln_moneyrais~n2 float   %9.0g                 
+ln_moneyrais~n3 float   %9.0g                 
+ln_moneyraise~4 float   %9.0g                 
+ln_moneyraise~5 float   %9.0g                 
+exityear        int     %8.0g                 exit year
+exittype        long    %8.0g      exittype_
+                                              exit type
+goodexit        byte    %8.0g                 
+badexit         byte    %8.0g                 
+exit2           str6    %9s                   
+exityear2       int     %8.0g                 exit year2
+firmage2        byte    %8.0g                 
+exittype2       str8    %9s                   exit type2
+goodexit2       byte    %8.0g                 
+badexit2        byte    %8.0g                 
+exit3           str6    %9s                   
+exityear3       int     %8.0g                 exit year3
+firmage3        byte    %8.0g                 
+VDage3          byte    %8.0g                 VDage3
+goodexit3       byte    %8.0g                 
+badexit3        byte    %8.0g                 
+firmage4        byte    %8.0g                 
+VDage4          byte    %8.0g                 VDage4
+acq             byte    %8.0g                 
+public          byte    %8.0g                 
+acq3            byte    %8.0g                 
+public3         byte    %8.0g                 
+employees       float   %8.0g                 
+ln_employees    float   %9.0g                 
+exittype3       long    %8.0g      exittype3_
+                                              
+private         byte    %8.0g                 
+lastdeal        int     %8.0g                 last deal
+lastdeal3       int     %8.0g                 
+VDYear          int     %8.0g                 VDYear
+VDyear2         int     %8.0g                 VDyear2
+vd1             byte    %8.0g                 2025-VD1
+vd2             byte    %8.0g                 2025-VD2
+lastdealvd1     byte    %8.0g                 lastdeal-VD1
+emp2025         int     %8.0g                 
+earlystage      float   %9.0g                 
+yearsince1      byte    %8.0g                 
+yearsince2      byte    %8.0g                 
+yearsince3      byte    %8.0g                 
+emp2025_2       int     %8.0g                 
+lastdeal2vd1    byte    %8.0g                 lastdeal-VD1
+revenueyear     int     %8.0g                 
+timetorevenue   byte    %8.0g                 
+revenuem        float   %8.0g                 
+revenue         float   %8.0g                 
+ln_revenue      float   %9.0g                 
+_est_est1       byte    %8.0g                 esample() from estimates store
+_est_est2       byte    %8.0g                 esample() from estimates store
+_est_est3       byte    %8.0g                 esample() from estimates store
+_est_est4       byte    %8.0g                 esample() from estimates store
+moneyraised_y1  float   %9.0g                 
+moneyraised_y2  float   %9.0g                 
+moneyraised_y3  float   %9.0g                 
+moneyraised_y4  float   %9.0g                 
+moneyraised_y5  float   %9.0g                 
+ln_moneyrais~y1 float   %9.0g                 
+ln_moneyrais~y2 float   %9.0g                 
+ln_moneyrais~y3 float   %9.0g                 
+_st             byte    %8.0g                 1 if record is to be used; 0
+                                                otherwise
+_d              byte    %8.0g                 1 if failure; 0 if censored
+_t              byte    %10.0g                Analysis time when record ends
+_t0             byte    %10.0g                Analysis time when record begins
+dealvalueb      float   %8.0g                 Deal value ($B)
+dealcount       int     %8.0g                 Deal count
+numberoflenders int     %8.0g                 Number of lenders
+ln_dealvalueb   float   %9.0g                 
+ln_dealcount    float   %9.0g                 
+numberofvddeals int     %8.0g                 number of vddeals
+vdsupply        double  %8.0g                 VD supply
+ln_numberofvd~s float   %9.0g                 
+ln_vdsupply     float   %9.0g                 
+numberofvddea~2 int     %8.0g                 number of vddeals2
+vdsupply2       double  %8.0g                 
+ln_numberofvd~2 float   %9.0g                 
+ln_vdsupply2    float   %9.0g                 
+VD_Tech         float   %9.0g                 
+Z_Tech          float   %9.0g                 
+VD_Early        float   %9.0g                 
+Z_Early         float   %9.0g                 
+---------------------------------------------------------------------------------
+Sorted by: firm_id
+
+. count
+  2,820
+
+. capture count if weight==1
+
+. capture noisily codebook firm_id OrganizationName OrganizationNameURL VD VDyear
+>  VDyear2 Foundingyear Founding_Year SeriesB earlystage weight
+variable OrganizationNameURL not found
+
+. capture noisily list firm_id OrganizationName OrganizationNameURL VD VDyear VDy
+> ear2 Foundingyear Founding_Year SeriesB earlystage weight in 1/10, clean noobs
+variable OrganizationNameURL not found
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/.artifact_work/inspect_details.log
+  log type:  text
+ closed on:  12 Oct 2026, 21:24:07
+---------------------------------------------------------------------------------
+
+. exit, clear
+
+end of do-file

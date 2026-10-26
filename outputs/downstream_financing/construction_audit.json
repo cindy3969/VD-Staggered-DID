@@ -1,0 +1,30 @@
+{
+  "cutoff_assumption": "2023-12-31",
+  "date_year_discrepancies_using_announced_date": 16,
+  "raw_max_date": "2023-12-21",
+  "N": 2820,
+  "reference": "December 31 of VD/reference year; excludes same-year rounds",
+  "caveat": "2024 recalled collection cutoff is not supported by dates in this source. 2023 completeness remains a working assumption. No competing-exit adjustment.",
+  "next_events": 1763,
+  "first_date_multiple_rounds": 0,
+  "horizons": {
+    "1": {
+      "complete": 2755,
+      "raised": 1025,
+      "genuine_zeros_assuming_coverage": 1730,
+      "undisclosed": 215
+    },
+    "2": {
+      "complete": 2630,
+      "raised": 1470,
+      "genuine_zeros_assuming_coverage": 1160,
+      "undisclosed": 357
+    },
+    "3": {
+      "complete": 2497,
+      "raised": 1564,
+      "genuine_zeros_assuming_coverage": 933,
+      "undisclosed": 446
+    }
+  }
+}

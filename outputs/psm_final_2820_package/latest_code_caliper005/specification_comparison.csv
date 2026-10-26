@@ -1,0 +1,3 @@
+﻿specification,initial_firms,estimation_sample,eligible_treated,eligible_controls,support_lower,support_upper,treated_on_support,controls_on_support,matched_pairs,matched_firms,unmatched_treated_after_caliper,outcome_complete_pairs,ATT_ln_Total_Funding_Amount_T3
+spec_A_psmatch2_direct,7316,6541,1410,5131,0.06781597473433586,0.6883680342345259,1410,5087,1379,2758,31,8,2.887541565776687
+spec_B_manual_logit_with_VDYear,7316,6541,1410,5131,0.055217547926816324,0.9781046029018611,1405,5124,1398,2796,7,10,2.1185786310397257

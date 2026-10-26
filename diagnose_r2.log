@@ -1,0 +1,252 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\outputs\psm_table3_7_rematch\diagnose_r2.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. global ROOT "C:/Users/user/Documents/VD"
+
+. global OUT "$ROOT/outputs/psm_table3_7_rematch"
+
+. capture log close
+
+. log using "$OUT/diagnose_r2.log", text replace
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/diagnose_r2.
+> log
+  log type:  text
+ opened on:  13 Oct 2026, 14:13:13
+
+. 
+. display "===== ARCHIVED 2820 DATA ====="
+===== ARCHIVED 2820 DATA =====
+
+. use "$ROOT/260122 winsorization_stage4.dta", clear
+
+. summarize ln_patentbyfiling_win3, detail
+
+                   ln_patentbyfiling_win3
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               2,820
+25%            0              0       Sum of wgt.       2,820
+
+50%            0                      Mean           .4573393
+                        Largest       Std. dev.      .9125774
+75%     .6931472       5.420535
+90%     1.791759       5.872118       Variance       .8327975
+95%     2.564949       6.535241       Skewness       2.334165
+99%     3.850147       6.732211       Kurtosis       8.917172
+
+. reghdfe ln_patentbyfiling_win3 VD patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, ///
+>     absorb(Region2 Industry2) vce(robust)
+(MWFE estimator converged in 5 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   6,   2807) =     258.17
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.6358
+                                                  Adj R-squared   =     0.6343
+                                                  Within R-sq.    =     0.5968
+                                                  Root MSE        =     0.5519
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0741766   .0207458    -3.58   0.000    -.1148551    -.033498
+patentdummyb~g |   1.792811   .0463755    38.66   0.000     1.701878    1.883744
+    earlystage |  -.0322827   .0259771    -1.24   0.214    -.0832189    .0186535
+ln_MoneyRais~D |   .0200177    .005618     3.56   0.000     .0090018    .0310336
+NumofFunding~D |   .0140563   .0081072     1.73   0.083    -.0018403     .029953
+  Foundingyear |  -.0156434   .0061855    -2.53   0.011    -.0277721   -.0035148
+         _cons |   31.31031   12.43298     2.52   0.012     6.931609      55.689
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         4           1           3     |
+-----------------------------------------------------+
+
+. display "archived reghdfe e(r2)=" %9.6f e(r2) " within=" %9.6f e(r2_within)
+archived reghdfe e(r2)= 0.635849 within= 0.596791
+
+. reg ln_patentbyfiling_win3 VD patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear i.Region2 i.Industry2,
+>  vce(robust)
+
+Linear regression                               Number of obs     =      2,820
+                                                F(12, 2807)       =     166.59
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.6358
+                                                Root MSE          =     .55187
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0741766   .0207458    -3.58   0.000    -.1148551    -.033498
+patentdummyb~g |   1.792811   .0463755    38.66   0.000     1.701878    1.883744
+    earlystage |  -.0322827   .0259771    -1.24   0.214    -.0832189    .0186535
+ln_MoneyRais~D |   .0200177    .005618     3.56   0.000     .0090018    .0310336
+NumofFunding~D |   .0140563   .0081072     1.73   0.083    -.0018403     .029953
+  Foundingyear |  -.0156434   .0061855    -2.53   0.011    -.0277721   -.0035148
+               |
+       Region2 |
+Massachusetts  |  -.0818216   .0478619    -1.71   0.087    -.1756697    .0120265
+     New York  |  -.1581416   .0292967    -5.40   0.000    -.2155869   -.1006963
+        Other  |  -.0937567    .026018    -3.60   0.000    -.1447732   -.0427403
+               |
+     Industry2 |
+Hardware/Ma~h  |   .0521248   .0436166     1.20   0.232     -.033399    .1376485
+        Other  |  -.1412446    .033255    -4.25   0.000    -.2064514   -.0760378
+Software/IT..  |   -.096714   .0337627    -2.86   0.004    -.1629163   -.0305118
+               |
+         _cons |   31.45425   12.43318     2.53   0.011     7.075151    55.83334
+--------------------------------------------------------------------------------
+
+. display "archived reg e(r2)=" %9.6f e(r2)
+archived reg e(r2)= 0.635849
+
+. 
+. display "===== NEW REMATCHED 2820 DATA ====="
+===== NEW REMATCHED 2820 DATA =====
+
+. use "$OUT/rematched_2820_cross_section.dta", clear
+
+. summarize ln_patentbyfiling_win3, detail
+
+                   ln_patentbyfiling_win3
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               2,820
+25%            0              0       Sum of wgt.       2,820
+
+50%            0                      Mean           .0805042
+                        Largest       Std. dev.      .3598624
+75%            0       3.044522
+90%            0       3.044522       Variance        .129501
+95%     .6931472       3.044522       Skewness        5.57641
+99%      1.94591       4.859812       Kurtosis       39.98237
+
+. reghdfe ln_patentbyfiling_win3 VD patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear, ///
+>     absorb(Region2 Industry2) vce(robust)
+(MWFE estimator converged in 4 iterations)
+
+HDFE Linear regression                            Number of obs   =      2,820
+Absorbing 2 HDFE groups                           F(   6,   2806) =       5.76
+                                                  Prob > F        =     0.0000
+                                                  R-squared       =     0.0694
+                                                  Adj R-squared   =     0.0651
+                                                  Within R-sq.    =     0.0267
+                                                  Root MSE        =     0.3480
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0444308   .0162817    -2.73   0.006    -.0763561   -.0125054
+patentdummyb~g |   .0897767   .0206645     4.34   0.000     .0492574    .1302959
+    earlystage |  -.0199437   .0169465    -1.18   0.239    -.0531725    .0132851
+ln_MoneyRais~D |   .0158677    .004264     3.72   0.000     .0075069    .0242285
+NumofFunding~D |  -.0063322   .0033343    -1.90   0.058      -.01287    .0002057
+  Foundingyear |  -.0100629   .0041292    -2.44   0.015    -.0181594   -.0019664
+         _cons |   20.11116   8.293873     2.42   0.015     3.848449    36.37386
+--------------------------------------------------------------------------------
+
+Absorbed degrees of freedom:
+-----------------------------------------------------+
+ Absorbed FE | Categories  - Redundant  = Num. Coefs |
+-------------+---------------------------------------|
+     Region2 |         4           0           4     |
+   Industry2 |         5           1           4     |
+-----------------------------------------------------+
+
+. display "new reghdfe e(r2)=" %9.6f e(r2) " within=" %9.6f e(r2_within)
+new reghdfe e(r2)= 0.069419 within= 0.026670
+
+. reg ln_patentbyfiling_win3 VD patentdummybyfiling earlystage ///
+>     ln_MoneyRaised_VD NumofFundingRounds_VD Foundingyear i.Region2 i.Industry2,
+>  vce(robust)
+
+Linear regression                               Number of obs     =      2,820
+                                                F(13, 2806)       =       6.68
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.0694
+                                                Root MSE          =     .34795
+
+--------------------------------------------------------------------------------
+               |               Robust
+ln_patentbyf~3 | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            VD |  -.0444308   .0162817    -2.73   0.006    -.0763561   -.0125054
+patentdummyb~g |   .0897767   .0206645     4.34   0.000     .0492574    .1302959
+    earlystage |  -.0199437   .0169465    -1.18   0.239    -.0531725    .0132851
+ln_MoneyRais~D |   .0158677    .004264     3.72   0.000     .0075069    .0242285
+NumofFunding~D |  -.0063322   .0033343    -1.90   0.058      -.01287    .0002057
+  Foundingyear |  -.0100629   .0041292    -2.44   0.015    -.0181594   -.0019664
+               |
+       Region2 |
+            2  |   .0813658   .0374789     2.17   0.030     .0078769    .1548548
+            3  |   -.043836   .0164649    -2.66   0.008    -.0761204   -.0115515
+            4  |  -.0337801   .0169193    -2.00   0.046    -.0669556   -.0006045
+               |
+     Industry2 |
+            2  |   .0251132   .1188161     0.21   0.833    -.2078626    .2580891
+            3  |  -.0059994   .1199228    -0.05   0.960    -.2411452    .2291465
+            4  |  -.1001514   .1175091    -0.85   0.394    -.3305643    .1302616
+            5  |  -.0907899   .1176756    -0.77   0.440    -.3215293    .1399495
+               |
+         _cons |   20.18644   8.312733     2.43   0.015     3.886753    36.48613
+--------------------------------------------------------------------------------
+
+. display "new reg e(r2)=" %9.6f e(r2)
+new reg e(r2)= 0.069419
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/diagnose_r2.
+> log
+  log type:  text
+ closed on:  13 Oct 2026, 14:13:15
+---------------------------------------------------------------------------------
+
+. exit, clear
+
+end of do-file

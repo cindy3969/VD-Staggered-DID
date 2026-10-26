@@ -1,0 +1,12 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_table3_7_rematch/tables_3_7_reghdfe.log
+  log type:  text
+ opened on:  13 Oct 2026, 14:42:10
+
+. use "$OUT/rematched_2820_cross_section.dta", clear
+
+. 
+end of do-file
+
+. exit, clear

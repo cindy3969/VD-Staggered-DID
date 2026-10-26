@@ -1,0 +1,4 @@
+new_variable,old_variable,N,correlation,mean_new,mean_old
+ln_patentbyfiling_win3_new,ln_patentbyfiling_win3_old,1927,0.3954954631394851,0.08065131796341532,0.45162597
+ln_fwd_norm_cohort_win3_new,ln_fwd_norm_cohort_win3_old,1927,0.3128850088668518,0.03774986379626716,0.28057164
+ln_moneyraised_win3_new,ln_moneyraised_win3_old,1058,0.9999999999999756,16.43135279607845,16.431353

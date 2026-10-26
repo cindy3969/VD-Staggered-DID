@@ -1,0 +1,51 @@
+{
+  "status": {
+    "observed_all": 2820,
+    "observed_nonshared": 882
+  },
+  "status_year": {
+    "observed_all": 917,
+    "observed_nonshared": 278
+  },
+  "revenue_t1": {
+    "observed_all": 219,
+    "observed_nonshared": 66
+  },
+  "revenue_t2": {
+    "observed_all": 228,
+    "observed_nonshared": 70
+  },
+  "revenue_t3": {
+    "observed_all": 201,
+    "observed_nonshared": 57
+  },
+  "gunning_fog_mean_win3": {
+    "observed_all": 486,
+    "observed_nonshared": 0
+  },
+  "newpat_win3": {
+    "observed_all": 336,
+    "observed_nonshared": 0
+  },
+  "oldpat_win3": {
+    "observed_all": 336,
+    "observed_nonshared": 0
+  },
+  "newcpc_win3": {
+    "observed_all": 336,
+    "observed_nonshared": 0
+  },
+  "cite_breadth_win3": {
+    "observed_all": 387,
+    "observed_nonshared": 0
+  },
+  "self_citations_total_win3": {
+    "observed_all": 1938,
+    "observed_nonshared": 0
+  },
+  "firms": 2820,
+  "exact_reference_reused": 1938,
+  "nonshared_or_changed_reference": 882,
+  "patent_text_uncollected_firms": 224,
+  "undated_exit_firms": 105
+}

@@ -1,0 +1,121 @@
+{
+  "firms": 2820,
+  "old_columns_including_id": 164,
+  "changed_legacy_columns": {},
+  "VD_counts": {
+    "1": 1410,
+    "0": 1410
+  },
+  "old_relevant_variables": [
+    "MoneyRaised_VD",
+    "OperatingStatus",
+    "ln_MoneyRaised_VD",
+    "moneyraised_win1",
+    "moneyraised_win2",
+    "moneyraised_win3",
+    "moneyraised_win4",
+    "moneyraised_win5",
+    "ln_moneyraised_win1",
+    "ln_moneyraised_win2",
+    "ln_moneyraised_win3",
+    "ln_moneyraised_win4",
+    "ln_moneyraised_win5",
+    "exityear",
+    "exittype",
+    "goodexit",
+    "badexit",
+    "exit2",
+    "exityear2",
+    "firmage2",
+    "exittype2",
+    "goodexit2",
+    "badexit2",
+    "exit3",
+    "exityear3",
+    "firmage3",
+    "VDage3",
+    "goodexit3",
+    "badexit3",
+    "firmage4",
+    "VDage4",
+    "acq",
+    "public",
+    "acq3",
+    "public3",
+    "exittype3",
+    "earlystage",
+    "moneyraised_y1",
+    "moneyraised_y2",
+    "moneyraised_y3",
+    "moneyraised_y4",
+    "moneyraised_y5",
+    "ln_moneyraised_y1",
+    "ln_moneyraised_y2",
+    "ln_moneyraised_y3",
+    "VD_Early",
+    "Z_Early"
+  ],
+  "annual_financing": {
+    "1": {
+      "old": "ln_moneyraised_y1",
+      "current": "ln(1+moneyraised_t1)",
+      "old_nonmissing": 1043,
+      "current_nonmissing": 943,
+      "both_nonmissing": 943,
+      "different_values_when_both": 0,
+      "old_only": 100,
+      "current_only": 0
+    },
+    "2": {
+      "old": "ln_moneyraised_y2",
+      "current": "ln(1+moneyraised_t2)",
+      "old_nonmissing": 1043,
+      "current_nonmissing": 741,
+      "both_nonmissing": 337,
+      "different_values_when_both": 0,
+      "old_only": 706,
+      "current_only": 404
+    },
+    "3": {
+      "old": "ln_moneyraised_y3",
+      "current": "ln(1+equityraised_t3)",
+      "old_nonmissing": 1485,
+      "current_nonmissing": 451,
+      "both_nonmissing": 327,
+      "different_values_when_both": 30,
+      "old_only": 1158,
+      "current_only": 124
+    }
+  },
+  "legacy_events": {
+    "VDage3": {
+      "nonmissing": 2820,
+      "ones": 175
+    },
+    "acq3": {
+      "nonmissing": 2820,
+      "ones": 915
+    },
+    "public3": {
+      "nonmissing": 2820,
+      "ones": 182
+    },
+    "badexit3": {
+      "nonmissing": 2820,
+      "ones": 286
+    }
+  },
+  "status_counts": {
+    "private": 1798,
+    "acquired": 673,
+    "defunct": 203,
+    "public": 146
+  },
+  "old_exit_counts": {
+    "private": 1457,
+    "acquired": 892,
+    "closed": 284,
+    "public": 182,
+    "merged": 5
+  }
+}

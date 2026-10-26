@@ -1,0 +1,25 @@
+	(1)	(2)	(3)	(4)
+VARIABLES	Model 1	Model 2	Model 3	Model 4
+				
+1.VD	-0.139	-0.214	-0.430*	-0.432
+	(0.464)	(0.445)	(0.062)	(0.149)
+1.priorpatentdummy_VD	-0.501**	-0.565**	-0.479**	-0.481*
+	(0.010)	(0.032)	(0.014)	(0.071)
+1.VD#1.priorpatentdummy_VD		0.134		0.004
+		(0.717)		(0.992)
+1.Earlystage_VD	-0.433*	-0.434*	-1.045***	-1.045***
+	(0.052)	(0.052)	(0.004)	(0.004)
+ln_MoneyRaised_VD	0.567***	0.566***	0.554***	0.554***
+	(0.000)	(0.000)	(0.000)	(0.000)
+NumofFundingRounds_VD	0.017	0.016	0.021	0.021
+	(0.667)	(0.676)	(0.587)	(0.588)
+1.VD#1.Earlystage_VD			1.017**	1.017**
+			(0.020)	(0.021)
+				
+Observations	2,673	2,673	2,673	2,673
+Region FE	Yes	Yes	Yes	Yes
+Industry FE	Yes	Yes	Yes	Yes
+Founding-year FE	Yes	Yes	Yes	Yes
+Number of failures	124	124	124	124
+pval in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				

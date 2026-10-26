@@ -1,0 +1,19 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/PSM_1410_and_diagnostics.log
+  log type:  text
+ opened on:  11 Oct 2026, 21:40:01
+
+. use "$DATA", clear
+
+. assert _N==7316
+
+. count if vd_backed==1
+  1,440
+
+. assert r(N)==1440
+
+. 
+end of do-file
+
+. exit, clear

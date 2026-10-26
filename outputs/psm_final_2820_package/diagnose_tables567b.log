@@ -1,0 +1,113 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/diagnose_tables567b.log
+  log type:  text
+ opened on:  20 Oct 2026, 09:35:56
+
+. use "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original_2820_cross_section_v2.dta", clear
+
+. quietly reghdfe ln_moneyraised_y1 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+
+. display "AUDIT T6 1 R2=" e(r2) " AdjR2=" e(r2_a) " within=" e(r2_within)
+AUDIT T6 1 R2=.4321481 AdjR2=.42329271 within=.37453391
+
+. quietly reghdfe ln_moneyraised_y2 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+
+. display "AUDIT T6 2 R2=" e(r2) " AdjR2=" e(r2_a) " within=" e(r2_within)
+AUDIT T6 2 R2=.03016503 AdjR2=.0150409 within=.01867128
+
+. quietly reghdfe ln_moneyraised_y3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD, absorb(Region2 Industry2 Foundingyear) vce(robust)
+
+. display "AUDIT T6 3 R2=" e(r2) " AdjR2=" e(r2_a) " within=" e(r2_within)
+AUDIT T6 3 R2=.03167267 AdjR2=.02111869 within=.00619814
+
+. quietly stset VDage3, failure(acq3==1)
+
+. quietly stcox VD Region2 Industry2 Foundingyear, nohr
+
+. display "AUDIT T7 acq3 VD Region2 Industry2 Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 acq3 VD Region2 Industry2 Foundingyear VD=.146836 p=.03420982 N=2690 failures=846
+
+. quietly stset VDage3, failure(acq3==1)
+
+. quietly stcox VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear, nohr
+
+. display "AUDIT T7 acq3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 acq3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear VD=.18787764 p=.00751622 N=2690 failures=846
+
+. quietly stset VDage3, failure(public3==1)
+
+. quietly stcox VD Region2 Industry2 Foundingyear, nohr
+
+. display "AUDIT T7 public3 VD Region2 Industry2 Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 public3 VD Region2 Industry2 Foundingyear VD=.33475941 p=.04976801 N=2690 failures=141
+
+. quietly stset VDage3, failure(public3==1)
+
+. quietly stcox VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear, nohr
+
+. display "AUDIT T7 public3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 public3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear VD=.32950882 p=.0653212 N=2690 failures=141
+
+. quietly stset VDage3, failure(badexit3==1)
+
+. quietly stcox VD Region2 Industry2 Foundingyear, nohr
+
+. display "AUDIT T7 badexit3 VD Region2 Industry2 Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 badexit3 VD Region2 Industry2 Foundingyear VD=.14568832 p=.24022458 N=2690 failures=266
+
+. quietly stset VDage3, failure(badexit3==1)
+
+. quietly stcox VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear, nohr
+
+. display "AUDIT T7 badexit3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT T7 badexit3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD Region2 Industry2 Foundingyear VD=.12724134 p=.31067986 N=2690 failures=266
+
+. quietly stset VDage3, failure(acq3==1)
+
+. quietly stcox VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+. display "AUDIT CATEGORICAL acq3 VD i.Region2 i.Industry2 i.Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT CATEGORICAL acq3 VD i.Region2 i.Industry2 i.Foundingyear VD=.14651782 p=.0347381 N=2690 failures=846
+
+. quietly stset VDage3, failure(acq3==1)
+
+. quietly stcox VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+. display "AUDIT CATEGORICAL acq3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Region2 i.Industry2 i.Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT CATEGORICAL acq3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Region2 i.Industry2 i.Foundingyear VD=.18745903 p=.00769227 N=2690 failures=846
+
+. quietly stset VDage3, failure(public3==1)
+
+. quietly stcox VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+. display "AUDIT CATEGORICAL public3 VD i.Region2 i.Industry2 i.Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT CATEGORICAL public3 VD i.Region2 i.Industry2 i.Foundingyear VD=.34708451 p=.04250533 N=2690 failures=141
+
+. quietly stset VDage3, failure(public3==1)
+
+. quietly stcox VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+. display "AUDIT CATEGORICAL public3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Region2 i.Industry2 i.Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT CATEGORICAL public3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Region2 i.Industry2 i.Foundingyear VD=.37034816 p=.03836263 N=2690 failures=141
+
+. quietly stset VDage3, failure(badexit3==1)
+
+. quietly stcox VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+. display "AUDIT CATEGORICAL badexit3 VD i.Region2 i.Industry2 i.Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT CATEGORICAL badexit3 VD i.Region2 i.Industry2 i.Foundingyear VD=.14365376 p=.24733712 N=2690 failures=266
+
+. quietly stset VDage3, failure(badexit3==1)
+
+. quietly stcox VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Region2 i.Industry2 i.Foundingyear, nohr
+
+. display "AUDIT CATEGORICAL badexit3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Region2 i.Industry2 i.Foundingyear VD=" _b[VD] " p=" 2*normal(-abs(_b[VD]/_se[VD])) " N=" e(N) " failures=" e(N_fail)
+AUDIT CATEGORICAL badexit3 VD patentdummybyfiling earlystage ln_MoneyRaised_VD NumofFundingRounds_VD i.Region2 i.Industry2 i.Foundingyear VD=.12472277 p=.32069421 N=2690 failures=266
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/diagnose_tables567b.log
+  log type:  text
+ closed on:  20 Oct 2026, 09:35:57
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

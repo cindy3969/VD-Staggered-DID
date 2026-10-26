@@ -1,0 +1,29 @@
+﻿variable,definition
+vd_initial_usd,"Table 3-1: first VD round amount, nominal USD"
+ln_vd_initial,"Table 3-2: ln(initial VD USD), positive values only"
+ln1p_vd_initial,Alternative ln(1 + initial VD USD)
+vd_pre_equity_usd,"Complete sum of equity strictly before first VD date, USD"
+vd_prev_equity_usd,Latest strictly prior equity round USD; tied dates missing
+vd_to_pre_equity,Table 3-3: initial VD / pre-VD cumulative equity; denominator >0
+vd_to_prev_equity,Table 3-4: initial VD / latest prior equity round; denominator >0
+vd_share_total_capital,Table 3-5: initial VD / (initial VD + strictly prior equity)
+vd_subseq_rounds,Table 3-6: subsequent Debt Financing rounds in source snapshot
+vd_subseq_usd,Subsequent VD USD; none=0; any undisclosed round=missing
+ln_vd_subseq,ln(subsequent VD USD); zero or incomplete=missing
+ln1p_vd_subseq,Table 3-7 candidate: ln(1+subsequent VD USD); incomplete=missing
+vd_cumulative_usd,VD USD from First VD marker onward; any undisclosed round=missing
+ln_vd_cumulative,Table 3-8: ln(cumulative VD USD); complete positive totals only
+ln1p_vd_cumulative,Alternative ln(1+cumulative VD USD)
+vd_initial_missing,Initial VD amount undisclosed=1; controls missing
+vd_earlier_debt_rounds,Debt rounds before source First VD marker: timing discrepancy
+vd_pre_equity_rounds,Number of primary equity rounds strictly before first VD
+vd_pre_equity_missing_n,Number of prior equity rounds with undisclosed amounts
+vd_prev_equity_ties_n,Number of equity rounds on latest strictly prior equity date
+vd_subseq_missing_n,Number of subsequent VD rounds with undisclosed amounts
+vd_total_missing_n,Number of all VD rounds with undisclosed amounts
+vd_subseq_known_usd,Sum of DISCLOSED subsequent VD only; lower bound if incomplete
+vd_cumulative_known_usd,Disclosed VD USD from First VD onward; lower bound if incomplete
+vd_same_day_equity_usd,"Same-date equity USD; separate diagnostic, excluded from prior"
+vd_same_day_equity_n,Number of equity rounds on first VD date
+vd_first_date,"First VD announced date, ISO YYYY-MM-DD"
+vd_last_source_date,Latest source financing date for firm; not a censoring date

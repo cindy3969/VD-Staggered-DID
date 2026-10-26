@@ -1,0 +1,14 @@
+{
+  "n_firms": 2820,
+  "pb_matched_firms": 2245,
+  "revenue_firms": 478,
+  "revenue_firm_years": 688,
+  "employees_firms": 15,
+  "employees_firm_years": 19,
+  "web_searched_firms": 54,
+  "web_evidence_rows": 61,
+  "pb_conflict_metric_firm_years": 164,
+  "backup": "C:\\Users\\user\\Documents\\VD\\outputs\\psm_final_2820_package\\backups\\before_postvd_size_20261015_164141",
+  "unit": "USD million inferred, not metadata verified",
+  "web_research_complete": false
+}

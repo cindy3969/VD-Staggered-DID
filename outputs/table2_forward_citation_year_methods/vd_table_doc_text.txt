@@ -1,0 +1,312 @@
+Table 1. Staggered DiD Estimates on granted patent application
+Table 2. Staggered DiD Estimates on forward citation
+Table 3-1. TWFE estimates of VD intensity and Post-VD patent applications
+Table 3-2. TWFE estimates of VD intensity and Post-VD patent applications
+Table 3-3. TWFE estimates of VD intensity and Post-VD patent applications
+Table 3-4. TWFE estimates of VD intensity and Post-VD patent applications
+Table 3-5. TWFE estimates of VD intensity and Post-VD patent applications
+Table 3-6. TWFE estimates of VD intensity and Post-VD patent applications
+Table 3-7. TWFE estimates of VD intensity and Post-VD patent applications
+Table 3-8. TWFE estimates of VD intensity and Post-VD patent applications
+Figure 1. Diagnostic analysis for the staggered DID Design
+(a) Mean plots of granted patent applications per firm-year
+(b) Dynamic ATT and event study plots
+Note: Panel A shows observed and estimated counterfactual outcome trajectories while Panel B demonstrates Callaway–Sant’Anna event-study estimates. Panel A shows the mean annual number of ultimately granted patent applications for VD-backed and VC-only-backed firms relative to the year of first VD. The red dashed line represents the estimated counterfactual trajectory for VD-backed firms in the absence of VD, constructed using the Callaway and Sant’Anna (2021) event-time ATT estimates. Panel B reports the event-time ATT estimates, with vertical bars representing 95% confidence intervals. The horizontal line denotes zero treatment effect. Event time is defined relative to the year of first VD, with t=0 indicating the first VD year. Never-treated firms serve as the comparison group.
+Figure 2. Heterogeneous event study estimates of the effects of VD on granted patent applications
+(a) By prior technological assets
+(a) By funding stage
+Note: This figure presents heterogeneous event study estimates of the effects of VD on granted patent applications by prior patent status (Panel a) and funding stage (Panel b). Event time is relative to the first VD financing, with t= -1 as the omitted reference period. Bands indicate 95% confidence intervals based on firm-level clustered standard errors. 
+Figure 3. Event study estimates across alternative estimators
+Note: This figure shows event time estimates from a fully saturated event study specification using three alternative estimators. The treatment indicator, VD, is interacted with indicators for each year relative to a firm’s first VD indicator, with t = −1 serving as the omitted reference period. All specifications include firm and year fixed effects and the full set of time varying controls used in the main analysis. Never-treated firms serve as the comparison group. Bands indicate 95% confidence intervals constructed from firm-level clustered standard errors. The p-value from an F-test of joint significance on the original TWFE pre-trend estimates is 0.857.
+===TABLE 1===
+DV: Patent applications	(1)
+All firms	(2)
+No prior patent	(3)
+Prior patent	(4)
+Early stage	(5)
+Late stage
+Simple ATT	-0.226**	-0.05	-0.817**	-0.138*	-0.528**
+	(0.024)	(0.326)	(0.010)	(0.072)	(0.033)
+Aggregated event study ATT	-0.190**	-0.034	-0.650**	-0.07	-0.531**
+	(0.016)	(0.325)	(0.011)	(0.237)	(0.013)
+					
+Controls	Yes	Yes	Yes	Yes	Yes
+Region FE	Yes	Yes	Yes	Yes	Yes
+Industry FE	Yes	Yes	Yes	Yes	Yes
+Observations	88,547	83,757	75,739	83,285	76,211
+Firms	7,273	6,892	6,255	6,860	6,287
+Control	Never treat	Never treat	Never treat	Never treat	Never treat
+===TABLE 2===
+DV: Patent applications	(1)
+All firms	(2)
+No prior patent	(3)
+Prior patent	(4)
+Early stage	(5)
+Late stage
+Simple ATT	0.248	1.157	-2.263	0.767	-1.670
+	(0.836)	(0.452)	(0.153)	(0.612)	(0.153)
+Aggregated event study ATT	-0.717*	-0.045	-2.183	-0.251	-2.130*
+	(0.087)	(0.754)	(0.142)	(0.344)	(0.082)
+					
+Controls	Yes	Yes	Yes	Yes	Yes
+Region FE	Yes	Yes	Yes	Yes	Yes
+Industry FE	Yes	Yes	Yes	Yes	Yes
+Observations	88,547	83,757	75,739	83,285	76,211
+Firms	7,273	6,892	6,255	6,860	6,287
+Control	Never treat	Never treat	Never treat	Never treat	Never treat
+===TABLE 3===
+DV: Log(Granted patent applications)	(1)
+All firms	(2)
+No prior patent	(3)
+Prior patent	(4)
+Early stage
+VD amount x Post	0.000	-0.000***	0.000	-0.000*
+	(0.792)	(0.001)	(0.160)	(0.088)
+VD amount x Post x Prior patent		0.000***		0.000***
+		(0.003)		(0.003)
+VD amount x Post x Early stage			-0.000	0.000
+			(0.267)	(0.563)
+Post x Prior patent		-0.072***		-0.070***
+		(0.000)		(0.000)
+Post x Early stage			0.023**	0.006
+			(0.047)	(0.583)
+Post	0.008	0.032***	-0.007	0.028***
+	(0.233)	(0.000)	(0.573)	(0.008)
+Lagged prior patent	0.022	0.040**	0.023	0.040**
+	(0.130)	(0.015)	(0.124)	(0.015)
+Lagged early stage	0.004	0.002	0.001	0.002
+	(0.540)	(0.723)	(0.836)	(0.814)
+Log(Total lagged funding amount)	0.002***	0.001***	0.001***	0.001**
+	(0.002)	(0.007)	(0.009)	(0.011)
+Log(number of lagged funding rounds)	-0.004**	-0.003**	-0.003*	-0.003**
+	(0.038)	(0.039)	(0.052)	(0.044)
+				
+Firm FE	Yes	Yes	Yes	Yes
+Year FE	Yes	Yes	Yes	Yes
+Observations	14,330	14,330	14,330	14,330
+Firms	1,235	1,235	1,235	1,235
+Within R2	0.003	0.010	0.004	0.010
+===TABLE 4===
+DV: Log(Granted patent applications)	(1)
+All firms	(2)
+No prior patent	(3)
+Prior patent	(4)
+Early stage
+Log(VD amount) x Post	-0.000	-0.002**	0.003	-0.002
+	(0.929)	(0.030)	(0.389)	(0.524)
+Log(VD amount) x Post x Prior patent		0.013***		0.014***
+		(0.008)		(0.007)
+Log(VD amount) x Post x Early stage			-0.002	0.002
+			(0.650)	(0.649)
+Post x Prior patent		-0.264***		-0.275***
+		(0.001)		(0.001)
+Post x Early stage			0.057	-0.018
+			(0.446)	(0.795)
+Post	0.011	0.058***	-0.061	0.057
+	(0.650)	(0.000)	(0.378)	(0.350)
+Lagged prior patent	0.022	0.041**	0.023	0.040**
+	(0.131)	(0.014)	(0.126)	(0.014)
+Lagged early stage	0.004	0.003	0.002	0.002
+	(0.557)	(0.668)	(0.830)	(0.777)
+Log(Total lagged funding amount)	0.002***	0.001***	0.001***	0.001**
+	(0.002)	(0.006)	(0.010)	(0.013)
+Log(number of lagged funding rounds)	-0.004**	-0.003**	-0.003*	-0.003**
+	(0.039)	(0.039)	(0.051)	(0.048)
+				
+Firm FE	Yes	Yes	Yes	Yes
+Year FE	Yes	Yes	Yes	Yes
+Observations	14,330	14,330	14,330	14,330
+Firms	1,235	1,235	1,235	1,235
+Within R2	0.003	0.010	0.004	0.011
+===TABLE 5===
+DV: Log(Granted patent applications)	(1)
+All firms	(2)
+No prior patent	(3)
+Prior patent	(4)
+Early stage
+VD-to-pre-VD equity ratio x Post	0.000	-0.001***	0.001*	-0.000
+	(0.421)	(0.000)	(0.073)	(0.458)
+VD-to-pre-VD equity ratio x Post x Prior patent		0.004		0.004
+		(0.157)		(0.187)
+VD-to-pre-VD equity ratio x Post x Early stage			-0.001**	-0.000
+			(0.046)	(0.495)
+Post x Prior patent		-0.064***		-0.060***
+		(0.000)		(0.000)
+Post x Early stage			0.026**	0.013
+			(0.022)	(0.240)
+Post	0.011	0.033***	-0.005	0.024**
+	(0.157)	(0.000)	(0.693)	(0.014)
+Lagged prior patent	0.027*	0.043**	0.027*	0.043**
+	(0.097)	(0.017)	(0.090)	(0.018)
+Lagged early stage	0.004	0.003	0.001	0.001
+	(0.550)	(0.686)	(0.876)	(0.846)
+Log(Total lagged funding amount)	0.002***	0.002***	0.002***	0.002***
+	(0.001)	(0.003)	(0.006)	(0.006)
+Log(number of lagged funding rounds)	-0.005***	-0.005***	-0.005***	-0.005***
+	(0.003)	(0.004)	(0.006)	(0.005)
+				
+Firm FE	Yes	Yes	Yes	Yes
+Year FE	Yes	Yes	Yes	Yes
+Observations	12,652	12,652	12,652	12,652
+Firms	1,088	1,088	1,088	1,088
+Within R2	0.005	0.010	0.006	0.010
+===TABLE 6===
+DV: Log(Granted patent applications)	(1)
+All firms	(2)
+No prior patent	(3)
+Prior patent	(4)
+Early stage
+VD-to-prior equity round ratio x Post	0.000	-0.000***	0.000**	-0.000
+	(0.184)	(0.002)	(0.014)	(0.858)
+VD-to-prior equity round ratio x Post x Prior patent		0.001***		0.001**
+		(0.006)		(0.024)
+VD-to-prior equity round ratio x Post x Early stage			-0.001**	-0.000
+			(0.024)	(0.365)
+Post x Prior patent		-0.063***		-0.060***
+		(0.000)		(0.000)
+Post x Early stage			0.027**	0.013
+			(0.020)	(0.219)
+Post	0.011	0.032***	-0.005	0.023**
+	(0.160)	(0.000)	(0.662)	(0.017)
+Lagged prior patent	0.027*	0.043**	0.027*	0.043**
+	(0.096)	(0.017)	(0.091)	(0.018)
+Lagged early stage	0.004	0.003	0.001	0.001
+	(0.555)	(0.716)	(0.882)	(0.877)
+Log(Total lagged funding amount)	0.002***	0.002***	0.002***	0.002***
+	(0.001)	(0.003)	(0.006)	(0.006)
+Log(number of lagged funding rounds)	-0.005***	-0.005***	-0.005***	-0.005***
+	(0.003)	(0.003)	(0.005)	(0.004)
+				
+Firm FE	Yes	Yes	Yes	Yes
+Year FE	Yes	Yes	Yes	Yes
+Observations	12,652	12,652	12,652	12,652
+Firms	1,088	1,088	1,088	1,088
+Within R2	0.005	0.010	0.006	0.010
+===TABLE 7===
+DV: Log(Granted patent applications)	(1)
+All firms	(2)
+No prior patent	(3)
+Prior patent	(4)
+Early stage
+VD share of total capital x Post	-0.007	-0.020***	0.044*	0.031
+	(0.632)	(0.002)	(0.071)	(0.195)
+VD share of total capital x Post x Prior patent		-0.013		-0.024
+		(0.823)		(0.674)
+VD share of total capital x Post x Early stage			-0.076***	-0.067**
+			(0.009)	(0.023)
+Post x Prior patent		-0.064***		-0.058**
+		(0.005)		(0.011)
+Post x Early stage			0.046***	0.031*
+			(0.005)	(0.052)
+Post	0.011	0.038***	-0.017	0.017
+	(0.231)	(0.000)	(0.269)	(0.192)
+Lagged prior patent	0.022	0.040**	0.023	0.040**
+	(0.133)	(0.014)	(0.125)	(0.015)
+Lagged early stage	0.004	0.003	0.002	0.003
+	(0.527)	(0.624)	(0.774)	(0.707)
+Log(Total lagged funding amount)	0.002***	0.002***	0.001***	0.001***
+	(0.001)	(0.003)	(0.005)	(0.006)
+Log(number of lagged funding rounds)	-0.004**	-0.004**	-0.003*	-0.003**
+	(0.036)	(0.034)	(0.053)	(0.044)
+				
+Firm FE	Yes	Yes	Yes	Yes
+Year FE	Yes	Yes	Yes	Yes
+Observations	14,330	14,330	14,330	14,330
+Firms	1,235	1,235	1,235	1,235
+Within R2	0.003	0.010	0.005	0.010
+===TABLE 8===
+DV: Log(Granted patent applications)	(1)
+All firms	(2)
+No prior patent	(3)
+Prior patent	(4)
+Early stage
+Number of subsequent VD rounds x Post	0.016***	0.003	0.014***	-0.002
+	(0.003)	(0.156)	(0.005)	(0.779)
+Number of subsequent VD rounds x Post x Prior patent		0.039**		0.038**
+		(0.034)		(0.034)
+Number of subsequent VD rounds x Post x Early stage			0.002	0.008
+			(0.863)	(0.414)
+Post x Prior patent		-0.070***		-0.069***
+		(0.000)		(0.000)
+Post x Early stage			0.018*	0.004
+			(0.065)	(0.639)
+Post	0.005	0.027***	-0.007	0.024***
+	(0.459)	(0.000)	(0.508)	(0.004)
+Lagged prior patent	0.016	0.033**	0.016	0.033**
+	(0.223)	(0.029)	(0.218)	(0.030)
+Lagged early stage	0.002	0.001	-0.001	0.000
+	(0.750)	(0.843)	(0.930)	(0.943)
+Log(Total lagged funding amount)	0.002***	0.001***	0.001***	0.001***
+	(0.000)	(0.001)	(0.002)	(0.002)
+Log(number of lagged funding rounds)	-0.004***	-0.004***	-0.004***	-0.004***
+	(0.004)	(0.007)	(0.006)	(0.009)
+				
+Firm FE	Yes	Yes	Yes	Yes
+Year FE	Yes	Yes	Yes	Yes
+Observations	16,665	16,665	16,665	16,665
+Firms	1,440	1,440	1,440	1,440
+Within R2	0.004	0.010	0.004	0.010
+===TABLE 9===
+DV: Log(Granted patent applications)	(1)
+All firms	(2)
+No prior patent	(3)
+Prior patent	(4)
+Early stage
+Log(Subsequent VD amount) x Post	0.001**	0.000	0.001**	-0.000
+	(0.025)	(0.148)	(0.043)	(0.969)
+Log(Subsequent VD amount) x Post x Prior patent		0.003		0.003
+		(0.173)		(0.183)
+Log(Subsequent VD amount) x Post x Early stage			0.000	0.001
+			(0.891)	(0.539)
+Post x Prior patent		-0.067***		-0.066***
+		(0.000)		(0.000)
+Post x Early stage			0.019*	0.006
+			(0.057)	(0.536)
+Post	0.005	0.026***	-0.007	0.022***
+	(0.417)	(0.000)	(0.508)	(0.007)
+Lagged prior patent	0.016	0.034**	0.017	0.033**
+	(0.222)	(0.026)	(0.217)	(0.028)
+Lagged early stage	0.002	0.002	-0.000	0.001
+	(0.704)	(0.791)	(0.962)	(0.920)
+Log(Total lagged funding amount)	0.002***	0.001***	0.001***	0.001***
+	(0.000)	(0.002)	(0.002)	(0.003)
+Log(number of lagged funding rounds)	-0.004***	-0.004**	-0.004***	-0.004**
+	(0.005)	(0.011)	(0.009)	(0.013)
+				
+Firm FE	Yes	Yes	Yes	Yes
+Year FE	Yes	Yes	Yes	Yes
+Observations	16,665	16,665	16,665	16,665
+Firms	1,440	1,440	1,440	1,440
+Within R2	0.003	0.009	0.004	0.009
+===TABLE 10===
+DV: Log(Granted patent applications)	(1)
+All firms	(2)
+No prior patent	(3)
+Prior patent	(4)
+Early stage
+Log(cumulative VD exposure) x Post	0.001	-0.001	0.004	-0.002
+	(0.531)	(0.141)	(0.227)	(0.600)
+Log(cumulative VD exposure) x Post x Prior patent		0.013***		0.014***
+		(0.004)		(0.004)
+Log(cumulative VD exposure) x Post x Early stage			-0.002	0.002
+			(0.616)	(0.612)
+Post x Prior patent		-0.273***		-0.279***
+		(0.000)		(0.000)
+Post x Early stage			0.059	-0.018
+			(0.399)	(0.782)
+Post	-0.006	0.049***	-0.077	0.048
+	(0.781)	(0.001)	(0.230)	(0.400)
+Lagged prior patent	0.021	0.039**	0.022	0.039**
+	(0.141)	(0.016)	(0.133)	(0.017)
+Lagged early stage	0.004	0.003	0.001	0.002
+	(0.524)	(0.669)	(0.830)	(0.795)
+Log(Total lagged funding amount)	0.002***	0.001***	0.001**	0.001**
+	(0.002)	(0.007)	(0.012)	(0.015)
+Log(number of lagged funding rounds)	-0.003**	-0.003**	-0.003*	-0.003**
+	(0.043)	(0.038)	(0.050)	(0.044)
+				
+Firm FE	Yes	Yes	Yes	Yes
+Year FE	Yes	Yes	Yes	Yes
+Observations	14,501	14,501	14,501	14,501
+Firms	1,249	1,249	1,249	1,249
+Within R2	0.003	0.010	0.004	0.010

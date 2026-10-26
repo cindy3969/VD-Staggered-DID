@@ -1,0 +1,353 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\outputs\psm_final_2820_package\_inspect_original.
+> do 
+
+. version 19
+
+. log using "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/_inspect_o
+> riginal.log", text replace
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/_inspect_o
+> riginal.log
+  log type:  text
+ opened on:  11 Oct 2026, 22:16:24
+
+. use "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/ORIGINAL_final_m
+> atched_2820.dta", clear
+
+. describe
+
+Contains data from C:/Users/user/Documents/VD/outputs/psm_final_2820_package/ORIG
+> INAL_final_matched_2820.dta
+ Observations:         2,820                  
+    Variables:           116                  7 Jan 2026 21:03
+---------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+---------------------------------------------------------------------------------
+firm_id         long    %10.0g                firm_id
+Founding_Year   int     %10.0g                Founding_Year
+OrganizationN~e str50   %50s                  OrganizationName
+VDyear          int     %10.0g                VDyear
+MoneyRaised_VD  double  %10.0g                MoneyRaised_VD
+NumofFundingR~D byte    %10.0g                NumofFundingRounds_VD
+patentdummyby~g byte    %10.0g                patentdummybyfiling
+patentbyfiling  int     %10.0g                patentbyfiling
+patentbyfilin~1 int     %10.0g                patentbyfiling_win1
+patentbyfilin~2 int     %10.0g                patentbyfiling_win2
+patentbyfilin~3 int     %10.0g                patentbyfiling_win3
+patentbyfilin~4 int     %10.0g                patentbyfiling_win4
+patentbyfilin~5 int     %10.0g                patentbyfiling_win5
+patentdummy     byte    %10.0g                patentdummy
+patentdummyby~d byte    %10.0g                patentdummybygranted
+patentbygranted int     %10.0g                patentbygranted
+patentbygrant~1 int     %10.0g                patentbygranted_win1
+patentbygrant~2 int     %10.0g                patentbygranted_win2
+patentbygrant~3 int     %10.0g                patentbygranted_win3
+patentbygrant~4 int     %10.0g                patentbygranted_win4
+patentbygrant~5 int     %10.0g                patentbygranted_win5
+SeriesB         byte    %10.0g                SeriesB
+SeriesC         byte    %10.0g                SeriesC
+VD              byte    %10.0g                VD
+TimetoFirstVC   byte    %10.0g                TimetoFirstVC
+Industry2       long    %31.0g     Industry2_
+                                              Industry2
+Region2         long    %13.0g     Region2_   Region2
+OperatingStatus long    %8.0g      OperatingStatus_
+                                              OperatingStatus
+ln_patentbygr~d float   %9.0g                 
+ln_patentbygr~1 float   %9.0g                 
+ln_patentbygr~2 float   %9.0g                 
+ln_patentbygr~3 float   %9.0g                 
+ln_patentbygr~4 float   %9.0g                 
+ln_patentbygr~5 float   %9.0g                 
+ln_patentbyfi~g float   %9.0g                 
+ln_patentbyfi~1 float   %9.0g                 
+ln_patentbyfi~2 float   %9.0g                 
+ln_patentbyfi~3 float   %9.0g                 
+ln_patentbyfi~4 float   %9.0g                 
+ln_patentbyfi~5 float   %9.0g                 
+ln_MoneyRaise~D float   %9.0g                 
+Foundingyear    int     %8.0g                 Foundingyear
+fwd_raw_win1    int     %8.0g                 
+fwd_raw_win2    int     %8.0g                 
+fwd_raw_win3    int     %8.0g                 
+fwd_raw_win4    int     %8.0g                 
+fwd_raw_win5    int     %8.0g                 
+fwd_norm_coho~1 float   %8.0g                 
+fwd_norm_coho~2 float   %8.0g                 
+fwd_norm_coho~3 float   %8.0g                 
+fwd_norm_coho~4 float   %8.0g                 
+fwd_norm_coho~5 float   %8.0g                 
+fwd_rate_win1   float   %8.0g                 
+fwd_rate_win2   float   %8.0g                 
+fwd_rate_win3   float   %8.0g                 
+fwd_rate_win4   float   %8.0g                 
+fwd_rate_win5   float   %8.0g                 
+ln_fwd_raw_win1 float   %9.0g                 
+ln_fwd_raw_win2 float   %9.0g                 
+ln_fwd_raw_win3 float   %9.0g                 
+ln_fwd_raw_win4 float   %9.0g                 
+ln_fwd_raw_win5 float   %9.0g                 
+ln_fwd_norm_c~1 float   %9.0g                 
+ln_fwd_norm_c~2 float   %9.0g                 
+ln_fwd_norm_c~3 float   %9.0g                 
+ln_fwd_norm_c~4 float   %9.0g                 
+ln_fwd_norm_c~5 float   %9.0g                 
+ln_fwd_rate_w~1 float   %9.0g                 
+ln_fwd_rate_w~2 float   %9.0g                 
+ln_fwd_rate_w~3 float   %9.0g                 
+ln_fwd_rate_w~4 float   %9.0g                 
+ln_fwd_rate_w~5 float   %9.0g                 
+scaleupdummy    byte    %8.0g                 scaleup dummy
+timetonextequ~y int     %8.0g                 Time to next equity
+ln_timetonext~y float   %9.0g                 
+timetonextequ~r float   %9.0g                 
+moneyraised_w~1 double  %8.0g                 MoneyRaised_win1
+moneyraised_w~2 double  %8.0g                 MoneyRaised_win2
+moneyraised_w~3 double  %8.0g                 MoneyRaised_win3
+moneyraised_w~4 double  %8.0g                 MoneyRaised_win4
+moneyraised_w~5 double  %8.0g                 MoneyRaised_win5
+ln_moneyraise~1 float   %9.0g                 
+ln_moneyraise~2 float   %9.0g                 
+ln_moneyraise~3 float   %9.0g                 
+ln_moneyraise~4 float   %9.0g                 
+ln_moneyraise~5 float   %9.0g                 
+exityear        int     %8.0g                 exit year
+exittype        long    %8.0g      exittype_
+                                              exit type
+goodexit        byte    %8.0g                 
+badexit         byte    %8.0g                 
+exit2           str6    %9s                   
+exityear2       int     %8.0g                 exit year2
+firmage2        byte    %8.0g                 
+exittype2       str8    %9s                   exit type2
+goodexit2       byte    %8.0g                 
+badexit2        byte    %8.0g                 
+exit3           str6    %9s                   
+exityear3       int     %8.0g                 exit year3
+firmage3        byte    %8.0g                 
+VDage3          byte    %8.0g                 VDage3
+goodexit3       byte    %8.0g                 
+badexit3        byte    %8.0g                 
+firmage4        byte    %8.0g                 
+VDage4          byte    %8.0g                 VDage4
+acq             byte    %8.0g                 
+public          byte    %8.0g                 
+acq3            byte    %8.0g                 
+public3         byte    %8.0g                 
+_st             byte    %8.0g                 1 if record is to be used; 0
+                                                otherwise
+_d              byte    %8.0g                 1 if failure; 0 if censored
+_t              byte    %10.0g                Analysis time when record ends
+_t0             byte    %10.0g                Analysis time when record begins
+employees       float   %8.0g                 
+ln_employees    float   %9.0g                 
+exittype3       long    %8.0g      exittype3_
+                                              
+private         byte    %8.0g                 
+---------------------------------------------------------------------------------
+Sorted by: 
+
+. capture tab VD_Backing
+
+. capture tab VD
+
+. capture summarize _pscore _weight
+
+. use "C:/Users/user/Documents/VD/outputs/csdid_ultimately_granted_primary/csdid_
+> ultimately_granted_full7316_controls.dta", clear
+
+. describe
+
+Contains data from C:/Users/user/Documents/VD/outputs/csdid_ultimately_granted_pr
+> imary/csdid_ultimately_granted_full7316_controls.dta
+ Observations:         7,316                  
+    Variables:            14                  11 Oct 2026 21:22
+---------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+---------------------------------------------------------------------------------
+full_firm_id    long    %12.0g                
+organization_~e str58   %58s                  
+founding_year   long    %12.0g                
+vd_backed       byte    %8.0g                 
+first_vd_year   double  %10.0g                
+g_first_vd      double  %10.0g                
+first_vc_year   double  %10.0g                
+time_first_vc   double  %10.0g                
+funding_round~f double  %10.0g                
+ln_funding_ref  double  %10.0g                
+industry2       double  %10.0g                
+region2         double  %10.0g                
+prior_patent    byte    %8.0g                 
+rebuild_scope   str81   %81s                  
+---------------------------------------------------------------------------------
+Sorted by: 
+
+. use "C:/Users/user/iCloudDrive/5학기/연구미팅/20240108-2010 to 2015 firms/24062
+> 6.dta", clear
+
+. describe
+
+Contains data from C:/Users/user/iCloudDrive/5학기/연구미팅/20240108-2010 to 2015
+>  firms/240626.dta
+ Observations:         7,314                  
+    Variables:           108                  26 Jun 2024 23:07
+---------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+---------------------------------------------------------------------------------
+no              long    %10.0g                no
+OrganizationN~e str58   %58s                  OrganizationName
+Founding_Year   int     %10.0g                Founding_Year
+VD_Backing      byte    %10.0g                VD_Backing
+TimeToFirst_VC  byte    %10.0g                TimeToFirst_VC
+VD_Year         int     %10.0g                VD_Year
+TimeToFirst_V~d byte    %10.0g                TimeToFirst_VD_Backed
+TimeBetween_V~D byte    %10.0g                TimeBetween_VCVD
+Patents_VD      int     %10.0g                Patents_VD
+NumberofFundi~s byte    %10.0g                NumberofFundingRounds
+NumberofPartn~s byte    %10.0g                NumberofPartnerInvestors
+NumberOfInves~s int     %10.0g                NumberOfInvestors
+Total_Funding~t double  %10.0g                Total_Funding_Amount
+IPODate         str9    %9s                   IPODate
+Total~t_FirstVD double  %10.0g                Total_Funding_Amount_FirstVD
+NumberOfFundi~D byte    %10.0g                NumberOfFunding_Rounds_FirstVD
+Total_Funding~C double  %10.0g                Total_Funding_Amount_FirstVC
+NumberOfFundi~C byte    %10.0g                NumberOfFunding_Rounds_FirstVC
+Total_Funding~K double  %10.0g                Total_Funding_Amount_K
+Total~K_FirstVD double  %10.0g                Total_Funding_Amount_K_FirstVD
+ln_Total_Fund~t double  %10.0g                ln_Total_Funding_Amount
+ln_Total_Fund~D double  %10.0g                ln_Total_Funding_Amount_FirstVD
+ln_NumberOfIn~s double  %10.0g                ln_NumberOfInvestors
+TimeToFirst_VD  byte    %10.0g                TimeToFirst_VD
+Total_Funding~3 double  %10.0g                Total_Funding_Amount_T3
+NumberOfFundi~3 byte    %10.0g                NumberOfFunding_Rounds_T3
+NumberOfInves~3 byte    %10.0g                NumberOfInvestors_T3
+Total_Funding~5 double  %10.0g                Total_Funding_Amount_T5
+NumberOfFundi~5 byte    %10.0g                NumberOfFunding_Rounds_T5
+NumberOfInves~5 byte    %10.0g                NumberOfInvestors_T5
+ln_Total_Fund~3 double  %10.0g                ln_Total_Funding_Amount_T3
+ln_Total_Fund~5 double  %10.0g                ln_Total_Funding_Amount_T5
+ln_NumberOfIn~3 double  %10.0g                ln_NumberOfInvestors_T3
+ln_NumberOfIn~5 double  %10.0g                ln_NumberOfInvestors_T5
+Grant_Current   int     %10.0g                Grant_Current
+Patents_T3      int     %10.0g                Patents_T3
+Patents_T5      int     %10.0g                Patents_T5
+Growth_3years   double  %10.0g                Growth_3years
+Growth_5years   double  %10.0g                Growth_5years
+groupyrind      int     %10.0g                groupyrind
+pscore          double  %10.0g                pscore
+pscore2         double  %10.0g                pscore2
+_pscore         double  %10.0g                _pscore
+_treated        str9    %9s                   _treated
+_support        str11   %11s                  _support
+_weight         byte    %10.0g                _weight
+_Growth_5years  double  %10.0g                _Growth_5years
+_id             int     %10.0g                _id
+_n1             int     %10.0g                _n1
+_nn             byte    %10.0g                _nn
+_pdif           double  %10.0g                _pdif
+Revenue_Range~d str14   %14s                  Revenue_Range_matched
+IPOStatus1_ma~d str15   %15s                  IPOStatus1_matched
+IPOStatus2_ma~d str15   %15s                  IPOStatus2_matched
+Patent_IPO      byte    %10.0g                Patent_IPO
+sharesoutstan~g long    %10.0g                shares outstanding
+NumberOfFound~s byte    %10.0g                NumberOfFounders
+ExecutiveOffi~s byte    %10.0g                Executive Officers
+NonEmployeeDi~s byte    %10.0g                Non-Employee Directors
+Boardmembers    byte    %10.0g                Board members
+familyrelatio~s byte    %10.0g                family relationships
+CEOTurnover     byte    %10.0g                CEO turnover
+CEODirectorCh~y byte    %10.0g                CEO-Director/Chair duality
+CEOChairDuality byte    %10.0g                CEO-Chair Duality
+FounderChairD~y byte    %10.0g                Founder-Chair Duality
+Founderexecut~y byte    %10.0g                Founder-executives incumbency
+Founderexedir~s byte    %10.0g                Founder-exe/directors incumbency
+Founderincumb~n double  %10.0g                Founder incumbency_proportion
+BoardIndepend~e double  %10.0g                Board Independence
+boardmembership double  %10.0g                board membership
+CEOOwnership    long    %10.0g                CEOOwnership
+CEOOwnership_~r double  %10.0g                CEOOwnership_per
+CEOvotingpowe~r double  %10.0g                CEO voting power_per
+ExecutiveOwne~p double  %10.0g                Executive Ownership
+Executiveoffi~p double  %10.0g                Executive officers ownership %
+Allexecutives~s long    %10.0g                All executives and directors
+Allexecutives~r double  %10.0g                All executives and directors_per
+Executiveoffi~r double  %10.0g                Executive officers voting power %
+stockholdersh~5 byte    %10.0g                stockholders holding more than 5%
+stockholders_ex byte    %10.0g                stockholders holding more than 5%
+                                                (excl. executives and directors)
+stockholders_~r double  %10.0g                stockholders holding more than 5%
+                                                (excl. executives and
+                                                directors)_ownership
+CEOcompensation double  %10.0g                CEO compensation
+executivecomp~n long    %10.0g                executive compensation median
+compensationr~o double  %10.0g                compensation ratio
+founderowners~r double  %10.0g                founder ownership_per
+foundercompen~n long    %10.0g                founder compensation
+financialyear   int     %10.0g                financial year
+RD              long    %10.0g                R&D
+Marketing       long    %10.0g                Marketing
+Totalassets     long    %10.0g                Total assets
+RDintensity     double  %10.0g                R&D intensity
+SalesMarketin~y double  %10.0g                Sales&Marketing intensity
+Sales           long    %10.0g                Sales
+netincome       long    %10.0g                net income
+ROA             double  %10.0g                ROA
+netPPE          long    %10.0g                net PPE
+capitalintens~y double  %10.0g                capital intensity
+Liabilities     long    %10.0g                Liabilities
+Leverage        double  %10.0g                Leverage
+Region2         long    %13.0g     Region2_   Region2
+OperatingStatus long    %8.0g      OperatingStatus_
+                                              OperatingStatus
+Industry2       long    %31.0g     Industry2_
+                                              Industry2
+NumberOfEmplo~e long    %10.0g     NumberOfEmployees_Range_
+                                              NumberOfEmployees_Range
+Revenue_Range   long    %14.0g     Revenue_Range_
+                                              Revenue_Range
+IPOStatus       long    %8.0g      IPOStatus_
+                                              IPOStatus
+ln_foundercom~n float   %9.0g                 
+TimeToIPO_Fro~g float   %9.0g                 
+TimeToIPO_Fro~D float   %9.0g                 
+---------------------------------------------------------------------------------
+Sorted by: VD_Backing
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/_inspect_o
+> riginal.log
+  log type:  text
+ closed on:  11 Oct 2026, 22:16:24
+---------------------------------------------------------------------------------
+
+. exit, clear
+
+end of do-file

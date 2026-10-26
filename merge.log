@@ -1,0 +1,440 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\AppData\Local\Temp\vd_full_original2820_qky47wuz\merge.do 
+
+. version 19
+
+. clear all
+
+. set more off
+
+. set linesize 255
+
+. log using "C:/Users/user/AppData/Local/Temp/vd_full_original2820_qky47wuz/merge.log", text replace
+(file C:/Users/user/AppData/Local/Temp/vd_full_original2820_qky47wuz/merge.log not found)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/AppData/Local/Temp/vd_full_original2820_qky47wuz/merge.log
+  log type:  text
+ opened on:  20 Oct 2026, 09:26:28
+
+. use "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original_2820_cross_section_v2.dta", clear
+
+. capture drop patent_application_win3
+
+. capture drop patentbyfiling_win3_2
+
+. capture drop patent_application_VD
+
+. capture drop priorpatent_VD_2
+
+. capture drop priorpatentdummy_VD
+
+. capture drop norm_cite_perpat_win3_v1
+
+. capture drop norm_cite_perpat_win3_v2
+
+. capture drop norm_cite_perpat_win3_v3
+
+. capture drop norm_cite_perpat_win3_vv1
+
+. capture drop norm_cite_perpat_win3_vv2
+
+. capture drop norm_cite_perpat_win3_vv3
+
+. capture drop norm_cite_perpat_win3_vv4
+
+. capture drop no_citation_share_win3
+
+. capture drop breakthrough_patent_share_win3
+
+. capture drop description_words_mean_win3
+
+. capture drop ln_description_words_mean_win3
+
+. capture drop innovation_granted_apps_win3
+
+. capture drop description_apps_measured_win3
+
+. capture drop Follow_on_Equity_Raised_win3
+
+. capture drop equityraised_t1
+
+. capture drop equityraised_t2
+
+. capture drop equityraised_t3
+
+. capture drop status
+
+. capture drop m_a
+
+. capture drop ipo
+
+. capture drop defunct
+
+. capture drop status_year
+
+. capture drop status_date
+
+. capture drop pb_companyid
+
+. capture drop pb_companyname
+
+. capture drop pb_name_match
+
+. capture drop pb_revenue_raw_t1
+
+. capture drop pb_rev_nvals_t1
+
+. capture drop pb_rev_min_raw_t1
+
+. capture drop pb_rev_max_raw_t1
+
+. capture drop pb_rev_rows_t1
+
+. capture drop pb_rev_dealdate_t1
+
+. capture drop pb_grossprofit_raw_t1
+
+. capture drop pb_netincome_raw_t1
+
+. capture drop pb_ebitda_raw_t1
+
+. capture drop pb_totaldebt_raw_t1
+
+. capture drop employees_t1
+
+. capture drop employees_year_t1
+
+. capture drop employees_src_t1
+
+. capture drop employees_basis_t1
+
+. capture drop employees_date_t1
+
+. capture drop revenue_t1
+
+. capture drop revenue_year_t1
+
+. capture drop revenue_src_t1
+
+. capture drop revenue_basis_t1
+
+. capture drop revenue_date_t1
+
+. capture drop emp_est_t1
+
+. capture drop emp_lower_t1
+
+. capture drop emp_upper_approx_t1
+
+. capture drop emp_fte_t1
+
+. capture drop emp_aux_year_t1
+
+. capture drop emp_aux_src_t1
+
+. capture drop pb_revenue_raw_t2
+
+. capture drop pb_rev_nvals_t2
+
+. capture drop pb_rev_min_raw_t2
+
+. capture drop pb_rev_max_raw_t2
+
+. capture drop pb_rev_rows_t2
+
+. capture drop pb_rev_dealdate_t2
+
+. capture drop pb_grossprofit_raw_t2
+
+. capture drop pb_netincome_raw_t2
+
+. capture drop pb_ebitda_raw_t2
+
+. capture drop pb_totaldebt_raw_t2
+
+. capture drop employees_t2
+
+. capture drop employees_year_t2
+
+. capture drop employees_src_t2
+
+. capture drop employees_basis_t2
+
+. capture drop employees_date_t2
+
+. capture drop revenue_t2
+
+. capture drop revenue_year_t2
+
+. capture drop revenue_src_t2
+
+. capture drop revenue_basis_t2
+
+. capture drop revenue_date_t2
+
+. capture drop emp_est_t2
+
+. capture drop emp_lower_t2
+
+. capture drop emp_upper_approx_t2
+
+. capture drop emp_fte_t2
+
+. capture drop emp_aux_year_t2
+
+. capture drop emp_aux_src_t2
+
+. capture drop pb_revenue_raw_t3
+
+. capture drop pb_rev_nvals_t3
+
+. capture drop pb_rev_min_raw_t3
+
+. capture drop pb_rev_max_raw_t3
+
+. capture drop pb_rev_rows_t3
+
+. capture drop pb_rev_dealdate_t3
+
+. capture drop pb_grossprofit_raw_t3
+
+. capture drop pb_netincome_raw_t3
+
+. capture drop pb_ebitda_raw_t3
+
+. capture drop pb_totaldebt_raw_t3
+
+. capture drop employees_t3
+
+. capture drop employees_year_t3
+
+. capture drop employees_src_t3
+
+. capture drop employees_basis_t3
+
+. capture drop employees_date_t3
+
+. capture drop revenue_t3
+
+. capture drop revenue_year_t3
+
+. capture drop revenue_src_t3
+
+. capture drop revenue_basis_t3
+
+. capture drop revenue_date_t3
+
+. capture drop emp_est_t3
+
+. capture drop emp_lower_t3
+
+. capture drop emp_upper_approx_t3
+
+. capture drop emp_fte_t3
+
+. capture drop emp_aux_year_t3
+
+. capture drop emp_aux_src_t3
+
+. capture drop size_retrieved
+
+. capture drop pb_unit_status
+
+. capture drop employees_nyears
+
+. capture drop revenue_nyears
+
+. capture drop size_web_status
+
+. capture drop gunning_fog_mean_win3
+
+. capture drop ari_mean_win3
+
+. capture drop neg_flesch_mean_win3
+
+. capture drop figures_mean_win3
+
+. capture drop sheets_mean_win3
+
+. capture drop claims_mean_win3
+
+. capture drop indep_claims_mean_win3
+
+. capture drop dep_claims_mean_win3
+
+. capture drop applications_filed_win3
+
+. capture drop applications_granted_win3
+
+. capture drop grant_rate_win3
+
+. capture drop moneyraised_t1
+
+. capture drop moneyraised_t2
+
+. capture drop moneyraised_t3
+
+. capture drop patent_originality_win3
+
+. capture drop bc_technological_breadth_win3
+
+. capture drop self_citations_win3
+
+. capture drop search_in_partners_domains_win3
+
+. capture drop technological_distance_win3
+
+. capture drop patent_generality_win3
+
+. capture drop originality_all_classes_win3
+
+. capture drop partner_search_raw_win3
+
+. capture drop self_citations_total_win3
+
+. capture drop py_granted_patents_win3
+
+. capture drop py_originality_n_win3
+
+. capture drop py_generality_n_win3
+
+. capture drop py_distance_n_win3
+
+. capture drop partners_total_pre
+
+. capture drop partners_usable_pre
+
+. capture drop nocite_win3
+
+. capture drop breakthrough_win3
+
+. capture drop desc_words_win3
+
+. capture drop fog_win3
+
+. capture drop ari_win3
+
+. capture drop neg_flesch_win3
+
+. capture drop figures_win3
+
+. capture drop sheets_win3
+
+. capture drop claims_win3
+
+. capture drop ind_claims_win3
+
+. capture drop dep_claims_win3
+
+. capture drop originality_win3
+
+. capture drop cite_breadth_win3
+
+. capture drop selfcite_win3
+
+. capture drop partner_search_win3
+
+. capture drop partner_dist_win3
+
+. capture drop generality_win3
+
+. capture drop cite_diversity_win3
+
+. capture drop base_patents
+
+. capture drop base_cpc
+
+. capture drop base_cpc_cov
+
+. capture drop newpat_win3
+
+. capture drop oldpat_win3
+
+. capture drop newshare_win3
+
+. capture drop newcpc_win3
+
+. capture drop own_dist_win3
+
+. capture drop selfshare_win3
+
+. capture drop post_cpc_cov
+
+. capture drop win3_observed
+
+. capture drop supplement_same_reference
+
+. capture drop innovation_source_covered
+
+. capture drop moneyraised_win3_updated
+
+. capture drop status_pre_reference
+
+. capture drop readability_patents_missing
+
+. capture drop readability_patents_expected
+
+. capture drop innovation_uncollected
+
+. merge 1:1 firm_id using "C:/Users/user/AppData/Local/Temp/vd_full_original2820_qky47wuz/supplement.dta", assert(match) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                             2,820  
+    -----------------------------------------
+
+. assert _N==2820
+
+. label variable innovation_source_covered "Earlier innovation collection covers this exact firm and reference year"
+
+. label variable innovation_uncollected "Additional patent text required; missing is NOT zero innovation"
+
+. label variable priorpatentdummy_VD "Original 260122 patentdummybyfiling; preserved moderator"
+
+. label variable moneyraised_win3_updated "All financing t+1..t+3 rebuilt from deal source; none/undisclosed missing"
+
+. notes: Complete do-file schema added. Missing supplemental source data not imputed.
+
+. notes: Original moneyraised_win3 retained. Rebuilt comparable amount is moneyraised_win3_updated.
+
+. notes: Innovation source coverage differs from original 2820 membership; consult coverage audit.
+
+. sort firm_id
+
+. save "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original_2820_cross_section_v2.dta", replace
+file C:/Users/user/Documents/VD/outputs/psm_final_2820_package/table3_original_2820_cross_section_v2.dta saved
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/AppData/Local/Temp/vd_full_original2820_qky47wuz/merge.log
+  log type:  text
+ closed on:  20 Oct 2026, 09:26:29
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+. exit, clear
+
+end of do-file

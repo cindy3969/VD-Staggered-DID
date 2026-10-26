@@ -1,0 +1,10 @@
+{
+  "panel_rows": 88547,
+  "panel_firms": 7273,
+  "rows_with_patents": 8484,
+  "firms_with_patents": 2128,
+  "application_universe": 39249,
+  "granted_applications": 34855,
+  "definition": "Year = focal application filing year. Mean across ultimately granted applications filed by firm in that year; normalized citation measures observed through 2024. No rolling window; no log.",
+  "missing": "No granted applications in filing year => missing, preserving original v1-v4 conditional quality convention."
+}

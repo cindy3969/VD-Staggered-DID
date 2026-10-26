@@ -1,0 +1,96 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring 20 Mar 2027
+Serial number: 401909300935
+  Licensed to: Mina Lee
+               KAIST
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do C:\Users\user\Documents\VD\outputs\psm_final_2820_package\_inspect_labels.do
+>  
+
+. version 19
+
+. log using "C:/Users/user/Documents/VD/outputs/psm_final_2820_package/_inspect_l
+> abels.log", text replace
+(file
+    C:/Users/user/Documents/VD/outputs/psm_final_2820_package/_inspect_labels.l
+    > og not found)
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/_inspect_l
+> abels.log
+  log type:  text
+ opened on:  11 Oct 2026, 22:00:56
+
+. use "C:/Users/user/Documents/VD/outputs/psm_rematch_rebuilt/psm_full7316_with_s
+> cores.dta", clear
+
+. codebook industry2 region2
+
+---------------------------------------------------------------------------------
+industry2                                                             (unlabeled)
+---------------------------------------------------------------------------------
+
+                  Type: Numeric (double)
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 4/7,316
+
+            Tabulation: Freq.  Value
+                        1,310  1
+                          931  2
+                        1,882  3
+                        3,189  4
+                            4  .
+
+---------------------------------------------------------------------------------
+region2                                                               (unlabeled)
+---------------------------------------------------------------------------------
+
+                  Type: Numeric (double)
+
+                 Range: [1,4]                         Units: 1
+         Unique values: 4                         Missing .: 4/7,316
+
+            Tabulation: Freq.  Value
+                        2,744  1
+                          576  2
+                        1,035  3
+                        2,957  4
+                            4  .
+
+. label list
+_treated:
+           0 Untreated
+           1 Treated
+_support:
+           0 Off support
+           1 On support
+
+. log close
+      name:  <unnamed>
+       log:  C:/Users/user/Documents/VD/outputs/psm_final_2820_package/_inspect_l
+> abels.log
+  log type:  text
+ closed on:  11 Oct 2026, 22:00:56
+---------------------------------------------------------------------------------
+
+. exit, clear
+
+end of do-file

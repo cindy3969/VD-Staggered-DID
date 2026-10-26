@@ -1,0 +1,598 @@
+<!DOCTYPE html><meta charset="utf-8"><title>Tables 11–12: annual patent quality</title><style>body{max-width:1200px;margin:35px auto;font:16px Georgia,serif;color:#171717}table{border-collapse:collapse;width:100%;margin:18px 0}th,td{padding:8px 12px;text-align:center}th:first-child,td:first-child{text-align:left}thead{border-top:2px solid;border-bottom:1px solid}tbody{border-bottom:2px solid}h1{font-size:24px}h2{font-size:20px}.note{font:14px Arial,sans-serif;line-height:1.55}.p{font-size:14px}.warn{background:#fff2d5;padding:15px}@media print{section{break-after:page}}</style><h1>Tables 11–12. VD and annual patent quality</h1><p class="note">DV: normalized citations per ultimately granted application filed in firm-year y. No log transformation and no three-year window. Citation observation cutoff: 2024. No granted applications in year y: missing outcome, following the original v1–v4 convention.</p>
+<section><h2>Table 11 — v1: Filing-year × citation-year normalization</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Effect</th>
+      <th>All firms</th>
+      <th>No prior patent</th>
+      <th>Prior patent</th>
+      <th>Early stage</th>
+      <th>Late stage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple ATT</td>
+      <td>0.199 (0.874)</td>
+      <td>Not estimable</td>
+      <td>0.199 (0.874)</td>
+      <td>-0.400 (0.860)</td>
+      <td>0.569 (0.770)</td>
+    </tr>
+    <tr>
+      <td>Aggregated event study ATT</td>
+      <td>0.297 (0.823)</td>
+      <td>Not estimable</td>
+      <td>0.297 (0.823)</td>
+      <td>-0.198 (0.911)</td>
+      <td>-0.239 (0.925)</td>
+    </tr>
+    <tr>
+      <td>Controls</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Region FE</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Industry FE</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Observations</td>
+      <td>8263</td>
+      <td>6566</td>
+      <td>7854</td>
+      <td>7417</td>
+      <td>7003</td>
+    </tr>
+    <tr>
+      <td>Firms</td>
+      <td>2111</td>
+      <td>1738</td>
+      <td>1960</td>
+      <td>1923</td>
+      <td>1775</td>
+    </tr>
+    <tr>
+      <td>Control</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+    </tr>
+  </tbody>
+</table><p class="note">p-values in parentheses. * p&lt;0.10, ** p&lt;0.05, *** p&lt;0.01. Event aggregate: Post_avg from window(−4,4). Counts describe complete-case input, as in the existing master; individual ATT(g,t) pairs can use fewer observations.</p></section>
+<section><h2>Table 12 — v1: Filing-year × citation-year normalization</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Effect</th>
+      <th>Never-treated</th>
+      <th>Not-yet-treated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple-aggregated effect</td>
+      <td>0.199 (1.254)</td>
+      <td>0.155 (1.229)</td>
+    </tr>
+    <tr>
+      <td>Event time -4</td>
+      <td>3.134 (5.111)</td>
+      <td>4.766 (5.977)</td>
+    </tr>
+    <tr>
+      <td>Event time -3</td>
+      <td>-3.677 (3.360)</td>
+      <td>-3.220 (4.217)</td>
+    </tr>
+    <tr>
+      <td>Event time -2</td>
+      <td>0.906 (0.965)</td>
+      <td>1.383 (1.131)</td>
+    </tr>
+    <tr>
+      <td>Event time -1</td>
+      <td>-0.789 (0.809)</td>
+      <td>-0.716 (0.806)</td>
+    </tr>
+    <tr>
+      <td>Event time 0</td>
+      <td>-0.074 (0.884)</td>
+      <td>-0.000 (0.858)</td>
+    </tr>
+    <tr>
+      <td>Event time 1</td>
+      <td>0.153 (0.813)</td>
+      <td>0.359 (0.801)</td>
+    </tr>
+    <tr>
+      <td>Event time 2</td>
+      <td>2.201 (5.306)</td>
+      <td>2.138 (5.180)</td>
+    </tr>
+    <tr>
+      <td>Event time 3</td>
+      <td>-0.182 (2.589)</td>
+      <td>-0.183 (2.567)</td>
+    </tr>
+    <tr>
+      <td>Event time 4</td>
+      <td>-0.611 (6.950)</td>
+      <td>-0.847 (6.782)</td>
+    </tr>
+    <tr>
+      <td>Dynamic-aggregated effect</td>
+      <td>0.297 (1.327)</td>
+      <td>0.293 (1.303)</td>
+    </tr>
+    <tr>
+      <td>Group-aggregated effect</td>
+      <td>0.407 (1.158)</td>
+      <td>0.360 (1.149)</td>
+    </tr>
+  </tbody>
+</table><p class="note">Standard errors in parentheses. Same DRIPW controls and subgroup definitions as the existing master. Not estimable means a failed or unavailable estimate; it is not a zero effect.</p></section>
+<section><h2>Table 11 — v2: Filing-year × citation-year × CPC3 normalization</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Effect</th>
+      <th>All firms</th>
+      <th>No prior patent</th>
+      <th>Prior patent</th>
+      <th>Early stage</th>
+      <th>Late stage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple ATT</td>
+      <td>0.128 (0.935)</td>
+      <td>Not estimable</td>
+      <td>0.128 (0.935)</td>
+      <td>-0.974 (0.748)</td>
+      <td>0.628 (0.621)</td>
+    </tr>
+    <tr>
+      <td>Aggregated event study ATT</td>
+      <td>0.234 (0.890)</td>
+      <td>Not estimable</td>
+      <td>0.234 (0.890)</td>
+      <td>-0.876 (0.734)</td>
+      <td>-0.033 (0.986)</td>
+    </tr>
+    <tr>
+      <td>Controls</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Region FE</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Industry FE</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Observations</td>
+      <td>8263</td>
+      <td>6566</td>
+      <td>7854</td>
+      <td>7417</td>
+      <td>7003</td>
+    </tr>
+    <tr>
+      <td>Firms</td>
+      <td>2111</td>
+      <td>1738</td>
+      <td>1960</td>
+      <td>1923</td>
+      <td>1775</td>
+    </tr>
+    <tr>
+      <td>Control</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+    </tr>
+  </tbody>
+</table><p class="note">p-values in parentheses. * p&lt;0.10, ** p&lt;0.05, *** p&lt;0.01. Event aggregate: Post_avg from window(−4,4). Counts describe complete-case input, as in the existing master; individual ATT(g,t) pairs can use fewer observations.</p></section>
+<section><h2>Table 12 — v2: Filing-year × citation-year × CPC3 normalization</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Effect</th>
+      <th>Never-treated</th>
+      <th>Not-yet-treated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple-aggregated effect</td>
+      <td>0.128 (1.556)</td>
+      <td>-0.012 (1.535)</td>
+    </tr>
+    <tr>
+      <td>Event time -4</td>
+      <td>4.761 (3.796)</td>
+      <td>5.553 (3.852)</td>
+    </tr>
+    <tr>
+      <td>Event time -3</td>
+      <td>-3.074 (2.811)</td>
+      <td>-2.967 (3.048)</td>
+    </tr>
+    <tr>
+      <td>Event time -2</td>
+      <td>0.247 (0.977)</td>
+      <td>0.435 (0.969)</td>
+    </tr>
+    <tr>
+      <td>Event time -1</td>
+      <td>-0.542 (0.731)</td>
+      <td>-0.441 (0.731)</td>
+    </tr>
+    <tr>
+      <td>Event time 0</td>
+      <td>-0.323 (0.880)</td>
+      <td>-0.321 (0.860)</td>
+    </tr>
+    <tr>
+      <td>Event time 1</td>
+      <td>0.198 (0.842)</td>
+      <td>0.386 (0.833)</td>
+    </tr>
+    <tr>
+      <td>Event time 2</td>
+      <td>0.532 (2.238)</td>
+      <td>0.407 (2.215)</td>
+    </tr>
+    <tr>
+      <td>Event time 3</td>
+      <td>0.373 (2.410)</td>
+      <td>0.403 (2.378)</td>
+    </tr>
+    <tr>
+      <td>Event time 4</td>
+      <td>0.388 (6.280)</td>
+      <td>0.008 (6.098)</td>
+    </tr>
+    <tr>
+      <td>Dynamic-aggregated effect</td>
+      <td>0.234 (1.691)</td>
+      <td>0.177 (1.644)</td>
+    </tr>
+    <tr>
+      <td>Group-aggregated effect</td>
+      <td>0.165 (1.434)</td>
+      <td>0.088 (1.429)</td>
+    </tr>
+  </tbody>
+</table><p class="note">Standard errors in parentheses. Same DRIPW controls and subgroup definitions as the existing master. Not estimable means a failed or unavailable estimate; it is not a zero effect.</p></section>
+<section><h2>Table 11 — v3: Exposure-adjusted rate, filing-cohort normalized</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Effect</th>
+      <th>All firms</th>
+      <th>No prior patent</th>
+      <th>Prior patent</th>
+      <th>Early stage</th>
+      <th>Late stage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple ATT</td>
+      <td>0.072 (0.679)</td>
+      <td>Not estimable</td>
+      <td>0.072 (0.679)</td>
+      <td>0.015 (0.946)</td>
+      <td>0.028 (0.904)</td>
+    </tr>
+    <tr>
+      <td>Aggregated event study ATT</td>
+      <td>0.092 (0.560)</td>
+      <td>Not estimable</td>
+      <td>0.092 (0.560)</td>
+      <td>0.067 (0.744)</td>
+      <td>-0.064 (0.827)</td>
+    </tr>
+    <tr>
+      <td>Controls</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Region FE</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Industry FE</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Observations</td>
+      <td>8263</td>
+      <td>6566</td>
+      <td>7854</td>
+      <td>7417</td>
+      <td>7003</td>
+    </tr>
+    <tr>
+      <td>Firms</td>
+      <td>2111</td>
+      <td>1738</td>
+      <td>1960</td>
+      <td>1923</td>
+      <td>1775</td>
+    </tr>
+    <tr>
+      <td>Control</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+    </tr>
+  </tbody>
+</table><p class="note">p-values in parentheses. * p&lt;0.10, ** p&lt;0.05, *** p&lt;0.01. Event aggregate: Post_avg from window(−4,4). Counts describe complete-case input, as in the existing master; individual ATT(g,t) pairs can use fewer observations.</p></section>
+<section><h2>Table 12 — v3: Exposure-adjusted rate, filing-cohort normalized</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Effect</th>
+      <th>Never-treated</th>
+      <th>Not-yet-treated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple-aggregated effect</td>
+      <td>0.072 (0.173)</td>
+      <td>0.062 (0.169)</td>
+    </tr>
+    <tr>
+      <td>Event time -4</td>
+      <td>0.757 (0.683)</td>
+      <td>0.765 (0.693)</td>
+    </tr>
+    <tr>
+      <td>Event time -3</td>
+      <td>-0.589 (0.579)</td>
+      <td>-0.619 (0.608)</td>
+    </tr>
+    <tr>
+      <td>Event time -2</td>
+      <td>0.025 (0.101)</td>
+      <td>0.044 (0.101)</td>
+    </tr>
+    <tr>
+      <td>Event time -1</td>
+      <td>-0.081 (0.102)</td>
+      <td>-0.075 (0.102)</td>
+    </tr>
+    <tr>
+      <td>Event time 0</td>
+      <td>0.185 (0.159)</td>
+      <td>0.181 (0.157)</td>
+    </tr>
+    <tr>
+      <td>Event time 1</td>
+      <td>0.032 (0.100)</td>
+      <td>0.050 (0.100)</td>
+    </tr>
+    <tr>
+      <td>Event time 2</td>
+      <td>0.099 (0.164)</td>
+      <td>0.086 (0.167)</td>
+    </tr>
+    <tr>
+      <td>Event time 3</td>
+      <td>0.102 (0.312)</td>
+      <td>0.101 (0.320)</td>
+    </tr>
+    <tr>
+      <td>Event time 4</td>
+      <td>0.041 (0.389)</td>
+      <td>0.022 (0.369)</td>
+    </tr>
+    <tr>
+      <td>Dynamic-aggregated effect</td>
+      <td>0.092 (0.158)</td>
+      <td>0.088 (0.154)</td>
+    </tr>
+    <tr>
+      <td>Group-aggregated effect</td>
+      <td>0.156 (0.156)</td>
+      <td>0.146 (0.155)</td>
+    </tr>
+  </tbody>
+</table><p class="note">Standard errors in parentheses. Same DRIPW controls and subgroup definitions as the existing master. Not estimable means a failed or unavailable estimate; it is not a zero effect.</p></section>
+<section><h2>Table 11 — v4: Cumulative citations, filing-year × CPC3 normalized</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Effect</th>
+      <th>All firms</th>
+      <th>No prior patent</th>
+      <th>Prior patent</th>
+      <th>Early stage</th>
+      <th>Late stage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple ATT</td>
+      <td>0.062 (0.752)</td>
+      <td>Not estimable</td>
+      <td>0.062 (0.752)</td>
+      <td>-0.114 (0.697)</td>
+      <td>0.151 (0.539)</td>
+    </tr>
+    <tr>
+      <td>Aggregated event study ATT</td>
+      <td>0.057 (0.734)</td>
+      <td>Not estimable</td>
+      <td>0.057 (0.734)</td>
+      <td>-0.108 (0.692)</td>
+      <td>0.035 (0.891)</td>
+    </tr>
+    <tr>
+      <td>Controls</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Region FE</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Industry FE</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Observations</td>
+      <td>8263</td>
+      <td>6566</td>
+      <td>7854</td>
+      <td>7417</td>
+      <td>7003</td>
+    </tr>
+    <tr>
+      <td>Firms</td>
+      <td>2111</td>
+      <td>1738</td>
+      <td>1960</td>
+      <td>1923</td>
+      <td>1775</td>
+    </tr>
+    <tr>
+      <td>Control</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+      <td>Never-treated</td>
+    </tr>
+  </tbody>
+</table><p class="note">p-values in parentheses. * p&lt;0.10, ** p&lt;0.05, *** p&lt;0.01. Event aggregate: Post_avg from window(−4,4). Counts describe complete-case input, as in the existing master; individual ATT(g,t) pairs can use fewer observations.</p></section>
+<section><h2>Table 12 — v4: Cumulative citations, filing-year × CPC3 normalized</h2><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Effect</th>
+      <th>Never-treated</th>
+      <th>Not-yet-treated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple-aggregated effect</td>
+      <td>0.062 (0.198)</td>
+      <td>0.052 (0.191)</td>
+    </tr>
+    <tr>
+      <td>Event time -4</td>
+      <td>0.752 (0.548)</td>
+      <td>0.765 (0.553)</td>
+    </tr>
+    <tr>
+      <td>Event time -3</td>
+      <td>-0.543 (0.452)</td>
+      <td>-0.568 (0.467)</td>
+    </tr>
+    <tr>
+      <td>Event time -2</td>
+      <td>-0.042 (0.118)</td>
+      <td>-0.026 (0.115)</td>
+    </tr>
+    <tr>
+      <td>Event time -1</td>
+      <td>-0.022 (0.110)</td>
+      <td>-0.010 (0.111)</td>
+    </tr>
+    <tr>
+      <td>Event time 0</td>
+      <td>0.114 (0.147)</td>
+      <td>0.111 (0.144)</td>
+    </tr>
+    <tr>
+      <td>Event time 1</td>
+      <td>0.116 (0.228)</td>
+      <td>0.136 (0.227)</td>
+    </tr>
+    <tr>
+      <td>Event time 2</td>
+      <td>0.044 (0.176)</td>
+      <td>0.030 (0.175)</td>
+    </tr>
+    <tr>
+      <td>Event time 3</td>
+      <td>0.064 (0.325)</td>
+      <td>0.071 (0.330)</td>
+    </tr>
+    <tr>
+      <td>Event time 4</td>
+      <td>-0.052 (0.488)</td>
+      <td>-0.083 (0.466)</td>
+    </tr>
+    <tr>
+      <td>Dynamic-aggregated effect</td>
+      <td>0.057 (0.167)</td>
+      <td>0.053 (0.161)</td>
+    </tr>
+    <tr>
+      <td>Group-aggregated effect</td>
+      <td>0.156 (0.202)</td>
+      <td>0.149 (0.199)</td>
+    </tr>
+  </tbody>
+</table><p class="note">Standard errors in parentheses. Same DRIPW controls and subgroup definitions as the existing master. Not estimable means a failed or unavailable estimate; it is not a zero effect.</p></section>
+<div class="note warn">Interpretation: these DVs condition on having ultimately granted applications in the filing year. The treatment may itself affect that selection. All patent qualities use citations observed through 2024, including citations received after the filing year; they measure ex-post quality of that filing cohort, not citation receipts in that calendar year. Normalization does not eliminate unobserved future grant/citation selection. Original earlier DiD citation-date results are superseded for these outcomes.</div>
