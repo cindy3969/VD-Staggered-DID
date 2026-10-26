@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 REPO='cindy3969/VD-Staggered-DID'
 manifest=json.loads((ROOT/'github_archive/manifest.json').read_text(encoding='utf-8'))
-cred=subprocess.run(['git','credential','fill'],input='protocol=https\nhost=github.com\n\n',text=True,capture_output=True,check=True)
+cred=subprocess.run(['git','-c','safe.directory='+ROOT.as_posix(),'credential','fill'],input='protocol=https\nhost=github.com\n\n',text=True,capture_output=True,check=True)
 token=dict(line.split('=',1) for line in cred.stdout.splitlines() if '=' in line)['password']
 headers={'Authorization':'Bearer '+token,'User-Agent':'VD-archive','Accept':'application/vnd.github+json'}
 def api(path,data=None):
